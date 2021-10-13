@@ -10,5 +10,5 @@ public interface mainMapper {
 	
 	public List<guest> list();
 	
-	public void loginInsert(String title);
+	public guest memberLogin(guest memberVO);
 }

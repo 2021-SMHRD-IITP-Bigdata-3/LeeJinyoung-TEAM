@@ -9,7 +9,8 @@ import lombok.RequiredArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class guest {
-	private int idx;
-	private String title;
+	private int user_id;
+	private String user_name;
+	private String user_gym;
 	private String contents;
 }

@@ -8,8 +8,10 @@
 	    select * from test1
 	</select>
 	
-	<insert id = "loginInsert" parameterType = "com.test.mapper.guest">
-	    insert into test1(title)
-		values (#{title});
-	</insert>
+	<select id="memberLogin" parameterType ="com.test.mapper.guest" resultType="com.test.mapper.guest">
+		SELECT user_id , user_name,user_phone
+		FROM users
+		WHERE user_id = #{user_id}
+		AND user_gym = #{user_gym}
+	</select>
 </mapper>
