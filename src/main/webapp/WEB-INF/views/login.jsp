@@ -166,7 +166,7 @@ header{
 					 </optgroup>
 					 
 					 <optgroup label="광주">  
-					 	<option font-family="Regular" align="center" value ="충장로점" >충장로점</option>
+					 	<option font-family="Regular" align="center" value ="광주남구" >광주남구</option>
 					 </optgroup>
 						
 				</select>
@@ -179,7 +179,7 @@ header{
       <table align="center" >
          <tr>
          <td> <a id="user_num" align ="center">회원번호</a> </td>
-         <td><input style="width:600px; height:100px;font-size:60px;"  type="text" name="users_id" ></td>
+         <td><input style="width:600px; height:100px;font-size:60px;"  type="text" name="user_id" ></td>
          </tr>
       </table>
          
