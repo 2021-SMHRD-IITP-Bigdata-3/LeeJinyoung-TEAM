@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="com.test.mapper.guest" %>
+<%@taglib prefix = "c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="cpath" value = "${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -228,12 +230,16 @@ window.onload = function() {
     document.querySelector('.black_bg').addEventListener('click', offClick);
  
 }
+<% guest member = (guest) session.getAttribute("member"); %>
 
+function reply_click(clicked_id){
+	location.href = "${cpath}/insertExName.do?ex_name="+clicked_id+"&user_id="+<%=member.getUser_id() %>;
+}
 </script>
 </head>
 
 <body>
-<%  guest member = (guest) session.getAttribute("member");%>
+<%  member = (guest) session.getAttribute("member");%>
 	<div class="black_bg"></div>
 	<div class="modal_wrap">
 		<div class = "modal_top">
@@ -291,23 +297,23 @@ window.onload = function() {
 				<table class="mid_bot_table" id="NSK_font">
 					<tr>
 						<td>
-							<img class="mbimg" src="resources/img/체스트프레스.png">
+							<img class="mbimg" id = "chestpress" src="resources/img/체스트프레스.png" onclick= "reply_click(this.id)">
 						</td>
 						<td>
-							<img class="mbimg" src="resources/img/펙덱플라이.png">
+							<img class="mbimg" src="resources/img/펙덱플라이.png" onclick="goEquip()" value = "펙덱플라이">
 						</td>
 					</tr>
 					<tr>
-						<td>체스트 프레스</td>
+						<td><input type= "hidden">체스트 프레스</td>
 						<td>펙 덱 플라이</td>
 					</tr>
 					<tr><td style="padding: 50px 0px 50px 0px;"></td><td></td></tr>
 					<tr>
 						<td>
-							<img class="mbimg" src="resources/img/인클라인체스트프레스.png">
+							<img class="mbimg" src="resources/img/인클라인체스트프레스.png" onclick="goEquip()" value = "인클라인체스트프레스">
 						</td>
 						<td>
-							<img class="mbimg" src="resources/img/인클라인체스트프레스2.png">
+							<img class="mbimg" src="resources/img/인클라인체스트프레스2.png" onclick="goEquip()" value = "인클라인체스트프레스2">
 						</td>
 					</tr>
 					<tr>
