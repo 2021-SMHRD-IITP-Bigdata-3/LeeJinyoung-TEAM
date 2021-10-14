@@ -24,10 +24,7 @@ public class mainController {
 	private mainMapper mapper;
 	
 	@RequestMapping("/calender.do")
-	public String calender(Model model) {
-		List<guest> list = mapper.list();
-		model.addAttribute("list",list);//객체 바인딩
-		// SPring AOP 기법
+	public String calender() {
 		return "calender"; // /Web-INF/views/calender.jsp
 	}
 
