@@ -9,7 +9,7 @@
 	</select>
 	
 	<select id="memberLogin" parameterType ="com.test.mapper.guest" resultType="com.test.mapper.guest">
-		SELECT user_id , user_name,user_phone
+		SELECT user_id , user_name,user_phone,user_expire_date
 		FROM users
 		WHERE user_id = #{user_id}
 		AND user_gym = #{user_gym}

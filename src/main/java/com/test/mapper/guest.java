@@ -12,5 +12,6 @@ public class guest {
 	private int user_id;
 	private String user_name;
 	private String user_gym;
+	private String user_expire_date;
 	private String contents;
 }
