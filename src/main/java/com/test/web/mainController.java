@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.test.mapper.exinfo;
 import com.test.mapper.guest;
 import com.test.mapper.mainMapper;
 
@@ -24,10 +25,7 @@ public class mainController {
 	private mainMapper mapper;
 	
 	@RequestMapping("/calender.do")
-	public String calender(Model model) {
-		List<guest> list = mapper.list();
-		model.addAttribute("list",list);//객체 바인딩
-		// SPring AOP 기법
+	public String calender() {
 		return "calender"; // /Web-INF/views/calender.jsp
 	}
 
@@ -41,6 +39,18 @@ public class mainController {
 	public String login() {
 		//mapper.loginInsert(title);
 		return "login"; 
+	}
+	
+	@RequestMapping("/cam.do")
+	public String cam() {
+		//mapper.loginInsert(title);
+		return "cam"; 
+	}	
+	
+	@RequestMapping("/insertExName.do")
+	public String insertName(exinfo ex_name) {
+		mapper.insertExName(ex_name);
+		return "redirect:/cam.do"; 
 	}
 	
 	@RequestMapping(value="/loginInsert.do", method= {RequestMethod.GET, RequestMethod.POST})
