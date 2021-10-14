@@ -127,6 +127,7 @@ background-color : #F1F2F6;
 width:100%;
 height:10%;
 color:#362222;
+background-color : white;
 /** background-color: #CAB0FF;
 float:center;
 border-bottom-width:thin;
@@ -135,7 +136,7 @@ border-bottom:solid; **/}
 
 .top_left{
 float:left;
-width:80%;
+width:70%;
 height:100%;
 /** border-bottom-right-radius: 2em; **/
 }
@@ -160,16 +161,18 @@ text-align: center;
 
 .mid_top_left{
 float:left;
-width:35%;
+width:20%;
 height:100%;
-padding: 0px 0px 0px 50px;
+text-align: right;
+padding: 0px 0px 0px 40px;
 }
 
 .mid_top_right{
 float:right;
-width:55%;
+width:70%;
 height:100%;
-padding: 0px 50px 0px 0px;
+text-align: left;
+padding: 0px 40px 0px 0px;
 /** font-family: 'Noto Sans KR', Times, serif; **/
 }
 
@@ -268,7 +271,7 @@ window.onload = function() {
 
 		<div class="main_top" style = "text-align : center;">
 			<div class="top_left">
-				<h1 style = "font-size:110px;">The Ai Fitness</h1>
+				<div><h1 style = "font-size:100px;">The Ai Fitness</h1></div>
 			</div>
 			<div class="top_right">
 			
@@ -281,7 +284,7 @@ window.onload = function() {
 			<div class="mid_top">
 				<div class="mid_top_left">
 					<img src = "resources/img/가슴.png"
-					style = "width:300px; height:300px;">
+					style = "width:200px; height:200px; padding-top:60px;">
 				</div>
 				<div class="mid_top_right" >
 					<b><text id="NSK_font"><br>오늘의 대흉근</text></b>
@@ -316,14 +319,13 @@ window.onload = function() {
 					</tr>
 				</table>
 			</div>
-
+		</div>
 		<div class="main_bot" id="NSK_font">
 			<div class="bicon"><img class="bimg" src="resources/img/가슴.png"><br>가슴</div>
 			<div class="bicon"><img class="bimg" src="resources/img/어깨.png"><br>어깨</div>
 			<div class="bicon"><img class="bimg" src="resources/img/등.png"><br>등</div>
 			<div class="bicon"><img class="bimg" src="resources/img/arm-muscles-silhouette.png"><br>팔</div>
 		</div>
-
 	</div>
 </body>
 
