@@ -52,10 +52,6 @@ height:30%;
 text-align: center;
 }
 
-.modal2_top_top{
-
-}
-
 .modal_top_left{
 font-size:50px;
 width:40%;
@@ -135,62 +131,79 @@ text-align: center;
 padding: 0px 0px 0px 0px;
 }
 
+.modal2_top_top{
+width:100%;
+height:30%;
+text-align: center;
+padding: 30px 0px 0px 0px;
+}
+
 .modal2_top_left{
 font-size:60px;
 width:65%;
-height:40%;
+height:100%;
 float:left;
 text-align: left;
+padding: 40px 0px 0px 40px;
 }
 
 .modal2_top_right{
 font-size:50px;
 width:20%;
-height:40%;
+height:100%;
 float:right;
 text-align: right;
-padding: 0px 0px 0px 0px;
+padding: 60px 50px 0px 0px;
 }
  
 .modal2_top_bot{
 border-top: 10px solid #C6C6C6;
 font-size:50px;
 width:100%;
-height:45%;
+height:40%;
 text-align: left;
-padding: 0px 0px 0px 0px;
+padding: 0px 0px 0px 50px;
 }
 
 .modal2_mid{
 width:100%;
-height:30%;
+height:40%;
 text-align: center;
 padding: 0px 0px 0px 0px;
 }
 
+.modal2_mid_top{
+width:100%;
+height:30%;
+text-align: center;
+padding: 30px 0px 0px 0px;
+}
+
 .modal2_mid_left{
 font-size:60px;
-width:80%;
-height:30%;
+width:65%;
+height:100%;
 float:left;
 text-align: left;
+padding: 40px 0px 0px 40px;
 }
 
 .modal2_mid_right{
 font-size:50px;
 width:20%;
-height:30%;
+height:100%;
 float:right;
 text-align: right;
-padding: 0px 30px 0px 0px;
+padding: 60px 50px 0px 0px;
 }
  
 .modal2_mid_bot{
 border-top: 10px solid #C6C6C6;
 font-size:50px;
 width:100%;
-height:60%;
-text-align: center;
+height:40%;
+text-align: left;
+padding: 0px 0px 0px 50px;
 }
 
 .main_map {
@@ -412,29 +425,32 @@ window.onload = function() {
 		<div class = "modal2_top">
 			<div class="modal2_top_top">
 				<div class = "modal2_top_left"> 
-					<div id="NSK_font"><b><br>체스트 프레스</b></div>
+					<div id="NSK_font"><b>체스트 프레스</b></div>
 				</div>
 				<div class = "modal2_top_right">
-					<div id="NSK_font"><br>4set</div>
+					<div id="NSK_font">4set</div>
 				</div>
 			</div>
 			<div id="NSK_font" class="modal2_top_bot">	
-				<div id="NSK_font"><p><br>1set x 12reps<br>2set x 12reps
-				<br>3set x 12reps<br>4set x 12reps</p></div>
+				<div id="NSK_font">1set x 12reps<br>2set x 12reps
+				<br>3set x 12reps<br>4set x 12reps</div>
 			</div>
 		</div>
 		
 		<div class = "modal2_mid">
-			<div class = "modal2_mid_left"> 
-				<div id="NSK_font"><b><br>인클라인 체스트 프레스</b></div>
+			<div class="modal2_mid_top">
+				<div class = "modal2_mid_left"> 
+					<div id="NSK_font"><b>인클라인 체스트 프레스</b></div>
+				</div>
+				<div class = "modal2_mid_right">
+					<div id="NSK_font">4set</div>
+				</div>	
 			</div>
-			<div class = "modal2_mid_right">
-				<div id="NSK_font"><br>4set</div>
-			</div>	
-			<div id="NSK_font" class="modal2_top_bot">	
-				<div id="NSK_font"><p><br>1set x 12reps<br>2set x 12reps
-				<br>3set x 12reps<br>4set x 12reps</p></div>
+			<div id="NSK_font" class="modal2_mid_bot">	
+				<div id="NSK_font">1set x 12reps<br>2set x 12reps
+				<br>3set x 12reps<br>4set x 12reps</div>
 			</div>
+			
 		</div>
 	</div>
 
