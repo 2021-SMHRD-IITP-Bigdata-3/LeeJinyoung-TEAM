@@ -16,6 +16,7 @@ CREATE TABLE users
     CONSTRAINT PK_users PRIMARY KEY (user_id)
 )
 
+
 INSERT INTO users (user_id, user_name, user_gym)
 VALUES('1234', '노유종', '광주남구');
 

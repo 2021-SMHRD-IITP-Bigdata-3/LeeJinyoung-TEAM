@@ -33,6 +33,11 @@ public class mainController {
 		return "main";
 	}
 	
+	@RequestMapping("/record.do")
+	public String record() {
+		return "record";
+	}
+	
 	
 	@RequestMapping("/login.do")
 	public String login() {
