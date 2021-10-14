@@ -514,7 +514,7 @@ window.onload = function() {
 				    <td class="tg-nrix">3</td>
 				    <td class="tg-nrix">4</td>
 				    <td class="tg-nrix">5</td>
-				    <td class="tg-nrix">6</td>
+				    <td class="tg-nrix" id="modal2_btn"><div id="circle">6</div></td>
 				    <td class="tg-nrix">7</td>
 				    <td class="tg-nrix">8</td>
 				    <td class="tg-nrix">9</td>
