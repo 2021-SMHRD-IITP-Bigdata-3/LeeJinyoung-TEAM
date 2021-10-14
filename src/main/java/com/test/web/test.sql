@@ -16,6 +16,23 @@ CREATE TABLE users
     CONSTRAINT PK_users PRIMARY KEY (user_id)
 )
 
+CREATE TABLE user_exercises
+(
+    ex_seq           int(100)      NOT NULL  AUTO_INCREMENT, 
+    user_id          VARCHAR(20)       NULL, 
+    ex_name          VARCHAR(20)      NULL, 
+    ex_start_time    DATE              NULL, 
+    ex_end_time      DATE     NULL, 
+    ex_count         int(30)     NULL, 
+    CONSTRAINT FK_user_exercises PRIMARY KEY (ex_seq),
+    FOREIGN KEY (user_id) REFERENCES users (user_id)
+)
+
+drop table user_exercises
 update users
 set user_birthdate='1995-08-20',user_height='80', user_weight='177',user_joindate='2021-10-14',user_expire_date='2022-10-14'
 where user_id = '4073';
+
+
+INSERT INTO users (user_id, user_name, user_gym)
+VALUES('1234', '노유종', '광주남구');
