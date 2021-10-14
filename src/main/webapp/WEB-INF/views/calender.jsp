@@ -315,12 +315,12 @@ font-weight: 600;
 }
 
 #circle{
-width:100px;
+/** width:100px;
 height:100px;
-border-radius:50%;
-background:#E4DFF6;
+border-radius:70%;
 text-align: center;
-line-height:100px;
+line-height:100px; **/
+background:#E4DFF6;
 }
 
 .main_bot {
@@ -495,7 +495,7 @@ window.onload = function() {
 				  <tr>
 				    <td class="tg-nrix">26</td>
 				    <td class="tg-nrix">27</td>
-				    <td class="tg-nrix" id="modal2_btn">28</td>
+				    <td class="tg-nrix" id="modal2_btn"><div id="circle">28</div></td>
 				    <td class="tg-nrix">29</td>
 				    <td class="tg-nrix">30</td>
 				    <td class="tg-nrix">1</td>
