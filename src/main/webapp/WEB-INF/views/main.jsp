@@ -228,20 +228,21 @@ window.onload = function() {
     document.querySelector('.black_bg').addEventListener('click', offClick);
  
 }
+
 </script>
 </head>
 
 <body>
-
+<%  guest member = (guest) session.getAttribute("member");%>
 	<div class="black_bg"></div>
 	<div class="modal_wrap">
 		<div class = "modal_top">
-			<div id="NSK_font" style = "font-size:80px;"><b><br>이진영 님</b></div>
+			<div id="NSK_font" style = "font-size:80px;"><b><br><%= member.getUser_name() %></b></div>
 			<div class = "modal_top_left"> 
 				<div id="NSK_font"><br>만기일</div>
 			</div>
 			<div class = "modal_top_right">
-				<div id="NSK_font"><br>2021-12-07<br>D-day 30일</div>
+				<div id="NSK_font"><br><%=member.getUser_expire_date() %><br>D-day 30일</div>
 			</div>
 		</div>
 		<div class = "modal_mid">
