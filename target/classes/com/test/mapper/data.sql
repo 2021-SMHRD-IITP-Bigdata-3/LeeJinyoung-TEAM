@@ -16,9 +16,10 @@ CREATE TABLE users
     CONSTRAINT PK_users PRIMARY KEY (user_id)
 )
 
+
 INSERT INTO users (user_id, user_name, user_gym)
 VALUES('1234', '노유종', '광주남구');
 
 update users
 set user_birthdate='1995-08-20',user_height='80', user_weight='177',user_joindate='2021-10-14',user_expire_date='2022-10-14'
-where user_id = '4073';
+where user_id = '1234';

@@ -30,7 +30,7 @@ font-family: 'Noto Sans KR', sans-serif;
         left: 70%;
         margin: -254px 0 0 -236px;
         background:#FFFFFF;
-        z-index: 2;
+        z-index: 3;
         border-top-left-radius: 5em;
         border-bottom-left-radius: 5em;
     }
@@ -43,18 +43,12 @@ font-family: 'Noto Sans KR', sans-serif;
         background-color:rgba(218, 215, 216, 0.5);
         top:0;
         left: 0;
-        z-index: 1;
+        z-index: 2;
     }
     
 .modal_top{
 width:100%;
 height:30%;
-text-align: center;
-}
-
-.modal_top_top{
-width:100%;
-height:50%;
 text-align: center;
 }
 
@@ -117,6 +111,101 @@ font-size:40px;
 text-align: center;
 }
 
+.modal2_wrap{
+        display: none;
+        width: 80%;
+        height: 50%;
+        position: absolute;
+        top:30%;
+        left: 30%;
+        margin: -254px 0 0 -236px;
+        background:#FFFFFF;
+        z-index: 3;
+        border-radius: 5em;
+ }
+ 
+.modal2_top{
+width:100%;
+height:40%;
+text-align: center;
+padding: 0px 0px 0px 0px;
+}
+
+.modal2_top_top{
+width:100%;
+height:30%;
+text-align: center;
+padding: 30px 0px 0px 0px;
+}
+
+.modal2_top_left{
+font-size:60px;
+width:65%;
+height:100%;
+float:left;
+text-align: left;
+padding: 40px 0px 0px 40px;
+}
+
+.modal2_top_right{
+font-size:50px;
+width:20%;
+height:100%;
+float:right;
+text-align: right;
+padding: 60px 50px 0px 0px;
+}
+ 
+.modal2_top_bot{
+border-top: 10px solid #C6C6C6;
+font-size:50px;
+width:100%;
+height:40%;
+text-align: left;
+padding: 0px 0px 0px 50px;
+}
+
+.modal2_mid{
+width:100%;
+height:40%;
+text-align: center;
+padding: 0px 0px 0px 0px;
+}
+
+.modal2_mid_top{
+width:100%;
+height:30%;
+text-align: center;
+padding: 30px 0px 0px 0px;
+}
+
+.modal2_mid_left{
+font-size:60px;
+width:65%;
+height:100%;
+float:left;
+text-align: left;
+padding: 40px 0px 0px 40px;
+}
+
+.modal2_mid_right{
+font-size:50px;
+width:20%;
+height:100%;
+float:right;
+text-align: right;
+padding: 60px 50px 0px 0px;
+}
+ 
+.modal2_mid_bot{
+border-top: 10px solid #C6C6C6;
+font-size:50px;
+width:100%;
+height:40%;
+text-align: left;
+padding: 0px 0px 0px 50px;
+}
+
 .main_map {
 	width:100%;
 	height:100%;
@@ -162,7 +251,7 @@ padding: 0px 0px 30px 20px;
 
 .mid_top_left{
 width:40%;
-height:100%;
+height:30%;
 text-align : center;
 float:left;
 padding-left:10px;
@@ -170,7 +259,7 @@ padding-left:10px;
 
 .mid_top_right{
 width:40%;
-height:100%;
+height:30%;
 float:left;
 }
 
@@ -196,13 +285,13 @@ width:100%;
 height:95%;
 border-collapse:collapse;
 border-spacing:0;
+table-layout:fixed;
 }
 
 .calenders td{
 /** border-color:black;
 border-style:solid;
 border-width:1px; **/
-font-family:Arial, sans-serif;
 font-size:40px;
 overflow:hidden;
 padding:10px 5px;
@@ -212,7 +301,6 @@ word-break:normal;
 /** border-color:black;
 border-style:solid;
 border-width:1px; **/
-font-family:Arial, sans-serif;
 font-size:40px;
 font-weight:normal;
 overflow:hidden;
@@ -223,6 +311,16 @@ word-break:normal;
 text-align:center;
 vertical-align:middle;
 font-family: 'Noto Sans KR', sans-serif;
+font-weight: 600;
+}
+
+#circle{
+/** width:100px;
+height:100px;
+border-radius:70%;
+text-align: center;
+line-height:100px; **/
+background:#E4DFF6;
 }
 
 .main_bot {
@@ -276,6 +374,18 @@ window.onload = function() {
  
     document.getElementById('modal_btn').addEventListener('click', onClick);
     document.querySelector('.black_bg').addEventListener('click', offClick);
+    
+    function onClick2() {
+        document.querySelector('.modal2_wrap').style.display ='block';
+        document.querySelector('.black_bg').style.display ='block';
+    }   
+    function offClick2() {
+        document.querySelector('.modal2_wrap').style.display ='none';
+        document.querySelector('.black_bg').style.display ='none';
+    }
+ 
+    document.getElementById('modal2_btn').addEventListener('click', onClick2);
+    document.querySelector('.black_bg').addEventListener('click', offClick2);
  
 }
 </script>
@@ -310,6 +420,39 @@ window.onload = function() {
 			<div id="NSK_font">고객센터     010-4903-4073</div>
 		</div>
 	</div>
+	
+	<div class="modal2_wrap">
+		<div class = "modal2_top">
+			<div class="modal2_top_top">
+				<div class = "modal2_top_left"> 
+					<div id="NSK_font"><b>체스트 프레스</b></div>
+				</div>
+				<div class = "modal2_top_right">
+					<div id="NSK_font">4set</div>
+				</div>
+			</div>
+			<div id="NSK_font" class="modal2_top_bot">	
+				<div id="NSK_font">1set x 12reps<br>2set x 12reps
+				<br>3set x 12reps<br>4set x 12reps</div>
+			</div>
+		</div>
+		
+		<div class = "modal2_mid">
+			<div class="modal2_mid_top">
+				<div class = "modal2_mid_left"> 
+					<div id="NSK_font"><b>인클라인 체스트 프레스</b></div>
+				</div>
+				<div class = "modal2_mid_right">
+					<div id="NSK_font">4set</div>
+				</div>	
+			</div>
+			<div id="NSK_font" class="modal2_mid_bot">	
+				<div id="NSK_font">1set x 12reps<br>2set x 12reps
+				<br>3set x 12reps<br>4set x 12reps</div>
+			</div>
+			
+		</div>
+	</div>
 
 	<div class="main_map">
 
@@ -332,7 +475,7 @@ window.onload = function() {
 					style="width: 170px; height: 150px;">
 			</div>
 		</div>
-		<div id="modal_btn" class="mid_day">
+		<div class="mid_day">
 			<p><b>2021.10.06</b></p>
 		</div>
 		<div class="mid_bot">
@@ -352,7 +495,7 @@ window.onload = function() {
 				  <tr>
 				    <td class="tg-nrix">26</td>
 				    <td class="tg-nrix">27</td>
-				    <td class="tg-nrix">28</td>
+				    <td class="tg-nrix" id="modal2_btn"><div id="circle">28</div></td>
 				    <td class="tg-nrix">29</td>
 				    <td class="tg-nrix">30</td>
 				    <td class="tg-nrix">1</td>
@@ -371,7 +514,7 @@ window.onload = function() {
 				    <td class="tg-nrix">3</td>
 				    <td class="tg-nrix">4</td>
 				    <td class="tg-nrix">5</td>
-				    <td class="tg-nrix">6</td>
+				    <td class="tg-nrix" id="modal2_btn"><div id="circle">6</div></td>
 				    <td class="tg-nrix">7</td>
 				    <td class="tg-nrix">8</td>
 				    <td class="tg-nrix">9</td>
