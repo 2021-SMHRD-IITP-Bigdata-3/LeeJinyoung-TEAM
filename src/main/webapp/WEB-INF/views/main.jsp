@@ -151,13 +151,13 @@ height:100%;
 
 .main_mid {
 width:100%;
-height:70%;
+height:80%;
 /** background-color:red;
 float:left; **/}
 
 .mid_top{
 font-size:80px;
-height:20%;
+height:15%;
 text-align: center;
 }
 
@@ -187,6 +187,7 @@ height:80%;
 font-size:50px;
 text-align: center;
 width: 100%;
+font-weight: 600;
 }
 
 .mbimg{
@@ -197,23 +198,23 @@ border-radius: 2em;
 
 .main_bot {
 width:100%;
-height:20%;
-background-color: #5D5D5D;
+height:10%;
+background-color: white;
 }
 
 .bicon{
 float: left;
 padding: 40px 0px 0px 20px;
 width: 23%;
-font-size:60px;
+font-size:50px;
 text-align: center;
-color:white;
+color:black;
 }
 
 
 .bimg{
-width:200px;
-height:200px;
+width:120px;
+height:120px;
 }
 
 </style>
@@ -290,7 +291,7 @@ function reply_click(clicked_id){
 			<div class="mid_top">
 				<div class="mid_top_left">
 					<img src = "resources/img/가슴.png"
-					style = "width:200px; height:200px; padding-top:60px;">
+					style = "width:150px; height:150px; padding-top:80px;">
 				</div>
 				<div class="mid_top_right" >
 					<b><text id="NSK_font"><br>오늘의 대흉근</text></b>
