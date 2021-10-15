@@ -216,6 +216,7 @@ padding: 0px 0px 0px 50px;
 	width:100%;
 	height:10%;
 	color:#362222;
+	background-color : white;
 	/** background-color: #CAB0FF;
 	float:center;
 	border-bottom-width:thin;
@@ -225,7 +226,7 @@ padding: 0px 0px 0px 50px;
 
 .top_left{
 	float:left;
-	width:80%;
+	width:70%;
 	height:100%;
 	/** border-bottom-right-radius: 2em; **/
 }
@@ -261,6 +262,7 @@ padding-left:10px;
 width:40%;
 height:30%;
 float:left;
+padding:20px 0px 0px 0px;
 }
 
 .mid_day{
