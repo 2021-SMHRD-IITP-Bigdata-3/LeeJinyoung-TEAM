@@ -15,7 +15,7 @@
 		AND user_gym = #{user_gym}
 	</select>
 	
-	<insert  id="insertExName" parameterType ="com.test.mapper.exinfo">
+	<insert  id="insertExName" parameterType ="com.test.mapper.exinfo" >
 	    insert into user_exercises( user_id, ex_name)
 	    values (#{user_id},#{ex_name})
 	</insert>

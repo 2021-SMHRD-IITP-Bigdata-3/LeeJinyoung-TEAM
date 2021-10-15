@@ -52,11 +52,20 @@ public class mainController {
 		return "cam"; 
 	}	
 	
-	@RequestMapping("/insertExName.do")
-	public String insertName(exinfo ex_name) {
-		mapper.insertExName(ex_name);
-		return "redirect:/cam.do"; 
+	@RequestMapping(value="/insertExName.do", method= {RequestMethod.GET, RequestMethod.POST})
+    public String insertExName(exinfo memberVO , HttpServletRequest req,  RedirectAttributes rttr) throws Exception {
+		
+		System.out.println(memberVO.getUser_id());
+		System.out.println(memberVO.getEx_name());
+        
+		HttpSession session = req.getSession();
+		mapper.insertExName(memberVO);
+		session.setAttribute("memberVO", memberVO);
+		
+        return "redirect:/cam.do";
+        
 	}
+	
 	
 	@RequestMapping(value="/loginInsert.do", method= {RequestMethod.GET, RequestMethod.POST})
     public String memberLogin(guest memberVO , HttpServletRequest req,  RedirectAttributes rttr) throws Exception {
