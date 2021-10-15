@@ -384,7 +384,8 @@ window.onload = function() {
         document.querySelector('.black_bg').style.display ='none';
     }
  
-    document.getElementById('modal2_btn').addEventListener('click', onClick2);
+    document.getElementById('modal2_btn00').addEventListener('click', onClick2);
+    document.getElementById('modal2_btn01').addEventListener('click', onClick2);
     document.querySelector('.black_bg').addEventListener('click', offClick2);
  
 }
@@ -495,7 +496,7 @@ window.onload = function() {
 				  <tr>
 				    <td class="tg-nrix">26</td>
 				    <td class="tg-nrix">27</td>
-				    <td class="tg-nrix" id="modal2_btn"><div id="circle">28</div></td>
+				    <td class="tg-nrix" id="modal2_btn00"><div id="circle">28</div></td>
 				    <td class="tg-nrix">29</td>
 				    <td class="tg-nrix">30</td>
 				    <td class="tg-nrix">1</td>
@@ -514,7 +515,7 @@ window.onload = function() {
 				    <td class="tg-nrix">3</td>
 				    <td class="tg-nrix">4</td>
 				    <td class="tg-nrix">5</td>
-				    <td class="tg-nrix" id="modal2_btn"><div id="circle">6</div></td>
+				    <td class="tg-nrix" id="modal2_btn01"><div id="circle">6</div></td>
 				    <td class="tg-nrix">7</td>
 				    <td class="tg-nrix">8</td>
 				    <td class="tg-nrix">9</td>
