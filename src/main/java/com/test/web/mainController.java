@@ -38,6 +38,11 @@ public class mainController {
 		return "record";
 	}
 	
+	@RequestMapping("/record_click.do")
+	public String record_click() {
+		return "record_click";
+	}
+	
 	
 	@RequestMapping("/login.do")
 	public String login() {

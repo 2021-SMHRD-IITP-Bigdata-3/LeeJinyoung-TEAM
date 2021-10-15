@@ -8,62 +8,39 @@
 
 <style>
 
-header{
-      position: fixed;
-      top:150px;
-      left:0;
-      background-color: rgb(172,179,195);
-      opacity: 0.5;
-      height: 500px;
-      width: 100%;
-      transform: rotate(-15deg);    
-      transform: skewy(-15deg);
-	}
-	
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 	 footer{
       position: fixed;
       bottom: 0;
       left: 0;
       height: 500px;
       width:100%;
-      background-color: rgb(93,93,93);
       line-height:80px;
    }
 	
 
-	#head{
+	#title_name{
 		position: absolute;
-		left: 50%;
-		opacity: 0.2;
-	}
-	#head2{
-		position: absolute;
-		opacity: 0.1;
-		top: 10%;
-		left: 15%;
+		top: 20%;
+		left:40%;
+		font-family:Regular;
+		font-size:180px;    
 	}
 	
-	#title{
+	#title_name2{
 		position: absolute;
-		top: 8%;
-		left: 35%;
-		transform: translate(-50%,-50%);
+		top: 28%;
+		left:20%;
 		font-family:Regular;
-		font-size:180px;
-		transform: rotateZ(-15deg);     
-		line-height:200px;
+		font-size:180px;    
 	}
 	
-	#title2{
-		position: absolute;
-		top:15%;
-		left: 22%;
-		transform: translate(-50%,-50%);
-		font-family:Regular;
-		font-size:180px;
-		transform: rotateZ(-15deg);     
-		line-height:200px;
-	}
 	
 	#form{
 		position: absolute;
@@ -73,9 +50,10 @@ header{
 	
 	#button{
 		background-color:rgb(147,148,177);
-		border-radius:70px;
+		border-radius:100px;
 		font-family:Regular;
 		font-weight:bolder;
+		border: none;
 	}
 	
 	table{
@@ -83,26 +61,21 @@ header{
    	border-radius:30px;
    }
 	
-	#user_num{
-	position:relative;
-	font-size:80px;
-	font-family:Regular;
-	font-weight:bolder;
-   }
+
 
    select{
+   position:relative;
    border-radius:40px;
-   background-color:rgb(227,228,236);
    font-weight:bolder;
-   appearance:none; 
+   appearance:none;
+   padding: 50px 50px 50px 50px;
    }
    
    input{
    border-radius:40px;
-   background-color:rgb(227,228,236);
-   font-size:60px;
    font-weight:bolder;
-   text-align: center;
+   padding: 50px 50px 50px 50px;
+
    }
    
    @font-face{
@@ -110,84 +83,71 @@ header{
    	src:url('resources/font/FrancoisOne-Regular.ttf');
    }
    
-   middle{
-      position: fixed;
-      top:1100px;
-      left:0;
-      background-color: rgb(227,228,236);
-      opacity: 0.6;
-      height: 500px;
-      width: 100%;
-      transform: rotate(15deg);    
-      transform: skewy(15deg);
-	}
 	option{
 	font-weight:bolder;
 	}
+	
+	#modal_btn{
+	position:relative;
+	}
+	
+	#option_click{
+	position:absolute;
+	top:12%; 
+	right:8%; 
+	transform: rotate(90deg);
+	}
+	
 	
 	
 </style>
 
 </head>
-<body bgcolor='#f0f0f0'>
-
-	<img id="head2" src="resources/img/자세교정.png" width="450px" height="450px">
-
-	<img id="head" src="resources/img/AI.png" width="600px" height="600px">
-
-	<header>
-			
-	</header>
+<body>
 	
-	<a id="title"> The  </a>
-	<a id="title2"> Ai Fitness </a>
+<div id="title" style="width:100%; height:500px;">
+	<a id="title_name"> The </a>
+	<a id="title_name2"> Ai Fitness </a>
+
+</div>
 	
 	 <form action="/web/loginInsert.do" method ="post" id="form" align="center">
 	 
-	 <div style="width:100%; height:300px;"></div>
+	 <div style="width:100%; height:150px;"></div>
 	 
-	 <middle>
+		<div class="middle1">
 		
-	 </middle>
-	 
-
-	<table align="center">
-		<tr>
-			<td> <a id="user_num" align ="center">소속지점</a> </td>
-			<td>
-				<select name="user_gym"  style="width:600px;height:100px;font-size:60px;font-family:Regular;">
-					 <option align="center" font-family="Regular" > -- 선택하세요 --</option>
+				<select name="user_gym" style="width:950px;height:200px;font-size:60px;font-family:Regular;">
+					 <option> <a id="gym"> 지점명 </a> </option>
 					 <optgroup label="서울">  
-					 	<option font-family="Regular" align="center" value ="강남점" >강남점</option>
+					 	<option font-family="Regular"  value ="강남점" >강남점</option>
 					 </optgroup>
 					 
 					 <optgroup label="부산">  
-					 	<option font-family="Regular" align="center" value ="해운대점" >해운대점</option>
+					 	<option font-family="Regular" value ="해운대점" >해운대점</option>
 					 </optgroup>
 					 
 					 <optgroup label="광주">  
-					 	<option font-family="Regular" align="center" value ="광주남구" >광주남구</option>
-					 </optgroup>
-						
+					 	<option font-family="Regular"  value ="광주남구" >광주남구</option>
+					 </optgroup>						
 				</select>
-			</td>
-		</tr>
-	</table>
+				
+				<img id="option_click" src="resources/img/화살표2.png"
+					style="width: 300px; height: 300px;"> 
+		</div>	
+
 	
-	<div style="width:100%; height:100px;"></div>
+	<div style="width:100%; height:30px;"></div>
 	
-      <table align="center" >
-         <tr>
-         <td> <a id="user_num" align ="center">회원번호</a> </td>
-         <td><input style="width:600px; height:100px;font-size:60px;"  type="text" name="user_id" ></td>
-         </tr>
-      </table>
-         
-         <div style="width:100%; height:100px;"></div>
+	<div>
+      <input style="width:850px; height:100px; font-weight:bolder; color:rgb(143,143,143); font-size:60px;" type="text" name="user_id" value ="회원번호"> </td>
+    </div>
+      
+         <div style="width:100%; height:50px;"></div>
          
          <table align = "center"> 
          <tr>
-            <td><input font-family="Regular" id="button" style="width:330px; height:150px;font-size:80px;" class="button" type = "submit" value ="로그인"></td>
+            <td><input font-family="Regular" id="button" style="width:950px; height:200px;font-size:80px;" class="button" type = "submit" value ="로그인"></td>
          </tr>
       </table>
       
@@ -195,7 +155,7 @@ header{
       
        <div style="width:100%; height:110px;"></div>
       
-      <table align="center" style="font-size:45px;color:white;'">
+      <table align="center" style="font-size:40px;color:rgb(143,143,143);">
       	<tr>
       		<td><a> @ 2023 By Riley Olson.</a></td>
       	</tr>

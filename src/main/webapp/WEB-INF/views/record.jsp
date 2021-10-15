@@ -39,31 +39,7 @@ html, body {
         left: 0;
         z-index: 1;
     }
-    
-    .record_wrap{
-        display: none;
-        width: 90%;
-        height: 80%;
-        position: absolute;
-        top:20%;
-        left: 25%;
-        margin: -254px 0 0 -236px;
-        background:#FFFFFF;
-        z-index: 2;
-        border-radius:5em;
-    }
-    .record_bg{
-        display: none;
-        position: absolute;
-        content: "";
-        width: 100%;
-        height: 100%;
-        background-color:rgba(218, 215, 216, 0.5);
-        top:0;
-        left: 0;
-        z-index: 1;
-    }
-    
+
    
 .modal_top{
 width:100%;
@@ -169,7 +145,6 @@ font-family: 'Noto Sans KR', sans-serif;
    select{
    position:relative;
    border-radius:40px;
-   background-color:#F1F2F6;
    font-weight:bolder;
    appearance:none;
    right:-15%;
@@ -192,21 +167,7 @@ input{
   	border-collapse: separate;
   	filter : drop-shadow(0 0 0 white);
 }
-#mid{
-	border-spacing: 50px;
-  	border-collapse: separate;
-  	filter : drop-shadow(0 0 0 white);
-}
-#mid{
-	border-spacing: 50px;
-  	border-collapse: separate;
-  	filter :drop-shadow(0 0 0 white);
-}
-#mid{
-	border-spacing: 50px;
-  	border-collapse: separate;
-  	filter : drop-shadow(0 0 0 white);
-}
+
 
 #training{
 	position: absolute;
@@ -219,19 +180,13 @@ input{
 	position: absolute;
 	filter : opacity(.5) drop-shadow(0 0 0 gray);
 	top : 94%;
-	left : 30%;
+	left : 80%;
 }
 
 #button_gym{
 border: none;
 }
 
-#record_top_title{
-	position: absolute;
-	font-size:60px;
-	top : 3%;
-	left : 5%;
-}
 
 hr{
 	position: absolute;
@@ -258,19 +213,7 @@ window.onload = function() {
  
     document.getElementById('modal_btn').addEventListener('click', onClick);
     document.querySelector('.black_bg').addEventListener('click', offClick);   
-   	  
-    
-        function onClick1() {
-            document.querySelector('.record_wrap').style.display ='block';
-            document.querySelector('.record_bg').style.display ='block';
-        }   
-        function offClick1() {
-            document.querySelector('.record_wrap').style.display ='none';
-            document.querySelector('.record_bg').style.display ='none';
-        }
-     
-        document.getElementById('mid').addEventListener('click', onClick1);
-        document.querySelector('.record_bg').addEventListener('click', offClick1);
+   	     
 
 		}
 
@@ -278,7 +221,7 @@ window.onload = function() {
 
 
 </head>
-<body bgcolor="#F1F2F6">
+<body>
 
 <div class="black_bg"></div>
 	<div class="modal_wrap">
@@ -310,18 +253,6 @@ window.onload = function() {
 		</div>
 	</div>
 	
-<div class="record_bg"></div>
-	<div class="record_wrap">
-		<div class="record_top" style="width:100%; height:200px;">
-			<div id="record_top_title"> <b> 영상 제목 </b> </div>
-			<hr style="border: solid 10px gray;">
-		</div>
-		
-		<div class="record_middle" style="width:100%; height:500px;">
-			<div id="record_middle_content">  </div>
-		</div>
-		
-	</div>
 
 <div class="main_map">
 
@@ -339,7 +270,7 @@ window.onload = function() {
 
 <form action="" method="" >
 
-<table align="">
+<table>
 		<tr>
 			<td> <a id="record" align ="center">자세교정 녹화본</a> </td>
 			<td>
@@ -394,12 +325,12 @@ window.onload = function() {
 </tr>
 </table>
 
-<form action="/web/loginInsert.do" method ="post" id="form">
+<form action="/web/loginInsert.do" method ="post" id="form" >
 <table style="width:100%;">
 <tr>
 	<td> <img id="training" src="resources/img/training.png" width="150px" height="150px"> </td>
 	<td> <img id="videioTrainging" src="resources/img/videioTrainging.png" width="150px" height="150px"> </td>
-	<td align="right"> <button id="button_gym"> <img id="gym (1)" src="resources/img/gym (1).png" width="350px" height="350px"> </button> </td>
+	<td align="center" bgcolor="white"> <button id="button_gym"> <img id="gym (1)" src="resources/img/gym (1).png" width="350px" height="350px" > </button> </td>
 </tr>
 </table>
 </form>
