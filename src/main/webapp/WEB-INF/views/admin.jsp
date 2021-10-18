@@ -211,6 +211,10 @@ hr{
 
 #user_name{
 text-align: center; 
+border-radius:40px;
+background-color:#F1F2F6;
+font-weight:bolder;
+appearance:none;
 }
 
 </style>
