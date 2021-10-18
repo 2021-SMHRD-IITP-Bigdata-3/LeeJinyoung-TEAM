@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.test.mapper.exinfo" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,11 +46,14 @@ button, a{
 </style>
 </head>
 <body>
+<% exinfo info = (exinfo) session.getAttribute("memberVO");
+%>
   <div class="wrapper">
     <div class="button">
       <button class = "record-button">녹화</button>
       <button class = "stop-button">중지</button>
       <button class = "play-button">녹화보기</button>
+      <p3><%=info.getEx_name()%></p3>
       <a class="download-button">다운로드</a>
     </div>
     <div class="video-container">
@@ -83,6 +87,7 @@ function videoStart(){
   	startRecording(previewPlayer.captureStream())
   })
 }
+
 function startRecording(stream){
 	recordedChunks = [];
 	const recorder = new MediaRecorder(stream);

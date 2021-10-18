@@ -239,6 +239,9 @@ window.onload = function() {
 function reply_click(clicked_id){
 	location.href = "${cpath}/insertExName.do?ex_name="+clicked_id+"&user_id="+<%=member.getUser_id() %>;
 }
+function go_calender(){
+	location.href = "${cpath}/infoCalender.do?user_id="+<%=member.getUser_id() %>;
+}
 </script>
 </head>
 
@@ -257,8 +260,8 @@ function reply_click(clicked_id){
 		</div>
 		<div class = "modal_mid">
 			<div class = "modal_mid_mid">
-				<div class = "modal_mid_left"><img id="moicon" src="resources/img/diary.png"></div>
-				<div class = "modal_mid_right"><b id = "modal_mid_b">운동 다이어리</b></div>
+				<div class = "modal_mid_left"><img id="moicon" src="resources/img/diary.png" onclick = "go_calender()"></div>
+				<div class = "modal_mid_right"><b id = "modal_mid_b" onclick = "go_calender()">운동 다이어리</b></div>
 			</div>	
 			<div class = "modal_mid_mid">
 				<div class = "modal_mid_left"><img id="moicon" src="resources/img/dumbbell.png"></div>

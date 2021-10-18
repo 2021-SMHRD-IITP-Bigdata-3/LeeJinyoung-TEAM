@@ -3,6 +3,7 @@
 <%@page import = "com.test.mapper.guest" %>
 <%@page import = "java.util.List" %>
 <%@ taglib prefix = "c" uri= "http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -507,10 +508,10 @@ window.onload = function() {
 				  <tr>
 				    <td class="tg-nrix"></td>
 				    <td class="tg-nrix"></td>
-				    <td class="tg-nrix">300kal<br>1시간</td>
 				    <td class="tg-nrix"></td>
 				    <td class="tg-nrix"></td>
-				    <td class="tg-nrix">300kal<br>1시간</td>
+				    <td class="tg-nrix"></td>
+				    <td class="tg-nrix"></td>
 				    <td class="tg-nrix"></td>
 				  </tr>
 				  <tr>
@@ -520,16 +521,12 @@ window.onload = function() {
 				    <td class="tg-nrix" id="modal2_btn01"><div id="circle">6</div></td>
 				    <td class="tg-nrix">7</td>
 				    <td class="tg-nrix">8</td>
-				    <td class="tg-nrix">9</td>
+				    <td class="tg-nrix">${day_time.day}</td>
 				  </tr>
 				  <tr>
-				    <td class="tg-nrix"></td>
-				    <td class="tg-nrix">300kal<br>1시간</td>
-				    <td class="tg-nrix"></td>
-				    <td class="tg-nrix">300kal<br>1시간</td>
-				    <td class="tg-nrix">300kal<br>1시간</td>
-				    <td class="tg-nrix">300kal<br>1시간</td>
-				    <td class="tg-nrix"></td>
+				  		<c:forEach var = "info" items = "${day_time}">
+						    	<td class="tg-nrix">${info.day}</td>
+					    </c:forEach>
 				  </tr>
 				  <tr>
 				    <td class="tg-nrix">10</td>

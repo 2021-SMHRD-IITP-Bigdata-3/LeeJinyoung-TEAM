@@ -12,5 +12,7 @@ public interface mainMapper {
 	
 	public guest memberLogin(guest memberVO);
 
-	public exinfo insertExName(exinfo ex_name);
+	public void insertExName(exinfo ex_name);
+
+	public List<guest> infoCalender(int user_id);
 }
