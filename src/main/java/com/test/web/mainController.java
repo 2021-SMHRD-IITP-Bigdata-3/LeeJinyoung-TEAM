@@ -24,6 +24,11 @@ public class mainController {
 	@Autowired
 	private mainMapper mapper;
 	
+	@RequestMapping("/admin.do")
+	public String admin() {
+		return "admin";
+	}
+	
 	@RequestMapping("/calender.do")
 	public String calender() {
 		return "calender"; // /Web-INF/views/calender.jsp
