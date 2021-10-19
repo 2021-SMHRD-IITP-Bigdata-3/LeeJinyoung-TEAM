@@ -30,6 +30,11 @@ public class mainController {
 		return "admin";
 	}
 	
+	@RequestMapping("/admin_member.do")
+	public String admin_member() {
+		return "admin_member";
+	}
+	
 	@RequestMapping("/calender.do")
 	public String calender() {
 		return "calender";

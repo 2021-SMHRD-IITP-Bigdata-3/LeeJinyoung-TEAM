@@ -310,10 +310,10 @@ window.onload = function() {
 		<tr>
 			<td style="width:10%; align:center;"></td>
 			<td style="width:30%; align:center;">
-				<input style="width:400px;height:100px;font-size:60px;font-family:Regular;" type="text" id="user_name" >
+				<input style="width:400px;height:100px;font-size:50px;font-family:Regular;" type="text" id="user_name" placeholder="회원 이름 검색">
 			</td>
 			<td style="width:50%;">
-				<select name="ex_part"  style="width:400px;height:100px;font-size:60px;font-family:Regular;">
+				<select name="ex_part"  style="width:400px;height:100px;font-size:50px;font-family:Regular;">
 					 <option align="center" font-family="Regular" > 운동 부위  </option>
 					 	<option align="center" value ="등" >등</option>												
 					 	<option align="center" value ="팔" >팔</option>										
