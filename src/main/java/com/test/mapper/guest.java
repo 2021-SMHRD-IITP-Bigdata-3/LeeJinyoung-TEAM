@@ -14,4 +14,6 @@ public class guest {
 	private String user_gym;
 	private String user_expire_date;
 	private String contents;
+	private String day;
+	private String time;
 }

@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.test.mapper.exinfo;
@@ -24,10 +25,32 @@ public class mainController {
 	@Autowired
 	private mainMapper mapper;
 	
+	@RequestMapping("/admin.do")
+	public String admin() {
+		return "admin";
+	}
+	
+	@RequestMapping("/admin_member.do")
+	public String admin_member() {
+		return "admin_member";
+	}
+	
 	@RequestMapping("/calender.do")
 	public String calender() {
-		return "calender"; // /Web-INF/views/calender.jsp
+		return "calender";
 	}
+	
+	@RequestMapping(value="/infoCalender.do")
+    public String infoCalender(@RequestParam("user_id") int user_id , Model model){
+		
+		
+		List<guest> day_time = mapper.infoCalender(user_id);
+		model.addAttribute("day_time",day_time);
+		
+        return "redirect:/calender.do";
+        
+	}
+	
 
 	@RequestMapping("/main.do")
 	public String main() {
@@ -58,7 +81,6 @@ public class mainController {
 	
 	@RequestMapping("/cam.do")
 	public String cam() {
-		//mapper.loginInsert(title);
 		return "cam"; 
 	}	
 	

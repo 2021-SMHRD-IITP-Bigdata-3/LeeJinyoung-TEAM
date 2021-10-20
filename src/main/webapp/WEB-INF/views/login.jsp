@@ -79,7 +79,7 @@ html, body {
    }
    
    @font-face{
-   	font-family:"Regular";
+   	font-family:Regular;
    	src:url('resources/font/FrancoisOne-Regular.ttf');
    }
    
@@ -114,7 +114,7 @@ html, body {
 </div>
 	
 
-<body>
+<body bgcolor='#f0f0f0'>
 
 
 	 <form action="/web/loginInsert.do" method ="post" id="form" align="center">
