@@ -79,7 +79,7 @@ html, body {
    }
    
    @font-face{
-   	font-family:Regular;
+   	font-family:"Regular";
    	src:url('resources/font/FrancoisOne-Regular.ttf');
    }
    
@@ -102,7 +102,9 @@ html, body {
 	
 </style>
 
+
 </head>
+
 <body>
 	
 <div id="title" style="width:100%; height:500px;">
@@ -111,14 +113,23 @@ html, body {
 
 </div>
 	
+
+<body>
+
+
 	 <form action="/web/loginInsert.do" method ="post" id="form" align="center">
 	 
 	 <div style="width:100%; height:150px;"></div>
 	 
+
 		<div class="middle1">
 		
 				<select name="user_gym" style="width:950px;height:200px;font-size:60px;font-family:Regular;">
 					 <option> <a id="gym"> 지점명 </a> </option>
+
+	<table align="center">
+		<tr>
+			<td>			
 					 <optgroup label="서울">  
 					 	<option font-family="Regular"  value ="강남점" >강남점</option>
 					 </optgroup>
@@ -128,8 +139,13 @@ html, body {
 					 </optgroup>
 					 
 					 <optgroup label="광주">  
+
 					 	<option font-family="Regular"  value ="광주남구" >광주남구</option>
 					 </optgroup>						
+
+					 </td>
+					 </tr>
+					 
 				</select>
 				
 				<img id="option_click" src="resources/img/화살표2.png"
@@ -151,6 +167,7 @@ html, body {
          </tr>
       </table>
       
+
       <footer>
       
        <div style="width:100%; height:110px;"></div>
@@ -167,7 +184,6 @@ html, body {
       	</tr>
       </table>
       </footer>
-      
 	</form>
 	
   </body>
