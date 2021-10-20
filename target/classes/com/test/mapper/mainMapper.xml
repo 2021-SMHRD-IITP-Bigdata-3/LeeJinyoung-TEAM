@@ -17,10 +17,9 @@
 	    values (#{user_id},#{ex_name})
 	</insert>
 	
-	<select id ="infoCalender" parameterType ="com.test.mapper.guest" resultType="com.test.mapper.guest">
-	    select day(ex_start_time) as day , TIMESTAMPDIFF(minute, ex_start_time , ex_end_time) as time
-	    from users
+	<select id ="infoCalender" parameterType ="com.test.mapper.accessController" resultType="com.test.mapper.accessController">
+		select ex_day , TIMESTAMPDIFF(minute, ex_start_time , ex_end_time) as timediff
+	    from access
 	    where user_id = #{user_id}
 	</select>
-	
 </mapper>

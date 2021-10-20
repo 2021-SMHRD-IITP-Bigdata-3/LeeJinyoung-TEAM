@@ -34,22 +34,15 @@ public class mainController {
 	public String admin_member() {
 		return "admin_member";
 	}
-	
+	@RequestMapping("/test.do")
+	public String test() {
+		return "test";
+	}
 	@RequestMapping("/calender.do")
 	public String calender() {
 		return "calender";
 	}
 	
-	@RequestMapping(value="/infoCalender.do")
-    public String infoCalender(@RequestParam("user_id") int user_id , Model model){
-		
-		
-		List<guest> day_time = mapper.infoCalender(user_id);
-		model.addAttribute("day_time",day_time);
-		
-        return "redirect:/calender.do";
-        
-	}
 	
 
 	@RequestMapping("/main.do")

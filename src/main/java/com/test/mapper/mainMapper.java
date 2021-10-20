@@ -14,5 +14,5 @@ public interface mainMapper {
 
 	public void insertExName(exinfo ex_name);
 
-	public List<guest> infoCalender(int user_id);
+	public List<accessController> infoCalender(String user_id);
 }

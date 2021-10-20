@@ -229,20 +229,18 @@ window.onload = function() {
  
 }
 
-<<<<<<< HEAD
-=======
+<%  guest member = (guest) session.getAttribute("member");%>
 function reply_click(clicked_id){
 	location.href = "${cpath}/insertExName.do?ex_name="+clicked_id+"&user_id="+<%=member.getUser_id() %>;
 }
 function go_calender(){
-	location.href = "${cpath}/infoCalender.do?user_id="+<%=member.getUser_id() %>;
+	location.href = "/web/test.do";
 }
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/LeeJinyoung-TEAM.git
 </script>
 </head>
-
 <body>
-<%  guest member = (guest) session.getAttribute("member");%>
+<%  member = (guest) session.getAttribute("member");%>
+
 	<div class="black_bg"></div>
 	<div class="modal_wrap">
 		<div class = "modal_top">

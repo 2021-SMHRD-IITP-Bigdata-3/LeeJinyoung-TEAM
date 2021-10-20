@@ -73,7 +73,17 @@ CREATE TABLE user_exercises
     CONSTRAINT FK_user_exercises PRIMARY KEY (ex_seq),
     FOREIGN KEY (user_id) REFERENCES users (user_id)
 )
+CREATE TABLE access
+(
+    user_id          VARCHAR(20)       NULL, 
+    ex_day          DATE      NULL, 
+    ex_start_time    time              NULL, 
+    ex_end_time      time     NULL, 
+    FOREIGN KEY (user_id) REFERENCES users (user_id)
+)
 
+
+drop table access
 drop table user_exercises
 
 update users
@@ -107,4 +117,14 @@ select day(ex_start_time) as day , TIMESTAMPDIFF(minute, ex_start_time , ex_end_
 	    from users
 	    where user_id = '1234'
 
+	    
+INSERT INTO access (user_id, ex_day, ex_start_time , ex_end_time)
+VALUES('1234', '2021-10-25', '07:00','09:00');
+	    
+select ex_day , TIMESTAMPDIFF(minute, ex_start_time , ex_end_time) as timediff
+	    from access
+	    where user_id = '1234'  
+	    
+	    
+	    
 update users set day='10', timediff='10' where user_id='1234';
