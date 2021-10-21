@@ -24,7 +24,7 @@ public class Restmember {
 	private mainMapper mapper;
 	
 	@RequestMapping(value="/infoCalender.do")
-    public List<Map<String, String>> infoCalender(@RequestParam("user_id") String user_id , Model model){
+    public List<accessController> infoCalender(@RequestParam("user_id") String user_id , Model model){
 		
 		Map<String, String> paramMap = new HashMap<String, String>();
 		List<Map<String, String>> MapList = new ArrayList<Map<String, String>>();
@@ -34,9 +34,10 @@ public class Restmember {
 			paramMap.put("time", day_time.get(i).getTimediff());
 			paramMap.put("day", day_time.get(i).getEx_day());
 			MapList.add(paramMap);
-			System.out.print(MapList.get(i));
+			
 		}
-        return MapList;
+		System.out.print(MapList.get(1));
+        return day_time;
         
 	}
 	

@@ -14,15 +14,26 @@
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
           initialView: 'dayGridMonth',
-          events:[{
-        	  title : "test1",
-        	  start : "2021-10-20"
-          },
-          {
-        	  title : "test2",
-        	  start : "2021-10-22"
-          }]
-          ,
+          events: function(info,successCallback, failureCallback){
+        	  $.ajax({
+         		 type: "post",
+          	     url: "/web/infoCalender.do?user_id=1234",
+          	     dataType: "json",
+          	     success: function(result){
+          	    	 console.log(result)
+          	    	 var events = [];
+          	    	 $.each(result,function(index,obj){
+          	    		events.push({
+          	    			start : obj.ex_day
+          	    		})
+          	    	 })
+          	    	console.log(events);
+          	    	successCallback(events);
+          	    	 }
+          	     
+          	     
+         	  });
+           },
         	  eventDidMount: function(info) {
         	    if (info.event.extendedProps.status === 'done') {
 
@@ -43,6 +54,6 @@
     </script>
   </head>
   <body>
-    <div id='calendar' ></div>
+    <div id='calendar' onclick = "goFin()">dasd</div>
   </body>
 </html>

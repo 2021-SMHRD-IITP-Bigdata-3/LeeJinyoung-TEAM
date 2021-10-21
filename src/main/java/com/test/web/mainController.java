@@ -107,9 +107,24 @@ public class mainController {
             rttr.addFlashAttribute("msg", false);
             return "redirect:/login.do";
         } else {
-        	System.out.print("로그인 성공");
-            session.setAttribute("member", member);
-            return "redirect:/main.do";
+        	if (member.getManager_yn() == 1) {
+        		System.out.print("로그인 성공");
+        		session.setAttribute("member", member);
+        		return "redirect:/admin.do";
+        	}else {
+	        	System.out.print("로그인 성공");
+	            session.setAttribute("member", member);
+	            return "redirect:/main.do";
+        	}
         }
+	}
+	
+	@RequestMapping(value="/insertJoin.do", method= {RequestMethod.GET, RequestMethod.POST})
+    public String insertJoin(guest memberVO ) {
+		
+		mapper.insertJoin(memberVO);
+        
+        
+        return "redirect:/join.do";
 	}
 }
