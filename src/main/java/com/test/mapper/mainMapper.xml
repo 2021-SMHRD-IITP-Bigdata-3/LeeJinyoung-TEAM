@@ -12,9 +12,15 @@
 		AND user_gym = #{user_gym}
 	</select>
 	
+	<select id="adminList" parameterType ="com.test.mapper.guest" resultType="com.test.mapper.guest">
+		SELECT *
+		FROM users
+		WHERE manager_yn = 0
+	</select>
+	
 	<insert  id="insertExName" parameterType ="com.test.mapper.exinfo" >
-	    insert into user_exercises( user_id, ex_name)
-	    values (#{user_id},#{ex_name})
+	    insert into user_exercises( user_id, ex_name, ex_kinds)
+	    values (#{user_id},#{ex_name}, #{ex_kinds})
 	</insert>
 	
 	<insert  id="insertJoin" parameterType ="com.test.mapper.guest" >

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>   
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -144,9 +145,9 @@ text-align: center;
 }
 
 .main_map {
-	width:100%;
-	height:100%;
-	background-color : #F1F2F6;
+   width:100%;
+   height:100%;
+   background-color : #F1F2F6;
 }
 
 .main_top {
@@ -283,7 +284,7 @@ top: 30px;
 </style>
 <script>
 window.onload = function() {
-	 
+    
     function onClick() {
         document.querySelector('.modal_wrap').style.display ='block';
         document.querySelector('.black_bg').style.display ='block';
@@ -304,7 +305,7 @@ window.onload = function() {
         document.querySelector('.user_wrap').style.display ='none';
         document.querySelector('.user_bg').style.display ='none';
     }
-	
+   
     document.getElementById('user_yes1').addEventListener('click', onClick1);
     document.getElementById('user_yes2').addEventListener('click', onClick1);
     document.getElementById('user_yes3').addEventListener('click', onClick1);
@@ -320,168 +321,87 @@ window.onload = function() {
     document.querySelector('.user_bg').addEventListener('click', offClick1);
 
 }
-function gomember(){
-	location.href =  "/web/admin_member.do";
+function changeMonth(month){
+	location.href = "/web/changeMonth.do?mem"
 }
-
-function gojoin(){
-	location.href =  "/web/join.do";
-}
-
-function gorecord(){
-	location.href =  "/web/record_click.do";
-}
-
 </script>
 </head>
 <body>
 
-	<div class="black_bg"></div>
-	<div class="modal_wrap">
-		<div class = "modal_top">
-			<div id="NSK_font" style = "font-size:80px;"><b><br>관리자 님</b></div>
-		</div>
-		<br><br>
-		<div class = "modal_mid">
-			<div class = "modal_mid_mid">
-				<div class = "modal_mid_left"><img id="moicon" src="resources/img/diary.png" onclick = "gomember()"></div>
-				<div class = "modal_mid_right"><b id = "modal_mid_b" onclick = "gomember()">회원 관리</b></div>
-			</div>	
-			<div class = "modal_mid_mid">
-				<div class = "modal_mid_left"><img id="moicon" src="resources/img/dumbbell.png" onclick = "gojoin()"></div>
-				<div class = "modal_mid_right"><b id = "modal_mid_b" onclick = "gojoin()">회원 가입</b></div>
-			</div>
-			<div class = "modal_mid_mid">
-				<div class = "modal_mid_left"><img id="moicon" src="resources/img/training.png" onclick = "gorecord()"></div>
-				<div class = "modal_mid_right"><b id = "modal_mid_b" onclick = "gorecord()">회원 영상</b></div>
-			</div>		
-	</div>
-	
-	<div class="user_bg"></div>
-	<div class="user_wrap">
-		<div class = "user_top">
-			<div><input type="button" class="user_button" value="1개월"></div>
-			<div><input type="button" class="user_button" value="3개월"></div>
-			<div><input type="button" class="user_button" value="6개월"></div>
-			<div><input type="button" class="user_button" value="12개월"></div>
-			<div><input type="button" class="user_button" value="수기"></div>
-		</div>
-	</div>	
+   <div class="black_bg"></div>
+   <div class="modal_wrap">
+      <div class = "modal_top">
+         <div id="NSK_font" style = "font-size:80px;"><b><br>관리자 님</b></div>
+      </div>
+      <br><br>
+      <div class = "modal_mid">
+         <div class = "modal_mid_mid">
+            <div class = "modal_mid_left"><img id="moicon" src="resources/img/diary.png"></div>
+            <div class = "modal_mid_right"><b id = "modal_mid_b">회원 관리</b></div>
+         </div>   
+         <div class = "modal_mid_mid">
+            <div class = "modal_mid_left"><img id="moicon" src="resources/img/dumbbell.png"></div>
+            <div class = "modal_mid_right"><b id = "modal_mid_b">회원 가입</b></div>
+         </div>
+         <div class = "modal_mid_mid">
+            <div class = "modal_mid_left"><img id="moicon" src="resources/img/training.png"></div>
+            <div class = "modal_mid_right"><b id = "modal_mid_b">회원 영상</b></div>
+         </div>      
+      </div>
+   </div>
+   
+   <div class="user_bg"></div>
+   <div class="user_wrap">
+      <div class = "user_top">
+      <form action="admin_member" method="post" name="changeMonth">
+         <div><input type="button" class="user_button" value="1개월" onclick = "changeMonth('1')" ></div>
+         <div><input type="button" class="user_button" value="3개월" onclick = "changeMonth('3')"></div>
+         <div><input type="button" class="user_button" value="6개월" onclick = "changeMonth('6')"></div>
+         <div><input type="button" class="user_button" value="12개월" onclick = "changeMonth('12')"></div>
+      </form>
+      </div>
+   </div>   
 
-	<div class="main_map" id="NSK_font">
-	
-		<div class="main_top" style = "text-align : center;">
-			<div class="top_left">
-				<h1 style = "font-size:110px;">The Ai Fitness</h1>
-			</div>
-			<div class="top_right">
-			
-				<img id="modal_btn" src="resources/img/화살표.png"
-					style="width: 200px; height: 200px;">
-			</div>
-		</div>
-		
-		<div class="main_mid" style = "text-align : center;">
-			<div class="mid_text">
-				<input style="width:400px;height:100px;font-size:50px;
-				font-family:Regular;" type="text" id="user_name"
-				placeholder="회원 이름 검색">
-			</div>
-		</div>
-		
-		<div class="main_bot">
-			<div class="bot_view">
-				<div class="bot_userlib1"></div>
-				
-				<div class="bot_user">
-					<div class="bot_user_left"><b id="user_b">노유종 기한 : 2021. 10. 31</b></div>
-					<div class="bot_user_right">
-						<input type="button" id="user_yes1" class="user_yess" value="연장">
-						<input type="button" class="user_no" value="해지">
-					</div>
-				</div>
-				<div class="bot_user">
-					<div class="bot_user_left"><b id="user_b">김철수 기한 : 2021. 10. 22</b></div>
-					<div class="bot_user_right">
-						<input type="button" id="user_yes2" class="user_yess" value="연장">
-						<input type="button" class="user_no" value="해지">
-					</div>
-				</div>
-				<div class="bot_user">
-					<div class="bot_user_left"><b id="user_b">아니요 기한 : 2021. 10. 22</b></div>
-					<div class="bot_user_right">
-						<input type="button" id="user_yes3" class="user_yess" value="연장">
-						<input type="button" class="user_no" value="해지">
-					</div>
-				</div>
-				<div class="bot_user">
-					<div class="bot_user_left"><b id="user_b">번호 기한 : 2021. 10. 22</b></div>
-					<div class="bot_user_right">
-						<input type="button" id="user_yes4" class="user_yess" value="연장">
-						<input type="button" class="user_no" value="해지">
-					</div>
-				</div>
-				<div class="bot_user">
-					<div class="bot_user_left"><b id="user_b">하나 기한 : 2021. 10. 22</b></div>
-					<div class="bot_user_right">
-						<input type="button" id="user_yes5" class="user_yess" value="연장">
-						<input type="button" class="user_no" value="해지">
-					</div>
-				</div>
-				<div class="bot_user">
-					<div class="bot_user_left"><b id="user_b">둘 기한 : 2021. 10. 22</b></div>
-					<div class="bot_user_right">
-						<input type="button" id="user_yes6" class="user_yess" value="연장">
-						<input type="button" class="user_no" value="해지">
-					</div>
-				</div>
-				<div class="bot_user">
-					<div class="bot_user_left"><b id="user_b">셋 기한 : 2021. 10. 22</b></div>
-					<div class="bot_user_right">
-						<input type="button" id="user_yes7" class="user_yess" value="연장">
-						<input type="button" class="user_no" value="해지">
-					</div>
-				</div>
-				<div class="bot_user">
-					<div class="bot_user_left"><b id="user_b">넷 기한 : 2021. 10. 22</b></div>
-					<div class="bot_user_right">
-						<input type="button" id="user_yes8" class="user_yess" value="연장">
-						<input type="button" class="user_no" value="해지">
-					</div>
-				</div>
-				<div class="bot_user">
-					<div class="bot_user_left"><b id="user_b">다섯 기한 : 2021. 10. 22</b></div>
-					<div class="bot_user_right">
-						<input type="button" id="user_yes9" class="user_yess" value="연장">
-						<input type="button" class="user_no" value="해지">
-					</div>
-				</div>
-				<div class="bot_user">
-					<div class="bot_user_left"><b id="user_b">여섯 기한 : 2021. 10. 22</b></div>
-					<div class="bot_user_right">
-						<input type="button" id="user_yes10" class="user_yess" value="연장">
-						<input type="button" class="user_no" value="해지">
-					</div>
-				</div>
-				<div class="bot_user">
-					<div class="bot_user_left"><b id="user_b">일곱 기한 : 2021. 10. 22</b></div>
-					<div class="bot_user_right">
-						<input type="button" id="user_yes11" class="user_yess" value="연장">
-						<input type="button" class="user_no" value="해지">
-					</div>
-				</div>
-				<div class="bot_user">
-					<div class="bot_user_left"><b id="user_b">여덟 기한 : 2021. 10. 22</b></div>
-					<div class="bot_user_right">
-						<input type="button" id="user_yes12" class="user_yess" value="연장">
-						<input type="button" class="user_no" value="해지">
-					</div>
-				</div>saasdad
-						
-				<div class="bot_userlib2"></div>
-			</div>
-		</div>
-	</div>
+   <div class="main_map" id="NSK_font">
+   
+      <div class="main_top" style = "text-align : center;">
+         <div class="top_left">
+            <h1 style = "font-size:110px;">The Ai Fitness</h1>
+         </div>
+         <div class="top_right">
+         
+            <img id="modal_btn" src="resources/img/화살표.png"
+               style="width: 200px; height: 200px;">
+         </div>
+      </div>
+      
+      <div class="main_mid" style = "text-align : center;">
+         <div class="mid_text">
+            <input style="width:400px;height:100px;font-size:50px;
+            font-family:Regular;" type="text" id="user_name"
+            placeholder="회원 이름 검색">
+         </div>
+      </div>
+      
+      <div class="main_bot">
+         <div class="bot_view">
+            <div class="bot_userlib1"></div>
+            
+            <c:forEach var= 'vo' items = "${member}">
+	            <div class="bot_user">
+	               <div class="bot_user_left"><b id="user_b">${vo.user_name } 기한 :${vo.user_expire_date }</b></div>
+	               <div class="bot_user_right">
+	                  <input type="button" id="user_yes1" class="user_yess" value="연장">
+	                  <input type="button" class="user_no" value="해지">
+	               </div>
+	            </div>
+            </c:forEach>
+
+                  
+            <div class="bot_userlib2"></div>
+         </div>
+      </div>
+   </div>
 
 </body>
 </html>

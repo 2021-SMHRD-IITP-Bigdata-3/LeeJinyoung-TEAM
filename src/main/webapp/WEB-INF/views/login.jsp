@@ -133,16 +133,12 @@ html, body {
 					 <optgroup label="서울">  
 					 	<option font-family="Regular"  value ="강남점" >강남점</option>
 					 </optgroup>
-					 
 					 <optgroup label="부산">  
 					 	<option font-family="Regular" value ="해운대점" >해운대점</option>
 					 </optgroup>
-					 
 					 <optgroup label="광주">  
-
 					 	<option font-family="Regular"  value ="광주남구" >광주남구</option>
 					 </optgroup>						
-
 					 </td>
 					 </tr>
 					 

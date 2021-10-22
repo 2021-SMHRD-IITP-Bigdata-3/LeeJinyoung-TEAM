@@ -11,8 +11,5 @@ public class exinfo {
 	private int ex_seq;
 	private String user_id;
 	private String ex_name;
-	private String ex_start_time;
-	private String ex_end_time;
-	private String ex_count;
-	private String ex_calory;
+	private String ex_kinds;
 }

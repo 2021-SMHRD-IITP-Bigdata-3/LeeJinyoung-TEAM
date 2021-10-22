@@ -24,14 +24,14 @@
           	    	 var events = [];
           	    	 $.each(result,function(index,obj){
           	    		events.push({
-          	    			start : obj.ex_day
+          	    			start : obj.ex_day,
+          	    			title : obj.timediff
           	    		})
           	    	 })
           	    	console.log(events);
           	    	successCallback(events);
           	    	 }
-          	     
-          	     
+
          	  });
            },
         	  eventDidMount: function(info) {

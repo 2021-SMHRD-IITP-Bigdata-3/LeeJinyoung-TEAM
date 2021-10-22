@@ -18,5 +18,7 @@ public interface mainMapper {
 
 	public List<accessController> infoCalender(String user_id);
 
+	public List<guest> adminList();
+
 
 }

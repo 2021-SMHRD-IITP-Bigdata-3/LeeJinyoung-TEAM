@@ -20,10 +20,20 @@ CREATE TABLE user_exercises
 (
     ex_seq           int(100)      NOT NULL  AUTO_INCREMENT, 
     user_id          VARCHAR(20)       NULL, 
+    ex_name          VARCHAR(20)      NULL,
+    ex_kinds          VARCHAR(20)      NULL, 
+    CONSTRAINT FK_user_exercises PRIMARY KEY (ex_seq),
+    FOREIGN KEY (user_id) REFERENCES users (user_id)
+)
+
+CREATE TABLE user_exercises
+(
+    ex_seq           int(100)      NOT NULL  AUTO_INCREMENT, 
+    user_id          VARCHAR(20)       NULL, 
     ex_name          VARCHAR(20)      NULL, 
     ex_start_time    DATE              NULL, 
     ex_end_time      DATE     NULL, 
-    ex_count         int(30)     NULL, 
+    ex_count         int(30)     NULL,
     CONSTRAINT FK_user_exercises PRIMARY KEY (ex_seq),
     FOREIGN KEY (user_id) REFERENCES users (user_id)
 )
@@ -40,8 +50,11 @@ INSERT INTO users (user_id, user_name, user_gym)
 VALUES('1234', '이진영2', '광주남구');
 
 
+insert into user_exercises(user_id , ex_name, ex_kinds)
+values('1234','체스트프레스','팔')
 
-
+insert into user_exercises(user_id , ex_name, ex_kinds)
+values('1234','벤치프레스','팔')
 
 
 select * from users

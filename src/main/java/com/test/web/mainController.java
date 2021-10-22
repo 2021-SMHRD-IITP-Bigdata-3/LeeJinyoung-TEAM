@@ -31,7 +31,9 @@ public class mainController {
 	}
 	
 	@RequestMapping("/admin_member.do")
-	public String admin_member() {
+	public String admin_member(Model model) {
+		List<guest> member = mapper.adminList();
+		model.addAttribute("member", member);
 		return "admin_member";
 	}
 	@RequestMapping("/test.do")
@@ -77,7 +79,7 @@ public class mainController {
 		return "cam"; 
 	}	
 	
-	@RequestMapping(value="/insertExName.do", method= {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value="/insertExName.do")
     public String insertExName(exinfo memberVO , HttpServletRequest req,  RedirectAttributes rttr) throws Exception {
 		
 		System.out.println(memberVO.getUser_id());
