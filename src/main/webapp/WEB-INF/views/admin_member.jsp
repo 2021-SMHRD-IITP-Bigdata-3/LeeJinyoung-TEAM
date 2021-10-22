@@ -321,9 +321,20 @@ window.onload = function() {
     document.querySelector('.user_bg').addEventListener('click', offClick1);
 
 }
-function changeMonth(month){
-	location.href = "/web/changeMonth.do?mem"
+function moveName(user_id){
+
+	console.log(user_id);
+
+	function insertMonth(month){
+		//console.log(user_id);
+		console.log(month);
+		
+	}
+	//location.href = "/web/changeMonth.do?mem"
 }
+	
+
+	
 </script>
 </head>
 <body>
@@ -354,10 +365,10 @@ function changeMonth(month){
    <div class="user_wrap">
       <div class = "user_top">
       <form action="admin_member" method="post" name="changeMonth">
-         <div><input type="button" class="user_button" value="1개월" onclick = "changeMonth('1')" ></div>
-         <div><input type="button" class="user_button" value="3개월" onclick = "changeMonth('3')"></div>
-         <div><input type="button" class="user_button" value="6개월" onclick = "changeMonth('6')"></div>
-         <div><input type="button" class="user_button" value="12개월" onclick = "changeMonth('12')"></div>
+         <div><input type="button" class="user_button" value="1개월" onclick = "insertMonth('1')" ></div>
+         <div><input type="button" class="user_button" value="3개월" onclick = "insertMonth('3')"></div>
+         <div><input type="button" class="user_button" value="6개월" onclick = "insertMonth('6')"></div>
+         <div><input type="button" class="user_button" value="12개월" onclick = "insertMonth('12')"></div>
       </form>
       </div>
    </div>   
@@ -382,7 +393,6 @@ function changeMonth(month){
             placeholder="회원 이름 검색">
          </div>
       </div>
-      
       <div class="main_bot">
          <div class="bot_view">
             <div class="bot_userlib1"></div>
@@ -391,13 +401,11 @@ function changeMonth(month){
 	            <div class="bot_user">
 	               <div class="bot_user_left"><b id="user_b">${vo.user_name } 기한 :${vo.user_expire_date }</b></div>
 	               <div class="bot_user_right">
-	                  <input type="button" id="user_yes1" class="user_yess" value="연장">
+	                  <input type="button" id="user_yes1" class="user_yess" value="연장" onclick = "moveName('${vo.user_id }')">
 	                  <input type="button" class="user_no" value="해지">
 	               </div>
 	            </div>
-            </c:forEach>
-
-                  
+            </c:forEach>   
             <div class="bot_userlib2"></div>
          </div>
       </div>
