@@ -8,48 +8,6 @@
     <title>Web Cam Video</title>
     <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
-    <script>
-    const recordButton = document.querySelector(".record-button")
-    const stopButton = document.querySelector(".stop-button")
-    const playButton = document.querySelector(".play-button")
-    const downloadButton = document.querySelector(".download-button")
-    const previewButton = document.querySelector("#preview")
-    const recordingButton = document.querySelector("#recording")
-    
-    //중지하기위한 변수
-    let recorder;
-    let recordedChunks;
-    //function
-    function videoStart(){
-    	navigator.mediaDevices.getUserMedia({video:true, audio : true})
-    		.then(stream=> {
-    		previewPlayer.srcObject = stream;
-    		startRecord(previewPlayer.captureStream())
-    		
-    		})
-    }
-    function startRecording(stream){
-    	ecordedChunks=[];
-    	recorder = new MediaRecorder(stream);
-    	recorder.ondataavilable = (e)=>{recordedChunks.push(e.data)}
-    	recorder.start()
-    }
-    function stopRecording(){
-    	previewPlayer.srcObject.getTracks().forEach(track=> track.stop());
-    	recorder.stop()
-    	console.log(recordedChunks)
-    }
-    function playRecording(){
-    	const recordedBlob = new Blob(recordedChunks, {type : "video/webm"});
-    	recordingPlayer.src = URL.createObjectURL(recordedBlob);
-    	recordingPlayer.play()
-    }
-    
-    //event
-    recordButton.addEventListner("click",videoStart)
-    stopButton.addEventListner("click",stopRecording);
-    playButton.addEventListner("click",playRecording);
-    </script>
     <style>
     *{
     	margin : 0;
@@ -107,6 +65,47 @@
 			</div>
 		</div>
 	</div>
-      
+    <script>
+    const recordButton = document.querySelector(".record-button")
+    const stopButton = document.querySelector(".stop-button")
+    const playButton = document.querySelector(".play-button")
+    const downloadButton = document.querySelector(".download-button")
+    const previewButton = document.querySelector("#preview")
+    const recordingButton = document.querySelector("#recording")
+    
+    //중지하기위한 변수
+    let recorder;
+    let recordedChunks;
+    //function
+    function videoStart(){
+    	navigator.mediaDevices.getUserMedia({video:true, audio : true})
+    		.then(stream => console.log(stream))
+    }
+    /*
+    function startRecording(stream){
+    	recordedChunks=[];
+    	recorder = new MediaRecorder(stream);
+    	recorder.ondataavilable = (e) => {recordedChunks.push(e.data)}
+    	recorder.start()
+    }
+    function stopRecording(){
+    	previewPlayer.srcObject.getTracks().forEach(track=> track.stop());
+    	recorder.stop()
+    	console.log(recordedChunks)
+    }
+    function playRecording(){
+    	const recordedBlob = new Blob(recordedChunks, {type : "video/webm"});
+    	recordingPlayer.src = URL.createObjectURL(recordedBlob);
+    	recordingPlayer.play()
+//    	downloadButton.href = recordingPlayer.src;
+//    	downloadButton.download = 'recording_${new Date().webm}'
+//    	console.log(recordingPlayer.src)
+    }
+    */
+    //event
+    recordButton.addEventListener("click",videoStart);
+    //stopButton.addEventListener("click",stopRecording);
+    //playButton.addEventListener("click",playRecording);
+    </script>
 </body>
 </html>
