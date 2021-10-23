@@ -14,6 +14,33 @@ body{
 	height: 100%;
 }
 
+.fc-prev-button{
+	color: #fff;
+    color: var(--fc-button-text-color, #fff);
+    background-color: #f1f2f6;
+    background-color: var(--fc-button-bg-color, #f1f2f6); /* 위 화살표 */ 
+    border-color: #f1f2f6;
+    border-color: var(--fc-button-border-color, #f1f2f6); /* 위 화살표 테두리 */ 
+}
+
+.fc-prev-button{
+	color: #fff;
+    color: var(--fc-button-text-color, #fff);
+    background-color: #f1f2f6;
+    background-color: var(--fc-button-bg-color, #f1f2f6); /* 위 화살표 */ 
+    border-color: #f1f2f6;
+    border-color: var(--fc-button-border-color, #f1f2f6); /* 위 화살표 테두리 */ 
+}
+
+.fc-next-button{
+	color: #fff;
+    color: var(--fc-button-text-color, #fff);
+    background-color: #f1f2f6;
+    background-color: var(--fc-button-bg-color, #f1f2f6); /* 위 화살표 */ 
+    border-color: #f1f2f6;
+    border-color: var(--fc-button-border-color, #f1f2f6); /* 위 화살표 테두리 */ 
+}
+
 .fc-event-title-container{
 	z-index:2;
 }
@@ -123,12 +150,14 @@ body{
   -moz-osx-font-smoothing: grayscale;
 }
 
-.fc-icon-chevron-left:before {
-  content: "\e900";
+.fc-icon-chevron-left:before { /* 왼쪽 화살표 */
+  content: "\2B05";
+  color: #DACDF5;
 }
 
-.fc-icon-chevron-right:before {
-  content: "\e901";
+.fc-icon-chevron-right:before { /* 오른쪽 화살표 */
+  content: "\27A1";
+  color: #DACDF5;
 }
 
 .fc-icon-chevrons-left:before {
@@ -224,9 +253,9 @@ When it's NOT activated, the fc-button classes won't even be in the DOM.
     color: #fff;
     color: var(--fc-button-text-color, #fff);
     background-color: #DACDF5;
-    background-color: var(--fc-button-bg-color, #DACDF5); /* 위 화살표 */
+    background-color: var(--fc-button-bg-color, #DACDF5); /* 위 화살표 */ 
     border-color: #DACDF5;
-    border-color: var(--fc-button-border-color, #DACDF5); /* 위 화살표 테두리*/
+    border-color: var(--fc-button-border-color, #DACDF5); /* 위 화살표 테두리 */ 
   }
 .fc .fc-button-primary:hover { /* 눌렀을때! */
     color: #fff;
