@@ -297,24 +297,43 @@ window.onload = function() {
     document.getElementById('modal_btn').addEventListener('click', onClick);
     document.querySelector('.black_bg').addEventListener('click', offClick);
 
-    function onClick1() {
+    var onClick11 = function onClick1() {
         document.querySelector('.user_wrap').style.display ='block';
         document.querySelector('.user_bg').style.display ='block';
-    }   
+    };   
     function offClick1() {
         document.querySelector('.user_wrap').style.display ='none';
         document.querySelector('.user_bg').style.display ='none';
     }
    	
+    var className = document.getElementsByClassName('user_yess');
+    for(var i = 0; i<className.length;i++){
+    	className[i].addEventListener('click', onClick11, false);
+    }
     
-    // document.getElementsByClassName('.user_yess').addEventListener('click', onClick1);
+    // document.getElementById('user_yes1').addEventListener('click', onClick1);
+    // document.getElementById('user_yes2').addEventListener('click', onClick1);
+    // document.getElementById('user_yes3').addEventListener('click', onClick1);
+    // document.getElementById('user_yes4').addEventListener('click', onClick1);
+	
 
     document.querySelector('.user_bg').addEventListener('click', offClick1);
 
 }
-function changeMonth(month){
-	location.href = "/web/changeMonth.do?mem"
+
+//var user_id;
+//function get_user_id(id){
+//	user_id = id;
+//	console.log(user_id);
+//	return user_id
+//}
+
+function insertMonth(month){
+	location.href =  "/web/extensionMember.do?user_id="+user_id+"&month="+month;
+	
 }
+
+	
 </script>
 </head>
 <body>
@@ -345,10 +364,10 @@ function changeMonth(month){
    <div class="user_wrap">
       <div class = "user_top">
       <form action="admin_member" method="post" name="changeMonth">
-         <div><input type="button" class="user_button" value="1개월" onclick = "changeMonth('1')" ></div>
-         <div><input type="button" class="user_button" value="3개월" onclick = "changeMonth('3')"></div>
-         <div><input type="button" class="user_button" value="6개월" onclick = "changeMonth('6')"></div>
-         <div><input type="button" class="user_button" value="12개월" onclick = "changeMonth('12')"></div>
+         <div><input type="button" class="user_button" value="1개월" onclick = "insertMonth('1')" ></div>
+         <div><input type="button" class="user_button" value="3개월" onclick = "insertMonth('3')"></div>
+         <div><input type="button" class="user_button" value="6개월" onclick = "insertMonth('6')"></div>
+         <div><input type="button" class="user_button" value="12개월" onclick = "insertMonth('12')"></div>
       </form>
       </div>
    </div>   
@@ -373,23 +392,21 @@ function changeMonth(month){
             placeholder="회원 이름 검색">
          </div>
       </div>
-      
       <div class="main_bot">
          <div class="bot_view">
             <div class="bot_userlib1"></div>
             
             <c:forEach var= 'vo' items = "${member}">
-            	<c:set var="i" value="${i+1 }"/>
+            	<c:set var="i" value="${i+1}"/>
 	            <div class="bot_user">
 	               <div class="bot_user_left"><b id="user_b">${vo.user_name } 기한 :${vo.user_expire_date }</b></div>
 	               <div class="bot_user_right">
-	                  <input type="button" id="user_yes${i}" class="user_yess" value="연장" >
-	                  <input type="button" class="user_no" value="해지" onClick='return onClick1();'>
+	                  <input type="button" id="user_yes${i}" class="user_yess" value="연장" onClick="get_user_id('${vo.user_id }')">
+	                  <input type="button" class="user_no" value="해지" >
+
 	               </div>
 	            </div>
-            </c:forEach>
-
-                  
+            </c:forEach>   
             <div class="bot_userlib2"></div>
          </div>
       </div>

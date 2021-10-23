@@ -12293,6 +12293,7 @@ var FullCalendar = (function (exports) {
         return { allSegs: allSegs, invisibleSegs: invisibleSegs };
     }
 
+	
     var DEFAULT_WEEK_NUM_FORMAT$1 = createFormatter({ week: 'narrow' });
     var TableCell = /** @class */ (function (_super) {
         __extends(TableCell, _super);

@@ -20,5 +20,7 @@ public interface mainMapper {
 
 	public List<guest> adminList();
 
+	public void extensionMember(guest memberVO);
+
 
 }

@@ -20,4 +20,5 @@ public class guest {
 	private String time;
 	private int manager_yn;
 	private String ad_comment;
+	private int month;
 }

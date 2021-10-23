@@ -36,6 +36,14 @@ public class mainController {
 		model.addAttribute("member", member);
 		return "admin_member";
 	}
+	
+	@RequestMapping("/extensionMember.do")
+	public String extensionMember(guest memberVO,Model model) {
+		
+		mapper.extensionMember(memberVO);
+		return  "redirect:/admin_member.do";
+	}
+	
 	@RequestMapping("/test.do")
 	public String test() {
 		return "test";

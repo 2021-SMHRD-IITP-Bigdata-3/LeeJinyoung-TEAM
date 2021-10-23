@@ -150,6 +150,101 @@ font-size:40px;
 text-align: center;
 }
 
+.modal2_wrap{
+        display: none;
+        width: 80%;
+        height: 50%;
+        position: absolute;
+        top:30%;
+        left: 30%;
+        margin: -254px 0 0 -236px;
+        background:#FFFFFF;
+        z-index: 3;
+        border-radius: 5em;
+ }
+ 
+.modal2_top{
+width:100%;
+height:40%;
+text-align: center;
+padding: 0px 0px 0px 0px;
+}
+
+.modal2_top_top{
+width:100%;
+height:30%;
+text-align: center;
+padding: 30px 0px 0px 0px;
+}
+
+.modal2_top_left{
+font-size:60px;
+width:65%;
+height:100%;
+float:left;
+text-align: left;
+padding: 40px 0px 0px 40px;
+}
+
+.modal2_top_right{
+font-size:50px;
+width:20%;
+height:100%;
+float:right;
+text-align: right;
+padding: 60px 50px 0px 0px;
+}
+ 
+.modal2_top_bot{
+border-top: 10px solid #C6C6C6;
+font-size:50px;
+width:100%;
+height:40%;
+text-align: left;
+padding: 0px 0px 0px 50px;
+}
+
+.modal2_mid{
+width:100%;
+height:40%;
+text-align: center;
+padding: 0px 0px 0px 0px;
+}
+
+.modal2_mid_top{
+width:100%;
+height:30%;
+text-align: center;
+padding: 30px 0px 0px 0px;
+}
+
+.modal2_mid_left{
+font-size:60px;
+width:65%;
+height:100%;
+float:left;
+text-align: left;
+padding: 40px 0px 0px 40px;
+}
+
+.modal2_mid_right{
+font-size:50px;
+width:20%;
+height:100%;
+float:right;
+text-align: right;
+padding: 60px 50px 0px 0px;
+}
+ 
+.modal2_mid_bot{
+border-top: 10px solid #C6C6C6;
+font-size:50px;
+width:100%;
+height:40%;
+text-align: left;
+padding: 0px 0px 0px 50px;
+}
+
 .main_map {
 	width:100%;
 	height:100%;
@@ -225,8 +320,13 @@ hue-rotate(201deg) brightness(88%) contrast(84%);
 
 </style>
 <script>
+function clickKal(){
+	console.log("test")
+}
+
 window.onload = function() {
-	 
+	
+	
     function onClick() {
         document.querySelector('.modal_wrap').style.display ='block';
         document.querySelector('.black_bg').style.display ='block';
@@ -238,6 +338,22 @@ window.onload = function() {
  
     document.getElementById('modal_btn').addEventListener('click', onClick);
     document.querySelector('.black_bg').addEventListener('click', offClick);
+    
+    var myFunction = function onClick2() {
+        document.querySelector('.modal2_wrap').style.display ='block';
+        document.querySelector('.black_bg').style.display ='block';
+    };   
+    function offClick2() {
+        document.querySelector('.modal2_wrap').style.display ='none';
+        document.querySelector('.black_bg').style.display ='none';
+    }
+
+    var className = document.getElementsByClassName('fc-event-title-container');
+    for(var i = 0; i < className.length; i++){
+    	className[i].addEventListener('click', myFunction, false);
+    }
+	
+    document.querySelector('.black_bg').addEventListener('click', offClick2);
 }
 </script>
   </head>
@@ -270,6 +386,39 @@ window.onload = function() {
 		</div>
 		<div class = "modal_bot">
 			<div id="NSK_font">고객센터     010-4903-4073</div>
+		</div>
+	</div>
+	
+	<div class="modal2_wrap">
+		<div class = "modal2_top">
+			<div class="modal2_top_top">
+				<div class = "modal2_top_left"> 
+					<div id="NSK_font"><b>체스트 프레스</b></div>
+				</div>
+				<div class = "modal2_top_right">
+					<div id="NSK_font">4set</div>
+				</div>
+			</div>
+			<div id="NSK_font" class="modal2_top_bot">	
+				<div id="NSK_font">1set x 12reps<br>2set x 12reps
+				<br>3set x 12reps<br>4set x 12reps</div>
+			</div>
+		</div>
+		
+		<div class = "modal2_mid">
+			<div class="modal2_mid_top">
+				<div class = "modal2_mid_left"> 
+					<div id="NSK_font"><b>인클라인 체스트 프레스</b></div>
+				</div>
+				<div class = "modal2_mid_right">
+					<div id="NSK_font">4set</div>
+				</div>	
+			</div>
+			<div id="NSK_font" class="modal2_mid_bot">	
+				<div id="NSK_font">1set x 12reps<br>2set x 12reps
+				<br>3set x 12reps<br>4set x 12reps</div>
+			</div>
+			
 		</div>
 	</div>
 	

@@ -14,6 +14,10 @@ body{
 	height: 100%;
 }
 
+.fc-event-title-container{
+	z-index:2;
+}
+
 /* classes attached to <body> */
 /* TODO: make fc-event selector work when calender in shadow DOM */
 .fc-not-allowed,
