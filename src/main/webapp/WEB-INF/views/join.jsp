@@ -179,7 +179,7 @@ top:30%;
    	text-align:center;
 }
 
-#user_gym{
+#user_gym2{
  	position:relative;
    	border-radius:20px 0px 0px 20px;
    	background-color:rgb(178,178,178);
@@ -293,15 +293,15 @@ window.onload = function() {
  
     document.getElementById('modal_btn').addEventListener('click', onClick);
     document.querySelector('.black_bg').addEventListener('click', offClick);   
-   	     
-
 		}
-
+function successJoin(){
+	alert("회원가입 성공")
+}
 </script>
 
 </head>
 <body bgcolor="EFEFEF">
-
+<form action="/web/insertJoin.do" method ="post" >
 <div class="black_bg"></div>
 	<div class="modal_wrap">
 		<div class = "modal_top">
@@ -328,9 +328,6 @@ window.onload = function() {
 			</div>		
 		</div>
 	</div>
-	
-
-
 
 		<div class="main_top" style = "text-align : center;">
 			<div class="top_left">
@@ -362,19 +359,37 @@ window.onload = function() {
 		
 			<tr>
 				<td id="name"> <a> 성함 </a> </td>
+<<<<<<< HEAD
 				<td style="width:65%"> <input id="user_name"; style="width:87%; height:55px;font-size:60px; type:text"; placeholder="입력 칸";> </td>
+=======
+				<td style="width:65%"> <input id="user_name" name="user_name" style="width:100%; height:150px;font-size:60px; type:text"; placeholder="입력 칸";> </td>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/LeeJinyoung-TEAM.git
 			</tr>
 		</table>
 	
 	</div>
+		<div style="width:100%; height:200px;"> 
+	<hr style="border: solid 1px gray;">
+		<table align="center">
+		
+			<tr>
+				<td id="phone"> <a>휴대폰 번호</a> </td>
+				<td style="width:65%"> <input id="user_name" name="user_phone" style="width:100%; height:150px;font-size:60px; type:text"; placeholder="입력 칸";> </td>
+			</tr>
+		</table>
 	
+	</div>
 	<div style="width:100%; height:200px;">
 	<hr style="border: solid 1px gray;">
 		<table align="center">
 			<tr>
 			
 				<td id="birth"> <a> 생년월일 </a> </td>
+<<<<<<< HEAD
 				<td style="width:65%"> <input id="user_birthdate"; style="width:87%; height:55px;font-size:60px; type:text"; placeholder="입력 칸";> </td>
+=======
+				<td style="width:65%"> <input id="user_birthdate" name = "user_birthdate" style="width:100%; height:150px;font-size:60px; type:text"; placeholder="입력 칸";> </td>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/LeeJinyoung-TEAM.git
 			</tr>
 		</table>
 	</div>
@@ -383,8 +398,13 @@ window.onload = function() {
 	<hr style="border: solid 1px gray;">
 		<table align="center">
 			<tr>
+<<<<<<< HEAD
 				<td id="date"> <a> 등록일 </a> </td>
 				<td style="width:65%"> <input id="user_joindate"; style="width:87%; height:55px;font-size:60px; type:text"; placeholder="입력 칸";> </td>
+=======
+				<td id="date"> <a> 개월수 </a> </td>
+				<td style="width:65%"> <input id="user_joindate" name = "user_expire_date" style="width:100%; height:150px;font-size:60px; type:text"; placeholder="입력 칸";> </td>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/LeeJinyoung-TEAM.git
 			</tr>
 		</table>
 	</div>
@@ -396,19 +416,34 @@ window.onload = function() {
 				<td id="gym" style="width:35%"> <a> 지점명 </a> </td>
 				<td style="width:760px"> 
 				
+<<<<<<< HEAD
 					<select id=user_gym> 
 						 <option id=b> 입력 칸 </option>
+=======
+					<select id=user_gym2 name = "user_gym" > 
+						 <option name = "user_gym"> 입력 칸 </option>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/LeeJinyoung-TEAM.git
 						 
 					 <optgroup id=b label="서울">  
 					 	<option id=b value ="강남점" >강남점</option>
 					 </optgroup>
 					 
+<<<<<<< HEAD
 					 <optgroup id=b label="부산">  
 					 	<option id=b value ="해운대점" >해운대점</option>
+=======
+					 <optgroup label="부산">  
+					 	<option value ="해운대점"  >해운대점</option>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/LeeJinyoung-TEAM.git
 					 </optgroup>
 					 
+<<<<<<< HEAD
 					 <optgroup id=b label="광주">  
 					 	<option id=b value ="광주남구" >광주남구</option>
+=======
+					 <optgroup label="광주">  
+					 	<option value ="광주남구"  >광주남구</option>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/LeeJinyoung-TEAM.git
 					 </optgroup>
 					
 					</select>
@@ -417,9 +452,13 @@ window.onload = function() {
 			</tr>
 		</table>
 	</div>
-	
+</form>
 	<div style="width:100%; height:250px;"> 
+<<<<<<< HEAD
 		<div align="center"> <input id="button" style="width:250px; height:150px;font-size:50px;" class="button" type = "submit" value ="제출"> </div>
+=======
+		<div align="center"> <input id="button" style="width:250px; height:150px;font-size:60px;" class="button" type = "submit" value ="제출" onclick = "successJoin()"> </div>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/LeeJinyoung-TEAM.git
 	</div>	
 	
 	</div>

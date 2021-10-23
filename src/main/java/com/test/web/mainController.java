@@ -31,25 +31,28 @@ public class mainController {
 	}
 	
 	@RequestMapping("/admin_member.do")
-	public String admin_member() {
+	public String admin_member(Model model) {
+		List<guest> member = mapper.adminList();
+		model.addAttribute("member", member);
 		return "admin_member";
 	}
 	
+	@RequestMapping("/extensionMember.do")
+	public String extensionMember(guest memberVO) {
+		
+		mapper.extensionMember(memberVO);
+		return  "redirect:/admin_member.do";
+	}
+	
+	@RequestMapping("/test.do")
+	public String test() {
+		return "test";
+	}
 	@RequestMapping("/calender.do")
 	public String calender() {
 		return "calender";
 	}
 	
-	@RequestMapping(value="/infoCalender.do")
-    public String infoCalender(@RequestParam("user_id") int user_id , Model model){
-		
-		
-		List<guest> day_time = mapper.infoCalender(user_id);
-		model.addAttribute("day_time",day_time);
-		
-        return "redirect:/calender.do";
-        
-	}
 	
 
 	@RequestMapping("/main.do")
@@ -79,7 +82,7 @@ public class mainController {
 		return "cam"; 
 	}	
 	
-	@RequestMapping(value="/insertExName.do", method= {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value="/insertExName.do")
     public String insertExName(exinfo memberVO , HttpServletRequest req,  RedirectAttributes rttr) throws Exception {
 		
 		System.out.println(memberVO.getUser_id());
@@ -109,9 +112,24 @@ public class mainController {
             rttr.addFlashAttribute("msg", false);
             return "redirect:/login.do";
         } else {
-        	System.out.print("로그인 성공");
-            session.setAttribute("member", member);
-            return "redirect:/main.do";
+        	if (member.getManager_yn() == 1) {
+        		System.out.print("로그인 성공");
+        		session.setAttribute("member", member);
+        		return "redirect:/admin.do";
+        	}else {
+	        	System.out.print("로그인 성공");
+	            session.setAttribute("member", member);
+	            return "redirect:/main.do";
+        	}
         }
+	}
+	
+	@RequestMapping(value="/insertJoin.do", method= {RequestMethod.GET, RequestMethod.POST})
+    public String insertJoin(guest memberVO ) {
+		
+		mapper.insertJoin(memberVO);
+        
+        
+        return "redirect:/join.do";
 	}
 }

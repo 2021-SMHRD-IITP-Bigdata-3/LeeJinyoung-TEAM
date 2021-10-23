@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -269,6 +270,20 @@ window.onload = function() {
 
 		}
 
+
+// 이동하는 공간
+
+function gomember(){
+	location.href =  "/web/admin_member.do";
+}
+
+function gojoin(){
+	location.href =  "/web/join.do";
+}
+
+function gorecord(){
+	location.href =  "/web/record_click.do";
+}
 </script>
 
 
@@ -283,16 +298,16 @@ window.onload = function() {
 		<br><br>
 		<div class = "modal_mid">
 			<div class = "modal_mid_mid">
-				<div class = "modal_mid_left"><img id="moicon" src="resources/img/diary.png"></div>
-				<div class = "modal_mid_right"><b id = "modal_mid_b">회원 관리</b></div>
+				<div class = "modal_mid_left"><img id="moicon" src="resources/img/diary.png" onclick = "gomember()"></div>
+				<div class = "modal_mid_right"><b id = "modal_mid_b" onclick = "gomember()">회원 관리</b></div>
 			</div>	
 			<div class = "modal_mid_mid">
-				<div class = "modal_mid_left"><img id="moicon" src="resources/img/dumbbell.png"></div>
-				<div class = "modal_mid_right"><b id = "modal_mid_b">회원 가입</b></div>
+				<div class = "modal_mid_left"><img id="moicon" src="resources/img/dumbbell.png" onclick = "gojoin()"></div>
+				<div class = "modal_mid_right"><b id = "modal_mid_b" onclick = "gojoin()">회원 가입</b></div>
 			</div>
 			<div class = "modal_mid_mid">
-				<div class = "modal_mid_left"><img id="moicon" src="resources/img/training.png"></div>
-				<div class = "modal_mid_right"><b id = "modal_mid_b">회원 영상</b></div>
+				<div class = "modal_mid_left"><img id="moicon" src="resources/img/training.png" onclick = "gorecord()"></div>
+				<div class = "modal_mid_right"><b id = "modal_mid_b" onclick = "gorecord()">회원 영상</b></div>
 			</div>		
 		</div>
 	</div>

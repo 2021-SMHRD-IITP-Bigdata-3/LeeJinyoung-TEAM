@@ -6,21 +6,37 @@
   
 	
 	<select id="memberLogin" parameterType ="com.test.mapper.guest" resultType="com.test.mapper.guest">
-		SELECT user_id , user_name,user_phone,user_expire_date
+		SELECT *
 		FROM users
 		WHERE user_id = #{user_id}
 		AND user_gym = #{user_gym}
 	</select>
 	
-	<insert  id="insertExName" parameterType ="com.test.mapper.exinfo" >
-	    insert into user_exercises( user_id, ex_name)
-	    values (#{user_id},#{ex_name})
-	</insert>
-	
-	<select id ="infoCalender" parameterType ="com.test.mapper.guest" resultType="com.test.mapper.guest">
-	    select day(ex_start_time) as day , TIMESTAMPDIFF(minute, ex_start_time , ex_end_time) as time
-	    from users
-	    where user_id = #{user_id}
+	<select id="adminList" parameterType ="com.test.mapper.guest" resultType="com.test.mapper.guest">
+		SELECT *
+		FROM users
+		WHERE manager_yn = 0
 	</select>
 	
+	<insert  id="insertExName" parameterType ="com.test.mapper.exinfo" >
+	    insert into user_exercises( user_id, ex_name, ex_kinds)
+	    values (#{user_id},#{ex_name}, #{ex_kinds})
+	</insert>
+
+	
+	<update  id="extensionMember" parameterType ="com.test.mapper.guest" >
+	    update users set user_expire_date = DATE_ADD(user_expire_date, INTERVAL #{month} MONTH)
+	    where user_id = #{user_id}
+	</update>
+	
+	<insert  id="insertJoin" parameterType ="com.test.mapper.guest" >
+	    insert into users(user_id,user_phone, user_name,user_gym,user_expire_date,user_birthdate,manager_yn)
+	    values (right(#{user_phone},4),#{user_phone},#{user_name},#{user_gym}, date_add(DATE_FORMAT(now(),'%Y-%m-%d'),INTERVAL #{user_expire_date} MONTH) ,#{user_birthdate},0)
+	</insert>
+	
+	<select id ="infoCalender" parameterType ="com.test.mapper.accessController" resultType="com.test.mapper.accessController">
+		select u.user_weight,a.ex_day , TIMESTAMPDIFF(minute, a.ex_start_time , a.ex_end_time) as timediff
+	    from access a , users u 
+	    where a.user_id = #{user_id} and u.user_id = #{user_id}
+	</select>
 </mapper>

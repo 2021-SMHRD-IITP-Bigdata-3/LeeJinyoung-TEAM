@@ -244,19 +244,35 @@ window.onload = function() {
  
 }
 
+<<<<<<< HEAD
 <%  guest member = (guest) session.getAttribute("member");%>
 function reply_click(clicked_id){
 	location.href = "${cpath}/insertExName.do?ex_name="+clicked_id+"&user_id="+<%=member.getUser_id() %>;
+=======
+<%  guest member = (guest) session.getAttribute("member");%>
+function InsertCam(ex_name,ex_kinds){
+	 location.href = "/web/insertExName.do?ex_name="+ex_name+"&user_id="+<%=member.getUser_id()%>+"&ex_kinds="+ex_kinds;
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/LeeJinyoung-TEAM.git
 }
 function go_calender(){
-	location.href = "${cpath}/infoCalender.do?user_id="+<%=member.getUser_id() %>;
+	location.href = "/web/test.do";
 }
+<<<<<<< HEAD
 
+=======
+function go_record(){
+	location.href = "/web/record.do";
+}
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/LeeJinyoung-TEAM.git
 </script>
 </head>
-
 <body>
+<<<<<<< HEAD
 <%  member = (guest) session.getAttribute("member");%>
+=======
+<% member = (guest) session.getAttribute("member");%>
+
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/LeeJinyoung-TEAM.git
 	<div class="black_bg"></div>
 	<div class="modal_wrap">
 		<div class = "modal_top">
@@ -278,8 +294,8 @@ function go_calender(){
 				<div class = "modal_mid_right"><b id = "modal_mid_b">운동 도구</b></div>
 			</div>
 			<div class = "modal_mid_mid">
-				<div class = "modal_mid_left"><img id="moicon" src="resources/img/video.png"></div>
-				<div class = "modal_mid_right"><b id = "modal_mid_b">운동 영상</b></div>
+				<div class = "modal_mid_left"><img id="moicon" src="resources/img/video.png" onclick = "go_record()"></div>
+				<div class = "modal_mid_right"><b id = "modal_mid_b" onclick = "go_record()">운동 영상</b></div>
 			</div>		
 		</div>
 		<div class = "modal_bot">
@@ -315,7 +331,7 @@ function go_calender(){
 				<table class="mid_bot_table" id="NSK_font">
 					<tr>
 						<td>
-							<img class="mbimg" src="resources/img/체스트프레스.png">
+							<img class="mbimg" src="resources/img/체스트프레스.png" onclick = "InsertCam('체스트프레스','팔')" >
 						</td>
 						<td>
 							<img class="mbimg" src="resources/img/펙덱플라이.png">

@@ -13,6 +13,14 @@ public interface mainMapper {
 	public guest memberLogin(guest memberVO);
 
 	public void insertExName(exinfo ex_name);
+	
+	public void insertJoin(guest memberVO);
 
-	public List<guest> infoCalender(int user_id);
+	public List<accessController> infoCalender(String user_id);
+
+	public List<guest> adminList();
+
+	public void extensionMember(guest memberVO);
+
+
 }

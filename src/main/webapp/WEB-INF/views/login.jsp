@@ -156,15 +156,31 @@ html, body {
 					 <optgroup id=b label="서울">  
 					 	<option id=b font-family="Regular"  value ="강남점" >강남점</option>
 					 </optgroup>
+<<<<<<< HEAD
 					 
 					 <optgroup id=b label="부산">  
 					 	<option id=b font-family="Regular" value ="해운대점" >해운대점</option>
+=======
+					 <optgroup label="부산">  
+					 	<option font-family="Regular" value ="해운대점" >해운대점</option>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/LeeJinyoung-TEAM.git
 					 </optgroup>
+<<<<<<< HEAD
 					 
 					 <optgroup id=b label="광주">  
 					 	<option id=b font-family="Regular"  value ="광주남구" >광주남구</option>
+=======
+					 <optgroup label="광주">  
+					 	<option font-family="Regular"  value ="광주남구" >광주남구</option>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/LeeJinyoung-TEAM.git
 					 </optgroup>						
+<<<<<<< HEAD
 		 
+=======
+					 </td>
+					 </tr>
+					 
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/LeeJinyoung-TEAM.git
 				</select>
 				
 				<img id="option_click" src="resources/img/화살표2.png" width="300px" height="300px">
