@@ -15,6 +15,12 @@ html, body {
   padding: 0;
 }
 
+.main_top {
+width:100%;
+height:10%;
+background-color:#FFFFFF;
+}
+
 .modal_wrap{
         display: none;
         width: 50%;
@@ -217,6 +223,20 @@ font-weight:bolder;
 appearance:none;
 }
 
+h1{
+position:relative;
+left:-10%;
+}
+
+#modal_btn{
+position:relative;
+top:15%;
+}
+
+.d{
+padding: 50px 0px 0px 0px;
+}
+
 </style>
 
 <script>
@@ -290,21 +310,20 @@ window.onload = function() {
 		
 	</div>
 
-<div class="main_map">
+
 
 		<div class="main_top" style = "text-align : center;">
 			<div class="top_left">
-				<h1 style = "font-size:110px;">The Ai Fitness</h1>
+				<h1 style = "font-size:90px;">The Ai Fitness</h1>
 			</div>
 			<div class="top_right">
 			
-				<img id="modal_btn" src="resources/img/화살표.png"
-					style="width: 200px; height: 200px;">
+				<img id="modal_btn" src="resources/img/menu.png"
+					style="width: 120px; height: 120px;">
 			</div>
 		</div>
-</div>
 
-<form action="" method="" >
+<div class="d" style="width:100%; height:150px;">
 
 <table style="width:100%;">
 		<tr>
@@ -328,9 +347,8 @@ window.onload = function() {
 		
 	</table>
 	
-</form>
 
-	 <div style="width:100%; height:100px;"></div>
+	 </div>
 
 <table align="center" id=mid>
 <tr>

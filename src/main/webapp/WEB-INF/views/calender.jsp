@@ -238,6 +238,11 @@ padding: 0px 0px 0px 50px;
 	height:100%;
 }
 
+#modal_btn{
+position:relative;
+top:20%;
+}
+
 .main_mid {
 width:100%;
 height:65%;
@@ -462,11 +467,11 @@ window.onload = function() {
 
 	<div class="main_top" style = "text-align : center;">
 		<div class="top_left">
-			<h1 style = "font-size:110px;">The Ai Fitness</h1>
+			<h1 style = "font-size:90px;">The Ai Fitness</h1>
 		</div>
 		<div class="top_right">
-			<img id="modal_btn" src="resources/img/화살표.png"
-					style="width: 200px; height: 200px;">
+			<img id="modal_btn" src="resources/img/menu.png"
+					style="width: 120px; height: 120px;">
 		</div>
 	</div>
 	<div class="main_mid">

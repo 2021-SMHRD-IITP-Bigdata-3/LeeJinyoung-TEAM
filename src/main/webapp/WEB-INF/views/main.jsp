@@ -19,6 +19,7 @@ html, body {
 
 #NSK_font{
 font-family: 'Noto Sans KR', sans-serif;
+font-size:60px;
 }
 
 .modal_wrap{
@@ -45,6 +46,11 @@ font-family: 'Noto Sans KR', sans-serif;
         left: 0;
         z-index: 1;
     }
+    
+#modal_btn{
+position:relative;
+top:20%;
+}
     
 .modal_top{
 width:100%;
@@ -120,13 +126,17 @@ text-align: center;
 .main_map {
 width:100%;
 height:100%;
+background-color : #FFFFFF;
+}
+
+.main_mid{
 background-color : #F1F2F6;
 }
+
 
 .main_top {
 width:100%;
 height:10%;
-color:#362222;
 /** background-color: #CAB0FF;
 float:center;
 border-bottom-width:thin;
@@ -137,6 +147,7 @@ border-bottom:solid; **/}
 float:left;
 width:80%;
 height:100%;
+
 /** border-bottom-right-radius: 2em; **/
 }
 
@@ -148,34 +159,20 @@ height:100%;
 
 .main_mid {
 width:100%;
-height:70%;
+height:80%;
 /** background-color:red;
 float:left; **/}
 
 .mid_top{
 font-size:80px;
-height:20%;
+height:10%;
 text-align: center;
-}
-
-.mid_top_left{
-float:left;
-width:35%;
-height:100%;
-padding: 0px 0px 0px 50px;
-}
-
-.mid_top_right{
-float:right;
-width:55%;
-height:100%;
-padding: 0px 50px 0px 0px;
-/** font-family: 'Noto Sans KR', Times, serif; **/
+padding: 50px 0px 0px 100px;
 }
 
 
 .mid_bot{
-height:80%;
+height:88%;
 }
 
 .mid_bot_table{
@@ -191,25 +188,43 @@ border-radius: 2em;
 }
 
 .main_bot {
+position:relative;
 width:100%;
 height:20%;
-background-color: #5D5D5D;
+background-color: #FFFFFF;
 }
 
 .bicon{
 float: left;
-padding: 40px 0px 0px 20px;
+padding: 20px 0px 0px 20px;
 width: 23%;
-font-size:60px;
+font-size:40px;
 text-align: center;
-color:white;
+color:black;
 }
 
 
 .bimg{
-width:200px;
-height:200px;
+width:150px;
+height:150px;
 }
+
+.mbimg{
+width:550px;
+height:500px;
+}
+
+
+td{
+font-size:40px;
+font-weight:bolder;
+}
+
+h1{
+position:relative;
+left:-10%;
+}
+
 
 </style>
 <script>
@@ -229,20 +244,19 @@ window.onload = function() {
  
 }
 
-<<<<<<< HEAD
-=======
+<%  guest member = (guest) session.getAttribute("member");%>
 function reply_click(clicked_id){
 	location.href = "${cpath}/insertExName.do?ex_name="+clicked_id+"&user_id="+<%=member.getUser_id() %>;
 }
 function go_calender(){
 	location.href = "${cpath}/infoCalender.do?user_id="+<%=member.getUser_id() %>;
 }
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/LeeJinyoung-TEAM.git
+
 </script>
 </head>
 
 <body>
-<%  guest member = (guest) session.getAttribute("member");%>
+<%  member = (guest) session.getAttribute("member");%>
 	<div class="black_bg"></div>
 	<div class="modal_wrap">
 		<div class = "modal_top">
@@ -277,24 +291,25 @@ function go_calender(){
 
 		<div class="main_top" style = "text-align : center;">
 			<div class="top_left">
-				<h1 style = "font-size:110px;">The Ai Fitness</h1>
+				<h1 style = "font-size:90px;">The Ai Fitness</h1>
 			</div>
 			<div class="top_right">
 			
-				<img id="modal_btn" src="resources/img/화살표.png"
-					style="width: 200px; height: 200px;">
+				<img id="modal_btn" src="resources/img/menu.png"
+					style="width: 120px; height: 120px;">
 			</div>
 		</div>
 
+
 		<div class="main_mid">
 			<div class="mid_top">
-				<div class="mid_top_left">
-					<img src = "resources/img/가슴.png"
-					style = "width:300px; height:300px;">
-				</div>
-				<div class="mid_top_right" >
-					<b><text id="NSK_font"><br>오늘의 대흉근</text></b>
-				</div>
+				<table>
+					<tr>
+					<td><img src = "resources/img/가슴.png"
+					style = "width:150px; height:150px;"></td>
+					<td><b id="NSK_font">오늘의 대흉근</b></td>
+					</tr>
+				</table>
 			</div>
 			<div class="mid_bot" >
 				<table class="mid_bot_table" id="NSK_font">
@@ -324,16 +339,21 @@ function go_calender(){
 						<td>인클라인 체스트프레스<br>(다각도)</td>
 					</tr>
 				</table>
+				
 			</div>
+			
 
 		<div class="main_bot" id="NSK_font">
 			<div class="bicon"><img class="bimg" src="resources/img/가슴.png"><br>가슴</div>
 			<div class="bicon"><img class="bimg" src="resources/img/어깨.png"><br>어깨</div>
 			<div class="bicon"><img class="bimg" src="resources/img/등.png"><br>등</div>
-			<div class="bicon"><img class="bimg" src="resources/img/arm-muscles-silhouette.png"><br>팔</div>
+			<div class="bicon"><img class="bimg" src="resources/img/p.png"><br>팔</div>
 		</div>
 
 	</div>
+	
+	</div>
+	
 </body>
 
 </html>

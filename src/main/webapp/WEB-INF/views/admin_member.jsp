@@ -280,6 +280,23 @@ top: 30px;
     font-weight: 600;
 }
 
+h1{
+position:relative;
+left:-10%;
+font-size:90px;
+}
+
+#modal_btn{
+position:relative;
+top:15%;
+}
+
+.main_top {
+width:100%;
+height:10%;
+background-color:#FFFFFF;
+}
+
 </style>
 <script>
 window.onload = function() {
@@ -362,12 +379,12 @@ window.onload = function() {
 	
 		<div class="main_top" style = "text-align : center;">
 			<div class="top_left">
-				<h1 style = "font-size:110px;">The Ai Fitness</h1>
+				<h1>The Ai Fitness</h1>
 			</div>
 			<div class="top_right">
 			
-				<img id="modal_btn" src="resources/img/화살표.png"
-					style="width: 200px; height: 200px;">
+				<img id="modal_btn" src="resources/img/menu.png"
+					style="width: 120px; height: 120px;">
 			</div>
 		</div>
 		
