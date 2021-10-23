@@ -16,13 +16,39 @@
     const previewButton = document.querySelector("#preview")
     const recordingButton = document.querySelector("#recording")
     
+    //중지하기위한 변수
+    let recorder;
+    let recordedChunks;
     //function
     function videoStart(){
-    	console.log(navigator)
+    	navigator.mediaDevices.getUserMedia({video:true, audio : true})
+    		.then(stream=> {
+    		previewPlayer.srcObject = stream;
+    		startRecord(previewPlayer.captureStream())
+    		
+    		})
+    }
+    function startRecording(stream){
+    	ecordedChunks=[];
+    	recorder = new MediaRecorder(stream);
+    	recorder.ondataavilable = (e)=>{recordedChunks.push(e.data)}
+    	recorder.start()
+    }
+    function stopRecording(){
+    	previewPlayer.srcObject.getTracks().forEach(track=> track.stop());
+    	recorder.stop()
+    	console.log(recordedChunks)
+    }
+    function playRecording(){
+    	const recordedBlob = new Blob(recordedChunks, {type : "video/webm"});
+    	recordingPlayer.src = URL.createObjectURL(recordedBlob);
+    	recordingPlayer.play()
     }
     
     //event
     recordButton.addEventListner("click",videoStart)
+    stopButton.addEventListner("click",stopRecording);
+    playButton.addEventListner("click",playRecording);
     </script>
     <style>
     *{
