@@ -45,7 +45,7 @@ html, body {
 .main_top {
 width:100%;
 height:10%;
-color:#362222;
+background-color:#FFFFFF;
 }
 
 .top_left{
@@ -55,9 +55,15 @@ height:100%;
 }
 
 .top_right{
+position:relative;
 float:right;
 width:20%;
 height:100%;
+}
+
+#modal_btn{
+position:relative;
+top:20%;
 }
 
 .modal_top{
@@ -125,6 +131,11 @@ width: 130px;
 height: 130px;
 }
 
+#join.button{
+position:relative;
+top:30%;
+}
+
 #join{
 		border-radius:30px;
 		font-weight:bolder;
@@ -144,6 +155,8 @@ height: 130px;
    	background-color:rgb(178,178,178);
    	font-weight:bolder;
    	font-family: 'Noto Sans KR', sans-serif;
+   	padding: 50px 50px 50px 50px;
+   	text-align:center;
 }
 
 #user_birthdate{
@@ -152,6 +165,8 @@ height: 130px;
    	background-color:rgb(178,178,178);
    	font-weight:bolder;
    	font-family: 'Noto Sans KR', sans-serif;
+   	padding: 50px 50px 50px 50px;
+   	text-align:center;
 }
 
 #user_joindate{
@@ -160,6 +175,8 @@ height: 130px;
    	background-color:rgb(178,178,178);
    	font-weight:bolder;
    	font-family: 'Noto Sans KR', sans-serif;
+   	padding: 50px 50px 50px 50px;
+   	text-align:center;
 }
 
 #user_gym2{
@@ -236,17 +253,27 @@ top:5%
 
 #training{
 position:relative;
-top:40%;
+top:55%;
 filter : opacity(.5) drop-shadow(0 0 0 gray);
 }
 
 #videioTrainging{
 position:relative;
-top:20%;
+top:25%;
 filter : opacity(.5) drop-shadow(0 0 0 gray);
 }
 
+   #b{
+   position:relative;
+   width:150px;
+   height:50px;
+   font-size:30px;
+   }
 
+h1{
+position:relative;
+left:-10%;
+}
 
 
 
@@ -304,25 +331,21 @@ function successJoin(){
 
 		<div class="main_top" style = "text-align : center;">
 			<div class="top_left">
-				<h1 style = "font-size:110px;">The Ai Fitness</h1>
+				<h1 style = "font-size:90px;">The Ai Fitness</h1>
 			</div>
 			<div class="top_right">
 			
-				<img id="modal_btn" src="resources/img/화살표.png"
-					style="width: 200px; height: 200px;">
+				<img id="modal_btn" src="resources/img/menu.png"
+					style="width: 120px; height: 120px;">
 			</div>
 		</div>
 
 	
-	<div align="center" style="width:100%; height:150px;">
+	<div align="center" style="width:100%; height:300px;">
 	
-		<input id="join" style="width:400px; height:150px;font-size:60px;" class="button" type = "submit" value ="회원 가입">
+		<input id="join" style="width:400px; height:150px;font-size:50px;" class="button" type = "submit" value ="회원 가입">
 	
 	</div>
-
-	
-	
-	<div style="width:100%; height:150px;"> </div>
 	
 	<form action="">
 	
@@ -336,7 +359,11 @@ function successJoin(){
 		
 			<tr>
 				<td id="name"> <a> 성함 </a> </td>
+<<<<<<< HEAD
+				<td style="width:65%"> <input id="user_name"; style="width:87%; height:55px;font-size:60px; type:text"; placeholder="입력 칸";> </td>
+=======
 				<td style="width:65%"> <input id="user_name" name="user_name" style="width:100%; height:150px;font-size:60px; type:text"; placeholder="입력 칸";> </td>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/LeeJinyoung-TEAM.git
 			</tr>
 		</table>
 	
@@ -358,7 +385,11 @@ function successJoin(){
 			<tr>
 			
 				<td id="birth"> <a> 생년월일 </a> </td>
+<<<<<<< HEAD
+				<td style="width:65%"> <input id="user_birthdate"; style="width:87%; height:55px;font-size:60px; type:text"; placeholder="입력 칸";> </td>
+=======
 				<td style="width:65%"> <input id="user_birthdate" name = "user_birthdate" style="width:100%; height:150px;font-size:60px; type:text"; placeholder="입력 칸";> </td>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/LeeJinyoung-TEAM.git
 			</tr>
 		</table>
 	</div>
@@ -367,8 +398,13 @@ function successJoin(){
 	<hr style="border: solid 1px gray;">
 		<table align="center">
 			<tr>
+<<<<<<< HEAD
+				<td id="date"> <a> 등록일 </a> </td>
+				<td style="width:65%"> <input id="user_joindate"; style="width:87%; height:55px;font-size:60px; type:text"; placeholder="입력 칸";> </td>
+=======
 				<td id="date"> <a> 개월수 </a> </td>
 				<td style="width:65%"> <input id="user_joindate" name = "user_expire_date" style="width:100%; height:150px;font-size:60px; type:text"; placeholder="입력 칸";> </td>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/LeeJinyoung-TEAM.git
 			</tr>
 		</table>
 	</div>
@@ -380,19 +416,34 @@ function successJoin(){
 				<td id="gym" style="width:35%"> <a> 지점명 </a> </td>
 				<td style="width:760px"> 
 				
+<<<<<<< HEAD
+					<select id=user_gym> 
+						 <option id=b> 입력 칸 </option>
+=======
 					<select id=user_gym2 name = "user_gym" > 
 						 <option name = "user_gym"> 입력 칸 </option>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/LeeJinyoung-TEAM.git
 						 
-					 <optgroup label="서울">  
-					 	<option value ="강남점" >강남점</option>
+					 <optgroup id=b label="서울">  
+					 	<option id=b value ="강남점" >강남점</option>
 					 </optgroup>
 					 
+<<<<<<< HEAD
+					 <optgroup id=b label="부산">  
+					 	<option id=b value ="해운대점" >해운대점</option>
+=======
 					 <optgroup label="부산">  
 					 	<option value ="해운대점"  >해운대점</option>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/LeeJinyoung-TEAM.git
 					 </optgroup>
 					 
+<<<<<<< HEAD
+					 <optgroup id=b label="광주">  
+					 	<option id=b value ="광주남구" >광주남구</option>
+=======
 					 <optgroup label="광주">  
 					 	<option value ="광주남구"  >광주남구</option>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/LeeJinyoung-TEAM.git
 					 </optgroup>
 					
 					</select>
@@ -403,7 +454,11 @@ function successJoin(){
 	</div>
 </form>
 	<div style="width:100%; height:250px;"> 
+<<<<<<< HEAD
+		<div align="center"> <input id="button" style="width:250px; height:150px;font-size:50px;" class="button" type = "submit" value ="제출"> </div>
+=======
 		<div align="center"> <input id="button" style="width:250px; height:150px;font-size:60px;" class="button" type = "submit" value ="제출" onclick = "successJoin()"> </div>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/LeeJinyoung-TEAM.git
 	</div>	
 	
 	</div>

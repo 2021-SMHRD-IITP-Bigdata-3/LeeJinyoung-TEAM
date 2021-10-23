@@ -63,12 +63,34 @@ html, body {
 	
 
 
-   select{
+   #user_gym{
    position:relative;
    border-radius:40px;
    font-weight:bolder;
    appearance:none;
    padding: 50px 50px 50px 50px;
+   width:950px;
+   height:200px;
+   font-size:60px;
+   font-family:Regular;
+   }
+   #user_gym:focus{
+   position:relative;
+   border-radius:40px;
+   font-weight:bolder;
+   appearance:none;
+   padding: 50px 50px 50px 50px;
+   width:950px;
+   height:200px;
+   font-size:60px;
+   font-family:Regular;
+   }
+   
+   #b{
+   position:relative;
+   width:150px;
+   height:50px;
+   font-size:30px;
    }
    
    input{
@@ -83,8 +105,11 @@ html, body {
    	src:url('resources/font/FrancoisOne-Regular.ttf');
    }
    
+   
 	option{
 	font-weight:bolder;
+	width:500px;
+   	height:100px;
 	}
 	
 	#modal_btn{
@@ -97,7 +122,6 @@ html, body {
 	right:8%; 
 	transform: rotate(90deg);
 	}
-	
 	
 	
 </style>
@@ -114,7 +138,7 @@ html, body {
 </div>
 	
 
-<body bgcolor='#f0f0f0'>
+<body>
 
 
 	 <form action="/web/loginInsert.do" method ="post" id="form" align="center">
@@ -124,47 +148,60 @@ html, body {
 
 		<div class="middle1">
 		
-				<select name="user_gym" style="width:950px;height:200px;font-size:60px;font-family:Regular;">
-					 <option> <a id="gym"> 지점명 </a> </option>
 
-	<table align="center">
-		<tr>
-			<td>			
-					 <optgroup label="서울">  
-					 	<option font-family="Regular"  value ="강남점" >강남점</option>
+	<div>
+				<select id="user_gym" name = "user_gym">
+					 <option id=b> 지점명 </option>	
+					 
+					 <optgroup id=b label="서울">  
+					 	<option id=b font-family="Regular"  value ="강남점" >강남점</option>
 					 </optgroup>
+<<<<<<< HEAD
+					 
+					 <optgroup id=b label="부산">  
+					 	<option id=b font-family="Regular" value ="해운대점" >해운대점</option>
+=======
 					 <optgroup label="부산">  
 					 	<option font-family="Regular" value ="해운대점" >해운대점</option>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/LeeJinyoung-TEAM.git
 					 </optgroup>
+<<<<<<< HEAD
+					 
+					 <optgroup id=b label="광주">  
+					 	<option id=b font-family="Regular"  value ="광주남구" >광주남구</option>
+=======
 					 <optgroup label="광주">  
 					 	<option font-family="Regular"  value ="광주남구" >광주남구</option>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/LeeJinyoung-TEAM.git
 					 </optgroup>						
+<<<<<<< HEAD
+		 
+=======
 					 </td>
 					 </tr>
 					 
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/LeeJinyoung-TEAM.git
 				</select>
 				
-				<img id="option_click" src="resources/img/화살표2.png"
-					style="width: 300px; height: 300px;"> 
-		</div>	
-
+				<img id="option_click" src="resources/img/화살표2.png" width="300px" height="300px">
+	</div>
 	
 	<div style="width:100%; height:30px;"></div>
 	
 	<div>
-      <input style="width:850px; height:100px; font-weight:bolder; color:rgb(143,143,143); font-size:60px;" type="text" name="user_id" value ="회원번호"> </td>
+      <input style="width:850px; height:100px; font-weight:bolder; font-size:60px;" type="text" name="user_id" id="user_id" placeholder="회원번호">
     </div>
       
          <div style="width:100%; height:50px;"></div>
          
-         <table align = "center"> 
-         <tr>
-            <td><input font-family="Regular" id="button" style="width:950px; height:200px;font-size:80px;" class="button" type = "submit" value ="로그인"></td>
-         </tr>
-      </table>
-      
+     
+          <input font-family="Regular" id="button" style="width:950px; height:200px;font-size:80px;" class="button" type = "submit" value ="로그인">
+ 
+      	</div>	
+      	
+      </form>
 
-      <footer>
+      <footer align="center">
       
        <div style="width:100%; height:110px;"></div>
       
@@ -180,7 +217,7 @@ html, body {
       	</tr>
       </table>
       </footer>
-	</form>
+	
 	
   </body>
 </html>

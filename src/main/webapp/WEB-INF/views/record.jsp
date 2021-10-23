@@ -39,6 +39,30 @@ html, body {
         left: 0;
         z-index: 1;
     }
+    
+    .record_wrap{
+        display: none;
+        width: 90%;
+        height: 93%;
+        position: absolute;
+        top:13%;
+        left: 25%;
+        margin: -254px 0 0 -236px;
+        background:#FFFFFF;
+        z-index: 2;
+        border-radius:5em;
+    }
+    .record_bg{
+        display: none;
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-color:rgba(218, 215, 216, 0.5);
+        top:0;
+        left: 0;
+        z-index: 1;
+    }
 
    
 .modal_top{
@@ -115,7 +139,6 @@ text-align: center;
 .main_top {
 width:100%;
 height:10%;
-color:#362222;
 }
 
 .top_left{
@@ -124,11 +147,18 @@ width:80%;
 height:100%;
 }
 
+#modal_btn{
+position:relative;
+top:20%;
+}
+
 .top_right{
+position:relative;
 float:right;
 width:20%;
 height:100%;
 }
+
 
 #NSK_font{
 font-family: 'Noto Sans KR', sans-serif;
@@ -136,10 +166,10 @@ font-family: 'Noto Sans KR', sans-serif;
 
 #record{
 	position:relative;
-	font-size:80px;
+	font-size:70px;
 	font-family:Regular;
 	font-weight:bolder;
-	right:-5%;
+	right:-15%;
    }
    
    select{
@@ -147,12 +177,12 @@ font-family: 'Noto Sans KR', sans-serif;
    border-radius:40px;
    font-weight:bolder;
    appearance:none;
-   right:-15%;
+   right:-20%;
    }
 
 #diary{
 	position:relative;
-	right:-70%;
+	right:-90%;
 	}
 	
 #button{
@@ -196,6 +226,52 @@ hr{
 	filter : opacity(.5) drop-shadow(0 0 0 gray);
 }
 
+#record_top_title{
+font-size:100px;
+padding: 50px 50px 50px 50px;
+}
+
+#record_middle_content{
+position:relative;
+top:15%;
+}
+
+#video{
+position:relative;
+width:1000px;
+height:800px;
+left:5%;
+}
+
+#bottom{
+border-spacing: 50px;
+border-collapse: separate;
+}
+
+a{
+font-size:50px;
+font-family:Regular;
+font-weight:bolder;
+}
+
+b{
+font-size:80px;
+}
+
+h1{
+position:relative;
+left:-10%;
+}
+
+.middle{
+background-color:#F1F2F6;
+}
+
+.d{
+padding: 50px 0px 0px 0px;
+}
+
+
 
 </style>
 
@@ -212,8 +288,21 @@ window.onload = function() {
     }
  
     document.getElementById('modal_btn').addEventListener('click', onClick);
-    document.querySelector('.black_bg').addEventListener('click', offClick);   
-   	     
+    document.querySelector('.black_bg').addEventListener('click', offClick);
+    
+    function onClick1() {
+        document.querySelector('.record_wrap').style.display ='block';
+        document.querySelector('.record_bg').style.display ='block';
+    }   
+    function offClick1() {
+        document.querySelector('.record_wrap').style.display ='none';
+        document.querySelector('.record_bg').style.display ='none';
+    }
+ 
+    document.getElementById('button').addEventListener('click', onClick1);
+    document.querySelector('.record_bg').addEventListener('click', offClick1);
+   	
+    
 
 		}
 
@@ -253,28 +342,63 @@ window.onload = function() {
 		</div>
 	</div>
 	
+	
+	<div class="record_bg"></div>
+	<div class="record_wrap">
+		<div class="record_top" style="width:70%; height:200px;">
+			<div id="record_top_title"> <b> 체스트프레스 </b> </div>
+			<hr style="border: solid 10px gray;">
+		</div>
+		
+		<div class="record_middle" style="width:70%; height:1000px;" align="center">	
+			<div id="record_middle_content">
+				<video poster="resources/img/체스트프레스.png" id="video" controls="controls">
+    				<source src="resources/record/record1.mp4" type="video/mp4" />
+				</video>
+			</div>	
+		</div>
+	
+		<div style="width:70%; height:100px;"> </div>
+		
+			<table align="center" id=bottom>
+				<tr>
+				<td><input style="width:450px; height:300px;" class="button" type = "submit" value="잘못된 자세"></td>
+				<td> <a>상체를 더 왼쪽으로 기울여 주시면 될거 같아요!!</a> </td>
+			</tr>
+			</table>
 
-<div class="main_map">
+			<table align="center" id=bottom>
+				<tr>
+				<td><input style="width:450px; height:300px;" class="button" type = "submit" value="잘못된 자세"></td>
+				<td> <a>어깨를 좀 더 내려주세요</a>></td>
+			</tr>
+			</table>
+		
+		
+	</div>
+	
+	
+
+
 
 		<div class="main_top" style = "text-align : center;">
 			<div class="top_left">
-				<h1 style = "font-size:110px;">The Ai Fitness</h1>
+				<h1 style = "font-size:90px;">The Ai Fitness</h1>
 			</div>
 			<div class="top_right">
-			
-				<img id="modal_btn" src="resources/img/화살표.png"
-					style="width: 200px; height: 200px;">
+				<img id="modal_btn" src="resources/img/menu.png"
+					style="width: 120px; height: 120px;">
 			</div>
 		</div>
-</div>
 
-<form action="" method="" >
+<div class="middle">
 
+<div class="d" style="width:100%; height:150px;">
 <table>
 		<tr>
 			<td> <a id="record" align ="center">자세교정 녹화본</a> </td>
 			<td>
-				<select name="ex_part"  style="width:400px;height:100px;font-size:60px;font-family:Regular;">
+				<select name="ex_part"  style="width:400px;height:100px;font-size:50px;font-family:Regular;">
 					 <option align="center" font-family="Regular" > 운동 부위  </option>
 					 	<option align="center" value ="등" >등</option>												
 					 	<option align="center" value ="팔" >팔</option>										
@@ -290,9 +414,9 @@ window.onload = function() {
 		
 	</table>
 	
-</form>
 
-	 <div style="width:100%; height:100px;"></div>
+	 </div>
+
 
 <table align="center" id=mid>
 <tr>
@@ -324,13 +448,14 @@ window.onload = function() {
 <td><input id="button" style="width:450px; height:300px;" class="button" type = "submit" value="영상"> </td>
 </tr>
 </table>
+</div>
 
 <form action="/web/loginInsert.do" method ="post" id="form" >
 <table style="width:100%;">
 <tr>
 	<td> <img id="training" src="resources/img/training.png" width="150px" height="150px"> </td>
 	<td> <img id="videioTrainging" src="resources/img/videioTrainging.png" width="150px" height="150px"> </td>
-	<td align="center" bgcolor="white"> <button id="button_gym"> <img id="gym (1)" src="resources/img/gym (1).png" width="350px" height="350px" > </button> </td>
+	<td align="center" bgcolor="white"> <button id="button_gym"> <img id="gym (1)" src="resources/img/gym (1).png" width="350px" height="400px" > </button> </td>
 </tr>
 </table>
 </form>

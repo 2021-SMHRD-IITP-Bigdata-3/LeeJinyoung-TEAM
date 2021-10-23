@@ -281,6 +281,23 @@ top: 30px;
     font-weight: 600;
 }
 
+h1{
+position:relative;
+left:-10%;
+font-size:90px;
+}
+
+#modal_btn{
+position:relative;
+top:15%;
+}
+
+.main_top {
+width:100%;
+height:10%;
+background-color:#FFFFFF;
+}
+
 </style>
 <script>
 window.onload = function() {
@@ -372,6 +389,122 @@ function insertMonth(month){
       </div>
    </div>   
 
+<<<<<<< HEAD
+	<div class="main_map" id="NSK_font">
+	
+		<div class="main_top" style = "text-align : center;">
+			<div class="top_left">
+				<h1>The Ai Fitness</h1>
+			</div>
+			<div class="top_right">
+			
+				<img id="modal_btn" src="resources/img/menu.png"
+					style="width: 120px; height: 120px;">
+			</div>
+		</div>
+		
+		<div class="main_mid" style = "text-align : center;">
+			<div class="mid_text">
+				<input style="width:400px;height:100px;font-size:50px;
+				font-family:Regular;" type="text" id="user_name"
+				placeholder="회원 이름 검색">
+			</div>
+		</div>
+		
+		<div class="main_bot">
+			<div class="bot_view">
+				<div class="bot_userlib1"></div>
+				
+				<div class="bot_user">
+					<div class="bot_user_left"><b id="user_b">노유종 기한 : 2021. 10. 31</b></div>
+					<div class="bot_user_right">
+						<input type="button" id="user_yes1" class="user_yess" value="연장">
+						<input type="button" class="user_no" value="해지">
+					</div>
+				</div>
+				<div class="bot_user">
+					<div class="bot_user_left"><b id="user_b">김철수 기한 : 2021. 10. 22</b></div>
+					<div class="bot_user_right">
+						<input type="button" id="user_yes2" class="user_yess" value="연장">
+						<input type="button" class="user_no" value="해지">
+					</div>
+				</div>
+				<div class="bot_user">
+					<div class="bot_user_left"><b id="user_b">아니요 기한 : 2021. 10. 22</b></div>
+					<div class="bot_user_right">
+						<input type="button" id="user_yes3" class="user_yess" value="연장">
+						<input type="button" class="user_no" value="해지">
+					</div>
+				</div>
+				<div class="bot_user">
+					<div class="bot_user_left"><b id="user_b">번호 기한 : 2021. 10. 22</b></div>
+					<div class="bot_user_right">
+						<input type="button" id="user_yes4" class="user_yess" value="연장">
+						<input type="button" class="user_no" value="해지">
+					</div>
+				</div>
+				<div class="bot_user">
+					<div class="bot_user_left"><b id="user_b">하나 기한 : 2021. 10. 22</b></div>
+					<div class="bot_user_right">
+						<input type="button" id="user_yes5" class="user_yess" value="연장">
+						<input type="button" class="user_no" value="해지">
+					</div>
+				</div>
+				<div class="bot_user">
+					<div class="bot_user_left"><b id="user_b">둘 기한 : 2021. 10. 22</b></div>
+					<div class="bot_user_right">
+						<input type="button" id="user_yes6" class="user_yess" value="연장">
+						<input type="button" class="user_no" value="해지">
+					</div>
+				</div>
+				<div class="bot_user">
+					<div class="bot_user_left"><b id="user_b">셋 기한 : 2021. 10. 22</b></div>
+					<div class="bot_user_right">
+						<input type="button" id="user_yes7" class="user_yess" value="연장">
+						<input type="button" class="user_no" value="해지">
+					</div>
+				</div>
+				<div class="bot_user">
+					<div class="bot_user_left"><b id="user_b">넷 기한 : 2021. 10. 22</b></div>
+					<div class="bot_user_right">
+						<input type="button" id="user_yes8" class="user_yess" value="연장">
+						<input type="button" class="user_no" value="해지">
+					</div>
+				</div>
+				<div class="bot_user">
+					<div class="bot_user_left"><b id="user_b">다섯 기한 : 2021. 10. 22</b></div>
+					<div class="bot_user_right">
+						<input type="button" id="user_yes9" class="user_yess" value="연장">
+						<input type="button" class="user_no" value="해지">
+					</div>
+				</div>
+				<div class="bot_user">
+					<div class="bot_user_left"><b id="user_b">여섯 기한 : 2021. 10. 22</b></div>
+					<div class="bot_user_right">
+						<input type="button" id="user_yes10" class="user_yess" value="연장">
+						<input type="button" class="user_no" value="해지">
+					</div>
+				</div>
+				<div class="bot_user">
+					<div class="bot_user_left"><b id="user_b">일곱 기한 : 2021. 10. 22</b></div>
+					<div class="bot_user_right">
+						<input type="button" id="user_yes11" class="user_yess" value="연장">
+						<input type="button" class="user_no" value="해지">
+					</div>
+				</div>
+				<div class="bot_user">
+					<div class="bot_user_left"><b id="user_b">여덟 기한 : 2021. 10. 22</b></div>
+					<div class="bot_user_right">
+						<input type="button" id="user_yes12" class="user_yess" value="연장">
+						<input type="button" class="user_no" value="해지">
+					</div>
+				</div>
+						
+				<div class="bot_userlib2"></div>
+			</div>
+		</div>
+	</div>
+=======
    <div class="main_map" id="NSK_font">
    
       <div class="main_top" style = "text-align : center;">
@@ -411,6 +544,7 @@ function insertMonth(month){
          </div>
       </div>
    </div>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/LeeJinyoung-TEAM.git
 
 </body>
 </html>
