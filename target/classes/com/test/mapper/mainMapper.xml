@@ -22,6 +22,12 @@
 	    insert into user_exercises( user_id, ex_name, ex_kinds)
 	    values (#{user_id},#{ex_name}, #{ex_kinds})
 	</insert>
+
+	
+	<update  id="extensionMember" parameterType ="com.test.mapper.guest" >
+	    update users set user_expire_date = DATE_ADD(user_expire_date, INTERVAL #{month} MONTH)
+	    where user_id = #{user_id}
+	</update>
 	
 	<insert  id="insertJoin" parameterType ="com.test.mapper.guest" >
 	    insert into users(user_id,user_phone, user_name,user_gym,user_expire_date,user_birthdate,manager_yn)

@@ -321,18 +321,18 @@ window.onload = function() {
     document.querySelector('.user_bg').addEventListener('click', offClick1);
 
 }
-function moveName(user_id){
 
+var user_id;
+function get_user_id(id){
+	user_id = id;
 	console.log(user_id);
-
-	function insertMonth(month){
-		//console.log(user_id);
-		console.log(month);
-		
-	}
-	//location.href = "/web/changeMonth.do?mem"
+	return user_id
 }
+
+function insertMonth(month){
+	location.href =  "/web/extensionMember.do?user_id="+user_id+"&month="+month;
 	
+}	
 
 	
 </script>
@@ -401,7 +401,7 @@ function moveName(user_id){
 	            <div class="bot_user">
 	               <div class="bot_user_left"><b id="user_b">${vo.user_name } 기한 :${vo.user_expire_date }</b></div>
 	               <div class="bot_user_right">
-	                  <input type="button" id="user_yes1" class="user_yess" value="연장" onclick = "moveName('${vo.user_id }')">
+	                  <input type="button" id="user_yes1" class="user_yess" value="연장" onclick = "get_user_id('${vo.user_id }')">
 	                  <input type="button" class="user_no" value="해지">
 	               </div>
 	            </div>

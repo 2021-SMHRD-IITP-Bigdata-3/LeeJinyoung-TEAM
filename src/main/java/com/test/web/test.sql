@@ -141,6 +141,9 @@ select ex_day , TIMESTAMPDIFF(minute, ex_start_time , ex_end_time) as timediff
 	    from access
 	    where user_id = '1234'  
 	    
-	    
-	    
+update users set user_expire_date = DATE_ADD(user_expire_date, INTERVAL 1 MONTH)
+where user_id = '1111'
+
+select * from users
+
 update users set day='10', timediff='10' where user_id='1234';
