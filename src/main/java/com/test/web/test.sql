@@ -91,7 +91,7 @@ CREATE TABLE access
     user_id          VARCHAR(20)       NULL, 
     ex_day          DATE      NULL, 
     ex_start_time    time              NULL, 
-    ex_end_time      time     NULL, 
+    ex_end_time      time     NULL,
     FOREIGN KEY (user_id) REFERENCES users (user_id)
 )
 
@@ -103,6 +103,10 @@ update users
 set ex_start_time = '2021-10-15 06:01:00',ex_end_time='2021-10-15 07:01:00'
 where user_id = '1234';
 
+update users
+set user_weight = 70
+where user_id = '1234';
+
 SELECT TIMESTAMPDIFF(minute,'2021-10-15 06:01:00','2021-10-15 07:01:00')
 
 SELECT TIMESTAMPDIFF(minute, ex_start_time, ex_end_time) AS time_diff 
@@ -110,6 +114,11 @@ from users
 where user_id = '1234';
 
 select * from access
+
+select a.ex_day , u.user_weight
+from access a , users u
+where a.user_id = '1234' and u.user_id = '1234';
+
 alter table users modify ex_start_time DATETIME;
 alter table users modify ex_end_time DATETIME;
 
@@ -135,7 +144,9 @@ insert into users(user_id,user_phone, user_name,user_gym,user_expire_date,user_b
 	    values (right('010-1234-5678',4),'010-1234-5678','이소연','광주남구', date_add(DATE_FORMAT(now(),'%Y-%m-%d'),INTERVAL 3 MONTH) ,'1995-08-20',0)
 	    
 INSERT INTO access (user_id, ex_day, ex_start_time , ex_end_time)
-VALUES('1234', '2021-10-25', '07:00','09:00');
+VALUES('1234', '2021-10-23', '07:00','09:00');
+
+
 	    
 select ex_day , TIMESTAMPDIFF(minute, ex_start_time , ex_end_time) as timediff
 	    from access

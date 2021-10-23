@@ -9,72 +9,78 @@
     <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
     <script>
-    (function() {
-    	  
-    	  var canvas = document.getElementById('canvas'),
-    	  context = canvas.getContext('2d'),
-    	  video = document.getElementById('video'),
-    	  vendorUrl = window.URL || window.webkitURL;
-    	  
-    	  navigator.getMedia =  navigator.getUserMedia ||
-    	  navigator.webkitGetUserMedia ||
-    	  navigator.mozGetuserMedia ||
-    	  navigator.msGetUserMedia;
-    	  
-    	  navigator.getMedia({
-    	    video: true,
-    	    audio: false
-    	  }, function(stream) {
-    	    video.src = vendorUrl.createObjectURL(stream);
-    	    video.play();
-    	  }, function(error) {
-    	    // an error occurred
-    	  } );
-    	  
-    	  video.addEventListener('play', function() {
-    	    draw( this, context, 1024, 768 );
-    	  }, false );
-    	  
-    	  function draw( video, context, width, height ) {
-    	    var image, data, i, r, g, b, brightness;
-    	    
-    	    context.drawImage( video, 0, 0, width, height );
-    	    
-    	    image = context.getImageData( 0, 0, width, height );
-    	    data = image.data;
-    	    
-    	    for( i = 0 ; i < data.length ; i += 4 ) {
-    	      r = data[i];
-    	      g = data[i + 1];
-    	      b = data[i + 2];
-    	      brightness = ( r + g + b ) / 3;
-    	      
-    	      data[i] = data[i + 1] = data[i + 2] = brightness;
-    	    }
-    	    
-    	    image.data = data;
-    	    
-    	    context.putImageData( image, 0, 0 );
-    	    
-    	    setTimeout( draw, 10, video, context, width, height );
-    	  }
-    	  
-    	} )();
+    const recordButton = document.querySelector(".record-button")
+    const stopButton = document.querySelector(".stop-button")
+    const playButton = document.querySelector(".play-button")
+    const downloadButton = document.querySelector(".download-button")
+    const previewButton = document.querySelector("#preview")
+    const recordingButton = document.querySelector("#recording")
+    
+    //function
+    function videoStart(){
+    	console.log(navigator)
+    }
+    
+    //event
+    recordButton.addEventListner("click",videoStart)
     </script>
     <style>
-    .booth {
-	  width: 800px;
-	  background: #ccc;
-	  border: 10px solid #ddd;
-	  margin: 0 auto;
-	}
+    *{
+    	margin : 0;
+    	padding : 0;
+    }
+    html,body{
+    	height:100%;
+    }
+    .wrapper{
+    	height : 100%;
+    	overflow : hidden;
+    	display:flex;
+    	flex-direction : column;
+    	align-items: center;
+    	justify-content: center;
+    }
+    .video-container{
+    	display:flex;
+    	width:550px;
+    	padding : 1rem;
+    	justify-content: space-around;
+    }
+    .video-item > h2{
+    text-align: center;
+    }
+    .vide-item > video{
+    border :1px solid red;
+    width:250px;
+    height:188px;
+    }
+    button,a {
+    border : none;
+    font-size:14px;
+    padding : 0.5rem 1rem;
+    cursor;pointer;
+    }
 	</style>
 </head>
 <body>
-      <div class="booth">
-          <video id="video" width="800" height="600" autoplay=""></video>
-          <canvas id="canvas" width="800" height="600"></canvas>
-      </div>
+	<div class = "wrapper">
+		<div class = "button-container">
+			<button class = "record-button">녹화</button>
+			<button class = "stop-button">중지</button>
+			<button class = "play-button">녹화보기</button>
+			<a class = "download-button">다운로드</a>
+		</div>
+		<div class = "video-container">
+			<div class = "video-item">
+				<h2>미리보기</h2>
+				<video autoplay muted id = "preview"></video>
+			</div>
+			<div class = "video-item">
+				<h2>미리보기</h2>
+				<video id = "recording"></video>
+			</div>
+		</div>
+	</div>
       
 </body>
 </html>

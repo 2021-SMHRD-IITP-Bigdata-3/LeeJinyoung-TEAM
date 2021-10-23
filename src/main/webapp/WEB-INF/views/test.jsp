@@ -25,7 +25,7 @@
           	    	 $.each(result,function(index,obj){
           	    		events.push({
           	    			start : obj.ex_day,
-          	    			title : obj.timediff
+          	    			title : ((4*(3.5*obj.user_weight*obj.timediff))/1000)*5+"kal"
           	    		})
           	    	 })
           	    	console.log(events);

@@ -35,8 +35,8 @@
 	</insert>
 	
 	<select id ="infoCalender" parameterType ="com.test.mapper.accessController" resultType="com.test.mapper.accessController">
-		select ex_day , TIMESTAMPDIFF(minute, ex_start_time , ex_end_time) as timediff
-	    from access
-	    where user_id = #{user_id}
+		select u.user_weight,a.ex_day , TIMESTAMPDIFF(minute, a.ex_start_time , a.ex_end_time) as timediff
+	    from access a , users u 
+	    where a.user_id = #{user_id} and u.user_id = #{user_id}
 	</select>
 </mapper>
