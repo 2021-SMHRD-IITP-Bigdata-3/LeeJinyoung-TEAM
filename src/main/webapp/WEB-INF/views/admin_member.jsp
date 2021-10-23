@@ -145,9 +145,9 @@ text-align: center;
 }
 
 .main_map {
-   width:100%;
-   height:100%;
-   background-color : #F1F2F6;
+	width:100%;
+	height:100%;
+	background-color : #F1F2F6;
 }
 
 .main_top {
@@ -284,7 +284,7 @@ top: 30px;
 </style>
 <script>
 window.onload = function() {
-    
+	 
     function onClick() {
         document.querySelector('.modal_wrap').style.display ='block';
         document.querySelector('.black_bg').style.display ='block';
@@ -305,19 +305,10 @@ window.onload = function() {
         document.querySelector('.user_wrap').style.display ='none';
         document.querySelector('.user_bg').style.display ='none';
     }
-   
-    document.getElementById('user_yes1').addEventListener('click', onClick1);
-    document.getElementById('user_yes2').addEventListener('click', onClick1);
-    document.getElementById('user_yes3').addEventListener('click', onClick1);
-    document.getElementById('user_yes4').addEventListener('click', onClick1);
-    document.getElementById('user_yes5').addEventListener('click', onClick1);
-    document.getElementById('user_yes6').addEventListener('click', onClick1);
-    document.getElementById('user_yes7').addEventListener('click', onClick1);
-    document.getElementById('user_yes8').addEventListener('click', onClick1);
-    document.getElementById('user_yes9').addEventListener('click', onClick1);
-    document.getElementById('user_yes10').addEventListener('click', onClick1);
-    document.getElementById('user_yes11').addEventListener('click', onClick1);
-    document.getElementById('user_yes12').addEventListener('click', onClick1);
+   	
+    
+    // document.getElementsByClassName('.user_yess').addEventListener('click', onClick1);
+
     document.querySelector('.user_bg').addEventListener('click', offClick1);
 
 }
@@ -388,11 +379,12 @@ function changeMonth(month){
             <div class="bot_userlib1"></div>
             
             <c:forEach var= 'vo' items = "${member}">
+            	<c:set var="i" value="${i+1 }"/>
 	            <div class="bot_user">
 	               <div class="bot_user_left"><b id="user_b">${vo.user_name } 기한 :${vo.user_expire_date }</b></div>
 	               <div class="bot_user_right">
-	                  <input type="button" id="user_yes1" class="user_yess" value="연장">
-	                  <input type="button" class="user_no" value="해지">
+	                  <input type="button" id="user_yes${i}" class="user_yess" value="연장" >
+	                  <input type="button" class="user_no" value="해지" onClick='return onClick1();'>
 	               </div>
 	            </div>
             </c:forEach>
