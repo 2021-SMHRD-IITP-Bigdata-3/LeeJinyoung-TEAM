@@ -145,9 +145,9 @@ text-align: center;
 }
 
 .main_map {
-   width:100%;
-   height:100%;
-   background-color : #F1F2F6;
+	width:100%;
+	height:100%;
+	background-color : #F1F2F6;
 }
 
 .main_top {
@@ -281,10 +281,27 @@ top: 30px;
     font-weight: 600;
 }
 
+h1{
+position:relative;
+left:-10%;
+font-size:90px;
+}
+
+#modal_btn{
+position:relative;
+top:20%;
+}
+
+.main_top {
+width:100%;
+height:10%;
+background-color:#FFFFFF;
+}
+
 </style>
 <script>
 window.onload = function() {
-    
+	 
     function onClick() {
         document.querySelector('.modal_wrap').style.display ='block';
         document.querySelector('.black_bg').style.display ='block';
@@ -297,42 +314,41 @@ window.onload = function() {
     document.getElementById('modal_btn').addEventListener('click', onClick);
     document.querySelector('.black_bg').addEventListener('click', offClick);
 
-    function onClick1() {
+    var onClick11 = function onClick1() {
         document.querySelector('.user_wrap').style.display ='block';
         document.querySelector('.user_bg').style.display ='block';
-    }   
+    };   
     function offClick1() {
         document.querySelector('.user_wrap').style.display ='none';
         document.querySelector('.user_bg').style.display ='none';
     }
-   
-    document.getElementById('user_yes1').addEventListener('click', onClick1);
-    document.getElementById('user_yes2').addEventListener('click', onClick1);
-    document.getElementById('user_yes3').addEventListener('click', onClick1);
-    document.getElementById('user_yes4').addEventListener('click', onClick1);
-    document.getElementById('user_yes5').addEventListener('click', onClick1);
-    document.getElementById('user_yes6').addEventListener('click', onClick1);
-    document.getElementById('user_yes7').addEventListener('click', onClick1);
-    document.getElementById('user_yes8').addEventListener('click', onClick1);
-    document.getElementById('user_yes9').addEventListener('click', onClick1);
-    document.getElementById('user_yes10').addEventListener('click', onClick1);
-    document.getElementById('user_yes11').addEventListener('click', onClick1);
-    document.getElementById('user_yes12').addEventListener('click', onClick1);
+   	
+    var className = document.getElementsByClassName('user_yess');
+    for(var i = 0; i<className.length;i++){
+    	className[i].addEventListener('click', onClick11, false);
+    }
+    
+    // document.getElementById('user_yes1').addEventListener('click', onClick1);
+    // document.getElementById('user_yes2').addEventListener('click', onClick1);
+    // document.getElementById('user_yes3').addEventListener('click', onClick1);
+    // document.getElementById('user_yes4').addEventListener('click', onClick1);
+	
+
     document.querySelector('.user_bg').addEventListener('click', offClick1);
 
 }
 
-var user_id;
-function get_user_id(id){
-	user_id = id;
-	console.log(user_id);
-	return user_id
-}
+//var user_id;
+//function get_user_id(id){
+//	user_id = id;
+//	console.log(user_id);
+//	return user_id
+//}
 
 function insertMonth(month){
 	location.href =  "/web/extensionMember.do?user_id="+user_id+"&month="+month;
 	
-}	
+}
 
 	
 </script>
@@ -377,12 +393,12 @@ function insertMonth(month){
    
       <div class="main_top" style = "text-align : center;">
          <div class="top_left">
-            <h1 style = "font-size:110px;">The Ai Fitness</h1>
+            <h1 style = "font-size:90px;">The Ai Fitness</h1>
          </div>
          <div class="top_right">
          
-            <img id="modal_btn" src="resources/img/화살표.png"
-               style="width: 200px; height: 200px;">
+            <img id="modal_btn" src="resources/img/menu.png"
+               style="width: 120px; height: 120px;">
          </div>
       </div>
       
@@ -398,11 +414,13 @@ function insertMonth(month){
             <div class="bot_userlib1"></div>
             
             <c:forEach var= 'vo' items = "${member}">
+            	<c:set var="i" value="${i+1}"/>
 	            <div class="bot_user">
 	               <div class="bot_user_left"><b id="user_b">${vo.user_name } 기한 :${vo.user_expire_date }</b></div>
 	               <div class="bot_user_right">
-	                  <input type="button" id="user_yes1" class="user_yess" value="연장" onclick = "get_user_id('${vo.user_id }')">
-	                  <input type="button" class="user_no" value="해지">
+	                  <input type="button" id="user_yes${i}" class="user_yess" value="연장" onClick="get_user_id('${vo.user_id }')">
+	                  <input type="button" class="user_no" value="해지" >
+
 	               </div>
 	            </div>
             </c:forEach>   

@@ -38,7 +38,7 @@ public class mainController {
 	}
 	
 	@RequestMapping("/extensionMember.do")
-	public String extensionMember(guest memberVO) {
+	public String extensionMember(guest memberVO,Model model) {
 		
 		mapper.extensionMember(memberVO);
 		return  "redirect:/admin_member.do";
@@ -63,11 +63,6 @@ public class mainController {
 	@RequestMapping("/record.do")
 	public String record() {
 		return "record";
-	}
-	
-	@RequestMapping("/record_click.do")
-	public String record_click() {
-		return "record_click";
 	}
 	
 	@RequestMapping("/join.do")

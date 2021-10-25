@@ -144,7 +144,11 @@ insert into users(user_id,user_phone, user_name,user_gym,user_expire_date,user_b
 	    values (right('010-1234-5678',4),'010-1234-5678','이소연','광주남구', date_add(DATE_FORMAT(now(),'%Y-%m-%d'),INTERVAL 3 MONTH) ,'1995-08-20',0)
 	    
 INSERT INTO access (user_id, ex_day, ex_start_time , ex_end_time)
+
+VALUES('1234', '2021-10-19', '07:00','09:00');
+
 VALUES('1234', '2021-10-23', '07:00','09:00');
+
 
 
 	    

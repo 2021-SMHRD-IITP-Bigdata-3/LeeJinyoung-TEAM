@@ -14,6 +14,10 @@ body{
 	height: 100%;
 }
 
+.fc-event-title-container{
+	z-index:2;
+}
+
 /* classes attached to <body> */
 /* TODO: make fc-event selector work when calender in shadow DOM */
 .fc-not-allowed,
@@ -119,12 +123,18 @@ body{
   -moz-osx-font-smoothing: grayscale;
 }
 
-.fc-icon-chevron-left:before {
-  content: "\e900";
+.fc-icon-chevron-left:before { /* 왼쪽 화살표 */
+  content: "\2B05";
+  /** color: #DACDF5; **/
+      top: -10px;
+    position: relative;
 }
 
-.fc-icon-chevron-right:before {
-  content: "\e901";
+.fc-icon-chevron-right:before { /* 오른쪽 화살표 */
+  content: "\27A1";
+  /** color: #DACDF5; **/
+      top: -10px;
+    position: relative;
 }
 
 .fc-icon-chevrons-left:before {
@@ -219,26 +229,26 @@ When it's NOT activated, the fc-button classes won't even be in the DOM.
 .fc .fc-button-primary {
     color: #fff;
     color: var(--fc-button-text-color, #fff);
-    background-color: #2C3E50;
-    background-color: var(--fc-button-bg-color, #2C3E50);
-    border-color: #2C3E50;
-    border-color: var(--fc-button-border-color, #2C3E50);
+    background-color: #DACDF5;
+    background-color: var(--fc-button-bg-color, #DACDF5); /* 위 화살표 */ 
+    border-color: #DACDF5;
+    border-color: var(--fc-button-border-color, #DACDF5); /* 위 화살표 테두리 */ 
   }
-.fc .fc-button-primary:hover {
+.fc .fc-button-primary:hover { /* 눌렀을때! */
     color: #fff;
     color: var(--fc-button-text-color, #fff);
-    background-color: #1e2b37;
-    background-color: var(--fc-button-hover-bg-color, #1e2b37);
-    border-color: #1a252f;
-    border-color: var(--fc-button-hover-border-color, #1a252f);
+    background-color: #DACDF5; /* #1e2b37 */
+    background-color: var(--fc-button-hover-bg-color, #DACDF5); /* #1e2b37 */
+    border-color: #DACDF5; /* #1a252f */
+    border-color: var(--fc-button-hover-border-color, #DACDF5); /* #1a252f */
   }
 .fc .fc-button-primary:disabled { /* not DRY */
     color: #fff;
     color: var(--fc-button-text-color, #fff);
-    background-color: #2C3E50;
-    background-color: var(--fc-button-bg-color, #2C3E50);
-    border-color: #2C3E50;
-    border-color: var(--fc-button-border-color, #2C3E50); /* overrides :hover */
+    background-color: #DACDF5; /* 멀까 */
+    background-color: var(--fc-button-bg-color, #DACDF5); /* today 눌렀을때 */
+    border-color: #DACDF5;
+    border-color: var(--fc-button-border-color, #DACDF5); /* overrides :hover */
   }
 .fc .fc-button-primary:focus {
     box-shadow: 0 0 0 0.2rem rgba(76, 91, 106, 0.5);
@@ -247,10 +257,10 @@ When it's NOT activated, the fc-button classes won't even be in the DOM.
   .fc .fc-button-primary:not(:disabled).fc-button-active {
     color: #fff;
     color: var(--fc-button-text-color, #fff);
-    background-color: #1a252f;
-    background-color: var(--fc-button-active-bg-color, #1a252f);
-    border-color: #151e27;
-    border-color: var(--fc-button-active-border-color, #151e27);
+    background-color: #DACDF5;
+    background-color: var(--fc-button-active-bg-color, #DACDF5);
+    border-color: #DACDF5;
+    border-color: var(--fc-button-active-border-color, #DACDF5);
   }
 .fc .fc-button-primary:not(:disabled):active:focus,
   .fc .fc-button-primary:not(:disabled).fc-button-active:focus {
