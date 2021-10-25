@@ -6,35 +6,12 @@
 <head>
 <meta charset="utf-8">
 <title>Hello OpenCV.js</title>
-<style>
-h1{
-text-align: center;
-font-size:80px;
-}
-video{
-position:relative;
-width:70%;
-height:100%;
-}
-.video{
-width:100%;
-height:700px;
-}
-.stop-button{
-position:absolute;
-font-size: 50px;
-    top: 800px;
-    right: 200px;
-}
-</style>
 </head>
 <body>
 <!-- 카메라 프레임이 그려질 공간 -->
 <h1> 카메라 프레임 <h1>
-<div class="video">
 <video id="videoInput" width=320 height=240></video>
 <button class = "stop-button">중지</button>
-</div>
 
 <script type="text/javascript">
 // 중지 버튼
@@ -60,6 +37,7 @@ function stopRecording(){
 	previewPlayer.srcObject.getTracks().forEach(track=> track.stop());
 	recorder.stop()
 	console.log(recordedChunks)
+	location.href = "/web/main.do"
 }
 
 
