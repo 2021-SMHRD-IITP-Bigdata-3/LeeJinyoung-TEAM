@@ -19,7 +19,6 @@ html, body {
 
 #NSK_font{
 font-family: 'Noto Sans KR', sans-serif;
-font-size:60px;
 }
 
 .modal_wrap{
@@ -223,6 +222,10 @@ font-weight:bolder;
 h1{
 position:relative;
 left:-10%;
+}
+
+b{
+font-size:60px;
 }
 
 
