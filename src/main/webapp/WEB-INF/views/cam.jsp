@@ -42,7 +42,7 @@
     border : none;
     font-size:14px;
     padding : 0.5rem 1rem;
-    cursor;pointer;
+    cursor:pointer;
     }
 	</style>
 </head>
@@ -70,8 +70,8 @@
     const stopButton = document.querySelector(".stop-button")
     const playButton = document.querySelector(".play-button")
     const downloadButton = document.querySelector(".download-button")
-    const previewButton = document.querySelector("#preview")
-    const recordingButton = document.querySelector("#recording")
+    const previewPlayer = document.querySelector("#preview")
+    const recordingPlayer = document.querySelector("#recording")
     
     //중지하기위한 변수
     let recorder;
@@ -79,13 +79,19 @@
     //function
     function videoStart(){
     	navigator.mediaDevices.getUserMedia({video:true, audio : true})
-    		.then(stream => console.log(stream))
+    		.then(stream => {
+            previewPlayer.srcObject = stream;
+            //실시간 스트리밍 되는것을 녹화하겠다.
+            startRecording(previewPlayer.captureStream())
+        })
     }
-    /*
+    
+    
     function startRecording(stream){
     	recordedChunks=[];
     	recorder = new MediaRecorder(stream);
-    	recorder.ondataavilable = (e) => {recordedChunks.push(e.data)}
+    	recorder.ondataavailable = (e) => {recordedChunks.push(e.data)}
+        console.log(recordedChunks);
     	recorder.start()
     }
     function stopRecording(){
@@ -97,15 +103,58 @@
     	const recordedBlob = new Blob(recordedChunks, {type : "video/webm"});
     	recordingPlayer.src = URL.createObjectURL(recordedBlob);
     	recordingPlayer.play()
-//    	downloadButton.href = recordingPlayer.src;
-//    	downloadButton.download = 'recording_${new Date().webm}'
-//    	console.log(recordingPlayer.src)
+    	console.log(recordingPlayer.src)
     }
-    */
+    
     //event
     recordButton.addEventListener("click",videoStart);
-    //stopButton.addEventListener("click",stopRecording);
-    //playButton.addEventListener("click",playRecording);
+    stopButton.addEventListener("click",stopRecording);
+    playButton.addEventListener("click",playRecording);
+    
+    function loadXHR() {
+    	      const xhr = new XMLHttpRequest();
+    	      xhr.open("GET","???.do");
+    	      xhr.responseType = "blob";
+    	      xhr.onerror = event => {
+    	        reject(`Network error: ${event}`);
+    	      };
+    	      xhr.onload = () => {
+    	        if (xhr.status === 200) {
+    	          resolve(xhr.response);
+    	        } else {
+    	          reject(`XHR load error: ${xhr.statusText}`);
+    	        }
+    	      };
+    	      xhr.send();
+    	}
+	function postFunc() {
+		xhr = new XMLHttpRequest();
+		xhr.open("post", "insertvideo.do", true);
+		xhr.onreadystatechange = function() { //폴백
+
+			if (xhr.readyState == 4) {
+
+				if (xhr.status == 200) { //200은 잘넘어왔단 것이다.
+
+					process();
+
+				} else {
+
+					alert("요청오류 : " + xhr.status);
+
+				}
+
+			}
+
+		}
+		//post방식은 xhr객체에 데이터를 붙여서 전송
+		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		xhr.send("name=" + irum + "&age=" + nai); 
+	}
+	function process() {
+		var data = xhr.responseText;
+		alert("요청 결과 : " + data);
+	}
     </script>
 </body>
 </html>
