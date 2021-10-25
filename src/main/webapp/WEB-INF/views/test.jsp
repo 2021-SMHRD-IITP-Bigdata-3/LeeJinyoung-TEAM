@@ -358,6 +358,7 @@ window.onload = function() {
     }
 	
     document.querySelector('.black_bg').addEventListener('click', offClick2);
+    
 }
 </script>
   </head>
