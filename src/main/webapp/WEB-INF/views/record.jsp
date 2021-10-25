@@ -66,15 +66,15 @@ html, body {
 
 	    .diary_wrap{
         display: none;
-        width: 90%;
-        height: 60%;
+        width: 100%;
+        height: 3.5%;
         position: absolute;
-        top:30%;
-        left: 25%;
+        top:26.3%;
+        left: 20%;
         margin: -254px 0 0 -236px;
         background:#FFFFFF;
         z-index: 2;
-        border-radius:5em;
+        /** border-radius:5em; **/
     }
     .diary_bg{
         display: none;
@@ -211,7 +211,7 @@ font-family: 'Noto Sans KR', sans-serif;
 	
 .diary_top{
 width:100%;
-height:20%;
+height:100%;
 text-align: center;
 }
 
@@ -223,27 +223,39 @@ text-align: center;
 
 .diary_table{
 width:100%;
-height:95%;
+height:100%;
 border-collapse:collapse;
 border-spacing:0;
 table-layout:fixed;
-font-size:40px;
+font-size:45px;
+color:#ababab;
+font-weight: 600;
+
+}
+
+.diary_table div{
+text-align: center;
+}
+
+#circle{
+width: 85px;
+    height: 85px;
+    border-radius: 70%;
+    line-height: 80px;
+    background: #E4DFF6;
+    position: absolute;
+    top: 5%;
+    right: 33%;
 }
 
 .diary_table tr{
-border-top: 5px solid #C6C6C6;
+/** border-top: 5px solid #C6C6C6; **/
 
 }
 
  .diary_table td{
- border-top: 5px solid #C6C6C6;
-}
-.tr1{
-height:10%;
-}
-
-.tr2{
-height:40%;
+ /** border-top: 5px solid #C6C6C6; **/
+ height:100%;
 }
 	
 #button{
@@ -457,38 +469,18 @@ window.onload = function() {
 		<div class="diary_bg"></div>
 	<div class="diary_wrap">
 		<div class = "diary_top">
-			<h2 style = "font-size:60px; bottom: -7%;">2020</h2>
-			<h2 style = "font-size:70px; top: -10%;">MARCH</h2>
-		</div>
-		
-		<div class = "diary_bot">
-			<table class ="diary_table">
-				<tr class="tr1">
-					<td>MEMO</td>
-					<td>SUM</td>
-					<td>MON</td>
-					<td>TUE</td>
+			<table class="diary_table">
+				<tr>
+					<td>31</td>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+					<td><div id="circle">4</div></td>
+					<td>5</td>
+					<td>6</td>
 				</tr>
-				<tr class="tr2">
-					<td>메모</td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr class="tr1">
-					<td>WED</td>
-					<td>THU</td>
-					<td>FRI</td>
-					<td>SAT</td>
-				</tr>
-				<tr class="tr2">
-					<td>메모</td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>				
 			</table>
-		</div>		
+		</div>
 	</div>
 	
 	
