@@ -14,33 +14,6 @@ body{
 	height: 100%;
 }
 
-.fc-prev-button{
-	color: #fff;
-    color: var(--fc-button-text-color, #fff);
-    background-color: #f1f2f6;
-    background-color: var(--fc-button-bg-color, #f1f2f6); /* 위 화살표 */ 
-    border-color: #f1f2f6;
-    border-color: var(--fc-button-border-color, #f1f2f6); /* 위 화살표 테두리 */ 
-}
-
-.fc-prev-button{
-	color: #fff;
-    color: var(--fc-button-text-color, #fff);
-    background-color: #f1f2f6;
-    background-color: var(--fc-button-bg-color, #f1f2f6); /* 위 화살표 */ 
-    border-color: #f1f2f6;
-    border-color: var(--fc-button-border-color, #f1f2f6); /* 위 화살표 테두리 */ 
-}
-
-.fc-next-button{
-	color: #fff;
-    color: var(--fc-button-text-color, #fff);
-    background-color: #f1f2f6;
-    background-color: var(--fc-button-bg-color, #f1f2f6); /* 위 화살표 */ 
-    border-color: #f1f2f6;
-    border-color: var(--fc-button-border-color, #f1f2f6); /* 위 화살표 테두리 */ 
-}
-
 .fc-event-title-container{
 	z-index:2;
 }
@@ -152,12 +125,16 @@ body{
 
 .fc-icon-chevron-left:before { /* 왼쪽 화살표 */
   content: "\2B05";
-  color: #DACDF5;
+  /** color: #DACDF5; **/
+      top: -10px;
+    position: relative;
 }
 
 .fc-icon-chevron-right:before { /* 오른쪽 화살표 */
   content: "\27A1";
-  color: #DACDF5;
+  /** color: #DACDF5; **/
+      top: -10px;
+    position: relative;
 }
 
 .fc-icon-chevrons-left:before {
