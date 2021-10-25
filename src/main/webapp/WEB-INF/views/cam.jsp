@@ -2,159 +2,80 @@
     pageEncoding="UTF-8"%>
 <%@ page import="com.test.mapper.exinfo" %>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Web Cam Video</title>
-    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
-    <style>
-    *{
-    	margin : 0;
-    	padding : 0;
-    }
-    html,body{
-    	height:100%;
-    }
-    .wrapper{
-    	height : 100%;
-    	overflow : hidden;
-    	display:flex;
-    	flex-direction : column;
-    	align-items: center;
-    	justify-content: center;
-    }
-    .video-container{
-    	display:flex;
-    	width:550px;
-    	padding : 1rem;
-    	justify-content: space-around;
-    }
-    .video-item > h2{
-    text-align: center;
-    }
-    .vide-item > video{
-    border :1px solid red;
-    width:250px;
-    height:188px;
-    }
-    button,a {
-    border : none;
-    font-size:14px;
-    padding : 0.5rem 1rem;
-    cursor:pointer;
-    }
-	</style>
+<meta charset="utf-8">
+<title>Hello OpenCV.js</title>
 </head>
 <body>
-	<div class = "wrapper">
-		<div class = "button-container">
-			<button class = "record-button">녹화</button>
-			<button class = "stop-button">중지</button>
-			<button class = "play-button">녹화보기</button>
-			<a class = "download-button">다운로드</a>
-		</div>
-		<div class = "video-container">
-			<div class = "video-item">
-				<h2>미리보기</h2>
-				<video autoplay muted id = "preview"></video>
-			</div>
-			<div class = "video-item">
-				<h2>미리보기</h2>
-				<video id = "recording"></video>
-			</div>
-		</div>
-	</div>
-    <script>
-    const recordButton = document.querySelector(".record-button")
-    const stopButton = document.querySelector(".stop-button")
-    const playButton = document.querySelector(".play-button")
-    const downloadButton = document.querySelector(".download-button")
-    const previewPlayer = document.querySelector("#preview")
-    const recordingPlayer = document.querySelector("#recording")
-    
-    //중지하기위한 변수
-    let recorder;
-    let recordedChunks;
-    //function
-    function videoStart(){
-    	navigator.mediaDevices.getUserMedia({video:true, audio : true})
-    		.then(stream => {
-            previewPlayer.srcObject = stream;
-            //실시간 스트리밍 되는것을 녹화하겠다.
-            startRecording(previewPlayer.captureStream())
-        })
-    }
-    
-    
-    function startRecording(stream){
-    	recordedChunks=[];
-    	recorder = new MediaRecorder(stream);
-    	recorder.ondataavailable = (e) => {recordedChunks.push(e.data)}
-        console.log(recordedChunks);
-    	recorder.start()
-    }
-    function stopRecording(){
-    	previewPlayer.srcObject.getTracks().forEach(track=> track.stop());
-    	recorder.stop()
-    	console.log(recordedChunks)
-    }
-    function playRecording(){
-    	const recordedBlob = new Blob(recordedChunks, {type : "video/webm"});
-    	recordingPlayer.src = URL.createObjectURL(recordedBlob);
-    	recordingPlayer.play()
-    	console.log(recordingPlayer.src)
-    }
-    
-    //event
-    recordButton.addEventListener("click",videoStart);
-    stopButton.addEventListener("click",stopRecording);
-    playButton.addEventListener("click",playRecording);
-    
-    function loadXHR() {
-    	      const xhr = new XMLHttpRequest();
-    	      xhr.open("GET","???.do");
-    	      xhr.responseType = "blob";
-    	      xhr.onerror = event => {
-    	        reject(`Network error: ${event}`);
-    	      };
-    	      xhr.onload = () => {
-    	        if (xhr.status === 200) {
-    	          resolve(xhr.response);
-    	        } else {
-    	          reject(`XHR load error: ${xhr.statusText}`);
-    	        }
-    	      };
-    	      xhr.send();
-    	}
-	function postFunc() {
-		xhr = new XMLHttpRequest();
-		xhr.open("post", "insertvideo.do", true);
-		xhr.onreadystatechange = function() { //폴백
+<!-- 카메라 프레임이 그려질 공간 -->
+<h1> 카메라 프레임 <h1>
+<video id="videoInput" width=320 height=240></video>
+<button class = "stop-button">중지</button>
 
-			if (xhr.readyState == 4) {
+<script type="text/javascript">
+// 중지 버튼
+const stopButton = document.querySelector(".stop-button")
+const previewPlayer = document.querySelector("#videoInput")
+// 중비 버튼 이벤트
+stopButton.addEventListener("click",stopRecording);
 
-				if (xhr.status == 200) { //200은 잘넘어왔단 것이다.
 
-					process();
+/* 카메라 허용하기 & 스트리밍 시작 */
+let video = document.getElementById("videoInput");
+navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+    .then(function(stream) {
+        video.srcObject = stream;
+        video.play();
+    })
+    .catch(function(err) {
+        console.log("An error occurred! " + err);
+    });
 
-				} else {
+//카메라 중지버튼
+function stopRecording(){
+	previewPlayer.srcObject.getTracks().forEach(track=> track.stop());
+	recorder.stop()
+	console.log(recordedChunks)
+}
 
-					alert("요청오류 : " + xhr.status);
 
-				}
+let canvasOutput = document.getElementById('canvasOutput');
 
-			}
+/* OpencvJS 로딩 완료시 콜백함수 */
+function onOpenCvReady(){
+   let height = video.height;
+   let width = video.width;
+   let src = new cv.Mat(height, width, cv.CV_8UC4); // 8 byte 4 channel
+   let dst = new cv.Mat(height, width, cv.CV_8UC1); // 8 byte 1 channel
+   let cap = new cv.VideoCapture(video);
+   const FPS = 1; // 초당 프레임수 조절 -> 흑백 변환 프레임 레이트
+   function processVideo() {
+       let begin = Date.now();
+       cap.read(src);
+       console.log(src.data);
+       sendData(src.data); // 서버로 데이터 전송
+       cv.cvtColor(src, dst, cv.COLOR_RGBA2GRAY);
+       //cv.imshow("canvasOutput", dst);
+       // schedule next one.
+       let delay = 1000/FPS - (Date.now() - begin);
+       setTimeout(processVideo, delay);
+   }
+   // schedule first one.
+   setTimeout(processVideo, 0);
+}
 
-		}
-		//post방식은 xhr객체에 데이터를 붙여서 전송
-		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-		xhr.send("name=" + irum + "&age=" + nai); 
-	}
-	function process() {
-		var data = xhr.responseText;
-		alert("요청 결과 : " + data);
-	}
-    </script>
+let requestURL = "http://localhost:5000/sendFrame";
+function sendData(data){
+   const xhr = new XMLHttpRequest();
+    xhr.open('POST', requestURL);
+    xhr.onload = () => {
+      console.log(xhr.response); // 응답 메세지
+    };
+    xhr.send(data);
+}
+</script>
+<!-- OpencvJS 라이브러리 가져오기 -->
+<script async src="https://docs.opencv.org/3.4.0/opencv.js" onload="onOpenCvReady()" type="text/javascript"></script>
 </body>
 </html>
