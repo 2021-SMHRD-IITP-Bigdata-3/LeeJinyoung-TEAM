@@ -74,6 +74,8 @@ function sendData(data){
     };
     xhr.send(data);
 }
+
+
 </script>
 <!-- OpencvJS 라이브러리 가져오기 -->
 <script async src="https://docs.opencv.org/3.4.0/opencv.js" onload="onOpenCvReady()" type="text/javascript"></script>
