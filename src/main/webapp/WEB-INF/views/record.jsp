@@ -238,15 +238,15 @@ text-align: center;
 }
 
 #circle{
-width: 85px;
+//* width: 85px;
     height: 85px;
     border-radius: 70%;
     line-height: 80px;
     background: #E4DFF6;
     position: absolute;
     top: 5%;
-    right: 33%;
-}
+    right: 33%; **/
+} 
 
 .diary_table tr{
 /** border-top: 5px solid #C6C6C6; **/
@@ -393,11 +393,42 @@ window.onload = function() {
  
     document.getElementById('diary_btn').addEventListener('click', onClick2);
     document.querySelector('.diary_bg').addEventListener('click', offClick2);
+    
+    
+   var now = new Date();	// 현재 날짜 및 시간
+   var date = now.getDate();	// 일
+   
+   document.getElementById("times4").innerHTML = date;
+   
+   now.setDate(now.getDate()+1);
+   date = now.getDate();
+   document.getElementById("times5").innerHTML = date;
+   
+   now.setDate(now.getDate()+1);
+   date = now.getDate();
+   document.getElementById("times6").innerHTML = date;
+   
+   now.setDate(now.getDate()+1);
+   date = now.getDate();
+   document.getElementById("times7").innerHTML = date;
+   
+   	now.setDate(now.getDate()-6);
+   	date = now.getDate();
+    document.getElementById("times1").innerHTML = date;
+    
+    now.setDate(now.getDate()+1);
+    date = now.getDate();
+    document.getElementById("times2").innerHTML = date;
+    
+    now.setDate(now.getDate()+1);
+    date = now.getDate();
+   	document.getElementById("times3").innerHTML = date;
+   	
 
-		}
+    
 
+}
 </script>
-
 
 </head>
 <body>
@@ -471,13 +502,13 @@ window.onload = function() {
 		<div class = "diary_top">
 			<table class="diary_table">
 				<tr>
-					<td>31</td>
-					<td>1</td>
-					<td>2</td>
-					<td>3</td>
-					<td><div id="circle">4</div></td>
-					<td>5</td>
-					<td>6</td>
+					<td><div id="times1"></div></td>
+					<td><div id="times2"></div></td>
+					<td><div id="times3"></div></td>
+					<td><div id="times4"></div></td>
+					<td><div id="times5"></div></td>
+					<td><div id="times6"></div></td>
+					<td><div id="times7"></div></td>
 				</tr>
 			</table>
 		</div>
