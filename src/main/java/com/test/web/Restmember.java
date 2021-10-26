@@ -42,5 +42,12 @@ public class Restmember {
         return day_time;
         
 	}
+    
+    @RequestMapping(value = "/insertVideo.do")
+    public void insertVideo(String Blob){
+		
+		System.out.print(Blob);
+        
+	}
 	
 }

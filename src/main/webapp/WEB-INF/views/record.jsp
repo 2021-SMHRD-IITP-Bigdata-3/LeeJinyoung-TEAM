@@ -64,6 +64,30 @@ html, body {
         z-index: 1;
     }
 
+	    .diary_wrap{
+        display: none;
+        width: 100%;
+        height: 3.5%;
+        position: absolute;
+        top:26.3%;
+        left: 20%;
+        margin: -254px 0 0 -236px;
+        background:#FFFFFF;
+        z-index: 2;
+        /** border-radius:5em; **/
+    }
+    .diary_bg{
+        display: none;
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-color:rgba(218, 215, 216, 0.5);
+        top:0;
+        left: 0;
+        z-index: 1;
+    }
+
    
 .modal_top{
 width:100%;
@@ -180,10 +204,59 @@ font-family: 'Noto Sans KR', sans-serif;
    right:-20%;
    }
 
-#diary{
+#diary_btn{
 	position:relative;
 	right:-90%;
 	}
+	
+.diary_top{
+width:100%;
+height:100%;
+text-align: center;
+}
+
+.diary_bot{
+width:100%;
+height:80%;
+text-align: center;
+}
+
+.diary_table{
+width:100%;
+height:100%;
+border-collapse:collapse;
+border-spacing:0;
+table-layout:fixed;
+font-size:45px;
+color:#ababab;
+font-weight: 600;
+
+}
+
+.diary_table div{
+text-align: center;
+}
+
+#circle{
+width: 85px;
+    height: 85px;
+    border-radius: 70%;
+    line-height: 80px;
+    background: #E4DFF6;
+    position: absolute;
+    top: 5%;
+    right: 33%;
+}
+
+.diary_table tr{
+/** border-top: 5px solid #C6C6C6; **/
+
+}
+
+ .diary_table td{
+ /** border-top: 5px solid #C6C6C6; **/
+ height:100%;
+}
 	
 #button{
 	background-color: white;
@@ -263,6 +336,11 @@ position:relative;
 left:-10%;
 }
 
+h2{
+position:relative;
+
+}
+
 .middle{
 background-color:#F1F2F6;
 }
@@ -290,6 +368,7 @@ window.onload = function() {
     document.getElementById('modal_btn').addEventListener('click', onClick);
     document.querySelector('.black_bg').addEventListener('click', offClick);
     
+    
     function onClick1() {
         document.querySelector('.record_wrap').style.display ='block';
         document.querySelector('.record_bg').style.display ='block';
@@ -303,6 +382,17 @@ window.onload = function() {
     document.querySelector('.record_bg').addEventListener('click', offClick1);
    	
     
+    function onClick2() {
+        document.querySelector('.diary_wrap').style.display ='block';
+        document.querySelector('.diary_bg').style.display ='block';
+    }   
+    function offClick2() {
+        document.querySelector('.diary_wrap').style.display ='none';
+        document.querySelector('.diary_bg').style.display ='none';
+    }
+ 
+    document.getElementById('diary_btn').addEventListener('click', onClick2);
+    document.querySelector('.diary_bg').addEventListener('click', offClick2);
 
 		}
 
@@ -373,8 +463,24 @@ window.onload = function() {
 				<td> <a>어깨를 좀 더 내려주세요</a>></td>
 			</tr>
 			</table>
-		
-		
+	</div>
+	
+	
+		<div class="diary_bg"></div>
+	<div class="diary_wrap">
+		<div class = "diary_top">
+			<table class="diary_table">
+				<tr>
+					<td>31</td>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+					<td><div id="circle">4</div></td>
+					<td>5</td>
+					<td>6</td>
+				</tr>
+			</table>
+		</div>
 	</div>
 	
 	
@@ -408,7 +514,7 @@ window.onload = function() {
 					 	
 				</select>
 			</td>
-			<td> <img id="diary" src="resources/img/weightDiary.png" width="100px" height="100px"> </td>
+			<td> <img id="diary_btn" src="resources/img/weightDiary.png" width="100px" height="100px"> </td>
 		</tr>		
 		
 		
