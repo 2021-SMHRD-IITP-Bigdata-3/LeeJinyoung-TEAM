@@ -81,7 +81,12 @@ public class mainController {
 	@RequestMapping("/cam.do")
 	public String cam() {
 		return "cam"; 
-	}	
+	}
+	
+	@RequestMapping("/warmingup.do")
+	public String warmingup() {
+		return "warmingup"; 
+	}
 	
 	//안 쓰는 것
 	@RequestMapping(value="/insertExName11.do")
@@ -99,7 +104,7 @@ public class mainController {
 	}
 	
 	@RequestMapping(value="/insertExName.do")
-    public void insertExName(List<String> list) throws Exception {
+    public void insertExName(String list) throws Exception {
 		
 		System.out.println(list);
 		//System.out.println(memberVO.getEx_name());

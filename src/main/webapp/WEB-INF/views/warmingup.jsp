@@ -4,12 +4,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>Insert title here</title>
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
 <style>
+
 html, body {
   width: 100%;
   height: 100%;
@@ -146,14 +145,17 @@ border-bottom:solid; **/}
 float:left;
 width:80%;
 height:100%;
-
-/** border-bottom-right-radius: 2em; **/
 }
 
 .top_right{
 float:right;
 width:20%;
 height:100%;
+}
+
+h1{
+position:relative;
+left:-10%;
 }
 
 .main_mid {
@@ -174,23 +176,12 @@ padding: 50px 0px 0px 100px;
 height:88%;
 }
 
-.mid_bot_table{
-font-size:50px;
-text-align: center;
-width: 100%;
-}
-
-.mbimg{
-width:90%;
-height:90%;
-border-radius: 2em;
-}
-
 .main_bot {
 position:relative;
 width:100%;
 height:20%;
 background-color: #FFFFFF;
+font-weight:bolder;
 }
 
 .bicon{
@@ -213,24 +204,37 @@ width:550px;
 height:500px;
 }
 
-
 td{
 font-size:40px;
 font-weight:bolder;
-}
-
-h1{
-position:relative;
-left:-10%;
 }
 
 b{
 font-size:60px;
 }
 
+.video{
+text-align:center;
+}
+
+.test{
+position:relative;
+text-align:left;
+left:8%;
+font-size:60px;
+font-weight:bolder;
+font-family: 'Noto Sans KR', sans-serif;
+}
+
+p{
+font-size:40px;
+}
+
 
 </style>
+
 <script>
+
 window.onload = function() {
 	 
     function onClick() {
@@ -244,31 +248,27 @@ window.onload = function() {
  
     document.getElementById('modal_btn').addEventListener('click', onClick);
     document.querySelector('.black_bg').addEventListener('click', offClick);
+ 
 }
 
 <%  guest member = (guest) session.getAttribute("member");%>
 
+function go_cam(clicked_id){
+	location.href = "/web/cam.do?ex_name="+clicked_id+"&user_id="+<%=member.getUser_id() %>;
+}
 
 function reply_click(clicked_id){
 	location.href = "${cpath}/insertExName.do?ex_name="+clicked_id+"&user_id="+<%=member.getUser_id() %>;
-}
-function go_calender(){
-	location.href = "/web/test.do";
-}
-
-function go_record(){
-	location.href = "/web/cam.do";
-}
-
-function go_warmingup(){
-	location.href = "/web/warmingup.do";
+	
 }
 
 </script>
+
 </head>
 <body>
 
-<% member = (guest) session.getAttribute("member");%>
+
+	<% member = (guest) session.getAttribute("member");%>
 
 	<div class="black_bg"></div>
 	<div class="modal_wrap">
@@ -312,61 +312,63 @@ function go_warmingup(){
 					style="width: 120px; height: 120px;">
 			</div>
 		</div>
-
-
+		
 		<div class="main_mid">
 			<div class="mid_top">
 				<table>
 					<tr>
-					<td><img src = "resources/img/가슴.png"
+					<td><img src = "resources/img/체스트프레스.png"
 					style = "width:150px; height:150px;"></td>
-					<td><b id="NSK_font">오늘의 대흉근</b></td>
+					<td><b id="NSK_font">체스트 프레스</b></td>
 					</tr>
 				</table>
-			</div>
-			<div class="mid_bot" >
-				<table class="mid_bot_table" id="NSK_font">
-					<tr>
-						<td>
-							<img class="mbimg" src="resources/img/체스트프레스.png" onclick = "go_warmingup('체스트프레스')" >
-						</td>
-						<td>
-							<img class="mbimg" src="resources/img/펙덱플라이.png">
-						</td>
-					</tr>
-					<tr>
-						<td>체스트 프레스</td>
-						<td>펙 덱 플라이</td>
-					</tr>
-					<tr><td style="padding: 50px 0px 50px 0px;"></td><td></td></tr>
-					<tr>
-						<td>
-							<img class="mbimg" src="resources/img/인클라인체스트프레스.png">
-						</td>
-						<td>
-							<img class="mbimg" src="resources/img/인클라인체스트프레스2.png">
-						</td>
-					</tr>
-					<tr>
-						<td>인클라인 체스트프레스</td>
-						<td>인클라인 체스트프레스<br>(다각도)</td>
-					</tr>
-				</table>
-				
 			</div>
 			
+		<div class="mid_bot" >
+		
+			<div class="video">
+				<iframe width="1050" height="700" src="https://www.youtube.com/embed/cZnN10iJJJU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+			
+			<div style="width:100%; height:150px;"></div>
+			
+			<div class="test">
+				<details>
+    				<summary>운동소개</summary>
+    				<p>가슴 전체 라인을 멋지게 만들어주는 운동</p>
+    			</details>	
+    			<details>
+    				<summary>운동방법</summary>
+    				<p>1.벤치에 엉덩이, 윗 등을 붙이고 가슴을 최대한 오픈시켜줍니다 <br>2.가슴에 힘을 주면서 앞으로 밀어줍니다<br>3.손목, 팔꿈치를 일직선을 유지시킨상태에서 팔꿈치를 뒤로 천천히 빼줍니다<br>4.다시 가슴에 힘을 주면서 밀어줍니다 </p>
+    			</details>
+    			<details>
+    				<summary>운동효과</summary>
+    				<p>축 처진 팔뚝살을 탄탄하게 만들어 주며, 상체를 튼튼하게 만들어주는 운동</p>
+				</details>
+				<details style=color:red>
+    				<summary >주의사항</summary>
+    				<p>팔꿈치가 어깨와 일직선이거나 어깨 위로 올라가면 안됩니다<br>팔꿈치가 손목보다 너무 밑에 있으면 안됩니다<br>프레스 했을 때 어깨가 앞으로 나오면 안됩니다</p>
+				</details>
+			</div>
+			
+		</div>
 
+		
+		
 		<div class="main_bot" id="NSK_font">
 			<div class="bicon"><img class="bimg" src="resources/img/가슴.png"><br>가슴</div>
 			<div class="bicon"><img class="bimg" src="resources/img/어깨.png"><br>어깨</div>
 			<div class="bicon"><img class="bimg" src="resources/img/등.png"><br>등</div>
 			<div class="bicon"><img class="bimg" src="resources/img/p.png"><br>팔</div>
 		</div>
+		
+		</div>
+		
+		</div>
+		
+	
+		
+		
 
-	</div>
-	
-	</div>
-	
 </body>
-
 </html>

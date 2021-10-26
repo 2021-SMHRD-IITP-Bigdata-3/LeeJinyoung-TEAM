@@ -34,7 +34,7 @@ font-size: 50px;
 <h1> 카메라 프레임 <h1>
 <video id="videoInput" width=320 height=240></video>
 <button class = "stop-button" onclick = "gomain()">중지</button>
-
+<img src={{ url_for('static', filename=test.png) }}>
 <script type="text/javascript">
 // 중지 버튼
 const stopButton = document.querySelector(".stop-button")
@@ -88,16 +88,24 @@ function onOpenCvReady(){
    setTimeout(processVideo, 0);
 }
 
-let requestURL = "http://localhost:5000/sendFrame";
+let sendURL = "http://localhost:5000/sendFrame";
 function sendData(data){
    const xhr = new XMLHttpRequest();
-    xhr.open('POST', requestURL);
+    xhr.open('POST', sendURL);
     xhr.onload = () => {
       console.log(xhr.response); // 응답 메세지
     };
     xhr.send(data);
 }
-
+let insertURL = "http://localhost:5000/InsertFrame";
+function static(){
+	   const xhr = new XMLHttpRequest();
+	    xhr.open('POST', insertURL);
+	    xhr.onload = () => {
+	      console.log(xhr.response); // 응답 메세지
+	    };
+	    xhr.send(data);
+}
 function gomain(){
 	location.href = "/web/main.do";
 }
