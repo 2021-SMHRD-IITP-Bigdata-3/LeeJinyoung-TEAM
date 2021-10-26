@@ -12,4 +12,5 @@ public class exinfo {
 	private String user_id;
 	private String ex_name;
 	private String ex_kinds;
+	private String frame;
 }

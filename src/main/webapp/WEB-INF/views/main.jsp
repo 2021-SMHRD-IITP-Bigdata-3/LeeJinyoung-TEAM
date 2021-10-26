@@ -249,8 +249,8 @@ window.onload = function() {
 
 
 <%  guest member = (guest) session.getAttribute("member");%>
-function reply_click(clicked_id){
-	location.href = "${cpath}/insertExName.do?ex_name="+clicked_id+"&user_id="+<%=member.getUser_id() %>;
+function go_cam(clicked_id){
+	location.href = "/web/cam.do?ex_name="+clicked_id+"&user_id="+<%=member.getUser_id() %>;
 	
 }
 function go_calender(){
@@ -258,7 +258,7 @@ function go_calender(){
 }
 
 function go_record(){
-	location.href = "/web/record.do";
+	location.href = "/web/cam.do";
 }
 
 </script>
@@ -325,7 +325,7 @@ function go_record(){
 				<table class="mid_bot_table" id="NSK_font">
 					<tr>
 						<td>
-							<img class="mbimg" src="resources/img/체스트프레스.png" onclick = "InsertCam('체스트프레스','팔')" >
+							<img class="mbimg" src="resources/img/체스트프레스.png" onclick = "go_cam('체스트프레스','가슴')" >
 						</td>
 						<td>
 							<img class="mbimg" src="resources/img/펙덱플라이.png">

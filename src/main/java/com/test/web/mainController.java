@@ -1,5 +1,6 @@
 package com.test.web;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -82,8 +83,9 @@ public class mainController {
 		return "cam"; 
 	}	
 	
-	@RequestMapping(value="/insertExName.do")
-    public String insertExName(exinfo memberVO , HttpServletRequest req,  RedirectAttributes rttr) throws Exception {
+	//안 쓰는 것
+	@RequestMapping(value="/insertExName11.do")
+    public String insertExName11(exinfo memberVO , HttpServletRequest req,  RedirectAttributes rttr) throws Exception {
 		
 		System.out.println(memberVO.getUser_id());
 		System.out.println(memberVO.getEx_name());
@@ -96,6 +98,19 @@ public class mainController {
         
 	}
 	
+	@RequestMapping(value="/insertExName.do")
+    public void insertExName(List<String> list) throws Exception {
+		
+		System.out.println(list);
+		//System.out.println(memberVO.getEx_name());
+        
+		//HttpSession session = req.getSession();
+		//mapper.insertExName(memberVO);
+		//session.setAttribute("memberVO", memberVO);
+		
+        //return "redirect:/cam.do";
+        
+	}
 	
 	@RequestMapping(value="/loginInsert.do", method= {RequestMethod.GET, RequestMethod.POST})
     public String memberLogin(guest memberVO , HttpServletRequest req,  RedirectAttributes rttr) throws Exception {
