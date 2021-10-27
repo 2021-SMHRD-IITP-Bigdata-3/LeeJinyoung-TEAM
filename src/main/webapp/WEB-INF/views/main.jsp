@@ -4,11 +4,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-   <meta charset="UTF-8">
-   <title>Insert title here</title>
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
 <style>
 html, body {
   width: 100%;
@@ -35,106 +35,6 @@ font-family: 'Noto Sans KR', sans-serif;
         border-bottom-left-radius: 5em;
     }
     .black_bg{
-        display: none;
-        position: absolute;
-        content: "";
-        width: 100%;
-        height: 100%;
-        background-color:rgba(218, 215, 216, 0.5);
-        top:0;
-        left: 0;
-        z-index: 1;
-    }
-    
-    .record_wrap{
-        display: none;
-        width: 90%;
-        height: 93%;
-        position: absolute;
-        top:13%;
-        left: 25%;
-        margin: -254px 0 0 -236px;
-        background:#FFFFFF;
-        z-index: 2;
-        border-radius:5em;
-        overflow: auto;
-    }
-    .record_bg{
-        display: none;
-        position: absolute;
-        content: "";
-        width: 100%;
-        height: 100%;
-        background-color:rgba(218, 215, 216, 0.5);
-        top:0;
-        left: 0;
-        z-index: 1;
-    }
-    
-    .record_wrap1{
-        display: none;
-        width: 90%;
-        height: 93%;
-        position: absolute;
-        top:13%;
-        left: 25%;
-        margin: -254px 0 0 -236px;
-        background:#FFFFFF;
-        z-index: 2;
-        border-radius:5em;
-        overflow: auto;
-    }
-    .record_bg1{
-        display: none;
-        position: absolute;
-        content: "";
-        width: 100%;
-        height: 100%;
-        background-color:rgba(218, 215, 216, 0.5);
-        top:0;
-        left: 0;
-        z-index: 1;
-    }
-    
-     .record_wrap2{
-        display: none;
-        width: 90%;
-        height: 93%;
-        position: absolute;
-        top:13%;
-        left: 25%;
-        margin: -254px 0 0 -236px;
-        background:#FFFFFF;
-        z-index: 2;
-        border-radius:5em;
-        overflow: auto;
-    }
-    .record_bg2{
-        display: none;
-        position: absolute;
-        content: "";
-        width: 100%;
-        height: 100%;
-        background-color:rgba(218, 215, 216, 0.5);
-        top:0;
-        left: 0;
-        z-index: 1;
-    }
-    
-     .record_wrap3{
-        display: none;
-        width: 90%;
-        height: 93%;
-        position: absolute;
-        top:13%;
-        left: 25%;
-        margin: -254px 0 0 -236px;
-        background:#FFFFFF;
-        z-index: 2;
-        border-radius:5em;
-        overflow: auto;
-    }
-    .record_bg3{
         display: none;
         position: absolute;
         content: "";
@@ -271,7 +171,6 @@ padding: 50px 0px 0px 100px;
 
 
 .mid_bot{
-font-size:50px;
 height:88%;
 }
 
@@ -282,24 +181,6 @@ width: 100%;
 }
 
 .mbimg{
-width:90%;
-height:90%;
-border-radius: 2em;
-}
-
-.mbimg1{
-width:90%;
-height:90%;
-border-radius: 2em;
-}
-
-.mbimg2{
-width:90%;
-height:90%;
-border-radius: 2em;
-}
-
-.mbimg3{
 width:90%;
 height:90%;
 border-radius: 2em;
@@ -332,26 +213,9 @@ width:550px;
 height:500px;
 }
 
-.mbimg1{
-width:550px;
-height:500px;
-}
-
-.mbimg2{
-width:550px;
-height:500px;
-}
-
-
-.mbimg3{
-width:550px;
-height:500px;
-}
-
-
 
 td{
-font-size:50px;
+font-size:40px;
 font-weight:bolder;
 }
 
@@ -364,82 +228,11 @@ b{
 font-size:60px;
 }
 
-a{
-font-size:80px;
-font-family: 'Noto Sans KR', sans-serif;
-}
-
-#a3{
-font-size:60px;
-font-family: 'Noto Sans KR', sans-serif;
-}
-
-#record_top_title{
-font-size:100px;
-font-weight:bolder;
-padding: 50px 50px 50px 50px;
-}
-
-#out{
-position:relative;
-width:100px;
-height:100px;
-left:40%;
-}
-
-#out2{
-position:relative;
-width:100px;
-height:100px;
-left:10%;
-}
-
-#out3{
-position:relative;
-width:100px;
-height:100px;
-left:5%;
-}
-
-
-#record_middle_content{
-text-align:center;
-position:relative;
-top:15%;
-}
-
-.test{
-position:relative;
-text-align:left;
-left:5%;
-font-size:50px;
-font-weight:bolder;
-font-family: 'Noto Sans KR', sans-serif;
-}
-
-p{
-padding: 0px 100px 0px 50px;
-}
-
-.record_down{
-text-align:center;
-}
-
-#start{
-width:300px;
-height:100px;
-font-size:50px;
-font-weight:bolder;
-font-family: 'Noto Sans KR', sans-serif;
-border-radius:30px;
-}
-
-
 
 </style>
 <script>
 window.onload = function() {
-    
+	 
     function onClick() {
         document.querySelector('.modal_wrap').style.display ='block';
         document.querySelector('.black_bg').style.display ='block';
@@ -451,87 +244,21 @@ window.onload = function() {
  
     document.getElementById('modal_btn').addEventListener('click', onClick);
     document.querySelector('.black_bg').addEventListener('click', offClick);
-    
-    
-    
-    
-    function onClick1() {
-        document.querySelector('.record_wrap').style.display ='block';
-        document.querySelector('.record_bg').style.display ='block';
-    }   
-    function offClick1() {
-        document.querySelector('.record_wrap').style.display ='none';
-        document.querySelector('.record_bg').style.display ='none';
-    }
- 
-    document.getElementById('mbimg').addEventListener('click', onClick1);
-    document.querySelector('.record_bg').addEventListener('click', offClick1);
-    
-    
-    
-    
-    function onClick2() {
-        document.querySelector('.record_wrap1').style.display ='block';
-        document.querySelector('.record_bg1').style.display ='block';
-    }   
-    function offClick2() {
-        document.querySelector('.record_wrap1').style.display ='none';
-        document.querySelector('.record_bg1').style.display ='none';
-    }
- 
-    document.getElementById('mbimg1').addEventListener('click', onClick2);
-    document.querySelector('.record_bg1').addEventListener('click', offClick2);
-    
-    
-    
-    
-    function onClick3() {
-        document.querySelector('.record_wrap2').style.display ='block';
-        document.querySelector('.record_bg2').style.display ='block';
-    }   
-    function offClick3() {
-        document.querySelector('.record_wrap2').style.display ='none';
-        document.querySelector('.record_bg2').style.display ='none';
-    }
- 
-    document.getElementById('mbimg2').addEventListener('click', onClick3);
-    document.querySelector('.record_bg2').addEventListener('click', offClick3);
-    
-    
-    
-    
-    function onClick4() {
-        document.querySelector('.record_wrap3').style.display ='block';
-        document.querySelector('.record_bg3').style.display ='block';
-    }   
-    function offClick4() {
-        document.querySelector('.record_wrap3').style.display ='none';
-        document.querySelector('.record_bg3').style.display ='none';
-    }
- 
-    document.getElementById('mbimg3').addEventListener('click', onClick4);
-    document.querySelector('.record_bg3').addEventListener('click', offClick4);
-    
-    
  
 }
 
 
 <%  guest member = (guest) session.getAttribute("member");%>
 function reply_click(clicked_id){
-   location.href = "${cpath}/insertExName.do?ex_name="+clicked_id+"&user_id="+<%=member.getUser_id() %>;
-   
+	location.href = "${cpath}/insertExName.do?ex_name="+clicked_id+"&user_id="+<%=member.getUser_id() %>;
+	
 }
 function go_calender(){
-   location.href = "/web/test.do";
+	location.href = "/web/test.do";
 }
 
 function go_record(){
-   location.href = "/web/record.do";
-}
-
-function go_main(){
-   location.href = "/web/main.do";
+	location.href = "/web/record.do";
 }
 
 </script>
@@ -540,269 +267,103 @@ function go_main(){
 
 <% member = (guest) session.getAttribute("member");%>
 
-   <div class="black_bg"></div>
-   <div class="modal_wrap">
-      <div class = "modal_top">
-         <div id="NSK_font" style = "font-size:80px;"><b><br><%= member.getUser_name() %></b></div>
-         <div class = "modal_top_left"> 
-            <div id="NSK_font"><br>만기일</div>
-         </div>
-         <div class = "modal_top_right">
-            <div id="NSK_font"><br><%=member.getUser_expire_date() %><br>D-day 30일</div>
-         </div>
-      </div>
-      <div class = "modal_mid">
-         <div class = "modal_mid_mid">
-            <div class = "modal_mid_left"><img id="moicon" src="resources/img/diary.png" onclick = "go_calender()"></div>
-            <div class = "modal_mid_right"><b id = "modal_mid_b" onclick = "go_calender()">운동 다이어리</b></div>
-         </div>   
-         <div class = "modal_mid_mid">
-            <div class = "modal_mid_left"><img id="moicon" src="resources/img/dumbbell.png"></div>
-            <div class = "modal_mid_right"><b id = "modal_mid_b">운동 도구</b></div>
-         </div>
-         <div class = "modal_mid_mid">
-            <div class = "modal_mid_left"><img id="moicon" src="resources/img/video.png" onclick = "go_record()"></div>
-            <div class = "modal_mid_right"><b id = "modal_mid_b" onclick = "go_record()">운동 영상</b></div>
-         </div>      
-      </div>
-      <div class = "modal_bot">
-         <div id="NSK_font">고객센터     010-4903-4073</div>
-      </div>
-   </div>
-   
-   
-   <div class="record_bg"></div>
-   <div class="record_wrap">
-      <div class="record_top" style="width:100%; height:200px;">
-         <div id="record_top_title"> <a> 체스트프레스 </a> 
-         <img id="out" src="resources/img/out.png" onclick = "go_main()"></div>
-         <hr style="border: solid 10px gray;">
-      </div>
-      
-      <div class="record_middle" style="width:100%; height:1000px;" align="center">   
-         <div id="record_middle_content">
-            <iframe width="1000" height="800" src="https://www.youtube.com/embed/ojIw4jY14JM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-         </div>   
-      </div>
-      
-      <div class="record_down" style="width:100%; height:150px;">
-      
-         <button id="start"> 운동시작 </button>
-      
-      </div>
-         
-         <div class="test">
-            <details>
-                <summary>운동소개</summary>
-                <p>가슴 전체 라인을 멋지게 만들어주는 운동</p>
-             </details>   
-             <details>
-                <summary>운동방법</summary>
-                <p>1.벤치에 엉덩이, 윗 등을 붙이고 가슴을 최대한 오픈시켜줍니다 <br>2.가슴에 힘을 주면서 앞으로 밀어줍니다<br>3.손목, 팔꿈치를 일직선을 유지시킨상태에서 팔꿈치를 뒤로 천천히 빼줍니다<br>4.다시 가슴에 힘을 주면서 밀어줍니다 </p>
-             </details>
-             <details>
-                <summary>운동효과</summary>
-                <p>축 처진 팔뚝살을 탄탄하게 만들어 주며, 상체를 튼튼하게 만들어주는 운동</p>
-            </details>
-            <details style=color:red>
-                <summary >주의사항</summary>
-                <p>팔꿈치가 어깨와 일직선이거나 어깨 위로 올라가면 안됩니다<br>팔꿈치가 손목보다 너무 밑에 있으면 안됩니다<br>프레스 했을 때 어깨가 앞으로 나오면 안됩니다</p>
-            </details>
-         </div>
-      
-   </div>
-   
-   <div class="record_bg1"></div>
-   <div class="record_wrap1">
-      <div class="record_top" style="width:100%; height:200px;">
-         <div id="record_top_title"> <a> 펙 덱 플라이 </a> 
-         <img id="out" src="resources/img/out.png" onclick = "go_main()"></div>
-         <hr style="border: solid 10px gray;">
-      </div>
-      
-      <div class="record_middle" style="width:100%; height:1000px;" align="center">   
-         <div id="record_middle_content">
-            <iframe width="1000" height="800" src="https://www.youtube.com/embed/cZnN10iJJJU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-         </div>   
-      </div>
-      
-      <div class="record_down" style="width:100%; height:150px;">
-      
-         <button id="start"> 운동시작 </button>
-      
-      </div>
-         
-         <div class="test">
-            <details>
-                <summary>운동소개</summary>
-                <p>가슴 근육의 매스를 키우기엔 적합하진 않지만 전체적인 모양과 안쪽 가슴 그리고 데피니션(선명도)을 주기 효과적인 운동</p>
-             </details>   
-             <details>
-                <summary>운동방법</summary>
-                <p>1.머신의 의자 높이를 팔과 팔꿈치가 가슴 중앙에 위치할 수 있게 조절한 후, 머신 팔 각도를 자신의 어깨와 일직선이 되도록 조절합니다<br>2.자세가 흐트러지지 않게 잘 잡은 후, 팔을 안쪽으로 모와줍니다<br>3.다시 바깥쪽으로 천천히 벌릴 때도 최대한 저항을 느끼도록 합니다<br>4.다시 가슴에 힘을 주면서 밀어줍니다 </p>
-             </details>
-             <details>
-                <summary>운동효과</summary>
-                <p>가슴 근육의 크기를 증가시켜주는 운동</p>
-            </details>
-            <details style=color:red>
-                <summary >주의사항</summary>
-                <p>손이나 팔에 힘을빼고 팔이 아니라 팔꿈치로 밀듯이 동작을 수행해야합니다<br>어깨가 올라가지 않게 주의합니다<br>운동시 팔꿈치 각도를 90도 이하로 굽히지말아야합니다</p>
-            </details>
-         </div>
-      
-   </div>
-   
-   <div class="record_bg2"></div>
-   <div class="record_wrap2">
-      <div class="record_top" style="width:100%; height:200px;">
-         <div id="record_top_title"> <a> 인클라인 체스트프레스 </a> 
-         <img id="out2" src="resources/img/out.png" onclick = "go_main()"></div>
-         <hr style="border: solid 10px gray;">
-      </div>
-      
-      <div class="record_middle" style="width:100%; height:1000px;" align="center">   
-         <div id="record_middle_content">
-            <iframe width="1000" height="800" src="https://www.youtube.com/embed/cZnN10iJJJU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-         </div>   
-      </div>
-      
-      <div class="record_down" style="width:100%; height:150px;">
-      
-         <button id="start"> 운동시작 </button>
-      
-      </div>
-         
-         <div class="test">
-            <details>
-                <summary>운동소개</summary>
-                <p>가슴 전체 라인을 멋지게 만들어주는 운동</p>
-             </details>   
-             <details>
-                <summary>운동방법</summary>
-                <p>1.벤치에 엉덩이, 윗 등을 붙이고 가슴을 최대한 오픈시켜줍니다 <br>2.가슴에 힘을 주면서 앞으로 밀어줍니다<br>3.손목, 팔꿈치를 일직선을 유지시킨상태에서 팔꿈치를 뒤로 천천히 빼줍니다<br>4.다시 가슴에 힘을 주면서 밀어줍니다 </p>
-             </details>
-             <details>
-                <summary>운동효과</summary>
-                <p>예쁜 가슴라인을 만들려는 목적으로하는 운동</p>
-            </details>
-            <details style=color:red>
-                <summary >주의사항</summary>
-                <p>그립을 너무 좁게 잡은 상태에서 내리면 안됩니다<br>바의 위치가 너무 낮거나 위에 있으면 다칠 수 있습니다<br>팔꿈치 각도는 90도에서 살짝 아래인 상태로 동작해주세요</p>
-            </details>
-         </div>
-      
-   </div>
-   
-   <div class="record_bg3"></div>
-   <div class="record_wrap3">
-      <div class="record_top" style="width:100%; height:200px;">
-         <div id="record_top_title"> <a id="a3"> 인클라인 체스트프레스(다각도) </a> 
-         <img id="out3" src="resources/img/out.png" onclick = "go_main()"></div>
-         <hr style="border: solid 10px gray;">
-      </div>
-      
-      <div class="record_middle" style="width:100%; height:1000px;" align="center">   
-         <div id="record_middle_content">
-            <iframe width="1000" height="800" src="https://www.youtube.com/embed/cZnN10iJJJU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-         </div>   
-      </div>
-      
-      <div class="record_down" style="width:100%; height:150px;">
-      
-         <button id="start"> 운동시작 </button>
-      
-      </div>
-         
-         <div class="test">
-            <details>
-                <summary>운동소개</summary>
-                <p>가슴 전체 라인을 멋지게 만들어주는 운동</p>
-             </details>   
-             <details>
-                <summary>운동방법</summary>
-                <p>1.벤치에 엉덩이, 윗 등을 붙이고 가슴을 최대한 오픈시켜줍니다 <br>2.가슴에 힘을 주면서 앞으로 밀어줍니다<br>3.손목, 팔꿈치를 일직선을 유지시킨상태에서 팔꿈치를 뒤로 천천히 빼줍니다<br>4.다시 가슴에 힘을 주면서 밀어줍니다 </p>
-             </details>
-             <details>
-                <summary>운동효과</summary>
-                <p>예쁜 가슴라인을 만들려는 목적으로하는 운동</p>
-            </details>
-            <details style=color:red>
-                <summary >주의사항</summary>
-                <p>그립을 너무 좁게 잡은 상태에서 내리면 안됩니다<br>바의 위치가 너무 낮거나 위에 있으면 다칠 수 있습니다<br>팔꿈치 각도는 90도에서 살짝 아래인 상태로 동작해주세요</p>
-            </details>
-         </div>
-      
-   </div>
-   
-   
-   <div class="main_map">
+	<div class="black_bg"></div>
+	<div class="modal_wrap">
+		<div class = "modal_top">
+			<div id="NSK_font" style = "font-size:80px;"><b><br><%= member.getUser_name() %></b></div>
+			<div class = "modal_top_left"> 
+				<div id="NSK_font"><br>만기일</div>
+			</div>
+			<div class = "modal_top_right">
+				<div id="NSK_font"><br><%=member.getUser_expire_date() %><br>D-day 30일</div>
+			</div>
+		</div>
+		<div class = "modal_mid">
+			<div class = "modal_mid_mid">
+				<div class = "modal_mid_left"><img id="moicon" src="resources/img/diary.png" onclick = "go_calender()"></div>
+				<div class = "modal_mid_right"><b id = "modal_mid_b" onclick = "go_calender()">운동 다이어리</b></div>
+			</div>	
+			<div class = "modal_mid_mid">
+				<div class = "modal_mid_left"><img id="moicon" src="resources/img/dumbbell.png"></div>
+				<div class = "modal_mid_right"><b id = "modal_mid_b">운동 도구</b></div>
+			</div>
+			<div class = "modal_mid_mid">
+				<div class = "modal_mid_left"><img id="moicon" src="resources/img/video.png" onclick = "go_record()"></div>
+				<div class = "modal_mid_right"><b id = "modal_mid_b" onclick = "go_record()">운동 영상</b></div>
+			</div>		
+		</div>
+		<div class = "modal_bot">
+			<div id="NSK_font">고객센터     010-4903-4073</div>
+		</div>
+	</div>
+	
+	<div class="main_map">
 
-      <div class="main_top" style = "text-align : center;">
-         <div class="top_left">
-            <h1 style = "font-size:90px;">The Ai Fitness</h1>
-         </div>
-         <div class="top_right">
-         
-            <img id="modal_btn" src="resources/img/menu.png"
-               style="width: 120px; height: 120px;">
-         </div>
-      </div>
+		<div class="main_top" style = "text-align : center;">
+			<div class="top_left">
+				<h1 style = "font-size:90px;">The Ai Fitness</h1>
+			</div>
+			<div class="top_right">
+			
+				<img id="modal_btn" src="resources/img/menu.png"
+					style="width: 120px; height: 120px;">
+			</div>
+		</div>
 
 
-      <div class="main_mid">
-         <div class="mid_top">
-            <table>
-               <tr>
-               <td><img src = "resources/img/가슴.png"
-               style = "width:150px; height:150px;"></td>
-               <td><b id="NSK_font">오늘의 대흉근</b></td>
-               </tr>
-            </table>
-         </div>
-         <div class="mid_bot" >
-            <table class="mid_bot_table" id="NSK_font">
-               <tr>
-                  <td>
-                     <img id="mbimg" class="mbimg" src="resources/img/체스트프레스.png" onclick = "InsertCam('체스트프레스','팔')" >
-                  </td>
-                  <td>
-                      <img id="mbimg1" class="mbimg1" src="resources/img/펙덱플라이.png">
-                  </td>
-               </tr>
-               <tr>
-                  <td>체스트 프레스</td>
-                  <td>펙 덱 플라이</td>
-               </tr>
-               <tr><td style="padding: 50px 0px 50px 0px;"></td><td></td></tr>
-               <tr>
-                  <td>
-                     <img id="mbimg2" class="mbimg2" src="resources/img/인클라인체스트프레스.png">
-                  </td>
-                  <td>
-                     <img id="mbimg3" class="mbimg3" src="resources/img/인클라인체스트프레스2.png">
-                  </td>
-               </tr>
-               <tr>
-                  <td>인클라인 체스트프레스</td>
-                  <td>인클라인 체스트프레스<br>(다각도)</td>
-               </tr>
-            </table>
-            
-         </div>
-         
+		<div class="main_mid">
+			<div class="mid_top">
+				<table>
+					<tr>
+					<td><img src = "resources/img/가슴.png"
+					style = "width:150px; height:150px;"></td>
+					<td><b id="NSK_font">오늘의 대흉근</b></td>
+					</tr>
+				</table>
+			</div>
+			<div class="mid_bot" >
+				<table class="mid_bot_table" id="NSK_font">
+					<tr>
+						<td>
+							<img class="mbimg" src="resources/img/체스트프레스.png" onclick = "InsertCam('체스트프레스','팔')" >
+						</td>
+						<td>
+							<img class="mbimg" src="resources/img/펙덱플라이.png">
+						</td>
+					</tr>
+					<tr>
+						<td>체스트 프레스</td>
+						<td>펙 덱 플라이</td>
+					</tr>
+					<tr><td style="padding: 50px 0px 50px 0px;"></td><td></td></tr>
+					<tr>
+						<td>
+							<img class="mbimg" src="resources/img/인클라인체스트프레스.png">
+						</td>
+						<td>
+							<img class="mbimg" src="resources/img/인클라인체스트프레스2.png">
+						</td>
+					</tr>
+					<tr>
+						<td>인클라인 체스트프레스</td>
+						<td>인클라인 체스트프레스<br>(다각도)</td>
+					</tr>
+				</table>
+				
+			</div>
+			
 
-      <div class="main_bot" id="NSK_font">
-         <div class="bicon"><img class="bimg" src="resources/img/가슴.png"><br>가슴</div>
-         <div class="bicon"><img class="bimg" src="resources/img/어깨.png"><br>어깨</div>
-         <div class="bicon"><img class="bimg" src="resources/img/등.png"><br>등</div>
-         <div class="bicon"><img class="bimg" src="resources/img/p.png"><br>팔</div>
-      </div>
+		<div class="main_bot" id="NSK_font">
+			<div class="bicon"><img class="bimg" src="resources/img/가슴.png"><br>가슴</div>
+			<div class="bicon"><img class="bimg" src="resources/img/어깨.png"><br>어깨</div>
+			<div class="bicon"><img class="bimg" src="resources/img/등.png"><br>등</div>
+			<div class="bicon"><img class="bimg" src="resources/img/p.png"><br>팔</div>
+		</div>
 
-   </div>
-   
-   </div>
-   
+	</div>
+	
+	</div>
+	
 </body>
 
 </html>
