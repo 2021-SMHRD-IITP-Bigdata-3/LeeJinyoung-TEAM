@@ -46,6 +46,31 @@ font-family: 'Noto Sans KR', sans-serif;
         z-index: 1;
     }
     
+    .record_wrap{
+        display: none;
+        width: 90%;
+        height: 93%;
+        position: absolute;
+        top:13%;
+        left: 25%;
+        margin: -254px 0 0 -236px;
+        background:#FFFFFF;
+        z-index: 2;
+        border-radius:5em;
+        overflow: auto;
+    }
+    .record_bg{
+        display: none;
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-color:rgba(218, 215, 216, 0.5);
+        top:0;
+        left: 0;
+        z-index: 1;
+    }
+    
 #modal_btn{
 position:relative;
 top:20%;
@@ -228,6 +253,57 @@ b{
 font-size:60px;
 }
 
+a{
+font-size:80px;
+font-family: 'Noto Sans KR', sans-serif;
+}
+
+#record_top_title{
+font-size:100px;
+font-weight:bolder;
+padding: 50px 50px 50px 50px;
+}
+
+#out{
+position:relative;
+width:100px;
+height:100px;
+left:40%;
+}
+
+#record_middle_content{
+text-align:center;
+position:relative;
+top:15%;
+}
+
+.test{
+position:relative;
+text-align:left;
+left:5%;
+font-size:50px;
+font-weight:bolder;
+font-family: 'Noto Sans KR', sans-serif;
+}
+
+p{
+padding: 0px 100px 0px 50px;
+}
+
+.record_down{
+text-align:center;
+}
+
+#start{
+width:300px;
+height:100px;
+font-size:50px;
+font-weight:bolder;
+font-family: 'Noto Sans KR', sans-serif;
+border-radius:30px;
+}
+
+
 
 </style>
 <script>
@@ -244,6 +320,20 @@ window.onload = function() {
  
     document.getElementById('modal_btn').addEventListener('click', onClick);
     document.querySelector('.black_bg').addEventListener('click', offClick);
+    
+    function onClick1() {
+        document.querySelector('.record_wrap').style.display ='block';
+        document.querySelector('.record_bg').style.display ='block';
+    }   
+    function offClick1() {
+        document.querySelector('.record_wrap').style.display ='none';
+        document.querySelector('.record_bg').style.display ='none';
+    }
+ 
+    document.getElementById('mbimg').addEventListener('click', onClick1);
+    document.querySelector('.record_bg').addEventListener('click', offClick1);
+    
+    
  
 }
 
@@ -259,6 +349,10 @@ function go_calender(){
 
 function go_record(){
 	location.href = "/web/record.do";
+}
+
+function go_main(){
+	location.href = "/web/main.do";
 }
 
 </script>
@@ -297,6 +391,49 @@ function go_record(){
 		</div>
 	</div>
 	
+	
+	<div class="record_bg"></div>
+	<div class="record_wrap">
+		<div class="record_top" style="width:100%; height:200px;">
+			<div id="record_top_title"> <a> 체스트프레스 </a> 
+			<img id="out" src="resources/img/out.png" onclick = "go_main()"></div>
+			<hr style="border: solid 10px gray;">
+		</div>
+		
+		<div class="record_middle" style="width:100%; height:1000px;" align="center">	
+			<div id="record_middle_content">
+				<iframe width="1000" height="800" src="https://www.youtube.com/embed/cZnN10iJJJU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>	
+		</div>
+		
+		<div class="record_down" style="width:100%; height:150px;">
+		
+			<button id="start"> 운동시작 </button>
+		
+		</div>
+			
+			<div class="test">
+				<details>
+    				<summary>운동소개</summary>
+    				<p>가슴 전체 라인을 멋지게 만들어주는 운동</p>
+    			</details>	
+    			<details>
+    				<summary>운동방법</summary>
+    				<p>1.벤치에 엉덩이, 윗 등을 붙이고 가슴을 최대한 오픈시켜줍니다 <br>2.가슴에 힘을 주면서 앞으로 밀어줍니다<br>3.손목, 팔꿈치를 일직선을 유지시킨상태에서 팔꿈치를 뒤로 천천히 빼줍니다<br>4.다시 가슴에 힘을 주면서 밀어줍니다 </p>
+    			</details>
+    			<details>
+    				<summary>운동효과</summary>
+    				<p>축 처진 팔뚝살을 탄탄하게 만들어 주며, 상체를 튼튼하게 만들어주는 운동</p>
+				</details>
+				<details style=color:red>
+    				<summary >주의사항</summary>
+    				<p>팔꿈치가 어깨와 일직선이거나 어깨 위로 올라가면 안됩니다<br>팔꿈치가 손목보다 너무 밑에 있으면 안됩니다<br>프레스 했을 때 어깨가 앞으로 나오면 안됩니다</p>
+				</details>
+			</div>
+		
+	</div>
+	
+	
 	<div class="main_map">
 
 		<div class="main_top" style = "text-align : center;">
@@ -325,10 +462,10 @@ function go_record(){
 				<table class="mid_bot_table" id="NSK_font">
 					<tr>
 						<td>
-							<img class="mbimg" src="resources/img/체스트프레스.png" onclick = "InsertCam('체스트프레스','팔')" >
+							<img id="mbimg" class="mbimg" src="resources/img/체스트프레스.png" onclick = "InsertCam('체스트프레스','팔')" >
 						</td>
 						<td>
-							<img class="mbimg" src="resources/img/펙덱플라이.png">
+						 	<img class="mbimg" src="resources/img/펙덱플라이.png">
 						</td>
 					</tr>
 					<tr>
