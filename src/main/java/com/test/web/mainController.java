@@ -80,7 +80,12 @@ public class mainController {
 	@RequestMapping("/cam.do")
 	public String cam() {
 		return "cam"; 
-	}	
+	}
+	
+	@RequestMapping("/warmingup.do")
+	public String warmingup() {
+		return "warmingup"; 
+	}
 	
 	@RequestMapping(value="/insertExName.do")
     public String insertExName(exinfo memberVO , HttpServletRequest req,  RedirectAttributes rttr) throws Exception {

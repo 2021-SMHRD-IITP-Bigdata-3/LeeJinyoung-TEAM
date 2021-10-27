@@ -258,6 +258,7 @@ input{
 }
 
 
+<<<<<<< HEAD
 #training{
 	filter : opacity(.5) drop-shadow(0 0 0 gray);
 	top: 110px;
@@ -280,16 +281,17 @@ left : 34%; */
 }
 
 
+=======
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/LeeJinyoung-TEAM.git
 hr{
-	position: absolute;
-	top : 8%;
+	position:relative;
 	width:98%;
-	height:0%;
 	filter : opacity(.5) drop-shadow(0 0 0 gray);
 }
 
 #record_top_title{
 font-size:100px;
+font-weight:bolder;
 padding: 50px 50px 50px 50px;
 }
 
@@ -302,7 +304,6 @@ top:15%;
 position:relative;
 width:1000px;
 height:800px;
-left:5%;
 }
 
 #bottom{
@@ -310,14 +311,21 @@ border-spacing: 50px;
 border-collapse: separate;
 }
 
+<<<<<<< HEAD
 a{
 font-size:40px;
 font-family:Regular;
+=======
+b{
+font-size:50px;
+font-family: 'Noto Sans KR', sans-serif;
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/LeeJinyoung-TEAM.git
 font-weight:bolder;
 }
 
-b{
+a{
 font-size:80px;
+font-family: 'Noto Sans KR', sans-serif;
 }
 
 h1{
@@ -332,16 +340,46 @@ position:relative;
 
 .middle{
 background-color:#F1F2F6;
+width:100%;
+height:80%;
+overflow: auto;
 }
 
 .d{
 padding: 50px 0px 0px 0px;
 }
 
+<<<<<<< HEAD
 .main_map {
 	width:100%;
 	height:100%;
 	background-color : #F1F2F6;
+=======
+#out{
+position:relative;
+width:100px;
+height:100px;
+left:35%;
+}
+
+c{
+position:relative;
+font-size:35px;
+left:5%;
+}
+
+.main_bot {
+position:relative;
+width:100%;
+height:10%;
+background-color: #FFFFFF;
+text-align:center;
+}
+
+#gym2{
+position:relative;
+top:20%;
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/LeeJinyoung-TEAM.git
 }
 
 .main_mid {
@@ -417,6 +455,15 @@ window.onload = function() {
     document.querySelector('.diary_bg').addEventListener('click', offClick2); */
     
 
+
+		}
+		
+function go_record(){
+	location.href = "/web/record.do";
+}
+
+function go_main(){
+	location.href = "/web/main.do";
 }
 
 </script>
@@ -484,12 +531,13 @@ ul{
 	
 	<div class="record_bg"></div>
 	<div class="record_wrap">
-		<div class="record_top" style="width:70%; height:200px;">
-			<div id="record_top_title"> <b> 체스트프레스 </b> </div>
+		<div class="record_top" style="width:100%; height:200px;">
+			<div id="record_top_title"> <a> 체스트프레스 </a> 
+			<img id="out" src="resources/img/out.png" onclick = "go_record()"></div>
 			<hr style="border: solid 10px gray;">
 		</div>
 		
-		<div class="record_middle" style="width:70%; height:1000px;" align="center">	
+		<div class="record_middle" style="width:100%; height:1000px;" align="center">	
 			<div id="record_middle_content">
 				<video poster="resources/img/체스트프레스.png" id="video" controls="controls">
     				<source src="resources/record/record1.mp4" type="video/mp4" />
@@ -502,14 +550,14 @@ ul{
 			<table align="center" id=bottom>
 				<tr>
 				<td><input style="width:450px; height:300px;" class="button" type = "submit" value="잘못된 자세"></td>
-				<td> <a>상체를 더 왼쪽으로 기울여 주시면 될거 같아요!!</a> </td>
+				<td> <b>상체를 더 왼쪽으로 기울여 주시면 될거 같아요!!</b> </td>
 			</tr>
 			</table>
 
 			<table align="center" id=bottom>
 				<tr>
 				<td><input style="width:450px; height:300px;" class="button" type = "submit" value="잘못된 자세"></td>
-				<td> <a>어깨를 좀 더 내려주세요</a>></td>
+				<td> <b>어깨를 좀 더 내려주세요</b>></td>
 			</tr>
 			</table>
 	</div>
@@ -569,8 +617,12 @@ ul{
 	<div class="mid_bot">
 <table align="center" id=mid>
 <tr>
+<td><input id="button" style="width:450px; height:300px;" ></td>
 <td><input id="button" style="width:450px; height:300px;" class="button" type = "submit" value="영상"></td>
-<td><input id="button" style="width:450px; height:300px;" class="button" type = "submit" value="영상"></td>
+</tr>
+<tr>
+<td><c>2021/10/27</c></td>
+<td><c>2021.10.27</c></td>
 </tr>
 </table>
 
@@ -579,6 +631,10 @@ ul{
 <tr>
 <td><input id="button" style="width:450px; height:300px;" class="button" type = "submit" value="영상"></td>
 <td><input id="button" style="width:450px; height:300px;" class="button" type = "submit" value="영상"></td>
+</tr>
+<tr>
+<td><c>2021/10/27</c></td>
+<td><c>2021.10.27</c></td>
 </tr>
 </table>
 
@@ -588,6 +644,10 @@ ul{
 <td><input id="button" style="width:450px; height:300px;" class="button" type = "submit" value="영상"></td>
 <td><input id="button" style="width:450px; height:300px;" class="button" type = "submit" value="영상"></td>
 </tr>
+<tr>
+<td><c>2021/10/27</c></td>
+<td><c>2021.10.27</c></td>
+</tr>
 </table>
 
 
@@ -596,10 +656,15 @@ ul{
 <td><input id="button" style="width:450px; height:300px;" class="button" type = "submit" value="영상"></td>
 <td><input id="button" style="width:450px; height:300px;" class="button" type = "submit" value="영상"> </td>
 </tr>
+<tr>
+<td><c>2021/10/27</c></td>
+<td><c>2021.10.27</c></td>
+</tr>
 </table>
 	</div>
 </div>
 
+<<<<<<< HEAD
 <div class="main_bot">
 <form action="/web/loginInsert.do" method ="post" id="form" >
 <table style="width:100%; height: 100%;">
@@ -610,6 +675,12 @@ ul{
 </tr>
 </table>
 </form>
+=======
+<div class="main_bot" id="NSK_font">
+		<img id="gym" src="resources/img/gym (1).png" width="150px" height="150px" onclick = "go_main()">
+		</div>
+
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/LeeJinyoung-TEAM.git
 
 </div>
 

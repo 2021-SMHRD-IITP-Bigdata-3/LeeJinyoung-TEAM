@@ -4,12 +4,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>Insert title here</title>
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
 <style>
+
 html, body {
   width: 100%;
   height: 100%;
@@ -35,31 +34,6 @@ font-family: 'Noto Sans KR', sans-serif;
         border-bottom-left-radius: 5em;
     }
     .black_bg{
-        display: none;
-        position: absolute;
-        content: "";
-        width: 100%;
-        height: 100%;
-        background-color:rgba(218, 215, 216, 0.5);
-        top:0;
-        left: 0;
-        z-index: 1;
-    }
-    
-    .record_wrap{
-        display: none;
-        width: 90%;
-        height: 93%;
-        position: absolute;
-        top:13%;
-        left: 25%;
-        margin: -254px 0 0 -236px;
-        background:#FFFFFF;
-        z-index: 2;
-        border-radius:5em;
-        overflow: auto;
-    }
-    .record_bg{
         display: none;
         position: absolute;
         content: "";
@@ -171,14 +145,17 @@ border-bottom:solid; **/}
 float:left;
 width:80%;
 height:100%;
-
-/** border-bottom-right-radius: 2em; **/
 }
 
 .top_right{
 float:right;
 width:20%;
 height:100%;
+}
+
+h1{
+position:relative;
+left:-10%;
 }
 
 .main_mid {
@@ -199,23 +176,12 @@ padding: 50px 0px 0px 100px;
 height:88%;
 }
 
-.mid_bot_table{
-font-size:50px;
-text-align: center;
-width: 100%;
-}
-
-.mbimg{
-width:90%;
-height:90%;
-border-radius: 2em;
-}
-
 .main_bot {
 position:relative;
 width:100%;
 height:20%;
 background-color: #FFFFFF;
+font-weight:bolder;
 }
 
 .bicon{
@@ -238,75 +204,37 @@ width:550px;
 height:500px;
 }
 
-
 td{
 font-size:40px;
 font-weight:bolder;
-}
-
-h1{
-position:relative;
-left:-10%;
 }
 
 b{
 font-size:60px;
 }
 
-a{
-font-size:80px;
-font-family: 'Noto Sans KR', sans-serif;
-}
-
-#record_top_title{
-font-size:100px;
-font-weight:bolder;
-padding: 50px 50px 50px 50px;
-}
-
-#out{
-position:relative;
-width:100px;
-height:100px;
-left:40%;
-}
-
-#record_middle_content{
+.video{
 text-align:center;
-position:relative;
-top:15%;
 }
 
 .test{
 position:relative;
 text-align:left;
-left:5%;
-font-size:50px;
+left:8%;
+font-size:60px;
 font-weight:bolder;
 font-family: 'Noto Sans KR', sans-serif;
 }
 
 p{
-padding: 0px 100px 0px 50px;
+font-size:40px;
 }
-
-.record_down{
-text-align:center;
-}
-
-#start{
-width:300px;
-height:100px;
-font-size:50px;
-font-weight:bolder;
-font-family: 'Noto Sans KR', sans-serif;
-border-radius:30px;
-}
-
 
 
 </style>
+
 <script>
+
 window.onload = function() {
 	 
     function onClick() {
@@ -320,47 +248,22 @@ window.onload = function() {
  
     document.getElementById('modal_btn').addEventListener('click', onClick);
     document.querySelector('.black_bg').addEventListener('click', offClick);
-    
-    function onClick1() {
-        document.querySelector('.record_wrap').style.display ='block';
-        document.querySelector('.record_bg').style.display ='block';
-    }   
-    function offClick1() {
-        document.querySelector('.record_wrap').style.display ='none';
-        document.querySelector('.record_bg').style.display ='none';
-    }
- 
-    document.getElementById('mbimg').addEventListener('click', onClick1);
-    document.querySelector('.record_bg').addEventListener('click', offClick1);
-    
-    
  
 }
-
 
 <%  guest member = (guest) session.getAttribute("member");%>
 function reply_click(clicked_id){
 	location.href = "${cpath}/insertExName.do?ex_name="+clicked_id+"&user_id="+<%=member.getUser_id() %>;
 	
 }
-function go_calender(){
-	location.href = "/web/test.do";
-}
-
-function go_record(){
-	location.href = "/web/record.do";
-}
-
-
-function go_main(){
-	location.href = "/web/main.do";
-}
 
 </script>
+
 </head>
 <body>
 
-<% member = (guest) session.getAttribute("member");%>
+
+	<% member = (guest) session.getAttribute("member");%>
 
 	<div class="black_bg"></div>
 	<div class="modal_wrap">
@@ -392,26 +295,37 @@ function go_main(){
 		</div>
 	</div>
 	
-	
-	<div class="record_bg"></div>
-	<div class="record_wrap">
-		<div class="record_top" style="width:100%; height:200px;">
-			<div id="record_top_title"> <a> 체스트프레스 </a> 
-			<img id="out" src="resources/img/out.png" onclick = "go_main()"></div>
-			<hr style="border: solid 10px gray;">
+	<div class="main_map">
+
+		<div class="main_top" style = "text-align : center;">
+			<div class="top_left">
+				<h1 style = "font-size:90px;">The Ai Fitness</h1>
+			</div>
+			<div class="top_right">
+			
+				<img id="modal_btn" src="resources/img/menu.png"
+					style="width: 120px; height: 120px;">
+			</div>
 		</div>
 		
-		<div class="record_middle" style="width:100%; height:1000px;" align="center">	
-			<div id="record_middle_content">
-				<iframe width="1000" height="800" src="https://www.youtube.com/embed/cZnN10iJJJU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-			</div>	
-		</div>
+		<div class="main_mid">
+			<div class="mid_top">
+				<table>
+					<tr>
+					<td><img src = "resources/img/체스트프레스.png"
+					style = "width:150px; height:150px;"></td>
+					<td><b id="NSK_font">체스트 프레스</b></td>
+					</tr>
+				</table>
+			</div>
+			
+		<div class="mid_bot" >
 		
-		<div class="record_down" style="width:100%; height:150px;">
-		
-			<button id="start"> 운동시작 </button>
-		
-		</div>
+			<div class="video">
+				<iframe width="1050" height="700" src="https://www.youtube.com/embed/cZnN10iJJJU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+			
+			<div style="width:100%; height:150px;"></div>
 			
 			<div class="test">
 				<details>
@@ -431,77 +345,25 @@ function go_main(){
     				<p>팔꿈치가 어깨와 일직선이거나 어깨 위로 올라가면 안됩니다<br>팔꿈치가 손목보다 너무 밑에 있으면 안됩니다<br>프레스 했을 때 어깨가 앞으로 나오면 안됩니다</p>
 				</details>
 			</div>
-		
-	</div>
-	
-	
-	<div class="main_map">
-
-		<div class="main_top" style = "text-align : center;">
-			<div class="top_left">
-				<h1 style = "font-size:90px;">The Ai Fitness</h1>
-			</div>
-			<div class="top_right">
 			
-				<img id="modal_btn" src="resources/img/menu.png"
-					style="width: 120px; height: 120px;">
-			</div>
 		</div>
 
-
-		<div class="main_mid">
-			<div class="mid_top">
-				<table>
-					<tr>
-					<td><img src = "resources/img/가슴.png"
-					style = "width:150px; height:150px;"></td>
-					<td><b id="NSK_font">오늘의 대흉근</b></td>
-					</tr>
-				</table>
-			</div>
-			<div class="mid_bot" >
-				<table class="mid_bot_table" id="NSK_font">
-					<tr>
-						<td>
-							<img id="mbimg" class="mbimg" src="resources/img/체스트프레스.png" onclick = "InsertCam('체스트프레스','팔')" >
-						</td>
-						<td>
-						 	<img class="mbimg" src="resources/img/펙덱플라이.png">
-						</td>
-					</tr>
-					<tr>
-						<td>체스트 프레스</td>
-						<td>펙 덱 플라이</td>
-					</tr>
-					<tr><td style="padding: 50px 0px 50px 0px;"></td><td></td></tr>
-					<tr>
-						<td>
-							<img class="mbimg" src="resources/img/인클라인체스트프레스.png">
-						</td>
-						<td>
-							<img class="mbimg" src="resources/img/인클라인체스트프레스2.png">
-						</td>
-					</tr>
-					<tr>
-						<td>인클라인 체스트프레스</td>
-						<td>인클라인 체스트프레스<br>(다각도)</td>
-					</tr>
-				</table>
-				
-			</div>
-			
-
+		
+		
 		<div class="main_bot" id="NSK_font">
 			<div class="bicon"><img class="bimg" src="resources/img/가슴.png"><br>가슴</div>
 			<div class="bicon"><img class="bimg" src="resources/img/어깨.png"><br>어깨</div>
 			<div class="bicon"><img class="bimg" src="resources/img/등.png"><br>등</div>
 			<div class="bicon"><img class="bimg" src="resources/img/p.png"><br>팔</div>
 		</div>
+		
+		</div>
+		
+		</div>
+		
+	
+		
+		
 
-	</div>
-	
-	</div>
-	
 </body>
-
 </html>
