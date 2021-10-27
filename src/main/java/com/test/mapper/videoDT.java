@@ -7,11 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class exinfo {
-	private int ex_seq;
+public class videoDT {
+	private int video_seq;
+	private String url;
 	private String user_id;
-	private String ex_name;
-	private String ex_kinds;
-	private String user_set;
-	private String ex_count;
 }

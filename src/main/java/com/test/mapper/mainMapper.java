@@ -12,8 +12,6 @@ public interface mainMapper {
 	
 	public guest memberLogin(guest memberVO);
 
-	public void insertExName(exinfo ex_name);
-	
 	public void insertJoin(guest memberVO);
 
 	public List<accessController> infoCalender(String user_id);
@@ -22,5 +20,10 @@ public interface mainMapper {
 
 	public void extensionMember(guest memberVO);
 
+	public void insertEx(exinfo memberVO);
+
+	public void insertURL(videoDT vo);
+	
+	public List<videoDT> memberVideo(videoDT user_id);
 
 }

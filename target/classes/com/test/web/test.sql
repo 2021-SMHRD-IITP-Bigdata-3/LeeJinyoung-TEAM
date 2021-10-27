@@ -22,9 +22,32 @@ CREATE TABLE user_exercises
     user_id          VARCHAR(20)       NULL, 
     ex_name          VARCHAR(20)      NULL,
     ex_kinds          VARCHAR(20)      NULL, 
+    user_set          VARCHAR(20)      NULL,
+    ex_count          VARCHAR(20)      NULL, 
     CONSTRAINT FK_user_exercises PRIMARY KEY (ex_seq),
     FOREIGN KEY (user_id) REFERENCES users (user_id)
 )
+select * from user_exercises
+
+select * from exercise_videos
+CREATE TABLE exercise_videos
+(
+    video_seq           int(100)      NOT NULL  AUTO_INCREMENT, 
+    url          VARCHAR(100)       NULL, 
+    user_id          VARCHAR(20)      NULL,
+    CONSTRAINT FK_exercise_videos PRIMARY KEY (video_seq),
+    FOREIGN KEY (user_id) REFERENCES users (user_id)
+)
+
+
+
+
+
+
+
+
+
+
 
 CREATE TABLE user_exercises
 (

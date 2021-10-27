@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.test.mapper.videoDT" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.List" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -541,11 +544,15 @@ function go_main(){
 
 	 </div>
 
-
+<%
+	List<videoDT> vo = (List<videoDT>)request.getAttribute("memberVideo");
+	System.out.print(vo.get(0).getUrl());
+%>
 <table align="center" id=mid>
 <tr>
-<td><input id="button" style="width:450px; height:300px;" ></td>
-<td><input id="button" style="width:450px; height:300px;" class="button" type = "submit" value="영상"></td>
+<c:forEach var= 'vo' items = "${memberVideo}">
+<td><video id="button" style="width:450px; height:300px;" src="${vo.url}"></video></td>
+</c:forEach>   
 </tr>
 <tr>
 <td><c>2021/10/27</c></td>

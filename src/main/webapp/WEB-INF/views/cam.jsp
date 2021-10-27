@@ -32,6 +32,11 @@ font-size: 50px;
 </head>
 <body>
 <!-- 카메라 프레임이 그려질 공간 -->
+<% 
+	exinfo member = (exinfo)session.getAttribute("memberVO");
+	System.out.print(member.getUser_id());
+%>
+
 <h1> 카메라 프레임 <h1>
 <video id="videoInput" width=320 height=240></video>
 <button class = "stop-button" >중지</button>
@@ -69,7 +74,7 @@ function stopRecording(){
 	console.log(URL.createObjectURL(recordedBlob));
 	videoUrl = URL.createObjectURL(recordedBlob);
 	recorder.stop();
-	location.href = "/web/insertExName.do?videoUrl="+videoUrl;
+	location.href = "/web/insertURL.do?url="+videoUrl+"&user_id=<%=member.getUser_id()%>";
 }
 
 
