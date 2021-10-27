@@ -103,10 +103,10 @@ public class mainController {
         
 	}
 	
-	@RequestMapping(value="/insertExName.do")
-    public void insertExName(String list) throws Exception {
+	@RequestMapping(value="/insertExName.do", method= {RequestMethod.GET, RequestMethod.POST})
+    public void insertExName(String videoUrl) throws Exception {
 		
-		System.out.println(list);
+		System.out.println(videoUrl);
 		//System.out.println(memberVO.getEx_name());
         
 		//HttpSession session = req.getSession();
