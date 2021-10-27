@@ -13,7 +13,7 @@
       document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
-          initialView: 'dayGridMonth',
+          initialView: 'dayGridMonth',//이게 달력형식을 해주는건데
           events: function(info,successCallback, failureCallback){
         	  $.ajax({
          		 type: "post",

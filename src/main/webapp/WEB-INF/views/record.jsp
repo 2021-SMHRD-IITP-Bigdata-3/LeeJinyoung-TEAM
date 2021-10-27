@@ -3,7 +3,35 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset='utf-8' />
+    <link href='resources/record.css' rel='stylesheet' />
+    <script src='resources/record.js'></script>
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
 <meta charset="UTF-8">
+    <script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+        	 initialView: 'dayGridWeek',
+        	 views: {
+          		 	dayGridWeek: { // name of view
+          		 		titleFormat: {/* year:'numeric',  */month: '2-digit', day: '2-digit' }, // 캘린더 위 타이틀 부분
+          		 		dayHeaderFormat:{/* month: '2-digit', */ day: '2-digit' }, // 캘린더 아래 1주일 부분
+        		    }  
+        		  },
+        	events:[{
+        	      start: '2021-10-27',
+        	      end: '2021-10-27',
+        	      display: 'background'
+        	}]
+        	});
+        calendar.render();
+      });
+    </script>
+    
 <title>Insert title here</title>
 
 <style>
@@ -64,17 +92,17 @@ html, body {
         z-index: 1;
     }
 
-	    .diary_wrap{
+/* 	    .diary_wrap{
         display: none;
         width: 100%;
-        height: 3.5%;
+        height: 30%;
         position: absolute;
         top:26.3%;
         left: 20%;
         margin: -254px 0 0 -236px;
         background:#FFFFFF;
         z-index: 2;
-        /** border-radius:5em; **/
+         border-radius:5em; 
     }
     .diary_bg{
         display: none;
@@ -86,7 +114,7 @@ html, body {
         top:0;
         left: 0;
         z-index: 1;
-    }
+    } */
 
    
 .modal_top{
@@ -163,6 +191,7 @@ text-align: center;
 .main_top {
 width:100%;
 height:10%;
+background-color : white;
 }
 
 .top_left{
@@ -204,59 +233,16 @@ font-family: 'Noto Sans KR', sans-serif;
    right:-20%;
    }
 
+.diary_top{
+height: 100%;
+}
+
 #diary_btn{
-	position:relative;
-	right:-90%;
+    position: absolute;
+    right: 3%;
+    top: 11.5%;
 	}
 	
-.diary_top{
-width:100%;
-height:100%;
-text-align: center;
-}
-
-.diary_bot{
-width:100%;
-height:80%;
-text-align: center;
-}
-
-.diary_table{
-width:100%;
-height:100%;
-border-collapse:collapse;
-border-spacing:0;
-table-layout:fixed;
-font-size:45px;
-color:#ababab;
-font-weight: 600;
-
-}
-
-.diary_table div{
-text-align: center;
-}
-
-#circle{
-//* width: 85px;
-    height: 85px;
-    border-radius: 70%;
-    line-height: 80px;
-    background: #E4DFF6;
-    position: absolute;
-    top: 5%;
-    right: 33%; **/
-} 
-
-.diary_table tr{
-/** border-top: 5px solid #C6C6C6; **/
-
-}
-
- .diary_table td{
- /** border-top: 5px solid #C6C6C6; **/
- height:100%;
-}
 	
 #button{
 	background-color: white;
@@ -273,21 +259,24 @@ input{
 
 
 #training{
-	position: absolute;
 	filter : opacity(.5) drop-shadow(0 0 0 gray);
-	top : 94%;
-	left : 8%;
+	top: 110px;
+    right: 40px;
+    position: relative;
 }
 
 #videioTrainging{
-	position: absolute;
 	filter : opacity(.5) drop-shadow(0 0 0 gray);
-	top : 94%;
-	left : 80%;
+	top: 110px;
+    left: 40px;
+    position: relative;
 }
 
 #button_gym{
 border: none;
+/* position: absolute;
+top : 84%;
+left : 34%; */
 }
 
 
@@ -322,7 +311,7 @@ border-collapse: separate;
 }
 
 a{
-font-size:50px;
+font-size:40px;
 font-family:Regular;
 font-weight:bolder;
 }
@@ -349,8 +338,41 @@ background-color:#F1F2F6;
 padding: 50px 0px 0px 0px;
 }
 
+.main_map {
+	width:100%;
+	height:100%;
+	background-color : #F1F2F6;
+}
 
+.main_mid {
+width:100%;
+/* height:70%; */
+/* border-bottom: 20px solid #DACDF5; */
+/** background-color:red;
+float:left; **/}
 
+.mid_top{
+width:100%;
+
+}
+
+.mid_bot{
+width:100%;
+/* height:90%; */
+}
+.main_bot {
+width:100%;
+/* height:20%; */
+background-color : #F1F2F6;
+text-align: center;
+
+}
+.calender{
+
+}
+.hide{
+height: 500px;
+}
 </style>
 
 <script>
@@ -382,7 +404,7 @@ window.onload = function() {
     document.querySelector('.record_bg').addEventListener('click', offClick1);
    	
     
-    function onClick2() {
+/*     function onClick2() {
         document.querySelector('.diary_wrap').style.display ='block';
         document.querySelector('.diary_bg').style.display ='block';
     }   
@@ -392,42 +414,38 @@ window.onload = function() {
     }
  
     document.getElementById('diary_btn').addEventListener('click', onClick2);
-    document.querySelector('.diary_bg').addEventListener('click', offClick2);
-    
-    
-   var now = new Date();	// 현재 날짜 및 시간
-   var date = now.getDate();	// 일
-   
-   document.getElementById("times4").innerHTML = date;
-   
-   now.setDate(now.getDate()+1);
-   date = now.getDate();
-   document.getElementById("times5").innerHTML = date;
-   
-   now.setDate(now.getDate()+1);
-   date = now.getDate();
-   document.getElementById("times6").innerHTML = date;
-   
-   now.setDate(now.getDate()+1);
-   date = now.getDate();
-   document.getElementById("times7").innerHTML = date;
-   
-   	now.setDate(now.getDate()-6);
-   	date = now.getDate();
-    document.getElementById("times1").innerHTML = date;
-    
-    now.setDate(now.getDate()+1);
-    date = now.getDate();
-    document.getElementById("times2").innerHTML = date;
-    
-    now.setDate(now.getDate()+1);
-    date = now.getDate();
-   	document.getElementById("times3").innerHTML = date;
-   	
-
+    document.querySelector('.diary_bg').addEventListener('click', offClick2); */
     
 
 }
+
+</script>
+<style>
+    .menu a{cursor:pointer;}
+    .menu .hide{display:none;}
+
+ul{
+   list-style:none;
+   padding-left:0px;
+   }
+
+</style>
+
+<script>
+    // html dom 이 다 로딩된 후 실행된다.
+    $(document).ready(function(){
+        // menu 클래스 바로 하위에 있는 a 태그를 클릭했을때
+        $(".menu>a").click(function(){
+            var submenu = $(this).next("ul");
+ 
+            // submenu 가 화면상에 보일때는 위로 보드랍게 접고 아니면 아래로 보드랍게 펼치기
+            if( submenu.is(":visible") ){
+                submenu.slideUp();
+            }else{
+                submenu.slideDown();
+            }
+        });
+    });
 </script>
 
 </head>
@@ -497,64 +515,58 @@ window.onload = function() {
 	</div>
 	
 	
-		<div class="diary_bg"></div>
+<!-- 		<div class="diary_bg"></div>
 	<div class="diary_wrap">
 		<div class = "diary_top">
-			<table class="diary_table">
-				<tr>
-					<td><div id="times1"></div></td>
-					<td><div id="times2"></div></td>
-					<td><div id="times3"></div></td>
-					<td><div id="times4"></div></td>
-					<td><div id="times5"></div></td>
-					<td><div id="times6"></div></td>
-					<td><div id="times7"></div></td>
-				</tr>
-			</table>
+			<div id="calendar"></div>
+		</div>
+	</div> -->
+	
+	
+<div class="main_map">
+
+
+<div class="main_top" style = "text-align : center;">
+	<div class="top_left">
+		<h1 style = "font-size:90px;">The Ai Fitness</h1>
+	</div>
+	<div class="top_right">
+		<img id="modal_btn" src="resources/img/menu.png"
+					style="width: 120px; height: 120px;">
+	</div>
+</div>
+
+<div class="main_mid">
+	<div class="mid_top">
+		<table style="padding-top: 40px;">
+			<tr>
+				<td> <a id="record" align ="center">자세교정 녹화본</a> </td>
+				<td>
+					<select name="ex_part"  style="width:400px;height:100px;font-size:50px;font-family:Regular;">
+					 <option align="center" font-family="Regular" > 운동 부위  </option>
+					 <option align="center" value ="등" >등</option>												
+					 <option align="center" value ="팔" >팔</option>										
+					 <option align="center" value ="가슴" >가슴</option>
+					 <option align="center" value ="어깨" >어깨</option>
+					 <option align="center" value ="복근" >복근</option>	
+					</select>
+				</td>
+				<td> <!-- <img id="diary_btn" src="resources/img/weightDiary.png" width="100px" height="100px"> --> </td>
+			</tr>		
+		</table>
+		<div>
+    	<ul>
+        <li class="menu">
+            <a><img id="diary_btn" src="resources/img/weightDiary.png" width="100px" height="100px"></a>
+            <ul class="hide">
+				<div id="calendar"></div>
+            </ul>
+        </li>
+		</ul>
 		</div>
 	</div>
-	
-	
 
-
-
-		<div class="main_top" style = "text-align : center;">
-			<div class="top_left">
-				<h1 style = "font-size:90px;">The Ai Fitness</h1>
-			</div>
-			<div class="top_right">
-				<img id="modal_btn" src="resources/img/menu.png"
-					style="width: 120px; height: 120px;">
-			</div>
-		</div>
-
-<div class="middle">
-
-<div class="d" style="width:100%; height:150px;">
-<table>
-		<tr>
-			<td> <a id="record" align ="center">자세교정 녹화본</a> </td>
-			<td>
-				<select name="ex_part"  style="width:400px;height:100px;font-size:50px;font-family:Regular;">
-					 <option align="center" font-family="Regular" > 운동 부위  </option>
-					 	<option align="center" value ="등" >등</option>												
-					 	<option align="center" value ="팔" >팔</option>										
-					 	<option align="center" value ="가슴" >가슴</option>
-					 	<option align="center" value ="어깨" >어깨</option>
-					 	<option align="center" value ="복근" >복근</option>
-					 	
-				</select>
-			</td>
-			<td> <img id="diary_btn" src="resources/img/weightDiary.png" width="100px" height="100px"> </td>
-		</tr>		
-		
-		
-	</table>
-	
-
-	 </div>
-
-
+	<div class="mid_bot">
 <table align="center" id=mid>
 <tr>
 <td><input id="button" style="width:450px; height:300px;" class="button" type = "submit" value="영상"></td>
@@ -585,18 +597,22 @@ window.onload = function() {
 <td><input id="button" style="width:450px; height:300px;" class="button" type = "submit" value="영상"> </td>
 </tr>
 </table>
+	</div>
 </div>
 
+<div class="main_bot">
 <form action="/web/loginInsert.do" method ="post" id="form" >
-<table style="width:100%;">
+<table style="width:100%; height: 100%;">
 <tr>
 	<td> <img id="training" src="resources/img/training.png" width="150px" height="150px"> </td>
+	<td> <button id="button_gym"> <img id="gym (1)" src="resources/img/gym (1).png" width="350px" height="400px" > </button> </td>
 	<td> <img id="videioTrainging" src="resources/img/videioTrainging.png" width="150px" height="150px"> </td>
-	<td align="center" bgcolor="white"> <button id="button_gym"> <img id="gym (1)" src="resources/img/gym (1).png" width="350px" height="400px" > </button> </td>
 </tr>
 </table>
 </form>
 
+</div>
 
+</div>
 </body>
 </html>
