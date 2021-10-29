@@ -252,6 +252,11 @@ window.onload = function() {
 }
 
 <%  guest member = (guest) session.getAttribute("member");%>
+
+function go_cam(clicked_id){
+	location.href = "/web/cam.do?ex_name="+clicked_id+"&user_id="+<%=member.getUser_id() %>;
+}
+
 function reply_click(clicked_id){
 	location.href = "${cpath}/insertExName.do?ex_name="+clicked_id+"&user_id="+<%=member.getUser_id() %>;
 	

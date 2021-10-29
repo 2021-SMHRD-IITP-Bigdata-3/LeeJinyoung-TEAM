@@ -18,11 +18,21 @@
 		WHERE manager_yn = 0
 	</select>
 	
-	<insert  id="insertExName" parameterType ="com.test.mapper.exinfo" >
-	    insert into user_exercises( user_id, ex_name, ex_kinds)
+	<insert id="insertEx" parameterType ="com.test.mapper.exinfo">
+	    insert into user_exercises(user_id, ex_name, ex_kinds)
 	    values (#{user_id},#{ex_name}, #{ex_kinds})
 	</insert>
 
+	<insert id="insertURL" parameterType ="com.test.mapper.videoDT">
+	    insert into exercise_videos(user_id,url)
+	    values (#{user_id},#{url})
+	</insert>
+	
+	<select id="memberVideo" resultType="com.test.mapper.videoDT">
+		SELECT url
+		FROM exercise_videos
+		WHERE user_id = #{user_id}
+	</select>
 	
 	<update  id="extensionMember" parameterType ="com.test.mapper.guest" >
 	    update users set user_expire_date = DATE_ADD(user_expire_date, INTERVAL #{month} MONTH)

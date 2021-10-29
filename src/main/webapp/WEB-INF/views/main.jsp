@@ -320,6 +320,7 @@ window.onload = function() {
  
     document.getElementById('modal_btn').addEventListener('click', onClick);
     document.querySelector('.black_bg').addEventListener('click', offClick);
+
     
     function onClick1() {
         document.querySelector('.record_wrap').style.display ='block';
@@ -333,22 +334,30 @@ window.onload = function() {
     document.getElementById('mbimg').addEventListener('click', onClick1);
     document.querySelector('.record_bg').addEventListener('click', offClick1);
     
-    
- 
 }
 
 
 <%  guest member = (guest) session.getAttribute("member");%>
+
+
 function reply_click(clicked_id){
 	location.href = "${cpath}/insertExName.do?ex_name="+clicked_id+"&user_id="+<%=member.getUser_id() %>;
-	
 }
 function go_calender(){
 	location.href = "/web/test.do";
 }
 
 function go_record(){
-	location.href = "/web/record.do";
+	location.href = "/web/record.do?user_id="+<%=member.getUser_id()%>;
+}
+
+function go_cam(exinfo,kind){
+	console.log(exinfo)
+	location.href = "/web/insertEx.do?ex_name="+exinfo+"&ex_kinds="+kind+"&user_id="+<%=member.getUser_id()%>;
+}
+
+function go_warmingup(){
+	location.href = "/web/warmingup.do";
 }
 
 
@@ -409,7 +418,7 @@ function go_main(){
 		
 		<div class="record_down" style="width:100%; height:150px;">
 		
-			<button id="start"> 운동시작 </button>
+			<button id="start" onclick = "go_cam('체스트프레스','가슴')"> 운동시작 </button>
 		
 		</div>
 			
@@ -463,7 +472,7 @@ function go_main(){
 				<table class="mid_bot_table" id="NSK_font">
 					<tr>
 						<td>
-							<img id="mbimg" class="mbimg" src="resources/img/체스트프레스.png" onclick = "InsertCam('체스트프레스','팔')" >
+							<img id="mbimg" class="mbimg" src="resources/img/체스트프레스.png" >
 						</td>
 						<td>
 						 	<img class="mbimg" src="resources/img/펙덱플라이.png">

@@ -1,9 +1,12 @@
 package com.test.web;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +20,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.test.mapper.exinfo;
 import com.test.mapper.guest;
 import com.test.mapper.mainMapper;
+import com.test.mapper.videoDT;
 
 
 @Controller
@@ -61,10 +65,14 @@ public class mainController {
 	}
 	
 	@RequestMapping("/record.do")
-	public String record() {
+	public String record(videoDT user_id, Model model) {
+		List<videoDT> memberVideo= mapper.memberVideo(user_id);
+		model.addAttribute("memberVideo", memberVideo);
+		//return "redirect:/record.do";
 		return "record";
 	}
 	
+
 	@RequestMapping("/join.do")
 	public String join() {
 		return "join";
@@ -87,20 +95,35 @@ public class mainController {
 		return "warmingup"; 
 	}
 	
-	@RequestMapping(value="/insertExName.do")
-    public String insertExName(exinfo memberVO , HttpServletRequest req,  RedirectAttributes rttr) throws Exception {
+	//안 쓰는 것
+	@RequestMapping(value="/insertEx.do")
+    public String insertEx(exinfo memberVO , HttpServletRequest req,  RedirectAttributes rttr) throws Exception {
 		
-		System.out.println(memberVO.getUser_id());
-		System.out.println(memberVO.getEx_name());
+		//System.out.println(memberVO.getUser_id());
+		//System.out.println(memberVO.getEx_name());
+		//System.out.println(memberVO.getEx_kinds());
         
 		HttpSession session = req.getSession();
-		mapper.insertExName(memberVO);
-		session.setAttribute("memberVO", memberVO);
+		mapper.insertEx(memberVO);
+		session.setAttribute("memberVO",memberVO);
 		
         return "redirect:/cam.do";
         
 	}
 	
+	@RequestMapping(value="/insertURL.do", method= {RequestMethod.GET, RequestMethod.POST})
+    public String insertURL(videoDT vo, HttpServletRequest req) throws Exception {
+		
+		System.out.println(vo.getUrl());
+		//System.out.println(memberVO.getEx_name());
+		String user_id = vo.getUser_id();
+		HttpSession session = req.getSession();
+		mapper.insertURL(vo);
+		session.setAttribute("user_id",user_id);
+		
+        return "redirect:/main.do";
+        
+	}
 	
 	@RequestMapping(value="/loginInsert.do", method= {RequestMethod.GET, RequestMethod.POST})
     public String memberLogin(guest memberVO , HttpServletRequest req,  RedirectAttributes rttr) throws Exception {
