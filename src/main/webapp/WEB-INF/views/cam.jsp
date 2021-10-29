@@ -38,12 +38,11 @@ font-size: 50px;
 %>
 
 <h1> 카메라 프레임 <h1>
-<video id="videoInput" width=320 height=240></video>
+<video autoplay muted id="videoInput" width=320 height=240></video>
 <button class = "stop-button" >중지</button>
 
 <!-- <img src="http://localhost:5000/video_feed"> -->
 <img id="image" src="" />
-
 <script type="text/javascript">
 // 중지 버튼
 const stopButton = document.querySelector(".stop-button")
@@ -52,38 +51,64 @@ const previewPlayer = document.querySelector("#videoInput")
 stopButton.addEventListener("click",stopRecording);
 
 let recorder;
-let recordedChunks;
-var videoUrl;
+let recordedChunks = [];
+
 /* 카메라 허용하기 & 스트리밍 시작 */
 let video = document.getElementById("videoInput");
 
 navigator.mediaDevices.getUserMedia({ video: true, audio: false })
-    .then(function(stream) {
-        video.srcObject = stream;
-        startRecording(video.captureStream())
-        video.play();
+    .then(stream => {
+    	previewPlayer.srcObject = stream;
+    	console.log(previewPlayer.captureStream());
+        //captureStream 실시간으로 실행되는 stream을 녹화를 위해 넘겨준것
+        startRecording(previewPlayer.captureStream());
+        //previewPlayer.play();
     })
     .catch(function(err) {
         console.log("An error occurred! " + err);
     });
 
-//카메라 중지버튼
-function stopRecording(){
-	previewPlayer.srcObject.getTracks().forEach(track=> track.stop());
-	const recordedBlob = new Blob(recordedChunks,{ type: "video/webm"});
-	console.log(URL.createObjectURL(recordedBlob));
-	videoUrl = URL.createObjectURL(recordedBlob);
-	recorder.stop();
-	location.href = "/web/insertURL.do?url="+videoUrl+"&user_id=<%=member.getUser_id()%>";
-}
-
 
 function startRecording(stream){
-	recordedChunks = [];
-	recorder = new MediaRecorder(stream);
-	recorder.ondataabailable = (e)=> { recordedChunks.push(e.data) }
-	recorder.start()
+	//recordedChunks ;
+	//console.log(stream);
+	const recorder = new MediaRecorder(stream);
+	//console.log(recorder)
+	recorder.ondataavailable = (e) => {recordedChunks.push(e.data)};
+	console.log(recordedChunks);
+	recorder.start();
 }
+
+//카메라 중지버튼
+function stopRecording(){
+	
+	previewPlayer.srcObject.getTracks().forEach(track=> track.stop());
+	const url = new Blob(recordedChunks,{ type: "video/webm"});
+	console.log(url);
+	//videoUrl = URL.createObjectURL(recordedBlob);
+	//console.log(recordedChunks);
+	//let url = recordedChunks;
+	
+	var fd = new FormData();
+	//fd.append('fname', 'test.wav');
+	fd.append('data', url);
+	console.log(fd);
+	$.ajax({
+		url : "/web/insertURL.do",
+		type : "POST",
+		data: fd,
+	    processData: false,
+	    dataType: 'blob'
+	}).done(function(data) {
+	       console.log(data);
+	});
+	//location.href = "/web/insertURL.do?url="+url+"&user_id=<%=member.getUser_id()%>";
+	
+	
+	
+	
+}
+
 
 let canvasOutput = document.getElementById('canvasOutput');
 

@@ -6,15 +6,20 @@ import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.test.mapper.guest;
 import com.test.mapper.mainMapper;
+import com.test.mapper.videoDT;
 import com.test.mapper.accessController;
 
 @RestController
@@ -42,12 +47,36 @@ public class Restmember {
         return day_time;
         
 	}
-    
-    @RequestMapping(value = "/insertVideo.do")
-    public void insertVideo(String Blob){
+    @RequestMapping(value="/insertURL.do", method= {RequestMethod.GET, RequestMethod.POST})
+    public void insertURL(HttpServletRequest request) throws Exception {
 		
-		System.out.print(Blob);
+    	//String fileName = file.getOriginalFilename();
+    	System.out.print(request.getParameter("data"));
+    	//Gson gson = new Gson();
+        //FolderSet set = new FolderSet();
+        //List<MultipartFile> mf = req.getFiles("fd");
+        
+		//System.out.println(fd);
         
 	}
+
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

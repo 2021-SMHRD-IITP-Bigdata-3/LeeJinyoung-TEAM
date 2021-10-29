@@ -546,12 +546,14 @@ function go_main(){
 
 <%
 	List<videoDT> vo = (List<videoDT>)request.getAttribute("memberVideo");
-	System.out.print(vo.get(0).getUrl());
+	
 %>
 <table align="center" id=mid>
 <tr>
+
 <c:forEach var= 'vo' items = "${memberVideo}">
-<td><video id="button" style="width:450px; height:300px;" src="${vo.url}"></video></td>
+	<td></td>
+	<td><video id="button" style="width:450px; height:300px;" autoplay="autoplay"; src="<%=vo.get(0).getUrl()%>";></video></td>
 </c:forEach>   
 </tr>
 <tr>

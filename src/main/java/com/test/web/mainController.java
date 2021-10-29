@@ -111,19 +111,7 @@ public class mainController {
         
 	}
 	
-	@RequestMapping(value="/insertURL.do", method= {RequestMethod.GET, RequestMethod.POST})
-    public String insertURL(videoDT vo, HttpServletRequest req) throws Exception {
-		
-		System.out.println(vo.getUrl());
-		//System.out.println(memberVO.getEx_name());
-		String user_id = vo.getUser_id();
-		HttpSession session = req.getSession();
-		mapper.insertURL(vo);
-		session.setAttribute("user_id",user_id);
-		
-        return "redirect:/main.do";
-        
-	}
+    
 	
 	@RequestMapping(value="/loginInsert.do", method= {RequestMethod.GET, RequestMethod.POST})
     public String memberLogin(guest memberVO , HttpServletRequest req,  RedirectAttributes rttr) throws Exception {
