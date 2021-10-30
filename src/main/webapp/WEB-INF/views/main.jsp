@@ -360,6 +360,7 @@ function go_warmingup(){
 	location.href = "/web/warmingup.do";
 }
 
+
 function go_main(){
 	location.href = "/web/main.do";
 }

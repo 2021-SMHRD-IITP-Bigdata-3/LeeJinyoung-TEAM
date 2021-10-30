@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 @Mapper
 public interface mainMapper {
@@ -22,8 +23,10 @@ public interface mainMapper {
 
 	public void insertEx(exinfo memberVO);
 
-	public void insertURL(videoDT vo);
+	public void insertfilePath(@Param("user_id") String user_id,@Param("file_name") String file_name);
 	
 	public List<videoDT> memberVideo(videoDT user_id);
+
+	//public void memberVideo();
 
 }

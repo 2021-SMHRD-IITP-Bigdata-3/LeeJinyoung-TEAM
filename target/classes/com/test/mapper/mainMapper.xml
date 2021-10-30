@@ -23,9 +23,9 @@
 	    values (#{user_id},#{ex_name}, #{ex_kinds})
 	</insert>
 
-	<insert id="insertURL" parameterType ="com.test.mapper.videoDT">
-	    insert into exercise_videos(user_id,url)
-	    values (#{user_id},#{url})
+	<insert id="insertfilePath" parameterType ="com.test.mapper.videoDT">
+	    insert into exercise_videos(user_id, file_name , ex_date)
+	    values ( #{user_id}, #{file_name} , DEFAULT)
 	</insert>
 	
 	<select id="memberVideo" resultType="com.test.mapper.videoDT">

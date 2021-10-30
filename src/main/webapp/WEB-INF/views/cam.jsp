@@ -38,11 +38,13 @@ font-size: 50px;
 %>
 
 <h1> 카메라 프레임 <h1>
-<video autoplay muted id="videoInput" width=320 height=240></video>
+<video autoplay muted id="videoInput" width=320 height=240 type= "hidden"></video>
 <button class = "stop-button" >중지</button>
 
 <!-- <img src="http://localhost:5000/video_feed"> -->
 <img id="image" src="" />
+
+
 <script type="text/javascript">
 // 중지 버튼
 const stopButton = document.querySelector(".stop-button")
@@ -56,8 +58,9 @@ let recordedChunks = [];
 /* 카메라 허용하기 & 스트리밍 시작 */
 let video = document.getElementById("videoInput");
 
-navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+navigator.mediaDevices.getUserMedia({video:true, audio: false })
     .then(stream => {
+    	console.log(previewPlayer);
     	previewPlayer.srcObject = stream;
     	console.log(previewPlayer.captureStream());
         //captureStream 실시간으로 실행되는 stream을 녹화를 위해 넘겨준것
@@ -74,7 +77,33 @@ function startRecording(stream){
 	//console.log(stream);
 	const recorder = new MediaRecorder(stream);
 	//console.log(recorder)
-	recorder.ondataavailable = (e) => {recordedChunks.push(e.data)};
+	recorder.ondataavailable = (e) => {
+		console.log("onDataAvailable")
+		recordedChunks.push(e.data)
+		
+		const b = new Blob(recordedChunks,{ type: "video/webm"});
+		console.log(b);
+		
+		url = "/web/insertURL.do?user_id=<%=member.getUser_id()%>"
+		
+		var oReq = new XMLHttpRequest();
+		oReq.open("POST", url, true);
+		oReq.onload = function (oEvent) {
+		  // Uploaded.
+		  if (oReq.status == 200){
+			  let result = oReq.response;
+              location.href="/web/"+result;
+		  }else {
+			  alert("error"+ this.status);
+		  }
+		  //console.log('success');
+		  //location.href= "/web/"+oReq.response
+		};
+		
+		oReq.send(b);
+		
+		
+	};
 	console.log(recordedChunks);
 	recorder.start();
 }
@@ -83,29 +112,11 @@ function startRecording(stream){
 function stopRecording(){
 	
 	previewPlayer.srcObject.getTracks().forEach(track=> track.stop());
-	const url = new Blob(recordedChunks,{ type: "video/webm"});
-	console.log(url);
+	
 	//videoUrl = URL.createObjectURL(recordedBlob);
 	//console.log(recordedChunks);
 	//let url = recordedChunks;
-	
-	var fd = new FormData();
-	//fd.append('fname', 'test.wav');
-	fd.append('data', url);
-	console.log(fd);
-	$.ajax({
-		url : "/web/insertURL.do",
-		type : "POST",
-		data: fd,
-	    processData: false,
-	    dataType: 'blob'
-	}).done(function(data) {
-	       console.log(data);
-	});
-	//location.href = "/web/insertURL.do?url="+url+"&user_id=<%=member.getUser_id()%>";
-	
-	
-	
+
 	
 }
 
@@ -114,6 +125,7 @@ let canvasOutput = document.getElementById('canvasOutput');
 
 /* OpencvJS 로딩 완료시 콜백함수 */
 function onOpenCvReady(){
+	console.log("onOpenCvReady");
    let height = video.height;
    let width = video.width;
    let src = new cv.Mat(height, width, cv.CV_8UC4); // 8 byte 4 channel
@@ -123,7 +135,7 @@ function onOpenCvReady(){
    function processVideo() {
        let begin = Date.now();
        cap.read(src);
-       console.log(src.data);
+       //console.log(src.data);
        sendData(src.data); // 서버로 데이터 전송
        //cv.cvtColor(src, dst, cv.COLOR_RGBA2GRAY);
        //cv.imshow("canvasOutput", dst);
@@ -141,7 +153,7 @@ function sendData(data){
    const xhr = new XMLHttpRequest();
     xhr.open('POST', sendURL);
     xhr.onload = () => {
-      console.log(xhr.responseText); // 응답 메세지
+      // console.log(xhr.responseText); // 응답 메세지
       // xhr.responseText : base64 타입 문자열
       //base64타입을  이미지 태그에 바로 넣는 코드!
       var imgsrc = "data:image/png;base64," + xhr.responseText;
@@ -150,35 +162,7 @@ function sendData(data){
     };
     xhr.send(data);
 }
-/*
-let insertURL = "http://localhost:5000/InsertFrame";
-function insertData(){
-	const xhr = new XMLHttpRequest();
-    xhr.open('POST', insertURL);
-    
-    xhr.onload = () => {
-    	if(xhr.status == 200){
-    		let result = xhr.response;
-    		console.log(result)
-    		return result
-    	}
-    	
-    	
-      //var data = document.createElement("h2");
-      //console.log(xhr.response);
-      //var dataText = document.createTextNode( 'Click' );
-      //data.document.createTextNode(xhr.response);
-      //data.appendChild(dataText);
-      //document.body.appendChild(data)
-    };
-    xhr.responseType = 'String'
-    xhr.send();
 
-}
-function gomain(){
-	location.href = "/web/main.do";
-}
-*/	
 </script>
 <!-- OpencvJS 라이브러리 가져오기 -->
 <script async src="https://docs.opencv.org/3.4.0/opencv.js" onload="onOpenCvReady()" type="text/javascript"></script>
