@@ -44,30 +44,59 @@ html, body {
   padding: 0;
 }
 
-.modal_wrap{
-        display: none;
-        width: 50%;
-        height: 60%;
-        position: absolute;
-        top:10%;
-        left: 70%;
-        margin: -254px 0 0 -236px;
-        background:#FFFFFF;
-        z-index: 2;
-        border-top-left-radius: 5em;
-        border-bottom-left-radius: 5em;
-    }
     .black_bg{
-        display: none;
-        position: absolute;
+        /* display: none; */
+        position: fixed;
         content: "";
         width: 100%;
-        height: 100%;
+        height: 100vh;
         background-color:rgba(218, 215, 216, 0.5);
         top:0;
         left: 0;
-        z-index: 1;
+        z-index: 1000;
+        
+          /* 숨기기 */
+  		z-index: -1;
+  		opacity: 0;
     }
+    
+    .modal_wrap{
+        /* display: none; */
+        width: 50%;
+        height: 50%;
+        position: relative;
+        left: 50%;
+/*      top:10%;
+        margin: -254px 0 0 -236px; */
+        background:#FFFFFF;
+/*      z-index: 2; */
+        border-top-left-radius: 5em;
+        border-bottom-left-radius: 5em;
+    }
+    
+.modal_main{
+  position: absolute;
+    top: 48%;
+    left: 52%;
+    width: 88%;
+    height: 80%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  
+   /* 초기에 약간 아래에 배치 */
+  transform: translate(-50%, -40%);
+}
+
+.show1 {
+  opacity: 1;
+  z-index: 1000;
+  transition: all .5s;
+}
+
+.show1 .modal_main {
+  transform: translate(-50%, -50%);
+  transition: all .5s;
+}
     
     .record_p, .record_g, .record_b, .record_d, .record_u{
         display: none;
@@ -124,26 +153,24 @@ height:30%;
 text-align: center;
 }
 
-.modal_top_top{
-width:100%;
-height:50%;
-text-align: center;
-}
-
 .modal_top_left{
-font-size:50px;
-width:40%;
-height:50%;
-float:left;
-text-align: right;
+    font-size: 50px;
+    width: 40%;
+    height: 50%;
+    float: left;
+    top: 56px;
+    margin-bottom: 40px;
+    text-align: right;
 }
 
 .modal_top_right{
-font-size:40px;
-width:55%;
-height:50%;
-float:right;
+font-size: 40px;
+width: 55%;
+height: 64%;
+float: right;
 text-align: left;
+top: 6%;
+margin-bottom: 20px;
 }
 
 .modal_mid{
@@ -151,6 +178,7 @@ width:100%;
 height:60%;
 font-size:50px;
 text-align: center;
+margin-top: -60px;
 }
 
 .modal_mid_mid{
@@ -160,7 +188,7 @@ padding: 0px 30px 0px 0px;
 
 #modal_mid_b{
 text-align: center;
-font-size:45px;
+font-size:40px;
 }
 
 .modal_mid_left{
@@ -420,6 +448,8 @@ text-align: center;
 }
 #dates{
     border-radius: 40px;
+    font-family: 'Noto Sans KR', sans-serif;
+    border: none;
 }
 
 </style>
@@ -427,7 +457,16 @@ text-align: center;
 <script>
 window.onload = function() {
 	 
-    function onClick() {
+	function show1 () {
+		  document.querySelector(".black_bg").className = "black_bg show1";
+		}
+	function close1 () {
+		  document.querySelector(".black_bg").className = "black_bg";
+		}
+	
+    document.querySelector("#modal_btn").addEventListener("click", show1);
+    document.querySelector(".black_bg").addEventListener("click", close1);
+/*     function onClick() {
         document.querySelector('.modal_wrap').style.display ='block';
         document.querySelector('.black_bg').style.display ='block';
     }   
@@ -437,7 +476,7 @@ window.onload = function() {
     }
  
     document.getElementById('modal_btn').addEventListener('click', onClick);
-    document.querySelector('.black_bg').addEventListener('click', offClick);
+    document.querySelector('.black_bg').addEventListener('click', offClick); */
     
     
     
@@ -532,6 +571,13 @@ window.onload = function() {
     document.getElementById('diary_btn').addEventListener('click', onClick2);
     document.querySelector('.diary_bg').addEventListener('click', offClick2); */
     
+    /* 달력 기본날짜 오늘날짜로 */
+    today = new Date();
+	console.log("today.toISOString() >>>" + today.toISOString());
+	today = today.toISOString().slice(0, 10);
+	console.log("today >>>> " + today);
+	bir = document.getElementById("dates");
+	bir.value = today;
 
 }
 
@@ -545,6 +591,19 @@ ul{
    padding-left:0px;
    }
 
+[type="date"] {
+  background:#fff 
+/*   url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set
+  /blacks/16x16/calendar_2.png) */
+  url(resources/img/circlesm.png)
+    90% 50% no-repeat ;
+}
+[type="date"]::-webkit-inner-spin-button {
+  display: none;
+}
+[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
 </style>
 
 <script> /* 다이어리 눌렀을때 스크롤 */
@@ -563,7 +622,17 @@ ul{
         });
     });
 </script>
-
+<!-- input에 오늘날짜 기본값으로 넣기 -->
+<script type="text/javascript">
+/* 	window.onload = function() {
+		today = new Date();
+		console.log("today.toISOString() >>>" + today.toISOString());
+		today = today.toISOString().slice(0, 10);
+		console.log("today >>>> " + today);
+		bir = document.getElementById("dates");
+		bir.value = today;
+	} */
+</script>
 
 <style>
 /* reset */
@@ -582,8 +651,8 @@ ul{
 .hide{
     display: none;
 }
-.show{
-    display: block;
+.show {
+  display: none;
 }
 
 /* 셀렉트 영역 스타일 */
@@ -651,8 +720,9 @@ i img{
 </head>
 <body>
 
-	<div class="black_bg"></div>
+	<div class="black_bg">
 	<div class="modal_wrap">
+	<div class="modal_main">
 		<div class = "modal_top">
 			<div id="NSK_font" style = "font-size:80px;"><b><br>이진영 님</b></div>
 			<div class = "modal_top_left"> 
@@ -680,7 +750,8 @@ i img{
 			<div id="NSK_font">고객센터     010-4903-4073</div>
 		</div>
 	</div>
-	
+	</div>
+	</div>
 	
 	<div class="record_bg"></div>
 	
@@ -934,12 +1005,12 @@ i img{
   	<input id="button" class="button_b" type = "submit" value="복근영상"></div></div>
   <div class="div_p"><div class="item">
   	<input id="button" class="button_p" type = "submit" value="팔영상"></div></div>
-  <div class="div_b"><div class="item">
+ <!-- <div class="div_b"><div class="item">
   	<input id="button" class="button_b" type = "submit" value="복근영상"></div></div>
   <div class="div_p"><div class="item">
   	<input id="button" class="button_p" type = "submit" value="팔영상"></div></div>
   <div class="div_p"><div class="item">
-  	<input id="button" class="button_p" type = "submit" value="팔영상"></div></div>
+  	<input id="button" class="button_p" type = "submit" value="팔영상"></div></div> -->
 </div>
 <!-- 	<div class="mid_bot">
 	<div class="div_d">
