@@ -70,18 +70,17 @@ html, body {
         margin: -254px 0 0 -236px; */
         background:#FFFFFF;
 /*      z-index: 2; */
-        border-top-left-radius: 5em;
-        border-bottom-left-radius: 5em;
+        border-top-left-radius: 3em;
+        border-bottom-left-radius: 3em;
     }
     
 .modal_main{
   position: absolute;
-    top: 48%;
+    top: 53%;
     left: 52%;
-    width: 88%;
-    height: 80%;
+    width: 100%;
+    height: 100%;
   transform: translate(-50%, -50%);
-  background-color: #ffffff;
   
    /* 초기에 약간 아래에 배치 */
   transform: translate(-50%, -40%);
@@ -98,7 +97,8 @@ html, body {
   transition: all .5s;
 }
     
-    .record_p, .record_g, .record_b, .record_d, .record_u{
+    /* .record_p, .record_g, .record_b, .record_d, .record_u */
+    .record_wrap{
         display: none;
         width: 90%;
         height: 93%;
@@ -378,7 +378,7 @@ padding: 50px 0px 0px 0px;
 
 .main_mid {
 width:100%;
-/* height:70%; */
+height:70%;
 /* border-bottom: 20px solid #DACDF5; */
 /** background-color:red;
 float:left; **/}
@@ -392,12 +392,18 @@ width:100%;
 width:100%;
 /* height:90%; */
 }
+
+#record_video7, #record_video2, #record_video3,
+#record_video4, #record_video5, #record_video6{
+width: 450px;
+height: 450px;
+}
 .main_bot {
 width:100%;
-/* height:20%; */
+height:20%;
 background-color : #F1F2F6;
 text-align: center;
-
+padding-top: 30%;
 }
 .calender{
 
@@ -466,6 +472,71 @@ window.onload = function() {
 	
     document.querySelector("#modal_btn").addEventListener("click", show1);
     document.querySelector(".black_bg").addEventListener("click", close1);
+    
+    
+    
+    function onClick3() {
+        document.querySelector('.record_wrap').style.display ='block';
+        document.querySelector('.record_bg').style.display ='block';
+    }   
+    function offClick3() {
+        document.querySelector('.record_wrap').style.display ='none';
+        document.querySelector('.record_bg').style.display ='none';
+    }
+ 
+    document.getElementById('record_video2').addEventListener('click', onClick3);
+    document.querySelector('.record_bg').addEventListener('click', offClick3);
+       
+    
+    function onClick4() {
+        document.querySelector('.record_wrap').style.display ='block';
+        document.querySelector('.record_bg').style.display ='block';
+    }   
+    function offClick4() {
+        document.querySelector('.record_wrap').style.display ='none';
+        document.querySelector('.record_bg').style.display ='none';
+    }
+ 
+    document.getElementById('record_video3').addEventListener('click', onClick4);
+    document.querySelector('.record_bg').addEventListener('click', offClick4);
+    
+    function onClick5() {
+        document.querySelector('.record_wrap').style.display ='block';
+        document.querySelector('.record_bg').style.display ='block';
+    }   
+    function offClick5() {
+        document.querySelector('.record_wrap').style.display ='none';
+        document.querySelector('.record_bg').style.display ='none';
+    }
+ 
+    document.getElementById('record_video4').addEventListener('click', onClick5);
+    document.querySelector('.record_bg').addEventListener('click', offClick5);
+
+ 
+    function onClick6() {
+        document.querySelector('.record_wrap').style.display ='block';
+        document.querySelector('.record_bg').style.display ='block';
+    }   
+    function offClick6() {
+        document.querySelector('.record_wrap').style.display ='none';
+        document.querySelector('.record_bg').style.display ='none';
+    }
+ 
+    document.getElementById('record_video5').addEventListener('click', onClick6);
+    document.querySelector('.record_bg').addEventListener('click', offClick6);
+      
+    
+    function onClick7() {
+        document.querySelector('.record_wrap').style.display ='block';
+        document.querySelector('.record_bg').style.display ='block';
+    }   
+    function offClick7() {
+        document.querySelector('.record_wrap').style.display ='none';
+        document.querySelector('.record_bg').style.display ='none';
+    }
+ 
+    document.getElementById('record_video6').addEventListener('click', onClick7);
+    document.querySelector('.record_bg').addEventListener('click', offClick7);
 /*     function onClick() {
         document.querySelector('.modal_wrap').style.display ='block';
         document.querySelector('.black_bg').style.display ='block';
@@ -480,7 +551,7 @@ window.onload = function() {
     
     
     
-    var onClick_d = function onClick_d() {	/* 등운동 */
+/*     var onClick_d = function onClick_d() {	
         document.querySelector('.record_d').style.display ='block';
         document.querySelector('.record_bg').style.display ='block';
     }   
@@ -494,7 +565,7 @@ window.onload = function() {
     	className[i].addEventListener('click', onClick_d, false);
     }
     
-    var onClick_p = function onClick_p() {	/* 팔운동 */
+    var onClick_p = function onClick_p() {	
         document.querySelector('.record_p').style.display ='block';
         document.querySelector('.record_bg').style.display ='block';
     }   
@@ -508,7 +579,7 @@ window.onload = function() {
     	className[i].addEventListener('click', onClick_p, false);
     }
     
-    var onClick_g = function onClick_g() {	/* 가슴운동 */
+    var onClick_g = function onClick_g() {	
         document.querySelector('.record_g').style.display ='block';
         document.querySelector('.record_bg').style.display ='block';
     }   
@@ -522,7 +593,7 @@ window.onload = function() {
     	className[i].addEventListener('click', onClick_g, false);
     }
     
-    var onClick_u = function onClick_u() {	/* 어깨운동 */
+    var onClick_u = function onClick_u() {	
         document.querySelector('.record_u').style.display ='block';
         document.querySelector('.record_bg').style.display ='block';
     }   
@@ -536,7 +607,7 @@ window.onload = function() {
     	className[i].addEventListener('click', onClick_u, false);
     }
     
-    var onClick_b = function onClick_b() {	/* 복근운동 */
+    var onClick_b = function onClick_b() {	
         document.querySelector('.record_b').style.display ='block';
         document.querySelector('.record_bg').style.display ='block';
     }   
@@ -548,15 +619,15 @@ window.onload = function() {
     var className = document.getElementsByClassName('button_b');
     for(var i = 0; i<className.length;i++){
     	className[i].addEventListener('click', onClick_b, false);
-    }
+    } */
     
     /* document.getElementById('button').addEventListener('click', onClick1); */
     /* 꺼질때는 다같이 */
-    document.querySelector('.record_bg').addEventListener('click', offClick_d);
+/*     document.querySelector('.record_bg').addEventListener('click', offClick_d);
     document.querySelector('.record_bg').addEventListener('click', offClick_p);
     document.querySelector('.record_bg').addEventListener('click', offClick_g);
     document.querySelector('.record_bg').addEventListener('click', offClick_u);
-    document.querySelector('.record_bg').addEventListener('click', offClick_b);
+    document.querySelector('.record_bg').addEventListener('click', offClick_b); */
    	
     
 /*     function onClick2() {
@@ -652,7 +723,7 @@ ul{
     display: none;
 }
 .show {
-  display: none;
+  /* display: none; */
 }
 
 /* 셀렉트 영역 스타일 */
@@ -754,36 +825,39 @@ i img{
 	</div>
 	
 	<div class="record_bg"></div>
-	
-					<div class="record_d">	<!-- 등운동 -->
-			<div class="record_top" style="width:70%; height:200px;">
-				<div id="record_top_title"> <b> 인클라인 체스트프레스 </b> </div>
-			<hr style="border: solid 10px gray;">
-			</div>
-			<div class="record_middle" style="width:70%; height:1000px;" align="center">	
-				<div id="record_middle_content">
-					<video poster="resources/img/인클라인체스트프레스.png" id="video" controls="controls">
-    				<source src="resources/record/record1.mp4" type="video/mp4" />
-					</video>
-				
-				</div>	
-			</div>
-			<div style="width:70%; height:100px;"> </div>
-			<table align="center" id=bottom>
-				<tr>
-					<td><input style="width:450px; height:300px;" class="button" type = "submit" value="잘못된 자세"></td>
-					<td> <a>상체를 더 왼쪽으로 기울여 주시면 될거 같아요!!</a> </td>
-				</tr>
-			</table>
-			<table align="center" id=bottom>
-				<tr>
-					<td><input style="width:450px; height:300px;" class="button" type = "submit" value="잘못된 자세"></td>
-					<td> <a>어깨를 좀 더 내려주세요</a>></td>
-				</tr>
-			</table>
-		</div>
-	
-	<div class="record_p">	<!-- 팔운동 -->
+    <div class="record_wrap">
+      <div class="record_top" style="width:100%; height:200px;">
+         <div id="record_top_title"> <a> 체스트프레스 </a> 
+         <img id="out" src="resources/img/out.png" onclick = "go_record()"></div>
+         <hr style="border: solid 10px gray;">
+      </div>
+      
+      <div class="record_middle" style="width:100%; height:1000px;" align="center">   
+         <div id="record_middle_content">
+            <video poster="resources/img/체스트프레스.png" id="video" controls="controls">
+                <source src="resources/record/record1.mp4" type="video/mp4" />
+            </video>
+         </div>   
+      </div>
+   
+      <div style="width:70%; height:100px;"> </div>
+      
+         <table align="center" id=bottom>
+            <tr>
+            <td><input style="width:450px; height:300px;" class="button" type = "submit" value="잘못된 자세"></td>
+            <td> <b>상체를 더 왼쪽으로 기울여 주시면 될거 같아요!!</b> </td>
+         </tr>
+         </table>
+
+         <table align="center" id=bottom>
+            <tr>
+            <td><input style="width:450px; height:300px;" class="button" type = "submit" value="잘못된 자세"></td>
+            <td> <b>어깨를 좀 더 내려주세요</b>></td>
+         </tr>
+         </table>
+   </div>
+   
+<!-- 	<div class="record_p">	팔운동
 		<div class="record_top" style="width:70%; height:200px;">
 			<div id="record_top_title"> <b> 체스트프레스 </b> </div>
 			<hr style="border: solid 10px gray;">
@@ -816,7 +890,7 @@ i img{
 		</div>
 		
 		
-		<div class="record_g">	<!-- 가슴운동 -->
+		<div class="record_g">	가슴운동
 			<div class="record_top" style="width:70%; height:200px;">
 				<div id="record_top_title"> <b> 펙 덱 플라이 </b> </div>
 			<hr style="border: solid 10px gray;">
@@ -842,9 +916,9 @@ i img{
 					<td> <a>어깨를 좀 더 내려주세요</a>></td>
 				</tr>
 			</table>
-		</div>
+		</div> -->
 		
-				<div class="record_u">	<!-- 어깨운동 -->
+<!-- 				<div class="record_u">	어깨운동
 			<div class="record_top" style="width:70%; height:200px;">
 				<div id="record_top_title"> <b> 어깨운동 </b> </div>
 			<hr style="border: solid 10px gray;">
@@ -873,7 +947,7 @@ i img{
 		</div>
 
 	<div class="record_b">
-		<!-- 복근운동 -->
+		복근운동
 		<div class="record_top" style="width: 70%; height: 200px;">
 			<div id="record_top_title">
 				<b> 복근운동 </b>
@@ -903,7 +977,7 @@ i img{
 				<td><a>어깨를 좀 더 내려주세요</a>></td>
 			</tr>
 		</table>
-	</div>
+	</div> -->
 
 
 	<!-- 		<div class="diary_bg"></div>
@@ -989,22 +1063,22 @@ i img{
 </script>	
 
 <div id="container">
-  <div class="div_p"><div class="item">
-  	<input id="button" class="button_p" type = "submit" value="팔영상"></div></div>
+  <div class="div_p" ><div class="item">
+  	<video poster="resources/img/p.png" id="record_video3"></video></div></div>
   <div class="div_d"><div class="item">
-  	<input id="button" class="button_d" type = "submit" value="등영상"></div></div>
+    <video poster="resources/img/등.png" id="record_video2"></video></div></div>
   <div class="div_b"><div class="item">
-  	<input id="button" class="button_b" type = "submit" value="복근영상"></div></div>
+  	<video poster="resources/img/복근.png" id="record_video6"></video></div></div>
   <div class="div_u"><div class="item">
-  	<input id="button" class="button_u" type = "submit" value="어께영상"></div></div>
+  	<video poster="resources/img/어깨.png" id="record_video5"></div></div>
   <div class="div_p"><div class="item">
-  	<input id="button" class="button_p" type = "submit" value="팔영상"></div></div>
+  	<video poster="resources/img/p.png" id="record_video3"></div></div>
   <div class="div_g"><div class="item">
-  	<input id="button" class="button_g" type = "submit" value="가슴영상"></div></div>
-  <div class="div_b"><div class="item">
+  	<video poster="resources/img/가슴.png" id="record_video4"></div></div>
+<!--   <div class="div_b"><div class="item">
   	<input id="button" class="button_b" type = "submit" value="복근영상"></div></div>
   <div class="div_p"><div class="item">
-  	<input id="button" class="button_p" type = "submit" value="팔영상"></div></div>
+  	<input id="button" class="button_p" type = "submit" value="팔영상"></div></div> -->
  <!-- <div class="div_b"><div class="item">
   	<input id="button" class="button_b" type = "submit" value="복근영상"></div></div>
   <div class="div_p"><div class="item">
@@ -1051,17 +1125,8 @@ i img{
 	</div> -->
 </div>
 	
-<div class="main_bot">
-<form action="/web/loginInsert.do" method ="post" id="form" >
-<table style="width:100%; height: 100%;">
-<tr>
-	<td> <img id="training" src="resources/img/training.png" width="150px" height="150px"> </td>
-	<td> <button id="button_gym"> <img id="gym2" src="resources/img/gym2.png" width="350px" height="400px" > </button> </td>
-	<td> <img id="videioTrainging" src="resources/img/videioTrainging.png" width="150px" height="150px"> </td>
-</tr>
-</table>
-</form>
-
+<div class="main_bot" id="NSK_font">
+      <img id="gym2" align="bottom" src="resources/img/gym2.png" width="150px" height="150px" onclick = "go_main()">
 </div>
 
 </div>
