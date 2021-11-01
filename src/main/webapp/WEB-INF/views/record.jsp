@@ -313,15 +313,19 @@ left : 34%; */
 
 
 hr{
-	position: absolute;
+/* 	position: absolute;
 	top : 8%;
 	width:98%;
 	height:0%;
-	filter : opacity(.5) drop-shadow(0 0 0 gray);
+	filter : opacity(.5) drop-shadow(0 0 0 gray); */
+	   position:relative;
+   width:98%;
+   filter : opacity(.5) drop-shadow(0 0 0 gray);
 }
 
 #record_top_title{
 font-size:100px;
+font-weight:bolder;
 padding: 50px 50px 50px 50px;
 }
 
@@ -343,13 +347,38 @@ border-collapse: separate;
 }
 
 a{
-font-size:40px;
+font-size:50px;
 font-family:Regular;
 font-weight:bolder;
 }
 
+.ttleft{
+font-size: 50px;
+    font-family: Regular;
+    font-weight: bolder;
+        width: 50%;
+    height: 100%;
+    float: left;
+        padding-top: 40px;
+    padding-left: 50px;
+}
+.ttright{
+font-size: 50px;
+    font-family: Regular;
+    font-weight: bolder;
+        width: 50%;
+    height: 100%;
+    float: right;
+        text-align: right;
+    padding-right: 50px;
+}
+
+#out{
+width: 150px;
+}
+
 b{
-font-size:80px;
+font-size:40px;
 }
 
 h1{
@@ -429,9 +458,9 @@ font-family:Regular;
 
 #calendar{
     height: 30%;
-    width: 100%;
+    width: 120%;
     text-align: center;
-    margin-right: 50px;
+    margin-right: 33px;
 }
 #cal_left{
 width: 85%;
@@ -649,18 +678,19 @@ window.onload = function() {
 	console.log("today >>>> " + today);
 	bir = document.getElementById("dates");
 	bir.value = today;
+	
 
 }
 
 </script>
 <style> /* 다이어리 스크롤 */
-    .menu a{cursor:pointer;}
+/*     .menu a{cursor:pointer;}
     .menu .hide{display:none;}
 
 ul{
    list-style:none;
    padding-left:0px;
-   }
+   } */
 
 [type="date"] {
   background:#fff 
@@ -677,7 +707,7 @@ ul{
 }
 </style>
 
-<script> /* 다이어리 눌렀을때 스크롤 */
+<!-- <script> /* 다이어리 눌렀을때 스크롤 */
     // html dom 이 다 로딩된 후 실행된다.
     $(document).ready(function(){
         // menu 클래스 바로 하위에 있는 a 태그를 클릭했을때
@@ -692,7 +722,7 @@ ul{
             }
         });
     });
-</script>
+</script> -->
 <!-- input에 오늘날짜 기본값으로 넣기 -->
 <script type="text/javascript">
 /* 	window.onload = function() {
@@ -703,6 +733,10 @@ ul{
 		bir = document.getElementById("dates");
 		bir.value = today;
 	} */
+	function showDiary(){
+		  const element = document.getElementById('change');
+		  element.innerHTML = '<div id="calendar"><input type="date" id="dates"></div>';
+		} 
 </script>
 
 <style>
@@ -827,8 +861,10 @@ i img{
 	<div class="record_bg"></div>
     <div class="record_wrap">
       <div class="record_top" style="width:100%; height:200px;">
-         <div id="record_top_title"> <a> 체스트프레스 </a> 
-         <img id="out" src="resources/img/out.png" onclick = "go_record()"></div>
+         <div id="record_top_title">
+         <div class="ttleft"> 체스트프레스 </div> 
+         <div class="ttright"><img id="out" src="resources/img/out.png" onclick = "go_record()"></div>
+         </div>
          <hr style="border: solid 10px gray;">
       </div>
       
@@ -1005,7 +1041,7 @@ i img{
 	<div class="mid_top">
 		<table style="padding-top: 40px;">
 			<tr>
-				<td> <a id="record" align ="center">자세교정 녹화본</a> </td>
+				<td><div id="change"> <a id="record" align ="center">자세교정 녹화본</a> </div></td>
 				<td>
 <!-- 					<select name="exercise" id="exercise">
 					 <option align="center" value ="운동 부위" font-family="Regular" > 운동 부위  </option>
@@ -1038,7 +1074,7 @@ i img{
 		<div>
     	<ul>
         <li class="menu">
-            <a><img id="diary_btn" src="resources/img/weightDiary.png" width="100px" height="100px"></a>
+            <a onclick='showDiary()' value='changeDiary'><img id="diary_btn" src="resources/img/weightDiary.png" width="100px" height="100px"></a>
             <ul class="hide">
 				<div id="calendar">
 					<!-- <div id="cal_left"> -->
