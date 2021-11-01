@@ -195,6 +195,7 @@ font-weight: bolder;
 font-size: 60px;
 padding: 50px;
 border: 1px solid black;
+text-align: left;
 }
 
 ul{
@@ -254,9 +255,9 @@ left: 120px;
 							</span>
 							<!-- 옵션 영역 -->
 							<ul class="hide" id="wrap">
-								<li class ="강남점" value ="강남점">강남점</li>
-								<li class ="해운대점" value ="해운대점">해운대점</li>
-								<li class ="광주남구" value ="광주남구">광주남구</li>									
+								<li class ="강남점" value ="강남점"><span>강남점</span></li>
+								<li class ="해운대점" value ="해운대점"><span>해운대점</span></li>
+								<li class ="광주남구" value ="광주남구"><span>광주남구</span></li>									
 							</ul>
 						</div>
 						<div id="choice">지점선택</div>
@@ -355,5 +356,10 @@ body.addEventListener('click',hideSelect);
 
 
 </script>	
+<script>
+$("#wrap li span").click(function(){
+    console.log($(this).text());
+});
+</script>
 </body>
 </html>
