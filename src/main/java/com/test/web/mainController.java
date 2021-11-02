@@ -128,8 +128,8 @@ public class mainController {
 	@RequestMapping(value="/loginInsert.do", method= {RequestMethod.GET, RequestMethod.POST})
     public String memberLogin(guest memberVO , HttpServletRequest req,  RedirectAttributes rttr) throws Exception {
 		
-		System.out.println(memberVO.getUser_id());
-		System.out.println(memberVO.getUser_gym());
+		System.out.println(memberVO.getUser_id()); // 회원번호
+		System.out.println(memberVO.getUser_gym()); // 지점
         
 		HttpSession session = req.getSession();
         guest member = mapper.memberLogin(memberVO);

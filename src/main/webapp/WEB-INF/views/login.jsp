@@ -61,9 +61,9 @@ html, body {
    	border-radius:30px;
    }
 	
- #user_gym{
+/*  #user_gym{
 display:none
-}
+} */
 /* #user_gym{
    position:relative;
    border-radius:40px;
@@ -239,7 +239,7 @@ left: 120px;
 		
 
 	<div>
-<!--  				<select id="user_gym" name = "user_gym">
+   				<select id="user_gym" name = "user_gym"  >
 
 					 	<option id=a font-family="Regular"  value ="강남점" class="강남점c">강남점</option>
 
@@ -247,7 +247,7 @@ left: 120px;
 
 					 	<option id=c font-family="Regular"  value ="광주남구" class="광주남구c">광주남구</option>				
 		 
-				</select> -->
+				</select>  
 		
 						<div class="select" data-role="selectBox" name="exercise" id="exercise" name="user_gym">
 							<span date-value="optValue" class="selected-option">
@@ -255,9 +255,9 @@ left: 120px;
 							</span>
 							<!-- 옵션 영역 -->
 							<ul class="hide" id="wrap">
-								<li class ="강남점" value ="강남점"><span>강남점</span></li>
-								<li class ="해운대점" value ="해운대점"><span>해운대점</span></li>
-								<li class ="광주남구" value ="광주남구"><span>광주남구</span></li>									
+								<li class ="강남점" value ="강남점">강남점</li>
+								<li class ="해운대점" value ="해운대점">해운대점</li>
+								<li class ="광주남구" value ="광주남구">광주남구</li>									
 							</ul>
 						</div>
 						<div id="choice">지점선택</div>
@@ -356,10 +356,5 @@ body.addEventListener('click',hideSelect);
 
 
 </script>	
-<script>
-$("#wrap li span").click(function(){
-    console.log($(this).text());
-});
-</script>
 </body>
 </html>
