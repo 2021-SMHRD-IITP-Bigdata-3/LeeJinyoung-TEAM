@@ -13,6 +13,7 @@ import java.util.Map;
 import javax.inject.Inject;
 import javax.servlet.ServletInputStream;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -28,6 +29,7 @@ import com.test.mapper.mainMapper;
 import com.test.mapper.videoDT;
 import com.sun.org.apache.xerces.internal.util.URI;
 import com.test.mapper.accessController;
+import com.test.mapper.exinfo;
 
 @RestController
 public class Restmember {
@@ -37,36 +39,28 @@ public class Restmember {
 	
 	@RequestMapping(value="/infoCalender.do")
     public List<accessController> infoCalender(@RequestParam("user_id") String user_id , Model model){
-		
-		//Map<String, String> paramMap = new HashMap<String, String>();
-		//List<Map<String, String>> MapList = new ArrayList<Map<String, String>>();
+
 		List<accessController> day_time = mapper.infoCalender(user_id);
-		
-		/*for(int i=0; i<day_time.size(); i++) {
-			paramMap.put("time", day_time.get(i).getTimediff());
-			paramMap.put("day", day_time.get(i).getEx_day());
-			paramMap.put("day", day_time.get(i).getEx_day());
-			MapList.add(paramMap);
-			
-		}
-		System.out.print(MapList.get(1));
-		*/
+
         return day_time;
         
 	}
     
 
 	
-    @RequestMapping(value="/insertURL.do", method= {RequestMethod.GET, RequestMethod.POST})
+    @RequestMapping(value="/insertExURL.do", method= {RequestMethod.GET, RequestMethod.POST})
     public String insertURL(HttpServletRequest request) throws Exception {
 		
     	//String fileName = file.getOriginalFilename();
     	//System.out.print(request.getParameter("data"));
     	System.out.println("저장할려는중");
-    	String user_id = request.getParameter("user_id");
+    	String user_id =  request.getParameter("user_id");
+    	int ex_seq = Integer.parseInt(request.getParameter("ex_seq"));
+    	
+    	
     	ServletInputStream input = request.getInputStream();
 
-    	
+    	System.out.println(ex_seq);
     	System.out.println(user_id);
     	double randomValue = Math.random();
     	String file_name = Double.toString((randomValue*100)+1);
@@ -88,12 +82,23 @@ public class Restmember {
     	out.close();
     	
     	System.out.println("저장 끝");
-        mapper.insertfilePath(user_id,file_name);
+        mapper.insertURL(user_id,ex_seq,file_name);
 		return "main.do";
         
 	}
 
 	
+    @RequestMapping(value="/memberExinfo.do", method= {RequestMethod.GET, RequestMethod.POST})
+    public List<exinfo> memberExinfo(String user_id , HttpServletRequest req) throws Exception {
+		System.out.println(user_id);
+    	HttpSession session = req.getSession();
+    	
+    	List<exinfo> memberVideo = mapper.memberExinfo(user_id);
+    	session.setAttribute("memberVideo", memberVideo);
+    	System.out.println(memberVideo);
+		return memberVideo;
+        
+	}
 }
 
 

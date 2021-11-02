@@ -33,8 +33,8 @@ font-size: 50px;
 <body>
 <!-- 카메라 프레임이 그려질 공간 -->
 <% 
-	exinfo member = (exinfo)session.getAttribute("memberVO");
-	System.out.print(member.getUser_id());
+	exinfo member = (exinfo)session.getAttribute("ex_seq");
+	System.out.println(member.getEx_seq());
 %>
 
 <h1> 카메라 프레임 <h1>
@@ -84,7 +84,7 @@ function startRecording(stream){
 		const b = new Blob(recordedChunks,{ type: "video/webm"});
 		console.log(b);
 		
-		url = "/web/insertURL.do?user_id=<%=member.getUser_id()%>"
+		url = "/web/insertExURL.do?user_id=<%=member.getUser_id()%>&ex_seq=<%=member.getEx_seq()%>"
 		
 		var oReq = new XMLHttpRequest();
 		oReq.open("POST", url, true);
