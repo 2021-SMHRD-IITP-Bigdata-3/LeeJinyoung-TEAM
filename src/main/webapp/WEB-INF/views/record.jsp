@@ -892,7 +892,7 @@ i img{
          </tr>
          </table>
    </div>
-   
+
 <!-- 	<div class="record_p">	팔운동
 		<div class="record_top" style="width:70%; height:200px;">
 			<div id="record_top_title"> <b> 체스트프레스 </b> </div>

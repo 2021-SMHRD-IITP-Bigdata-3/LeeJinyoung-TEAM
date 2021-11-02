@@ -153,11 +153,6 @@ height:100%;
 background-color : #FFFFFF;
 }
 
-.main_mid{
-background-color : #F1F2F6;
-}
-
-
 .main_top {
 width:100%;
 height:10%;
@@ -183,7 +178,8 @@ height:100%;
 
 .main_mid {
 width:100%;
-height:80%;
+height:95%;
+background-color : #F1F2F6;
 /** background-color:red;
 float:left; **/}
 
@@ -214,7 +210,7 @@ border-radius: 2em;
 .main_bot {
 position:relative;
 width:100%;
-height:20%;
+height:10%;
 background-color: #FFFFFF;
 }
 
@@ -247,10 +243,6 @@ font-weight:bolder;
 h1{
 position:relative;
 left:-10%;
-}
-
-b{
-font-size:60px;
 }
 
 a{
@@ -303,8 +295,65 @@ font-family: 'Noto Sans KR', sans-serif;
 border-radius:30px;
 }
 
+#ex_num{
+text-align:center;
+width:300px;
+height:100px;
+font-size:50px;
+font-weight:bolder;
+font-family: 'Noto Sans KR', sans-serif;
+border-radius:30px;
+}
+
+#set{
+text-align:center;
+width:300px;
+height:100px;
+font-size:50px;
+font-weight:bolder;
+font-family: 'Noto Sans KR', sans-serif;
+border-radius:30px;
+}
 
 
+#ex_num2{
+text-align:center;
+width:100px;
+height:100px;
+font-size:70px;
+font-weight:bolder;
+font-family: 'Noto Sans KR', sans-serif;
+border-radius:30px;
+border: none;
+}
+
+#set2{
+text-align:center;
+width:100px;
+height:100px;
+font-size:100px;
+font-weight:bolder;
+font-family: 'Noto Sans KR', sans-serif;
+border-radius:30px;
+border: none;
+}
+
+b{
+padding: 0px 30px 0px 0px;
+font-size:40px;
+font-weight:bolder;
+font-family: 'Noto Sans KR', sans-serif;
+}
+
+.div_p{
+display:none;
+}
+.div_u{
+display:none;
+}
+.div_d{
+display:none;
+}
 </style>
 <script>
 window.onload = function() {
@@ -333,6 +382,36 @@ window.onload = function() {
  
     document.getElementById('mbimg').addEventListener('click', onClick1);
     document.querySelector('.record_bg').addEventListener('click', offClick1);
+    
+    
+    function g_click(){
+        document.querySelector('.div_g').style.display ='block';
+        document.querySelector('.div_u').style.display ='none';
+        document.querySelector('.div_d').style.display ='none';
+        document.querySelector('.div_p').style.display ='none';
+    }
+    function u_click(){
+        document.querySelector('.div_g').style.display ='none';
+        document.querySelector('.div_u').style.display ='block';
+        document.querySelector('.div_d').style.display ='none';
+        document.querySelector('.div_p').style.display ='none';
+    }
+    function d_click(){
+        document.querySelector('.div_g').style.display ='none';
+        document.querySelector('.div_u').style.display ='none';
+        document.querySelector('.div_d').style.display ='block';
+        document.querySelector('.div_p').style.display ='none';
+    }
+    function p_click(){
+        document.querySelector('.div_g').style.display ='none';
+        document.querySelector('.div_u').style.display ='none';
+        document.querySelector('.div_d').style.display ='none';
+        document.querySelector('.div_p').style.display ='block';
+    }
+    document.getElementById('가슴').addEventListener('click', g_click);
+    document.getElementById('어깨').addEventListener('click', u_click);
+    document.getElementById('등').addEventListener('click', d_click);
+    document.getElementById('팔').addEventListener('click', p_click);
     
 }
 
@@ -416,11 +495,12 @@ function go_main(){
 			</div>	
 		</div>
 		
-		<div class="record_down" style="width:100%; height:150px;">
-		
-			<button id="start" onclick = "go_cam('체스트프레스','가슴')"> 운동시작 </button>
-		
-		</div>
+<div class="record_down" style="width:100%; height:150px;">
+         <input type="number" name="set" id="set2" placeholder="0"><b>Set</b>
+         <b>/</b>
+         <input type="number" name="ex_num" id="ex_num2" placeholder="0"><b>회</b>
+         <button id="start" onclick = "go_cam('체스트프레스','가슴')"> 운동시작 </button>
+      </div>
 			
 			<div class="test">
 				<details>
@@ -460,6 +540,8 @@ function go_main(){
 
 		<div class="main_mid">
 			<div class="mid_top">
+			
+			<div class="div_g">
 				<table>
 					<tr>
 					<td><img src = "resources/img/가슴.png"
@@ -467,6 +549,38 @@ function go_main(){
 					<td><b id="NSK_font">오늘의 대흉근</b></td>
 					</tr>
 				</table>
+			</div>
+			
+			<div class="div_u">
+				<table>
+					<tr>
+					<td><img src = "resources/img/어깨.png"
+					style = "width:150px; height:150px;"></td>
+					<td><b id="NSK_font">오늘의 어깨</b></td>
+					</tr>
+				</table>
+			</div>
+			
+			<div class="div_d">
+				<table>
+					<tr>
+					<td><img src = "resources/img/등.png"
+					style = "width:150px; height:150px;"></td>
+					<td><b id="NSK_font">오늘의 등짝</b></td>
+					</tr>
+				</table>
+			</div>
+			
+			<div class="div_p">
+				<table>
+					<tr>
+					<td><img src = "resources/img/p.png"
+					style = "width:150px; height:150px;"></td>
+					<td><b id="NSK_font">오늘의 팔뚝</b></td>
+					</tr>
+				</table>
+			</div>
+			
 			</div>
 			<div class="mid_bot" >
 				<table class="mid_bot_table" id="NSK_font">
@@ -495,16 +609,29 @@ function go_main(){
 						<td>인클라인 체스트프레스</td>
 						<td>인클라인 체스트프레스<br>(다각도)</td>
 					</tr>
+					<tr><td style="padding: 50px 0px 50px 0px;"></td><td></td></tr>
+					<tr>
+						<td>
+							<img id="mbimg" class="mbimg" src="resources/img/체스트프레스.png" >
+						</td>
+						<td>
+						 	<img class="mbimg" src="resources/img/펙덱플라이.png">
+						</td>
+					</tr>
+					<tr>
+						<td>체스트 프레스</td>
+						<td>펙 덱 플라이</td>
+					</tr>
 				</table>
 				
 			</div>
 			
 
 		<div class="main_bot" id="NSK_font">
-			<div class="bicon"><img class="bimg" src="resources/img/가슴.png"><br>가슴</div>
-			<div class="bicon"><img class="bimg" src="resources/img/어깨.png"><br>어깨</div>
-			<div class="bicon"><img class="bimg" src="resources/img/등.png"><br>등</div>
-			<div class="bicon"><img class="bimg" src="resources/img/p.png"><br>팔</div>
+			<div class="bicon" id="가슴"><img class="bimg" src="resources/img/가슴.png"><br>가슴</div>
+			<div class="bicon" id="어깨"><img class="bimg" src="resources/img/어깨.png"><br>어깨</div>
+			<div class="bicon" id="등"><img class="bimg" src="resources/img/등.png"><br>등</div>
+			<div class="bicon" id="팔"><img class="bimg" src="resources/img/p.png"><br>팔</div>
 		</div>
 
 	</div>
@@ -512,5 +639,4 @@ function go_main(){
 	</div>
 	
 </body>
-
 </html>
