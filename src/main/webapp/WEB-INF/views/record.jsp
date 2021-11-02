@@ -550,6 +550,12 @@ function go_main() { /* 아이콘 누르면 메인으로 */
 function go_calender(){
 	location.href = "/web/test.do";
 }
+
+
+
+function go_record(){
+	location.href = "/web/record.do?user_id="+<%=member.getUser_id()%>;
+}
 </script>
 <style> 
 
@@ -660,7 +666,7 @@ i img{
 
 </head>
 <body>
-
+<% member = (guest) session.getAttribute("member");%>
    <div class="black_bg">
    <div class="modal_wrap">
    <div class="modal_main">
@@ -676,15 +682,15 @@ i img{
       <div class = "modal_mid">
          <div class = "modal_mid_mid">
             <div class = "modal_mid_left"><img id="moicon" src="resources/img/diary.png" onclick="go_calender()"></div>
-            <div class = "modal_mid_right"><b id = "modal_mid_b">운동 다이어리</b></div>
+            <div class = "modal_mid_right"><b id = "modal_mid_b" onclick="go_calender()">운동 다이어리</b></div>
          </div>   
          <div class = "modal_mid_mid">
             <div class = "modal_mid_left"><img id="moicon" src="resources/img/dumbbell.png"></div>
             <div class = "modal_mid_right"><b id = "modal_mid_b">운동 도구</b></div>
          </div>
          <div class = "modal_mid_mid">
-            <div class = "modal_mid_left"><img id="moicon" src="resources/img/video.png"></div>
-            <div class = "modal_mid_right"><b id = "modal_mid_b">운동 영상</b></div>
+            <div class = "modal_mid_left"><img id="moicon" src="resources/img/video.png" onclick = "go_record()"></div>
+            <div class = "modal_mid_right"><b id = "modal_mid_b" onclick = "go_record()">운동 영상</b></div>
          </div>      
       </div>
       <div class = "modal_bot">

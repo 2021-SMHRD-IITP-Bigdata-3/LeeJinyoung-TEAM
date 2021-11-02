@@ -18,34 +18,60 @@ html, body {
 
 .main_top {
 width:100%;
-height:10%;
+height:8%;
 background-color:#FFFFFF;
 }
 
-.modal_wrap{
-        display: none;
+    .modal_wrap{
+        /* display: none; */
         width: 50%;
-        height: 60%;
-        position: absolute;
-        top:10%;
-        left: 70%;
-        margin: -254px 0 0 -236px;
+        height: 50%;
+        position: relative;
+        left: 50%;
+/*      top:10%;
+        margin: -254px 0 0 -236px; */
         background:#FFFFFF;
-        z-index: 2;
-        border-top-left-radius: 5em;
-        border-bottom-left-radius: 5em;
+/*      z-index: 2; */
+        border-top-left-radius: 3em;
+        border-bottom-left-radius: 3em;
     }
     .black_bg{
-        display: none;
-        position: absolute;
+        /* display: none; */
+        position: fixed;
         content: "";
         width: 100%;
-        height: 100%;
+        height: 100vh;
         background-color:rgba(218, 215, 216, 0.5);
         top:0;
         left: 0;
-        z-index: 1;
+        z-index: 1000;
+        
+          /* 숨기기 */
+        z-index: -1;
+        opacity: 0;
     }
+.modal_main{
+  position: absolute;
+    top: 53%;
+    left: 52%;
+    width: 100%;
+    height: 100%;
+  transform: translate(-50%, -50%);
+  
+   /* 초기에 약간 아래에 배치 */
+  transform: translate(-50%, -40%);
+}
+
+.show1 {
+  opacity: 1;
+  z-index: 1000;
+  transition: all .5s;
+}
+
+.show1 .modal_main {
+  transform: translate(-50%, -50%);
+  transition: all .5s;
+}
     
     .admin_wrap{
         display: none;
@@ -117,7 +143,7 @@ height: 130px;
 
 .main_top {
 width:100%;
-height:10%;
+height:8%;
 color:#362222;
 }
 
@@ -227,6 +253,7 @@ appearance:none;
 h1{
 position:relative;
 left:-10%;
+top:-5%;
 }
 
 #modal_btn{
@@ -243,17 +270,15 @@ padding: 50px 0px 0px 0px;
 <script>
 window.onload = function() {
 	 
-    function onClick() {
-        document.querySelector('.modal_wrap').style.display ='block';
-        document.querySelector('.black_bg').style.display ='block';
-    }   
-    function offClick() {
-        document.querySelector('.modal_wrap').style.display ='none';
-        document.querySelector('.black_bg').style.display ='none';
-    }
- 
-    document.getElementById('modal_btn').addEventListener('click', onClick);
-    document.querySelector('.black_bg').addEventListener('click', offClick);   
+	   function show1 () {
+	        document.querySelector(".black_bg").className = "black_bg show1";
+	      }
+	   function close1 () {
+	        document.querySelector(".black_bg").className = "black_bg";
+	      }
+	   
+	    document.querySelector("#modal_btn").addEventListener("click", show1);
+	    document.querySelector(".black_bg").addEventListener("click", close1); 
    	  
     
         function onClick1() {
@@ -290,8 +315,9 @@ function gorecord(){
 </head>
 <body bgcolor="#F1F2F6">
 
-<div class="black_bg"></div>
+<div class="black_bg">
 	<div class="modal_wrap">
+	<div class="modal_main">
 		<div class = "modal_top">
 			<div id="NSK_font" style = "font-size:80px;"><b><br>관리자 님</b></div>
 		</div>
@@ -311,7 +337,8 @@ function gorecord(){
 			</div>		
 		</div>
 	</div>
-	
+	</div>
+	</div>
 <div class="admin_bg"></div>
 	<div class="admin_wrap">
 		<div class="admin_top" style="width:100%; height:200px;">
@@ -329,7 +356,7 @@ function gorecord(){
 
 		<div class="main_top" style = "text-align : center;">
 			<div class="top_left">
-				<h1 style = "font-size:90px;">The Ai Fitness</h1>
+				<h1 style = "font-size:80px;">The Ai Fitness</h1>
 			</div>
 			<div class="top_right">
 			

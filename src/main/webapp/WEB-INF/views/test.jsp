@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="com.test.mapper.guest" %>
+
 <!DOCTYPE html>
 <html lang='en'>
   <head>
@@ -61,20 +62,58 @@ html, body {
   padding: 0;
 }
 
-.modal_wrap{
-        display: none;
+    .modal_wrap{
+        /* display: none; */
         width: 50%;
-        height: 60%;
-        position: absolute;
-        top:10%;
-        left: 70%;
-        margin: -254px 0 0 -236px;
+        height: 50%;
+        position: relative;
+        left: 50%;
+/*      top:10%;
+        margin: -254px 0 0 -236px; */
         background:#FFFFFF;
-        z-index: 3;
-        border-top-left-radius: 5em;
-        border-bottom-left-radius: 5em;
+/*      z-index: 2; */
+        border-top-left-radius: 3em;
+        border-bottom-left-radius: 3em;
     }
     .black_bg{
+        /* display: none; */
+        position: fixed;
+        content: "";
+        width: 100%;
+        height: 100vh;
+        background-color:rgba(218, 215, 216, 0.5);
+        top:0;
+        left: 0;
+        z-index: 1000;
+        
+          /* 숨기기 */
+        z-index: -1;
+        opacity: 0;
+    }
+.modal_main{
+  position: absolute;
+    top: 53%;
+    left: 52%;
+    width: 100%;
+    height: 100%;
+  transform: translate(-50%, -50%);
+  
+   /* 초기에 약간 아래에 배치 */
+  transform: translate(-50%, -40%);
+}
+
+.show1 {
+  opacity: 1;
+  z-index: 1000;
+  transition: all .5s;
+}
+
+.show1 .modal_main {
+  transform: translate(-50%, -50%);
+  transition: all .5s;
+}
+  
+    .record_bg{
         display: none;
         position: absolute;
         content: "";
@@ -83,8 +122,8 @@ html, body {
         background-color:rgba(218, 215, 216, 0.5);
         top:0;
         left: 0;
-        z-index: 2;
-    }
+        z-index: 1;
+    }  
     
 .modal_top{
 width:100%;
@@ -333,25 +372,23 @@ function clickKal(){
 window.onload = function() {
 	
 	
-    function onClick() {
-        document.querySelector('.modal_wrap').style.display ='block';
-        document.querySelector('.black_bg').style.display ='block';
-    }   
-    function offClick() {
-        document.querySelector('.modal_wrap').style.display ='none';
-        document.querySelector('.black_bg').style.display ='none';
-    }
- 
-    document.getElementById('modal_btn').addEventListener('click', onClick);
-    document.querySelector('.black_bg').addEventListener('click', offClick);
+	   function show1 () {
+	        document.querySelector(".black_bg").className = "black_bg show1";
+	      }
+	   function close1 () {
+	        document.querySelector(".black_bg").className = "black_bg";
+	      }
+	   
+	    document.querySelector("#modal_btn").addEventListener("click", show1);
+	    document.querySelector(".black_bg").addEventListener("click", close1);
     
     function onClick2() {
         document.querySelector('.modal2_wrap').style.display ='block';
-        document.querySelector('.black_bg').style.display ='block';
+        document.querySelector('.record_bg').style.display ='block';
     };   
     function offClick2() {
         document.querySelector('.modal2_wrap').style.display ='none';
-        document.querySelector('.black_bg').style.display ='none';
+        document.querySelector('.record_bg').style.display ='none';
     }
 
     var className = document.getElementsByClassName('fc-event-title-container');
@@ -359,7 +396,7 @@ window.onload = function() {
     	className[i].addEventListener('click', onClick2, false);
     }
 	
-    document.querySelector('.black_bg').addEventListener('click', offClick2);
+    document.querySelector('.record_bg').addEventListener('click', offClick2);
     
 }
 
@@ -368,12 +405,19 @@ window.onload = function() {
 function go_record(){
 	location.href = "/web/record.do?user_id="+<%=member.getUser_id()%>;
 }
+
+function go_calender(){
+	location.href = "/web/test.do";
+}
+
+
 </script>
   </head>
   <body>
-  
-  	<div class="black_bg"></div>
+  <% member = (guest) session.getAttribute("member");%>
+  	<div class="black_bg">
 	<div class="modal_wrap">
+	<div class="modal_main">
 		<div class = "modal_top">
 			<div id="NSK_font" style = "font-size:80px;"><b><br>이진영 님</b></div>
 			<div class = "modal_top_left"> 
@@ -385,8 +429,8 @@ function go_record(){
 		</div>
 		<div class = "modal_mid">
 			<div class = "modal_mid_mid">
-				<div class = "modal_mid_left"><img id="moicon" src="resources/img/diary.png"></div>
-				<div class = "modal_mid_right"><b id = "modal_mid_b">운동 다이어리</b></div>
+				<div class = "modal_mid_left"><img id="moicon" src="resources/img/diary.png" onclick="go_calender()"></div>
+				<div class = "modal_mid_right"><b id = "modal_mid_b" onclick="go_calender()">운동 다이어리</b></div>
 			</div>	
 			<div class = "modal_mid_mid">
 				<div class = "modal_mid_left"><img id="moicon" src="resources/img/dumbbell.png"></div>
@@ -394,14 +438,15 @@ function go_record(){
 			</div>
 			<div class = "modal_mid_mid">
 				<div class = "modal_mid_left"><img id="moicon" src="resources/img/video.png" onclick="go_record()"></div>
-				<div class = "modal_mid_right"><b id = "modal_mid_b">운동 영상</b></div>
+				<div class = "modal_mid_right"><b id = "modal_mid_b" onclick="go_record()">운동 영상</b></div>
 			</div>		
 		</div>
 		<div class = "modal_bot">
 			<div id="NSK_font">고객센터     010-4903-4073</div>
 		</div>
 	</div>
-	
+	</div>
+	</div>
 	<div class="modal2_wrap">
 		<div class = "modal2_top">
 			<div class="modal2_top_top">
