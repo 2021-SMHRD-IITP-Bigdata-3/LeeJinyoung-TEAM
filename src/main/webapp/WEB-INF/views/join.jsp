@@ -44,7 +44,7 @@ html, body {
 
 .main_top {
 width:100%;
-height:10%;
+height:8%;
 background-color:#FFFFFF;
 }
 
@@ -180,17 +180,6 @@ top:30%;
 }
 
 #user_gym{
-<<<<<<< HEAD
-    position:relative;
-      border-radius:20px 0px 0px 20px;
-      background-color:rgb(178,178,178);
-      font-weight:bolder;
-      font-family: 'Noto Sans KR', sans-serif;
-      width:100%;
-      height:150px;
-      font-size:60px;
-      type:text;
-=======
  	position:relative;
    	border-radius:20px 0px 0px 20px;
    	background-color:rgb(178,178,178);
@@ -200,7 +189,6 @@ top:30%;
    	height:150px;
    	font-size:60px;
    	type:text;
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/LeeJinyoung-TEAM.git
 }
 
 div{
@@ -285,6 +273,7 @@ filter : opacity(.5) drop-shadow(0 0 0 gray);
 h1{
 position:relative;
 left:-10%;
+top:-5%;
 }
 
 
@@ -305,23 +294,25 @@ window.onload = function() {
  
     document.getElementById('modal_btn').addEventListener('click', onClick);
     document.querySelector('.black_bg').addEventListener('click', offClick);   
-<<<<<<< HEAD
            
-
       }
-=======
-   	     
-
-		}
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/LeeJinyoung-TEAM.git
-
+      
+function go_admin(){
+	location.href = "/web/admin.do";
+}    
+function go_admin_member(){
+	location.href = "/web/admin_member.do";
+}   
+function gorecord(){
+	location.href =  "/web/record_click.do";
+}
 </script>
 
 </head>
 <body bgcolor="EFEFEF">
 
 <div class="black_bg"></div>
-<<<<<<< HEAD
+
    <div class="modal_wrap">
       <div class = "modal_top">
          <div id="NSK_font" style = "font-size:80px;"><b><br>관리자 님</b></div>
@@ -334,57 +325,24 @@ window.onload = function() {
       </div>
       <div class = "modal_mid">
          <div class = "modal_mid_mid">
-            <div class = "modal_mid_left"><img id="moicon" src="resources/img/diary.png"></div>
-            <div class = "modal_mid_right"><b id = "modal_mid_b">회원 관리</b></div>
+            <div class = "modal_mid_left"><img id="moicon" src="resources/img/diary.png" onclick="go_admin()"></div>
+            <div class = "modal_mid_right"><b id = "modal_mid_b" onclick="go_admin()">회원 관리</b></div>
          </div>   
          <div class = "modal_mid_mid">
             <div class = "modal_mid_left"><img id="moicon" src="resources/img/dumbbell.png"></div>
             <div class = "modal_mid_right"><b id = "modal_mid_b">회원 가입</b></div>
          </div>
          <div class = "modal_mid_mid">
-            <div class = "modal_mid_left"><img id="moicon" src="resources/img/training.png"></div>
-            <div class = "modal_mid_right"><b id = "modal_mid_b">회원 영상</b></div>
+            <div class = "modal_mid_left"><img id="moicon" src="resources/img/training.png" onclick="gorecord()"></div>
+            <div class = "modal_mid_right"><b id = "modal_mid_b" onclick="gorecord()">회원 영상</b></div>
          </div>      
       </div>
    </div>
    
-=======
-	<div class="modal_wrap">
-		<div class = "modal_top">
-			<div id="NSK_font" style = "font-size:80px;"><b><br>관리자 님</b></div>
-			<div class = "modal_top_left"> 
-				<div id="NSK_font"><br></div>
-			</div>
-			<div class = "modal_top_right">
-				<div id="NSK_font"><br><br></div>
-			</div>
-		</div>
-		<div class = "modal_mid">
-			<div class = "modal_mid_mid">
-				<div class = "modal_mid_left"><img id="moicon" src="resources/img/diary.png"></div>
-				<div class = "modal_mid_right"><b id = "modal_mid_b">회원 관리</b></div>
-			</div>	
-			<div class = "modal_mid_mid">
-				<div class = "modal_mid_left"><img id="moicon" src="resources/img/dumbbell.png"></div>
-				<div class = "modal_mid_right"><b id = "modal_mid_b">회원 가입</b></div>
-			</div>
-			<div class = "modal_mid_mid">
-				<div class = "modal_mid_left"><img id="moicon" src="resources/img/training.png"></div>
-				<div class = "modal_mid_right"><b id = "modal_mid_b">회원 영상</b></div>
-			</div>		
-		</div>
-	</div>
-	
-
-
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/LeeJinyoung-TEAM.git
-
-
-<<<<<<< HEAD
 
       <div class="main_top" style = "text-align : center;">
          <div class="top_left">
-            <h1 style = "font-size:90px;">The Ai Fitness</h1>
+            <h1 style = "font-size:80px;">The Ai Fitness</h1>
          </div>
          <div class="top_right">
          
@@ -448,19 +406,9 @@ window.onload = function() {
             
                <select id=user_gym> 
                    <option id=b> 입력 칸 </option>
-                   
-                <optgroup id=b label="서울">  
                    <option id=b value ="강남점" >강남점</option>
-                </optgroup>
-                
-                <optgroup id=b label="부산">  
                    <option id=b value ="해운대점" >해운대점</option>
-                </optgroup>
-                
-                <optgroup id=b label="광주">  
                    <option id=b value ="광주남구" >광주남구</option>
-                </optgroup>
-               
                </select>
                
             </td>
@@ -485,101 +433,5 @@ window.onload = function() {
                style="width: 500px; height: 500px;">
             
    </div>
-   
-=======
-	
-	<div align="center" style="width:100%; height:300px;">
-	
-		<input id="join" style="width:400px; height:150px;font-size:50px;" class="button" type = "submit" value ="회원 가입">
-	
-	</div>
-	
-	<form action="">
-	
-	<div class="middle">
-	
-	<div style="width:100%; height:150px;"> </div>
-	
-	<div style="width:100%; height:200px;"> 
-	<hr style="border: solid 1px gray;">
-		<table align="center">
-		
-			<tr>
-				<td id="name"> <a> 성함 </a> </td>
-				<td style="width:65%"> <input id="user_name"; style="width:87%; height:55px;font-size:60px; type:text"; placeholder="입력 칸";> </td>
-			</tr>
-		</table>
-	
-	</div>
-	
-	<div style="width:100%; height:200px;">
-	<hr style="border: solid 1px gray;">
-		<table align="center">
-			<tr>
-			
-				<td id="birth"> <a> 생년월일 </a> </td>
-				<td style="width:65%"> <input id="user_birthdate"; style="width:87%; height:55px;font-size:60px; type:text"; placeholder="입력 칸";> </td>
-			</tr>
-		</table>
-	</div>
-	
-	<div style="width:100%; height:200px;">
-	<hr style="border: solid 1px gray;">
-		<table align="center">
-			<tr>
-				<td id="date"> <a> 등록일 </a> </td>
-				<td style="width:65%"> <input id="user_joindate"; style="width:87%; height:55px;font-size:60px; type:text"; placeholder="입력 칸";> </td>
-			</tr>
-		</table>
-	</div>
-	
-	<div style="width:100%; height:250px;">
-	<hr style="border: solid 1px gray;">
-		<table>
-			<tr>
-				<td id="gym" style="width:35%"> <a> 지점명 </a> </td>
-				<td style="width:760px"> 
-				
-					<select id=user_gym> 
-						 <option id=b> 입력 칸 </option>
-						 
-					 <optgroup id=b label="서울">  
-					 	<option id=b value ="강남점" >강남점</option>
-					 </optgroup>
-					 
-					 <optgroup id=b label="부산">  
-					 	<option id=b value ="해운대점" >해운대점</option>
-					 </optgroup>
-					 
-					 <optgroup id=b label="광주">  
-					 	<option id=b value ="광주남구" >광주남구</option>
-					 </optgroup>
-					
-					</select>
-					
-				</td>
-			</tr>
-		</table>
-	</div>
-	
-	<div style="width:100%; height:250px;"> 
-		<div align="center"> <input id="button" style="width:250px; height:150px;font-size:50px;" class="button" type = "submit" value ="제출"> </div>
-	</div>	
-	
-	</div>
-	
-	</form>
-	
-	<div class="bottom" style="width:100%; height:500px;">
-	
-	<img id="training" src="resources/img/training.png"
-					style="width: 350px; height: 350px;">
-	
-	<img align=right id="videioTrainging" src="resources/img/videioTrainging.png"
-					style="width: 500px; height: 500px;">
-				
-	</div>
-	
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/LeeJinyoung-TEAM.git
 </body>
 </html>

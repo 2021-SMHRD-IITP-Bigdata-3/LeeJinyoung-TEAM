@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.test.mapper.guest" %>
 <!DOCTYPE html>
 <html lang='en'>
   <head>
@@ -253,7 +254,7 @@ padding: 0px 0px 0px 50px;
 
 .main_top {
 width:100%;
-height:10%;
+height:8%;
 background-color : white;
 }
 
@@ -321,6 +322,7 @@ hue-rotate(201deg) brightness(88%) contrast(84%);
 h1{
 position:relative;
 left:-10%;
+top:-5%;
 }
 </style>
 <script>
@@ -343,7 +345,7 @@ window.onload = function() {
     document.getElementById('modal_btn').addEventListener('click', onClick);
     document.querySelector('.black_bg').addEventListener('click', offClick);
     
-    var myFunction = function onClick2() {
+    function onClick2() {
         document.querySelector('.modal2_wrap').style.display ='block';
         document.querySelector('.black_bg').style.display ='block';
     };   
@@ -354,11 +356,17 @@ window.onload = function() {
 
     var className = document.getElementsByClassName('fc-event-title-container');
     for(var i = 0; i < className.length; i++){
-    	className[i].addEventListener('click', myFunction, false);
+    	className[i].addEventListener('click', onClick2, false);
     }
 	
     document.querySelector('.black_bg').addEventListener('click', offClick2);
     
+}
+
+<%  guest member = (guest) session.getAttribute("member");%>
+
+function go_record(){
+	location.href = "/web/record.do?user_id="+<%=member.getUser_id()%>;
 }
 </script>
   </head>
@@ -385,7 +393,7 @@ window.onload = function() {
 				<div class = "modal_mid_right"><b id = "modal_mid_b">운동 도구</b></div>
 			</div>
 			<div class = "modal_mid_mid">
-				<div class = "modal_mid_left"><img id="moicon" src="resources/img/video.png"></div>
+				<div class = "modal_mid_left"><img id="moicon" src="resources/img/video.png" onclick="go_record()"></div>
 				<div class = "modal_mid_right"><b id = "modal_mid_b">운동 영상</b></div>
 			</div>		
 		</div>
@@ -431,7 +439,7 @@ window.onload = function() {
 	
 		<div class="main_top" style = "text-align : center;">
 			<div class="top_left">
-				<h1 style = "font-size:90px;">The Ai Fitness</h1>
+				<h1 style = "font-size:80px;">The Ai Fitness</h1>
 			</div>
 			<div class="top_right">
 				<img id="modal_btn" src="resources/img/menu.png"
@@ -445,7 +453,7 @@ window.onload = function() {
    	
     <div class="main_bot">
 		<div class="bot_left"><img class="bimg_left" src="resources/img/woman.png"></div>
-		<div class="bot_right"><a href="http://localhost:8081/web/main.do"><img class="bimg_right" src="resources/img/gym (1).png"></a></div>
+		<div class="bot_right"><a href="http://localhost:8081/web/main.do"><img class="bimg_right" src="resources/img/gym2.png"></a></div>
 	</div>
 	
 	</div>

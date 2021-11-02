@@ -200,7 +200,7 @@ text-align: center;
 
 .main_top {
 width:100%;
-height:10%;
+height:8%;
 background-color : white;
 }
 
@@ -250,7 +250,7 @@ height: 100%;
 #diary_btn{
     position: absolute;
     right: 3%;
-    top: 11.5%;
+    top: 9.5%;
    }
    
    
@@ -314,7 +314,7 @@ top:15%;
 position:relative;
 width:1000px;
 height:800px;
-left:5%;
+left:0%;
 }
 
 #bottom{
@@ -360,6 +360,7 @@ font-size:40px;
 h1{
 position:relative;
 left:-10%;
+top: -5%;
 }
 
 h2{
@@ -429,8 +430,8 @@ font-family:Regular;
     width: 450px;
     float: left;
     margin-left: 90px;
-    margin-top: 40px;
-    margin-bottom: 30px;
+    margin-top: 50px;
+    margin-bottom: 0px;
 }
 
 #calendar{
@@ -463,7 +464,12 @@ text-align: center;
     font-family: 'Noto Sans KR', sans-serif;
     border: none;
 }
-
+.date{
+font-family: 'Noto Sans KR', sans-serif;
+text-align: left;
+font-size: 45px;
+margin-top: -50px;
+}
 </style>
 
 <script>
@@ -536,10 +542,14 @@ window.onload = function() {
 
    <%  guest member = (guest) session.getAttribute("member");%>
    
-
-
 }
 
+function go_main() { /* 아이콘 누르면 메인으로 */
+	   location.href = "/web/main.do";
+  }
+function go_calender(){
+	location.href = "/web/test.do";
+}
 </script>
 <style> 
 
@@ -665,7 +675,7 @@ i img{
       </div>
       <div class = "modal_mid">
          <div class = "modal_mid_mid">
-            <div class = "modal_mid_left"><img id="moicon" src="resources/img/diary.png"></div>
+            <div class = "modal_mid_left"><img id="moicon" src="resources/img/diary.png" onclick="go_calender()"></div>
             <div class = "modal_mid_right"><b id = "modal_mid_b">운동 다이어리</b></div>
          </div>   
          <div class = "modal_mid_mid">
@@ -722,7 +732,7 @@ i img{
 
 <div class="main_top" style = "text-align : center;">
    <div class="top_left">
-      <h1 style = "font-size:90px;">The Ai Fitness</h1>
+      <h1 style = "font-size:80px;">The Ai Fitness</h1>
    </div>
    <div class="top_right">
       <img id="modal_btn" src="resources/img/menu.png"
@@ -781,7 +791,7 @@ i img{
                      <ul class="hide" id="wrap">
                         <li class ="전체"><i><img src="resources/img/menu.png" alt="전체"/></i>전체</li>
                         <li class ="div_d" onclick="test('등')" ><i><img src="resources/img/등.png"  alt="등" /></i>등</li>
-                        <li class ="div_p"><i><img src="resources/img/p.png" alt="팔" /></i>팔</li>                           
+                        <li class ="div_p"><i><img src="resources/img/팔.png" alt="팔" /></i>팔</li>                           
                         <li class ="div_g"><i><img src="resources/img/가슴.png" alt="가슴" /></i>가슴</li>
                         <li class ="div_u"><i><img src="resources/img/어깨.png" alt="어깨" /></i>어깨</li>
                         <li class ="div_b"><i><img src="resources/img/복근.png" alt="복근" /></i>복근</li>
@@ -808,8 +818,8 @@ i img{
 	<c:forEach var= 'vo' items = "${memberVideo}" varStatus="status" >
 	  <div id = "div_d${status.index}" class="div_p${status.index}"><div class="item">
 	     <video src="/cam/${vo.file_name}.webm" class="attClass" id="record_video${status.index}"></video>
+	     <div class="date" id ="sameDate${status.index}">${vo.video_date}</div>
 	     </div>
-	  <div id ="sameDate${status.index}">${vo.video_date}</div>
 	  </div>
 	</c:forEach>
 </div>

@@ -155,7 +155,7 @@ background-color : #FFFFFF;
 
 .main_top {
 width:100%;
-height:10%;
+height:8%;
 /** background-color: #CAB0FF;
 float:center;
 border-bottom-width:thin;
@@ -240,6 +240,7 @@ font-weight:bolder;
 h1{
 position:relative;
 left:-10%;
+top: -5%;
 }
 
 a{
@@ -537,7 +538,7 @@ function go_main(){
 
 		<div class="main_top" style = "text-align : center;">
 			<div class="top_left">
-				<h1 style = "font-size:90px;">The Ai Fitness</h1>
+				<h1 style = "font-size:80px;">The Ai Fitness</h1>
 			</div>
 			<div class="top_right">
 			
