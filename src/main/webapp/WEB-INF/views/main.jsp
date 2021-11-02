@@ -39,7 +39,7 @@ font-family: 'Noto Sans KR', sans-serif;
         position: absolute;
         content: "";
         width: 100%;
-        height: 100%;
+        height: 108%;
         background-color:rgba(218, 215, 216, 0.5);
         top:0;
         left: 0;
@@ -64,7 +64,7 @@ font-family: 'Noto Sans KR', sans-serif;
         position: absolute;
         content: "";
         width: 100%;
-        height: 100%;
+        height: 108%;
         background-color:rgba(218, 215, 216, 0.5);
         top:0;
         left: 0;
@@ -185,14 +185,14 @@ float:left; **/}
 
 .mid_top{
 font-size:80px;
-height:10%;
+height:8%;
 text-align: center;
-padding: 50px 0px 0px 100px;
+padding: 41px 0px 0px 100px;
 }
 
 
 .mid_bot{
-height:88%;
+height:93%;
 }
 
 .mid_bot_table{
@@ -201,16 +201,11 @@ text-align: center;
 width: 100%;
 }
 
-.mbimg{
-width:90%;
-height:90%;
-border-radius: 2em;
-}
-
 .main_bot {
-position:relative;
+position : fixed;
 width:100%;
 height:10%;
+bottom: 0px;
 background-color: #FFFFFF;
 }
 
@@ -232,6 +227,8 @@ height:150px;
 .mbimg{
 width:550px;
 height:500px;
+border-radius: 2em;
+background: white;
 }
 
 
@@ -345,14 +342,14 @@ font-weight:bolder;
 font-family: 'Noto Sans KR', sans-serif;
 }
 
-.div_p{
+.div_p1, .div_u1, .div_d1, .div_p2, .div_u2, .div_d2{
 display:none;
 }
-.div_u{
-display:none;
+.tate{
+padding-top: 30px;
 }
-.div_d{
-display:none;
+.tate2{
+padding: 30px 0px 30px 0px;
 }
 </style>
 <script>
@@ -385,28 +382,44 @@ window.onload = function() {
     
     
     function g_click(){
-        document.querySelector('.div_g').style.display ='block';
-        document.querySelector('.div_u').style.display ='none';
-        document.querySelector('.div_d').style.display ='none';
-        document.querySelector('.div_p').style.display ='none';
+        document.querySelector('.div_g1').style.display ='block';
+        document.querySelector('.div_u1').style.display ='none';
+        document.querySelector('.div_d1').style.display ='none';
+        document.querySelector('.div_p1').style.display ='none';
+        document.querySelector('.div_g2').style.display ='block';
+        document.querySelector('.div_u2').style.display ='none';
+        document.querySelector('.div_d2').style.display ='none';
+        document.querySelector('.div_p2').style.display ='none';
     }
     function u_click(){
-        document.querySelector('.div_g').style.display ='none';
-        document.querySelector('.div_u').style.display ='block';
-        document.querySelector('.div_d').style.display ='none';
-        document.querySelector('.div_p').style.display ='none';
+        document.querySelector('.div_g1').style.display ='none';
+        document.querySelector('.div_u1').style.display ='block';
+        document.querySelector('.div_d1').style.display ='none';
+        document.querySelector('.div_p1').style.display ='none';
+        document.querySelector('.div_g2').style.display ='none';
+        document.querySelector('.div_u2').style.display ='block';
+        document.querySelector('.div_d2').style.display ='none';
+        document.querySelector('.div_p2').style.display ='none';
     }
     function d_click(){
-        document.querySelector('.div_g').style.display ='none';
-        document.querySelector('.div_u').style.display ='none';
-        document.querySelector('.div_d').style.display ='block';
-        document.querySelector('.div_p').style.display ='none';
+        document.querySelector('.div_g1').style.display ='none';
+        document.querySelector('.div_u1').style.display ='none';
+        document.querySelector('.div_d1').style.display ='block';
+        document.querySelector('.div_p1').style.display ='none';
+        document.querySelector('.div_g2').style.display ='none';
+        document.querySelector('.div_u2').style.display ='none';
+        document.querySelector('.div_d2').style.display ='block';
+        document.querySelector('.div_p2').style.display ='none';
     }
     function p_click(){
-        document.querySelector('.div_g').style.display ='none';
-        document.querySelector('.div_u').style.display ='none';
-        document.querySelector('.div_d').style.display ='none';
-        document.querySelector('.div_p').style.display ='block';
+        document.querySelector('.div_g1').style.display ='none';
+        document.querySelector('.div_u1').style.display ='none';
+        document.querySelector('.div_d1').style.display ='none';
+        document.querySelector('.div_p1').style.display ='block';
+        document.querySelector('.div_g2').style.display ='none';
+        document.querySelector('.div_u2').style.display ='none';
+        document.querySelector('.div_d2').style.display ='none';
+        document.querySelector('.div_p2').style.display ='block';
     }
     document.getElementById('가슴').addEventListener('click', g_click);
     document.getElementById('어깨').addEventListener('click', u_click);
@@ -537,7 +550,7 @@ function go_main(){
 		<div class="main_mid">
 			<div class="mid_top">
 			
-			<div class="div_g">
+			<div class="div_g1">
 				<table>
 					<tr>
 					<td><img src = "resources/img/가슴.png"
@@ -547,7 +560,7 @@ function go_main(){
 				</table>
 			</div>
 			
-			<div class="div_u">
+			<div class="div_u1">
 				<table>
 					<tr>
 					<td><img src = "resources/img/어깨.png"
@@ -557,7 +570,7 @@ function go_main(){
 				</table>
 			</div>
 			
-			<div class="div_d">
+			<div class="div_d1">
 				<table>
 					<tr>
 					<td><img src = "resources/img/등.png"
@@ -567,10 +580,10 @@ function go_main(){
 				</table>
 			</div>
 			
-			<div class="div_p">
+			<div class="div_p1">
 				<table>
 					<tr>
-					<td><img src = "resources/img/p.png"
+					<td><img src = "resources/img/팔.png"
 					style = "width:150px; height:150px;"></td>
 					<td><b id="NSK_font">오늘의 팔뚝</b></td>
 					</tr>
@@ -579,55 +592,188 @@ function go_main(){
 			
 			</div>
 			<div class="mid_bot" >
+				
+			<div class="div_g2">
 				<table class="mid_bot_table" id="NSK_font">
 					<tr>
 						<td>
-							<img id="mbimg" class="mbimg" src="resources/img/체스트프레스.png" >
+							<img id="mbimg" class="mbimg" src="resources/img/스탠딩플라이체스트백.png" >
 						</td>
 						<td>
-						 	<img class="mbimg" src="resources/img/펙덱플라이.png">
+						 	<img class="mbimg" src="resources/img/시티드체스트프레스.png">
 						</td>
 					</tr>
 					<tr>
-						<td>체스트 프레스</td>
-						<td>펙 덱 플라이</td>
+						<td class="tate">스탠딩 플라이 체스트&백 </td>
+						<td class="tate">시티드 체스트 프레스</td>
 					</tr>
-					<tr><td style="padding: 50px 0px 50px 0px;"></td><td></td></tr>
+					<tr><td class="tate2"></td><td></td></tr>
 					<tr>
 						<td>
 							<img class="mbimg" src="resources/img/인클라인체스트프레스.png">
 						</td>
 						<td>
-							<img class="mbimg" src="resources/img/인클라인체스트프레스2.png">
+							<img class="mbimg" src="resources/img/펙덱플라이.png">
 						</td>
 					</tr>
 					<tr>
-						<td>인클라인 체스트프레스</td>
-						<td>인클라인 체스트프레스<br>(다각도)</td>
+						<td class="tate">인클라인 체스트 프레스</td>
+						<td class="tate">펙 덱 플라이</td>
 					</tr>
-					<tr><td style="padding: 50px 0px 50px 0px;"></td><td></td></tr>
+					<tr><td class="tate2"></td><td></td></tr>
 					<tr>
 						<td>
-							<img id="mbimg" class="mbimg" src="resources/img/체스트프레스.png" >
+							<img id="mbimg" class="mbimg" src="resources/img/해머플렛벤치.png" >
 						</td>
 						<td>
-						 	<img class="mbimg" src="resources/img/펙덱플라이.png">
+						 	<img class="mbimg" src="resources/img/해머디크라인벤치.png">
 						</td>
 					</tr>
 					<tr>
-						<td>체스트 프레스</td>
-						<td>펙 덱 플라이</td>
+						<td  class="tate">해머 플렛 벤치</td>
+						<td  class="tate">해머 디크라인 벤치</td>
 					</tr>
 				</table>
-				
 			</div>
 			
+			<div class="div_u2">
+				<table class="mid_bot_table" id="NSK_font">
+					<tr>
+						<td>
+							<img id="mbimg" class="mbimg" src="resources/img/숄더프레스.png" >
+						</td>
+						<td>
+						 	<img class="mbimg" src="resources/img/레터럴레이즈.png">
+						</td>
+					</tr>
+					<tr>
+						<td  class="tate">숄더 프레스</td>
+						<td  class="tate">레터럴 레이즈</td>
+					</tr>
+					<tr><td class="tate2"></td><td></td></tr>
+					<tr>
+						<td>
+							<img class="mbimg" src="resources/img/스탠딩레터럴레이즈.png">
+						</td>
+						<td>
+							<img class="mbimg" src="resources/img/시티드딥.png">
+						</td>
+					</tr>
+					<tr>
+						<td  class="tate">스탠딩 레터럴 레이즈</td>
+						<td  class="tate">시티드 딥</td>
+					</tr>
+					<tr><td class="tate2"></td><td></td></tr>
+					<tr>
+						<td>
+							<img id="mbimg" class="mbimg" src="resources/img/스미스수직형.png" >
+						</td>
+						<td>
+						 	<img class="mbimg" src="resources/img/벤트오버레터럴레이즈.png">
+						</td>
+					</tr>
+					<tr>
+						<td  class="tate">스미스 (수직형)</td>
+						<td  class="tate">벤트오버 레터럴 레이즈</td>
+					</tr>
+				</table>
+			</div>
+			
+			<div class="div_d2">
+				<table class="mid_bot_table" id="NSK_font">
+					<tr>
+						<td>
+							<img id="mbimg" class="mbimg" src="resources/img/렛풀다운.png" >
+						</td>
+						<td>
+						 	<img class="mbimg" src="resources/img/시티드로우.png">
+						</td>
+					</tr>
+					<tr>
+						<td class="tate">렛풀다운</td>
+						<td class="tate">시티드 로우</td>
+					</tr>
+					<tr><td class="tate2"></td><td></td></tr>
+					<tr>
+						<td>
+							<img class="mbimg" src="resources/img/로우풀리.png">
+						</td>
+						<td>
+							<img class="mbimg" src="resources/img/친&딥어시스트.png">
+						</td>
+					</tr>
+					<tr>
+						<td class="tate">로우풀리</td>
+						<td class="tate">친 & 딥 어시스트</td>
+					</tr>
+					<tr><td class="tate2"></td><td></td></tr>
+					<tr>
+						<td>
+							<img id="mbimg" class="mbimg" src="resources/img/프론트로우.png" >
+						</td>
+						<td>
+						 	<img class="mbimg" src="resources/img/와이드풀다운프론트.png">
+						</td>
+					</tr>
+					<tr>
+						<td class="tate">프론트 로우</td>
+						<td class="tate">와이드 풀다운 프론트</td>
+					</tr>
+				</table>
+			</div>
+			
+			<div class="div_p2">
+				<table class="mid_bot_table" id="NSK_font">
+					<tr>
+						<td>
+							<img id="mbimg" class="mbimg" src="resources/img/암컬.png" >
+						</td>
+						<td>
+						 	<img class="mbimg" src="resources/img/스미스수직형.png">
+						</td>
+					</tr>
+					<tr>
+						<td class="tate">암 컬</td>
+						<td class="tate">스미스 (수직형)</td>
+					</tr>
+					<tr><td class="tate2"></td><td></td></tr>
+					<tr>
+						<td>
+							<img class="mbimg" src="resources/img/T바로우.png">
+						</td>
+						<td>
+							<img class="mbimg" src="resources/img/MV올림픽벤치.png">
+						</td>
+					</tr>
+					<tr>
+						<td class="tate">T-바로우</td>
+						<td class="tate">MV 올림픽 벤치</td>
+					</tr>
+					<tr><td class="tate2"></td><td></td></tr>
+					<tr>
+						<td>
+							<img id="mbimg" class="mbimg" src="resources/img/해머숄더프레스.png" >
+						</td>
+						<td>
+						 	<img class="mbimg" src="resources/img/프리처컬벤치.png">
+						</td>
+					</tr>
+					<tr>
+						<td class="tate">해머 숄더 프레스</td>
+						<td class="tate">프리처 컬 벤치</td>
+					</tr>
+				</table>
+			</div>
+
+			</div>
+			
+
 
 		<div class="main_bot" id="NSK_font">
 			<div class="bicon" id="가슴"><img class="bimg" src="resources/img/가슴.png"><br>가슴</div>
 			<div class="bicon" id="어깨"><img class="bimg" src="resources/img/어깨.png"><br>어깨</div>
 			<div class="bicon" id="등"><img class="bimg" src="resources/img/등.png"><br>등</div>
-			<div class="bicon" id="팔"><img class="bimg" src="resources/img/p.png"><br>팔</div>
+			<div class="bicon" id="팔"><img class="bimg" src="resources/img/팔.png"><br>팔</div>
 		</div>
 
 	</div>
