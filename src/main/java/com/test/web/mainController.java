@@ -119,7 +119,16 @@ public class mainController {
         
 	}
 	
-    
+	@RequestMapping(value="/record2.do")
+    public String record2(ServletRequest session, HttpServletRequest req) throws Exception {
+		//HttpSession resultsession = req.getSession();
+		//List<videoDT> memberVideo = (List<videoDT>)session.getAttribute("memberVideo");
+		//System.out.println(memberVideo);
+		
+		//resultsession.setAttribute("memberVideo", memberVideo);
+		return "record";
+        
+	}
 	
 	@RequestMapping(value="/loginInsert.do", method= {RequestMethod.GET, RequestMethod.POST})
     public String memberLogin(guest memberVO , HttpServletRequest req,  RedirectAttributes rttr) throws Exception {

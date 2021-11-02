@@ -31,8 +31,9 @@ CREATE TABLE user_exercises
 select user_id , ex_kinds
 		from user_exercises
 		where user_id=1234
+		
 select * from user_exercises
-delete from exercise_videos where ex_seq = 3
+
 select * from exercise_videos
 
 CREATE TABLE exercise_videos
@@ -47,14 +48,16 @@ CREATE TABLE exercise_videos
     FOREIGN KEY (ex_seq) REFERENCES user_exercises (ex_seq)
 )
 
-INSERT INTO exercise_videos (user_id, ex_seq, file_name, video_seq)
-	   VALUES ( 
-	      '1234', 
-	      1, 
-	      'test',
-	      DEFAULT
-	   )
-
+CREATE TABLE deep_postures
+(
+	deep_seq 			int(100) not null AUTO_INCREMENT,
+    video_seq         int(100) null, 
+    video_time          int(100)       NULL, 
+    pose_result          VARCHAR(100      NULL,
+    ai_comment varchar(100) null,
+    CONSTRAINT FK_deep_videos PRIMARY KEY (deep_seq),
+    FOREIGN KEY (video_seq) REFERENCES exercise_videos (video_seq)
+)
 
 
 drop table user_exercises
@@ -117,7 +120,8 @@ CREATE TABLE access
     FOREIGN KEY (user_id) REFERENCES users (user_id)
 )
 
-
+SELECT user_id ,video_date
+		FROM exercise_videos
 drop table access
 drop table user_exercises
 

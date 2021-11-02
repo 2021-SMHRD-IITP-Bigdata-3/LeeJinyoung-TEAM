@@ -53,6 +53,13 @@
 		WHERE user_id = #{user_id}
 	</select>
 	
+	<select id="dateVideo" resultType="com.test.mapper.videoDT" parameterType ="String">
+		SELECT file_name, video_seq , user_id ,video_date
+		FROM exercise_videos
+		WHERE user_id = #{user_id}
+		and video_date = #{video_date}
+	</select>
+	
 	<select id="memberExinfo" resultType="com.test.mapper.exinfo" parameterType ="com.test.mapper.exinfo" >
 		select user_id , ex_kinds
 		from user_exercises

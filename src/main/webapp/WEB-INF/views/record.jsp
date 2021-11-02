@@ -4,6 +4,7 @@
 <%@ page import="com.test.mapper.videoDT" %>
 <%@ page import="com.test.mapper.exinfo" %>
 <%@ page import="java.util.List" %>
+<%@ page import="com.test.mapper.guest" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -293,21 +294,7 @@ left : 34%; */
 
 
 hr{
-<<<<<<< HEAD
-/*    position: absolute;
-   top : 8%;
-   width:98%;
-   height:0%;
-   filter : opacity(.5) drop-shadow(0 0 0 gray); */
-      position:relative;
-=======
-/* 	position: absolute;
-	top : 8%;
-	width:98%;
-	height:0%;
-	filter : opacity(.5) drop-shadow(0 0 0 gray); */
 	   position:relative;
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/LeeJinyoung-TEAM.git
    width:98%;
    filter : opacity(.5) drop-shadow(0 0 0 gray);
 }
@@ -547,22 +534,14 @@ window.onload = function() {
    bir.value = today;
    
 
-   <% List<videoDT> member = (List<videoDT>)session.getAttribute("memberVideo"); 
-   System.out.print(member.get(1).getUser_id());%>
+   <%  guest member = (guest) session.getAttribute("member");%>
    
 
 
 }
 
 </script>
-<style> /* 다이어리 스크롤 */
-/*     .menu a{cursor:pointer;}
-    .menu .hide{display:none;}
-
-ul{
-   list-style:none;
-   padding-left:0px;
-   } */
+<style> 
 
 [type="date"] {
   background:#fff 
@@ -582,7 +561,7 @@ ul{
 <script type="text/javascript">
    function showDiary(){
         const element = document.getElementById('change');
-        element.innerHTML = '<div id="calendar"><input type="date" id="dates"></div>';
+        element.innerHTML = '<div id="calendar"><input type="date" id="dates" onchange = "insertdate()"></div>';
       }
 </script>
 
@@ -738,142 +717,6 @@ i img{
          </tr>
          </table>
    </div>
-<<<<<<< HEAD
-
-<!-- 	<div class="record_p">	팔운동
-		<div class="record_top" style="width:70%; height:200px;">
-			<div id="record_top_title"> <b> 체스트프레스 </b> </div>
-			<hr style="border: solid 10px gray;">
-		</div>
-		
-		<div class="record_middle" style="width:70%; height:1000px;" align="center">	
-			<div id="record_middle_content">
-				<video poster="resources/img/체스트프레스.png" id="video" controls="controls">
-    				<source src="resources/record/record1.mp4" type="video/mp4" />
-				</video>
-				
-			</div>	
-		</div>
-	
-		<div style="width:70%; height:100px;"> </div>
-
-			<table align="center" id=bottom>
-				<tr>
-				<td><input style="width:450px; height:300px;" class="button" type = "submit" value="잘못된 자세"></td>
-				<td> <a>상체를 더 왼쪽으로 기울여 주시면 될거 같아요!!</a> </td>
-			</tr>
-			</table>
-
-			<table align="center" id=bottom>
-				<tr>
-				<td><input style="width:450px; height:300px;" class="button" type = "submit" value="잘못된 자세"></td>
-				<td> <a>어깨를 좀 더 내려주세요</a>></td>
-			</tr>
-			</table>
-		</div>
-		
-		
-		<div class="record_g">	가슴운동
-			<div class="record_top" style="width:70%; height:200px;">
-				<div id="record_top_title"> <b> 펙 덱 플라이 </b> </div>
-			<hr style="border: solid 10px gray;">
-			</div>
-			<div class="record_middle" style="width:70%; height:1000px;" align="center">	
-				<div id="record_middle_content">
-					<video poster="resources/img/펙덱플라이.png" id="video" controls="controls">
-    				<source src="resources/record/record1.mp4" type="video/mp4" />
-					</video>
-				
-				</div>	
-			</div>
-			<div style="width:70%; height:100px;"> </div>
-			<table align="center" id=bottom>
-				<tr>
-					<td><input style="width:450px; height:300px;" class="button" type = "submit" value="잘못된 자세"></td>
-					<td> <a>상체를 더 왼쪽으로 기울여 주시면 될거 같아요!!</a> </td>
-				</tr>
-			</table>
-			<table align="center" id=bottom>
-				<tr>
-					<td><input style="width:450px; height:300px;" class="button" type = "submit" value="잘못된 자세"></td>
-					<td> <a>어깨를 좀 더 내려주세요</a>></td>
-				</tr>
-			</table>
-		</div> -->
-		
-<!-- 				<div class="record_u">	어깨운동
-			<div class="record_top" style="width:70%; height:200px;">
-				<div id="record_top_title"> <b> 어깨운동 </b> </div>
-			<hr style="border: solid 10px gray;">
-			</div>
-			<div class="record_middle" style="width:70%; height:1000px;" align="center">	
-				<div id="record_middle_content">
-					<video poster="resources/img/어깨.png" id="video" controls="controls">
-    				<source src="resources/record/record1.mp4" type="video/mp4" />
-					</video>
-				
-				</div>	
-			</div>
-			<div style="width:70%; height:100px;"> </div>
-			<table align="center" id=bottom>
-				<tr>
-					<td><input style="width:450px; height:300px;" class="button" type = "submit" value="잘못된 자세"></td>
-					<td> <a>상체를 더 왼쪽으로 기울여 주시면 될거 같아요!!</a> </td>
-				</tr>
-			</table>
-			<table align="center" id=bottom>
-				<tr>
-					<td><input style="width:450px; height:300px;" class="button" type = "submit" value="잘못된 자세"></td>
-					<td> <a>어깨를 좀 더 내려주세요</a>></td>
-				</tr>
-			</table>
-		</div>
-
-	<div class="record_b">
-		복근운동
-		<div class="record_top" style="width: 70%; height: 200px;">
-			<div id="record_top_title">
-				<b> 복근운동 </b>
-			</div>
-			<hr style="border: solid 10px gray;">
-		</div>
-		<div class="record_middle" style="width: 70%; height: 1000px;"
-			align="center">
-			<div id="record_middle_content">
-				<video poster="resources/img/복근.png" id="video" controls="controls">
-					<source src="resources/record/record1.mp4" type="video/mp4" />
-				</video>
-			</div>
-		</div>
-		<div style="width: 70%; height: 100px;"></div>
-		<table align="center" id=bottom>
-			<tr>
-				<td><input style="width: 450px; height: 300px;" class="button"
-					type="submit" value="잘못된 자세"></td>
-				<td><a>상체를 더 왼쪽으로 기울여 주시면 될거 같아요!!</a></td>
-			</tr>
-		</table>
-		<table align="center" id=bottom>
-			<tr>
-				<td><input style="width: 450px; height: 300px;" class="button"
-					type="submit" value="잘못된 자세"></td>
-				<td><a>어깨를 좀 더 내려주세요</a>></td>
-			</tr>
-		</table>
-	</div> -->
-
-
-	<!-- 		<div class="diary_bg"></div>
-	<div class="diary_wrap">
-		<div class = "diary_top">
-			<div id="calendar"></div>
-		</div>
-	</div> -->
-	
-	
-=======
-      
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/LeeJinyoung-TEAM.git
 <div class="main_map">
 
 
@@ -890,7 +733,7 @@ i img{
  function test(){
 	alert('종류선택');
  	$.ajax({ 
-		url :"/web/memberExinfo.do?user_id=<%=member.get(1).getUser_id()%>",
+		url :"/web/memberExinfo.do?user_id=<%=member.getUser_id()%>",
 		method:"GET",
 		dataType: 'json',
 		success: function(data2) {
@@ -902,7 +745,26 @@ i img{
 			
 		}
 	});  
-	}
+}
+ function insertdate(){
+	 alert("성공");
+	 var DATE = document.querySelector('input[type="date"]').value;
+	 $.ajax({
+		 url : "/web/dateVideo.do?user_id=<%=member.getUser_id()%>&video_date="+DATE,
+		 method :"GET",
+		 dataType : "text",
+		 async:false,
+		 success : function(result){
+			 alert(result);
+			 location.href = "/web/"+result;
+		 },
+		 error : function(data){
+			 alert("error"+data);
+		 }
+		 
+	 })
+	 
+ }
 </script>
 <div class="main_mid">
    <div class="mid_top">
@@ -935,8 +797,7 @@ i img{
         <li class="menu">
             <a onclick='showDiary()' value='changeDiary'><img id="diary_btn" src="resources/img/weightDiary.png" width="100px" height="100px"></a>
             <ul class="hide">
-            <div id = "outdate">
-                  <input type="date" id="dates" >
+            <div>
             </div>
             </ul>
         </li>
@@ -948,9 +809,8 @@ i img{
 	  <div id = "div_d${status.index}" class="div_p${status.index}"><div class="item">
 	     <video src="/cam/${vo.file_name}.webm" class="attClass" id="record_video${status.index}"></video>
 	     </div>
-	  <div>${vo.video_date}</div>
+	  <div id ="sameDate${status.index}">${vo.video_date}</div>
 	  </div>
-	     
 	</c:forEach>
 </div>
 
