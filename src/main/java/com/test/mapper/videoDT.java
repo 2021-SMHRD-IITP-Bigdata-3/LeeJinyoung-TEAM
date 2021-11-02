@@ -9,6 +9,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class videoDT {
 	private int video_seq;
-	private String url;
+	private int ex_seq;
+	private String file_name;
 	private String user_id;
+	private String video_date;
 }

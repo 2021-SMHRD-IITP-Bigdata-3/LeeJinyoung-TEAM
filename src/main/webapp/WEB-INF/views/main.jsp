@@ -418,10 +418,6 @@ window.onload = function() {
 
 <%  guest member = (guest) session.getAttribute("member");%>
 
-
-function reply_click(clicked_id){
-	location.href = "${cpath}/insertExName.do?ex_name="+clicked_id+"&user_id="+<%=member.getUser_id() %>;
-}
 function go_calender(){
 	location.href = "/web/test.do";
 }

@@ -23,45 +23,44 @@ CREATE TABLE user_exercises
     ex_name          VARCHAR(20)      NULL,
     ex_kinds          VARCHAR(20)      NULL, 
     user_set          VARCHAR(20)      NULL,
-    ex_count          VARCHAR(20)      NULL, 
+    ex_count          VARCHAR(20)      NULL,
+    ex_date date null,
     CONSTRAINT FK_user_exercises PRIMARY KEY (ex_seq),
     FOREIGN KEY (user_id) REFERENCES users (user_id)
 )
+select user_id , ex_kinds
+		from user_exercises
+		where user_id=1234
 select * from user_exercises
-
+delete from exercise_videos where ex_seq = 3
 select * from exercise_videos
+
 CREATE TABLE exercise_videos
 (
     video_seq           int(100)      NOT NULL  AUTO_INCREMENT, 
-    url          VARCHAR(100)       NULL, 
+    ex_seq           int(100),
+    file_name          VARCHAR(100)       NULL, 
     user_id          VARCHAR(20)      NULL,
+    video_date date null,
     CONSTRAINT FK_exercise_videos PRIMARY KEY (video_seq),
-    FOREIGN KEY (user_id) REFERENCES users (user_id)
+    FOREIGN KEY (user_id) REFERENCES users (user_id),
+    FOREIGN KEY (ex_seq) REFERENCES user_exercises (ex_seq)
 )
 
+INSERT INTO exercise_videos (user_id, ex_seq, file_name, video_seq)
+	   VALUES ( 
+	      '1234', 
+	      1, 
+	      'test',
+	      DEFAULT
+	   )
 
 
-
-
-
-
-
-
-
-
-CREATE TABLE user_exercises
-(
-    ex_seq           int(100)      NOT NULL  AUTO_INCREMENT, 
-    user_id          VARCHAR(20)       NULL, 
-    ex_name          VARCHAR(20)      NULL, 
-    ex_start_time    DATE              NULL, 
-    ex_end_time      DATE     NULL, 
-    ex_count         int(30)     NULL,
-    CONSTRAINT FK_user_exercises PRIMARY KEY (ex_seq),
-    FOREIGN KEY (user_id) REFERENCES users (user_id)
-)
 
 drop table user_exercises
+
+drop table exercise_videos
+
 update users
 set user_birthdate='1995-08-20',user_height='80', user_weight='177',user_joindate='2021-10-14',user_expire_date='2022-10-14'
 where  user_id = '1234';

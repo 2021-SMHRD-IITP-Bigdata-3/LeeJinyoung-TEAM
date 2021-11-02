@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="com.test.mapper.videoDT" %>
+<%@ page import="com.test.mapper.exinfo" %>
+<%@ page import="java.util.List" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,32 +13,8 @@
     <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
 <script src="https://unpkg.com/tippy.js@6"></script>
-<script src="masonry.pkgd.js"></script>
-
 <meta charset="UTF-8">
-    <script>
-
-/*     document.addEventListener('DOMContentLoaded', function() {
-        var calendarEl = document.getElementById('calendar');
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-        	 initialView: 'dayGridWeek',
-        	 views: {
-          		 	dayGridWeek: { // name of view
-          		 		titleFormat: { year:'numeric',  month: '2-digit', day: '2-digit' }, // 캘린더 위 타이틀 부분
-          		 		dayHeaderFormat:{ month: '2-digit',  day: '2-digit' }, // 캘린더 아래 1주일 부분
-        		    }  
-        		  },
-        	events:[{
-        	      start: '2021-10-26',
-
-        	}]
-        	});
-        calendar.render();
-      }); */
-    </script>
-    
 <title>Insert title here</title>
-
 <style>
 
 html, body {
@@ -56,8 +36,8 @@ html, body {
         z-index: 1000;
         
           /* 숨기기 */
-  		z-index: -1;
-  		opacity: 0;
+        z-index: -1;
+        opacity: 0;
     }
     
     .modal_wrap{
@@ -122,7 +102,7 @@ html, body {
         z-index: 1;
     }
 
-/* 	    .diary_wrap{
+/*        .diary_wrap{
         display: none;
         width: 100%;
         height: 30%;
@@ -247,11 +227,11 @@ font-family: 'Noto Sans KR', sans-serif;
 }
 
 #record{
-	position:relative;
-	font-size:70px;
-	font-family:Regular;
-	font-weight:bolder;
-	right:-15%;
+   position:relative;
+   font-size:70px;
+   font-family:Regular;
+   font-weight:bolder;
+   right:-15%;
    }
    
 /*    select{
@@ -270,13 +250,13 @@ height: 100%;
     position: absolute;
     right: 3%;
     top: 11.5%;
-	}
-	
-	
+   }
+   
+   
 #button{
-	background-color: white;
-	width:450px;
-	height:300px;
+   background-color: white;
+   width:450px;
+   height:300px;
 }
 input{
 font-size:60px;
@@ -284,22 +264,22 @@ text-align: center;
 }
 
 #mid{
-	border-spacing: 50px;
-  	border-collapse: separate;
-  	filter : drop-shadow(0 0 0 white);
+   border-spacing: 50px;
+     border-collapse: separate;
+     filter : drop-shadow(0 0 0 white);
 }
 
 
 #training{
-	filter : opacity(.5) drop-shadow(0 0 0 gray);
-	top: 110px;
+   filter : opacity(.5) drop-shadow(0 0 0 gray);
+   top: 110px;
     right: 40px;
     position: relative;
 }
 
 #videioTrainging{
-	filter : opacity(.5) drop-shadow(0 0 0 gray);
-	top: 110px;
+   filter : opacity(.5) drop-shadow(0 0 0 gray);
+   top: 110px;
     left: 40px;
     position: relative;
 }
@@ -313,12 +293,21 @@ left : 34%; */
 
 
 hr{
+<<<<<<< HEAD
+/*    position: absolute;
+   top : 8%;
+   width:98%;
+   height:0%;
+   filter : opacity(.5) drop-shadow(0 0 0 gray); */
+      position:relative;
+=======
 /* 	position: absolute;
 	top : 8%;
 	width:98%;
 	height:0%;
 	filter : opacity(.5) drop-shadow(0 0 0 gray); */
 	   position:relative;
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/LeeJinyoung-TEAM.git
    width:98%;
    filter : opacity(.5) drop-shadow(0 0 0 gray);
 }
@@ -400,9 +389,9 @@ padding: 50px 0px 0px 0px;
 }
 
 .main_map {
-	width:100%;
-	height:100%;
-	background-color : #F1F2F6;
+   width:100%;
+   height:100%;
+   background-color : #F1F2F6;
 }
 
 .main_mid {
@@ -422,8 +411,9 @@ width:100%;
 /* height:90%; */
 }
 
-#record_video7, #record_video2, #record_video3,
-#record_video4, #record_video5, #record_video6{
+#record_video0, #record_video1, #record_video2,
+#record_video5, #record_video4, #record_video3,
+#record_video6, #record_video7, #record_video8{
 width: 450px;
 height: 450px;
 }
@@ -491,194 +481,76 @@ text-align: center;
 
 <script>
 window.onload = function() {
-	 
-	function show1 () {
-		  document.querySelector(".black_bg").className = "black_bg show1";
-		}
-	function close1 () {
-		  document.querySelector(".black_bg").className = "black_bg";
-		}
-	
+    
+   function show1 () {
+        document.querySelector(".black_bg").className = "black_bg show1";
+      }
+   function close1 () {
+        document.querySelector(".black_bg").className = "black_bg";
+      }
+   
     document.querySelector("#modal_btn").addEventListener("click", show1);
     document.querySelector(".black_bg").addEventListener("click", close1);
-    
-    
-    
-    function onClick3() {
-        document.querySelector('.record_wrap').style.display ='block';
-        document.querySelector('.record_bg').style.display ='block';
-    }   
-    function offClick3() {
-        document.querySelector('.record_wrap').style.display ='none';
-        document.querySelector('.record_bg').style.display ='none';
-    }
- 
-    document.getElementById('record_video2').addEventListener('click', onClick3);
-    document.querySelector('.record_bg').addEventListener('click', offClick3);
-       
-    
-    function onClick4() {
-        document.querySelector('.record_wrap').style.display ='block';
-        document.querySelector('.record_bg').style.display ='block';
-    }   
-    function offClick4() {
-        document.querySelector('.record_wrap').style.display ='none';
-        document.querySelector('.record_bg').style.display ='none';
-    }
- 
-    document.getElementById('record_video3').addEventListener('click', onClick4);
-    document.querySelector('.record_bg').addEventListener('click', offClick4);
-    
-    function onClick5() {
-        document.querySelector('.record_wrap').style.display ='block';
-        document.querySelector('.record_bg').style.display ='block';
-    }   
-    function offClick5() {
-        document.querySelector('.record_wrap').style.display ='none';
-        document.querySelector('.record_bg').style.display ='none';
-    }
- 
-    document.getElementById('record_video4').addEventListener('click', onClick5);
-    document.querySelector('.record_bg').addEventListener('click', offClick5);
-
- 
-    function onClick6() {
-        document.querySelector('.record_wrap').style.display ='block';
-        document.querySelector('.record_bg').style.display ='block';
-    }   
-    function offClick6() {
-        document.querySelector('.record_wrap').style.display ='none';
-        document.querySelector('.record_bg').style.display ='none';
-    }
- 
-    document.getElementById('record_video5').addEventListener('click', onClick6);
-    document.querySelector('.record_bg').addEventListener('click', offClick6);
       
     
     function onClick7() {
+    	
+    	var changeSrc= $(this).attr('src');
+    	$("#video").attr("src",changeSrc);
         document.querySelector('.record_wrap').style.display ='block';
         document.querySelector('.record_bg').style.display ='block';
     }   
+    
     function offClick7() {
         document.querySelector('.record_wrap').style.display ='none';
         document.querySelector('.record_bg').style.display ='none';
     }
+    
  
+    document.getElementById('record_video0').addEventListener('click', onClick7);
+    document.querySelector('.record_bg').addEventListener('click', offClick7); 
+    
+    document.getElementById('record_video1').addEventListener('click', onClick7);
+    document.querySelector('.record_bg').addEventListener('click', offClick7); 
+    
+    document.getElementById('record_video2').addEventListener('click', onClick7);
+    document.querySelector('.record_bg').addEventListener('click', offClick7); 
+    
+    document.getElementById('record_video3').addEventListener('click', onClick7);
+    document.querySelector('.record_bg').addEventListener('click', offClick7); 
+
+    document.getElementById('record_video4').addEventListener('click', onClick7);
+    document.querySelector('.record_bg').addEventListener('click', offClick7); 
+    
+    document.getElementById('record_video5').addEventListener('click', onClick7);
+    document.querySelector('.record_bg').addEventListener('click', offClick7); 
+
     document.getElementById('record_video6').addEventListener('click', onClick7);
-    document.querySelector('.record_bg').addEventListener('click', offClick7);
-/*     function onClick() {
-        document.querySelector('.modal_wrap').style.display ='block';
-        document.querySelector('.black_bg').style.display ='block';
-    }   
-    function offClick() {
-        document.querySelector('.modal_wrap').style.display ='none';
-        document.querySelector('.black_bg').style.display ='none';
-    }
- 
-    document.getElementById('modal_btn').addEventListener('click', onClick);
-    document.querySelector('.black_bg').addEventListener('click', offClick); */
+    document.querySelector('.record_bg').addEventListener('click', offClick7); 
     
+    document.getElementById('record_video7').addEventListener('click', onClick7);
+    document.querySelector('.record_bg').addEventListener('click', offClick7); 
     
+    document.getElementById('record_video8').addEventListener('click', onClick7);
+    document.querySelector('.record_bg').addEventListener('click', offClick7); 
     
-/*     var onClick_d = function onClick_d() {	
-        document.querySelector('.record_d').style.display ='block';
-        document.querySelector('.record_bg').style.display ='block';
-    }   
-    function offClick_d() {
-        document.querySelector('.record_d').style.display ='none';
-        document.querySelector('.record_bg').style.display ='none';
-    }
- 	
-    var className = document.getElementsByClassName('button_d');
-    for(var i = 0; i<className.length;i++){
-    	className[i].addEventListener('click', onClick_d, false);
-    }
-    
-    var onClick_p = function onClick_p() {	
-        document.querySelector('.record_p').style.display ='block';
-        document.querySelector('.record_bg').style.display ='block';
-    }   
-    function offClick_p() {
-        document.querySelector('.record_p').style.display ='none';
-        document.querySelector('.record_bg').style.display ='none';
-    }
- 	
-    var className = document.getElementsByClassName('button_p');
-    for(var i = 0; i<className.length;i++){
-    	className[i].addEventListener('click', onClick_p, false);
-    }
-    
-    var onClick_g = function onClick_g() {	
-        document.querySelector('.record_g').style.display ='block';
-        document.querySelector('.record_bg').style.display ='block';
-    }   
-    function offClick_g() {
-        document.querySelector('.record_g').style.display ='none';
-        document.querySelector('.record_bg').style.display ='none';
-    }
- 	
-    var className = document.getElementsByClassName('button_g');
-    for(var i = 0; i<className.length;i++){
-    	className[i].addEventListener('click', onClick_g, false);
-    }
-    
-    var onClick_u = function onClick_u() {	
-        document.querySelector('.record_u').style.display ='block';
-        document.querySelector('.record_bg').style.display ='block';
-    }   
-    function offClick_u() {
-        document.querySelector('.record_u').style.display ='none';
-        document.querySelector('.record_bg').style.display ='none';
-    }
- 	
-    var className = document.getElementsByClassName('button_u');
-    for(var i = 0; i<className.length;i++){
-    	className[i].addEventListener('click', onClick_u, false);
-    }
-    
-    var onClick_b = function onClick_b() {	
-        document.querySelector('.record_b').style.display ='block';
-        document.querySelector('.record_bg').style.display ='block';
-    }   
-    function offClick_b() {
-        document.querySelector('.record_b').style.display ='none';
-        document.querySelector('.record_bg').style.display ='none';
-    }
- 	
-    var className = document.getElementsByClassName('button_b');
-    for(var i = 0; i<className.length;i++){
-    	className[i].addEventListener('click', onClick_b, false);
-    } */
-    
-    /* document.getElementById('button').addEventListener('click', onClick1); */
-    /* 꺼질때는 다같이 */
-/*     document.querySelector('.record_bg').addEventListener('click', offClick_d);
-    document.querySelector('.record_bg').addEventListener('click', offClick_p);
-    document.querySelector('.record_bg').addEventListener('click', offClick_g);
-    document.querySelector('.record_bg').addEventListener('click', offClick_u);
-    document.querySelector('.record_bg').addEventListener('click', offClick_b); */
-   	
-    
-/*     function onClick2() {
-        document.querySelector('.diary_wrap').style.display ='block';
-        document.querySelector('.diary_bg').style.display ='block';
-    }   
-    function offClick2() {
-        document.querySelector('.diary_wrap').style.display ='none';
-        document.querySelector('.diary_bg').style.display ='none';
-    }
- 
-    document.getElementById('diary_btn').addEventListener('click', onClick2);
-    document.querySelector('.diary_bg').addEventListener('click', offClick2); */
+    document.getElementById('record_video9').addEventListener('click', onClick7);
+    document.querySelector('.record_bg').addEventListener('click', offClick7); 
     
     /* 달력 기본날짜 오늘날짜로 */
     today = new Date();
-	console.log("today.toISOString() >>>" + today.toISOString());
-	today = today.toISOString().slice(0, 10);
-	console.log("today >>>> " + today);
-	bir = document.getElementById("dates");
-	bir.value = today;
-	
+
+   console.log("today.toISOString() >>>" + today.toISOString());
+   today = today.toISOString().slice(0, 10);
+   console.log("today >>>> " + today);
+   bir = document.getElementById("dates");
+   bir.value = today;
+   
+
+   <% List<videoDT> member = (List<videoDT>)session.getAttribute("memberVideo"); 
+   System.out.print(member.get(1).getUser_id());%>
+   
+
 
 }
 
@@ -707,36 +579,11 @@ ul{
 }
 </style>
 
-<!-- <script> /* 다이어리 눌렀을때 스크롤 */
-    // html dom 이 다 로딩된 후 실행된다.
-    $(document).ready(function(){
-        // menu 클래스 바로 하위에 있는 a 태그를 클릭했을때
-        $(".menu>a").click(function(){
-            var submenu = $(this).next("ul");
- 
-            // submenu 가 화면상에 보일때는 위로 보드랍게 접고 아니면 아래로 보드랍게 펼치기
-            if( submenu.is(":visible") ){
-                submenu.slideUp();
-            }else{
-                submenu.slideDown();
-            }
-        });
-    });
-</script> -->
-<!-- input에 오늘날짜 기본값으로 넣기 -->
 <script type="text/javascript">
-/* 	window.onload = function() {
-		today = new Date();
-		console.log("today.toISOString() >>>" + today.toISOString());
-		today = today.toISOString().slice(0, 10);
-		console.log("today >>>> " + today);
-		bir = document.getElementById("dates");
-		bir.value = today;
-	} */
-	function showDiary(){
-		  const element = document.getElementById('change');
-		  element.innerHTML = '<div id="calendar"><input type="date" id="dates"></div>';
-		} 
+   function showDiary(){
+        const element = document.getElementById('change');
+        element.innerHTML = '<div id="calendar"><input type="date" id="dates"></div>';
+      }
 </script>
 
 <style>
@@ -790,7 +637,7 @@ ul{
     cursor: pointer;
     z-index: 2;
 }
-.select ul li{	/* 셀렉트목록 */
+.select ul li{   /* 셀렉트목록 */
     padding: 10px;
     height: 100px;
 }
@@ -825,40 +672,39 @@ i img{
 </head>
 <body>
 
-	<div class="black_bg">
-	<div class="modal_wrap">
-	<div class="modal_main">
-		<div class = "modal_top">
-			<div id="NSK_font" style = "font-size:80px;"><b><br>이진영 님</b></div>
-			<div class = "modal_top_left"> 
-				<div id="NSK_font"><br>만기일</div>
-			</div>
-			<div class = "modal_top_right">
-				<div id="NSK_font"><br>2021-12-07<br>D-day 30일</div>
-			</div>
-		</div>
-		<div class = "modal_mid">
-			<div class = "modal_mid_mid">
-				<div class = "modal_mid_left"><img id="moicon" src="resources/img/diary.png"></div>
-				<div class = "modal_mid_right"><b id = "modal_mid_b">운동 다이어리</b></div>
-			</div>	
-			<div class = "modal_mid_mid">
-				<div class = "modal_mid_left"><img id="moicon" src="resources/img/dumbbell.png"></div>
-				<div class = "modal_mid_right"><b id = "modal_mid_b">운동 도구</b></div>
-			</div>
-			<div class = "modal_mid_mid">
-				<div class = "modal_mid_left"><img id="moicon" src="resources/img/video.png"></div>
-				<div class = "modal_mid_right"><b id = "modal_mid_b">운동 영상</b></div>
-			</div>		
-		</div>
-		<div class = "modal_bot">
-			<div id="NSK_font">고객센터     010-4903-4073</div>
-		</div>
-	</div>
-	</div>
-	</div>
-	
-	<div class="record_bg"></div>
+   <div class="black_bg">
+   <div class="modal_wrap">
+   <div class="modal_main">
+      <div class = "modal_top">
+         <div id="NSK_font" style = "font-size:80px;"><b><br>이진영 님</b></div>
+         <div class = "modal_top_left"> 
+            <div id="NSK_font"><br>만기일</div>
+         </div>
+         <div class = "modal_top_right">
+            <div id="NSK_font"><br>2021-12-07<br>D-day 30일</div>
+         </div>
+      </div>
+      <div class = "modal_mid">
+         <div class = "modal_mid_mid">
+            <div class = "modal_mid_left"><img id="moicon" src="resources/img/diary.png"></div>
+            <div class = "modal_mid_right"><b id = "modal_mid_b">운동 다이어리</b></div>
+         </div>   
+         <div class = "modal_mid_mid">
+            <div class = "modal_mid_left"><img id="moicon" src="resources/img/dumbbell.png"></div>
+            <div class = "modal_mid_right"><b id = "modal_mid_b">운동 도구</b></div>
+         </div>
+         <div class = "modal_mid_mid">
+            <div class = "modal_mid_left"><img id="moicon" src="resources/img/video.png"></div>
+            <div class = "modal_mid_right"><b id = "modal_mid_b">운동 영상</b></div>
+         </div>      
+      </div>
+      <div class = "modal_bot">
+         <div id="NSK_font">고객센터     010-4903-4073</div>
+      </div>
+   </div>
+   </div>
+   </div>
+<div class="record_bg"></div>
     <div class="record_wrap">
       <div class="record_top" style="width:100%; height:200px;">
          <div id="record_top_title">
@@ -870,8 +716,8 @@ i img{
       
       <div class="record_middle" style="width:100%; height:1000px;" align="center">   
          <div id="record_middle_content">
-            <video poster="resources/img/체스트프레스.png" id="video" controls="controls">
-                <source src="resources/record/record1.mp4" type="video/mp4" />
+            <video src="/cam/??.webm" id="video" controls="controls">
+                <source src="/cam/??.webm"/>
             </video>
          </div>   
       </div>
@@ -892,6 +738,7 @@ i img{
          </tr>
          </table>
    </div>
+<<<<<<< HEAD
 
 <!-- 	<div class="record_p">	팔운동
 		<div class="record_top" style="width:70%; height:200px;">
@@ -1024,143 +871,91 @@ i img{
 	</div> -->
 	
 	
+=======
+      
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/LeeJinyoung-TEAM.git
 <div class="main_map">
 
 
 <div class="main_top" style = "text-align : center;">
-	<div class="top_left">
-		<h1 style = "font-size:90px;">The Ai Fitness</h1>
-	</div>
-	<div class="top_right">
-		<img id="modal_btn" src="resources/img/menu.png"
-					style="width: 120px; height: 120px;">
-	</div>
+   <div class="top_left">
+      <h1 style = "font-size:90px;">The Ai Fitness</h1>
+   </div>
+   <div class="top_right">
+      <img id="modal_btn" src="resources/img/menu.png"
+               style="width: 120px; height: 120px;">
+   </div>
 </div>
-
+<script>
+ function test(){
+	alert('종류선택');
+ 	$.ajax({ 
+		url :"/web/memberExinfo.do?user_id=<%=member.get(1).getUser_id()%>",
+		method:"GET",
+		dataType: 'json',
+		success: function(data2) {
+			console.log(data2);
+			$.each(data2, (index, obj)=>{
+				var inD = 'div_d'+index;
+				document.getElementById(inD).className = obj.ex_kinds;
+			});
+			
+		}
+	});  
+	}
+</script>
 <div class="main_mid">
-	<div class="mid_top">
-		<table style="padding-top: 40px;">
-			<tr>
-				<td><div id="change"> <a id="record" align ="center">자세교정 녹화본</a> </div></td>
-				<td>
-<!-- 					<select name="exercise" id="exercise">
-					 <option align="center" value ="운동 부위" font-family="Regular" > 운동 부위  </option>
-					 <option align="center" value ="등" >등</option>												
-					 <option align="center" value ="팔" >팔</option>										
-					 <option align="center" value ="가슴" >가슴</option>
-					 <option align="center" value ="어깨" >어깨</option>
-					 <option align="center" value ="복근" >복근</option>	
-					</select> -->
-					
-						<div class="select" data-role="selectBox" name="exercise" id="exercise">
-							<span date-value="optValue" class="selected-option">
-								<!-- 선택된 옵션 값이 출력되는 부분 -->
-							</span>
-							<!-- 옵션 영역 -->
-							<ul class="hide" id="wrap">
-								<li class ="전체"><i><img src="resources/img/menu.png" alt="전체"/></i>전체</li>
-								<li class ="등"><i><img src="resources/img/등.png" alt="등" /></i>등</li>
-								<li class ="팔"><i><img src="resources/img/p.png" alt="팔" /></i>팔</li>									
-								<li class ="가슴"><i><img src="resources/img/가슴.png" alt="가슴" /></i>가슴</li>
-								<li class ="어깨"><i><img src="resources/img/어깨.png" alt="어깨" /></i>어깨</li>
-								<li class ="복근"><i><img src="resources/img/복근.png" alt="복근" /></i>복근</li>
-							</ul>
-						</div>
+   <div class="mid_top">
+      <table style="padding-top: 40px;">
+         <tr>
+            <td><div id="change"> <a id="record" align ="center">자세교정 녹화본</a> </div></td>
+            <td>
+               
+                  <div class="select" data-role="selectBox" name="exercise" id="exercise">
+                     <span date-value="optValue" class="selected-option">
+                        <!-- 선택된 옵션 값이 출력되는 부분 -->
+                     </span>
+                     <!-- 옵션 영역 -->
+                     <ul class="hide" id="wrap">
+                        <li class ="전체"><i><img src="resources/img/menu.png" alt="전체"/></i>전체</li>
+                        <li class ="div_d" onclick="test('등')" ><i><img src="resources/img/등.png"  alt="등" /></i>등</li>
+                        <li class ="div_p"><i><img src="resources/img/p.png" alt="팔" /></i>팔</li>                           
+                        <li class ="div_g"><i><img src="resources/img/가슴.png" alt="가슴" /></i>가슴</li>
+                        <li class ="div_u"><i><img src="resources/img/어깨.png" alt="어깨" /></i>어깨</li>
+                        <li class ="div_b"><i><img src="resources/img/복근.png" alt="복근" /></i>복근</li>
+                     </ul>
+                  </div>
 
-						</td>
-				<td> <!-- <img id="diary_btn" src="resources/img/weightDiary.png" width="100px" height="100px"> --> </td>
-			</tr>		
-		</table>
-		<div>
-    	<ul>
+                  </td>
+            <td></td>
+         </tr>      
+      </table>
+      <div>
+       <ul>
         <li class="menu">
             <a onclick='showDiary()' value='changeDiary'><img id="diary_btn" src="resources/img/weightDiary.png" width="100px" height="100px"></a>
             <ul class="hide">
-				<div id="calendar">
-					<!-- <div id="cal_left"> -->
-						<input type="date" id="dates">
-					<!-- </div> -->
-<!-- 					<div id="cal_right">
-						<button onclick="calM()">메모</button>
-					</div> -->
-				</div>
-<!-- 				<div id="memos"><input type="text" id="texts"></div> -->
+            <div id = "outdate">
+                  <input type="date" id="dates" >
+            </div>
             </ul>
         </li>
-		</ul>
-		</div>
-	</div>
-<script>
-/* function calM() {
-  var x = document.getElementById("dates").value;
-  document.getElementById("memos").innerHTML = x;
-  
-} */
-</script>	
-
+      </ul>
+      </div>
+   </div>
 <div id="container">
-  <div class="div_p" ><div class="item">
-  	<video poster="resources/img/p.png" id="record_video3"></video></div></div>
-  <div class="div_d"><div class="item">
-    <video poster="resources/img/등.png" id="record_video2"></video></div></div>
-  <div class="div_b"><div class="item">
-  	<video poster="resources/img/복근.png" id="record_video6"></video></div></div>
-  <div class="div_u"><div class="item">
-  	<video poster="resources/img/어깨.png" id="record_video5"></div></div>
-  <div class="div_p"><div class="item">
-  	<video poster="resources/img/p.png" id="record_video3"></div></div>
-  <div class="div_g"><div class="item">
-  	<video poster="resources/img/가슴.png" id="record_video4"></div></div>
-<!--   <div class="div_b"><div class="item">
-  	<input id="button" class="button_b" type = "submit" value="복근영상"></div></div>
-  <div class="div_p"><div class="item">
-  	<input id="button" class="button_p" type = "submit" value="팔영상"></div></div> -->
- <!-- <div class="div_b"><div class="item">
-  	<input id="button" class="button_b" type = "submit" value="복근영상"></div></div>
-  <div class="div_p"><div class="item">
-  	<input id="button" class="button_p" type = "submit" value="팔영상"></div></div>
-  <div class="div_p"><div class="item">
-  	<input id="button" class="button_p" type = "submit" value="팔영상"></div></div> -->
+	<c:forEach var= 'vo' items = "${memberVideo}" varStatus="status" >
+	  <div id = "div_d${status.index}" class="div_p${status.index}"><div class="item">
+	     <video src="/cam/${vo.file_name}.webm" class="attClass" id="record_video${status.index}"></video>
+	     </div>
+	  <div>${vo.video_date}</div>
+	  </div>
+	     
+	</c:forEach>
 </div>
-<!-- 	<div class="mid_bot">
-	<div class="div_d">
-<table align="center" id=mid>
-<tr>
-<td><input id="button" class="button" type = "submit" value="등영상"></td>
-<td><input id="button" class="button" type = "submit" value="등영상"></td>
-</tr>
-</table>
-	</div>
-	
-	<div class="div_p">
-<table align="center" id=mid>
-<tr>
-<td><input id="button" class="button" type = "submit" value="팔영상"></td>
-<td><input id="button" class="button" type = "submit" value="팔영상"></td>
-</tr>
-</table>
-	</div>
-	
-	<div class="div_g">
-<table align="center"id=mid>
-<tr>
-<td><input id="button" class="button" type = "submit" value="가슴영상"></td>
-<td><input id="button" class="button" type = "submit" value="가슴영상"></td>
-</tr>
-</table>
-	</div>
-	
-	<div class="div_b">
-<table align="center" id=mid>
-<tr>
-<td><input id="button" class="button" type = "submit" value="복근영상"></td>
-<td><input id="button" class="button" type = "submit" value="복근영상"> </td>
-</tr>
-</table>
-	</div>
-	</div> -->
+
 </div>
-	
+   
 <div class="main_bot" id="NSK_font">
       <img id="gym2" align="bottom" src="resources/img/gym2.png" width="150px" height="150px" onclick = "go_main()">
 </div>
@@ -1176,47 +971,47 @@ i img{
 </script>
 <script> /* 셀렉트 선택시 동영상 상자 */
 $('.전체').click(function(){
-	$('.div_d').show();
-	$('.div_p').show();
-	$('.div_g').show();
-	$('.div_u').show();
-	$('.div_b').show();
-})
-$('.등').click(function(){
-    $('.div_d').show();
-    $('.div_p').hide();
-    $('.div_g').hide();
-    $('.div_u').hide();
-    $('.div_b').hide();
-})
-$('.팔').click(function(){
-  	$('.div_p').show();
-	$('.div_d').hide();
-    $('.div_g').hide();
-    $('.div_u').hide();
-    $('.div_b').hide();
-})
-$('.가슴').click(function(){
-	$('.div_g').show();
- 	$('.div_d').hide();
-    $('.div_p').hide();
-    $('.div_u').hide();
-    $('.div_b').hide();
-})
-$('.어깨').click(function(){
-	$('.div_u').show();
-	$('.div_d').hide();
-    $('.div_p').hide();
-    $('.div_g').hide();
-    $('.div_b').hide();
-})	    
-$('.복근').click(function(){
-	$('.div_b').show();
-	$('.div_d').hide();
-    $('.div_p').hide();
-    $('.div_g').hide();
-    $('.div_u').hide();
-})	
+	   $('.등').show();
+	   $('.가슴').show();
+	   $('.팔').show();
+	   $('.어깨').show();
+	   $('.복근').show();
+	})
+	$('.div_d').click(function(){
+	    $('.등').show();
+	    $('.팔').hide();
+	    $('.가슴').hide();
+	    $('.어깨').hide();
+	    $('.복근').hide();
+	})
+	$('.div_p').click(function(){
+	     $('.팔').show();
+	   $('.등').hide();
+	    $('.가슴').hide();
+	    $('.어깨').hide();
+	    $('.복근').hide();
+	})
+	$('.div_g').click(function(){
+	   $('.가슴').show();
+	    $('.등').hide();
+	    $('.팔').hide();
+	    $('.어깨').hide();
+	    $('.복근').hide();
+	})
+	$('.div_u').click(function(){
+	   $('.어깨').show();
+	   $('.등').hide();
+	    $('.팔').hide();
+	    $('.가슴').hide();
+	    $('.복근').hide();
+	})       
+	$('.duv_b').click(function(){
+	   $('.복근').show();
+	   $('.등').hide();
+	    $('.팔').hide();
+	    $('.가').hide();
+	    $('.div_u').hide();
+	})   
 </script>
 <script type="text/javascript"> /* 셀렉트 */
 const body = document.querySelector('body');

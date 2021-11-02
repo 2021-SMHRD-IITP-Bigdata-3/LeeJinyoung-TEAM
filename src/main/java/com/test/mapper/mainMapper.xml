@@ -18,20 +18,45 @@
 		WHERE manager_yn = 0
 	</select>
 	
-	<insert id="insertEx" parameterType ="com.test.mapper.exinfo">
-	    insert into user_exercises(user_id, ex_name, ex_kinds)
-	    values (#{user_id},#{ex_name}, #{ex_kinds})
-	</insert>
 
-	<insert id="insertURL" parameterType ="com.test.mapper.videoDT">
-	    insert into exercise_videos(user_id,url)
-	    values (#{user_id},#{url})
+	
+	<insert id="insertEx" parameterType="com.test.mapper.exinfo">
+	   INSERT INTO user_exercises (user_id, ex_name, ex_kinds,ex_date)
+	   VALUES ( 
+	      #{user_id}, 
+	      #{ex_name}, 
+	      #{ex_kinds},
+	      now()
+	   )
+	   
 	</insert>
 	
-	<select id="memberVideo" resultType="com.test.mapper.videoDT">
-		SELECT url
+	<insert id="insertURL" parameterType="com.test.mapper.videoDT">
+	   INSERT INTO exercise_videos (user_id, ex_seq, file_name, video_seq,video_date)
+	   VALUES ( 
+	      #{user_id}, 
+	      #{ex_seq}, 
+	      #{file_name},
+	      DEFAULT,
+	      now()
+	   )
+	</insert>
+	
+	
+	<select id="selectEx" resultType="com.test.mapper.exinfo">
+	    SELECT ex_seq,user_id FROM user_exercises where user_id= #{user_id} order by ex_date desc LIMIT 1
+	</select>
+	
+	<select id="memberVideo" resultType="com.test.mapper.videoDT" parameterType ="String">
+		SELECT file_name, video_seq , user_id ,video_date
 		FROM exercise_videos
 		WHERE user_id = #{user_id}
+	</select>
+	
+	<select id="memberExinfo" resultType="com.test.mapper.exinfo" parameterType ="com.test.mapper.exinfo" >
+		select user_id , ex_kinds
+		from user_exercises
+		where user_id=#{user_id}
 	</select>
 	
 	<update  id="extensionMember" parameterType ="com.test.mapper.guest" >
