@@ -33,4 +33,6 @@ public interface mainMapper {
 	
 	public List<exinfo> memberExinfo(String user_id);
 
+	public List<videoDT> dateVideo(@Param("user_id") String user_id , @Param("video_date") String video_date);
+
 }

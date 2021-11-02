@@ -20,6 +20,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -98,6 +99,20 @@ public class Restmember {
     	System.out.println(memberVideo);
 		return memberVideo;
         
+	}
+    
+    @RequestMapping(value="/dateVideo.do", method= {RequestMethod.GET, RequestMethod.POST})
+    public String dateVideo(String user_id ,String video_date, HttpServletRequest req) throws Exception {
+		System.out.println(user_id);
+		System.out.println(video_date);
+    	
+		HttpSession session = req.getSession();
+    	
+    	List<videoDT> memberVideo = mapper.dateVideo(user_id,video_date);
+    	session.setAttribute("memberVideo", memberVideo);
+    	//System.out.println(memberVideo);
+		
+    	return "record2.do";
 	}
 }
 
