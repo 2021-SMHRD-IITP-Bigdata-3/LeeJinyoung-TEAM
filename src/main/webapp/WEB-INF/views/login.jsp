@@ -61,9 +61,10 @@ html, body {
    	border-radius:30px;
    }
 	
-
-
-   #user_gym{
+ #user_gym{
+display:none
+}
+/* #user_gym{
    position:relative;
    border-radius:40px;
    font-weight:bolder;
@@ -84,14 +85,14 @@ html, body {
    height:200px;
    font-size:60px;
    font-family:Regular;
-   }
+   } */
    
-   #b{
+/*    #b{
    position:relative;
    width:150px;
    height:50px;
    font-size:30px;
-   }
+   } */
    
    input{
    border-radius:40px;
@@ -123,7 +124,95 @@ html, body {
 	transform: rotate(90deg);
 	}
 	
-	
+.select{
+    position: relative;
+    padding: 5px 10px;
+    margin-left: 113px;
+    border-radius: 60px;
+    /* border:1px solid salmon; */
+    background-color: white;
+    background-image: url("https://img.icons8.com/material-rounded/24/000000/expand-arrow.png");
+    background-repeat: no-repeat;
+    /* background-position: 96% center; */
+    cursor: pointer;
+    padding-left: 35px;
+    padding-top: 15px;
+}
+
+/* 옵션 영역 스타일 */
+.select ul{
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    border:1px solid salmon;
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+    z-index: 2;
+}
+.select ul li{	/* 셀렉트목록 */
+    padding: 30px;
+    height: 100px;
+}
+.select ul li:first-child{
+    background: white;
+}
+.select ul li:nth-child(2){
+    background: white;
+}
+.select ul li:nth-child(3){
+    background: white;
+}
+.select ul li:nth-child(4){
+    background: white;
+}
+.select ul li:nth-child(5){
+    background: white;
+}
+.select ul li:hover{
+    background-color: white;
+}
+/* 아이콘 스타일 */
+i{
+    vertical-align: bottom;
+    margin-right: 5px;
+}
+i img{
+    width: 60px;
+}	
+
+.hide{
+height: 300px;
+display: none;
+}
+
+#exercise{
+font-family:Regular;
+width: 850px;
+height: 100px;
+font-weight: bolder;
+font-size: 60px;
+padding: 50px;
+border: 1px solid black;
+text-align: left;
+}
+
+ul{
+   list-style:none;
+   padding-left:0px;
+   }
+
+#choice{
+padding: 30px;
+height: 100px;
+font-family: Regular;
+font-weight: bolder;
+position: absolute;
+font-size: 60px;
+top: 182px;
+left: 120px;
+}
 </style>
 
 
@@ -150,24 +239,29 @@ html, body {
 		
 
 	<div>
-				<select id="user_gym" name = "user_gym">
-					 <option id=b> 지점명 </option>	
-					 
-					 <optgroup id=b label="서울">  
-					 	<option id=b font-family="Regular"  value ="강남점" >강남점</option>
-					 </optgroup>
-					 
-					 <optgroup id=b label="부산">  
-					 	<option id=b font-family="Regular" value ="해운대점" >해운대점</option>
-					 </optgroup>
-					 
-					 <optgroup id=b label="광주">  
-					 	<option id=b font-family="Regular"  value ="광주남구" >광주남구</option>
-					 </optgroup>						
+<!--  				<select id="user_gym" name = "user_gym">
+
+					 	<option id=a font-family="Regular"  value ="강남점" class="강남점c">강남점</option>
+
+					 	<option id=b font-family="Regular" value ="해운대점" class="해운대점c">해운대점</option>
+
+					 	<option id=c font-family="Regular"  value ="광주남구" class="광주남구c">광주남구</option>				
 		 
-				</select>
-				
-				<img id="option_click" src="resources/img/화살표2.png" width="300px" height="300px">
+				</select> -->
+		
+						<div class="select" data-role="selectBox" name="exercise" id="exercise" name="user_gym">
+							<span date-value="optValue" class="selected-option">
+								<!-- 선택된 옵션 값이 출력되는 부분 -->
+							</span>
+							<!-- 옵션 영역 -->
+							<ul class="hide" id="wrap">
+								<li class ="강남점" value ="강남점"><span>강남점</span></li>
+								<li class ="해운대점" value ="해운대점"><span>해운대점</span></li>
+								<li class ="광주남구" value ="광주남구"><span>광주남구</span></li>									
+							</ul>
+						</div>
+						<div id="choice">지점선택</div>
+				<!-- <img id="option_click" src="resources/img/화살표2.png" width="300px" height="300px"> -->
 	</div>
 	
 	<div style="width:100%; height:30px;"></div>
@@ -201,7 +295,71 @@ html, body {
       	</tr>
       </table>
       </footer>
-	
-	
-  </body>
+
+	<script type="text/javascript"> /* 셀렉트 */
+const body = document.querySelector('body');
+const select = document.querySelector(`[data-role="selectBox"]`);
+const values = select.querySelector(`[date-value="optValue"]`);
+const option = select.querySelector('ul');
+const opts = option.querySelectorAll('li');
+const choice = document.querySelector('#choice');
+
+/* 셀렉트영역 클릭 시 옵션 숨기기, 보이기 */
+function selects(e){
+    e.stopPropagation();
+    option.setAttribute('style',`top:${select.offsetHeight}px`)
+    if(option.classList.contains('hide')){
+        option.classList.remove('hide');
+        option.classList.add('show');
+    }else{
+        option.classList.add('hide');
+        option.classList.remove('show');
+    }
+    selectOpt();
+    choice.classList.add('hide');
+}
+
+/* 옵션선택 */
+function selectOpt(){
+    opts.forEach(opt=>{
+        const innerValue = opt.innerHTML;
+        function changeValue(){
+            values.innerHTML = innerValue;
+        }
+        opt.addEventListener('click',changeValue)
+    });
+    
+}
+
+/* 선택시 div보이게 */
+
+
+/* 렌더링 시 옵션의 첫번째 항목 기본 선택 */
+function selectFirst(){
+    const firstValue = opts[0].innerHTML;
+    values.innerHTML = `${firstValue}`
+}
+
+
+
+/* 옵션밖의 영역(=바디) 클릭 시 옵션 숨김 */
+function hideSelect(){
+    if(option.classList.contains('show')){
+        option.classList.add('hide');
+        option.classList.remove('show');
+    }
+}
+
+selectFirst();
+select.addEventListener('click',selects);
+body.addEventListener('click',hideSelect);
+
+
+</script>	
+<script>
+$("#wrap li span").click(function(){
+    console.log($(this).text());
+});
+</script>
+</body>
 </html>

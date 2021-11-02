@@ -293,12 +293,21 @@ left : 34%; */
 
 
 hr{
+<<<<<<< HEAD
 /*    position: absolute;
    top : 8%;
    width:98%;
    height:0%;
    filter : opacity(.5) drop-shadow(0 0 0 gray); */
       position:relative;
+=======
+/* 	position: absolute;
+	top : 8%;
+	width:98%;
+	height:0%;
+	filter : opacity(.5) drop-shadow(0 0 0 gray); */
+	   position:relative;
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/LeeJinyoung-TEAM.git
    width:98%;
    filter : opacity(.5) drop-shadow(0 0 0 gray);
 }
@@ -530,6 +539,7 @@ window.onload = function() {
     
     /* 달력 기본날짜 오늘날짜로 */
     today = new Date();
+
    console.log("today.toISOString() >>>" + today.toISOString());
    today = today.toISOString().slice(0, 10);
    console.log("today >>>> " + today);
@@ -540,6 +550,7 @@ window.onload = function() {
    <% List<videoDT> member = (List<videoDT>)session.getAttribute("memberVideo"); 
    System.out.print(member.get(1).getUser_id());%>
    
+
 
 }
 
@@ -568,23 +579,6 @@ ul{
 }
 </style>
 
-<!-- <script> /* 다이어리 눌렀을때 스크롤 */.div_d0
-    // html dom 이 다 로딩된 후 실행된다.
-    $(document).ready(function(){
-        // menu 클래스 바로 하위에 있는 a 태그를 클릭했을때
-        $(".menu>a").click(function(){
-            var submenu = $(this).next("ul");
- 
-            // submenu 가 화면상에 보일때는 위로 보드랍게 접고 아니면 아래로 보드랍게 펼치기
-            if( submenu.is(":visible") ){
-                submenu.slideUp();
-            }else{
-                submenu.slideDown();
-            }
-        });
-    });
-</script> -->
-<!-- input에 오늘날짜 기본값으로 넣기 -->
 <script type="text/javascript">
    function showDiary(){
         const element = document.getElementById('change');
