@@ -36,6 +36,15 @@ select * from user_exercises
 
 select * from exercise_videos
 
+insert into deep_postures(video_seq,pose_result,ai_comment)
+value(2 ,'자세교정3', '팔을 내려주세요!!')
+
+update deep_postures 
+set pose_result ='자세교정3'
+where pose_result = '??'
+
+select *
+from deep_postures
 CREATE TABLE exercise_videos
 (
     video_seq           int(100)      NOT NULL  AUTO_INCREMENT, 
@@ -53,7 +62,7 @@ CREATE TABLE deep_postures
 	deep_seq 			int(100) not null AUTO_INCREMENT,
     video_seq         int(100) null, 
     video_time          int(100)       NULL, 
-    pose_result          VARCHAR(100      NULL,
+    pose_result          VARCHAR(100)     NULL,
     ai_comment varchar(100) null,
     CONSTRAINT FK_deep_videos PRIMARY KEY (deep_seq),
     FOREIGN KEY (video_seq) REFERENCES exercise_videos (video_seq)
@@ -119,7 +128,8 @@ CREATE TABLE access
     ex_end_time      time     NULL,
     FOREIGN KEY (user_id) REFERENCES users (user_id)
 )
-
+select *
+from access
 SELECT user_id ,video_date
 		FROM exercise_videos
 drop table access

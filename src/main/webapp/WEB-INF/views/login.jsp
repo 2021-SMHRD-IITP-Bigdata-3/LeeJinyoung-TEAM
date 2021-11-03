@@ -239,15 +239,7 @@ left: 120px;
 		
 
 	<div>
-   				<select id="user_gym" name = "user_gym"  >
 
-					 	<option id=a font-family="Regular"  value ="강남점" class="강남점c">강남점</option>
-
-					 	<option id=b font-family="Regular" value ="해운대점" class="해운대점c">해운대점</option>
-
-					 	<option id=c font-family="Regular"  value ="광주남구" class="광주남구c">광주남구</option>				
-		 
-				</select>   
 		
 						<div class="select" data-role="selectBox" name="exercise" id="exercise" name="user_gym">
 							<span date-value="optValue" class="selected-option">
@@ -255,8 +247,8 @@ left: 120px;
 							</span>
 							<!-- 옵션 영역 -->
 							<ul class="hide" id="wrap">
-								<li class ="강남점" value ="강남점">강남점</li>
-								<li class ="해운대점" value ="해운대점">해운대점</li>
+								<li class ="강남점" value ="강남점">강남</li>
+								<li class ="해운대점" value ="해운대점">해운대</li>
 								<li class ="광주남구" value ="광주남구">광주남구</li>									
 							</ul>
 						</div>
@@ -324,7 +316,10 @@ function selectOpt(){
     opts.forEach(opt=>{
         const innerValue = opt.innerHTML;
         function changeValue(){
-            values.innerHTML = innerValue;
+        	//alert(innerValue);
+        	//values.innerHTML = innerValue;
+        	var html = innerValue+"<input type = 'hidden' value = '"+innerValue+"' name ='user_gym'></input>"
+        	values.innerHTML = html;
         }
         opt.addEventListener('click',changeValue)
     });

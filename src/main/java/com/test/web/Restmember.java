@@ -30,6 +30,7 @@ import com.test.mapper.mainMapper;
 import com.test.mapper.videoDT;
 import com.sun.org.apache.xerces.internal.util.URI;
 import com.test.mapper.accessController;
+import com.test.mapper.deepPostures;
 import com.test.mapper.exinfo;
 
 @RestController
@@ -113,6 +114,18 @@ public class Restmember {
     	//System.out.println(memberVideo);
 		
     	return "record2.do";
+	}
+    
+    @RequestMapping(value="/insertPose.do", method= {RequestMethod.GET, RequestMethod.POST})
+    public List<deepPostures> insertPose( Model model , int video_seq ,String video_date, HttpServletRequest req) throws Exception {
+		
+		System.out.println(video_seq);
+		List<deepPostures> List = mapper.selectVideo(video_seq);
+    	
+		System.out.println(List);
+		
+
+		return List;
 	}
 }
 

@@ -317,7 +317,12 @@ height:800px;
 left:0%;
 }
 
-#bottom{
+#bottom1{
+border-spacing: 50px;
+border-collapse: separate;
+}
+
+#bottom2{
 border-spacing: 50px;
 border-collapse: separate;
 }
@@ -487,11 +492,35 @@ window.onload = function() {
       
     
     function onClick7() {
-    	
     	var changeSrc= $(this).attr('src');
     	$("#video").attr("src",changeSrc);
-        document.querySelector('.record_wrap').style.display ='block';
+    	
+    	var video_seq= $(this).attr('class');
+		alert(video_seq)
+    	document.querySelector('.record_wrap').style.display ='block';
         document.querySelector('.record_bg').style.display ='block';
+        
+         $.ajax({
+        	url : "/web/insertPose.do?video_seq="+video_seq,
+        	type : "GET",
+        	dataType : "json",
+        	success : function(result){
+        		var html1 ="<tr>";
+        		var html2 ="<tr>";
+        		$.each(result,(index,obj)=>{
+        			html1+="<td>";
+        			html1+="<img src='resources/img/"+obj.post_result+".png'>";
+        			html1+="</td>";
+        			
+        			html2+="<td>"+obj.ai_comment+"</td>";
+        		})
+        		html1+="</tr>";
+        		html2+="</tr>";
+        		
+        		$("#bottom1").html(html1);
+        		$("#bottom2").html(html2);
+        	}
+        }); 
     }   
     
     function offClick7() {
@@ -719,18 +748,11 @@ i img{
    
       <div style="width:70%; height:100px;"> </div>
       
-         <table align="center" id=bottom>
-         <tr>
-            <td><input style="width:450px; height:300px;" class="button" type = "submit" value="잘못된 자세"></td>
-            <td> <b>상체를 더 왼쪽으로 기울여 주시면 될거 같아요!!</b> </td>
-         </tr>
+
+         <table align="center" id=bottom1>
          </table>
 
-         <table align="center" id=bottom>
-         <tr>
-            <td><input style="width:450px; height:300px;" class="button" type = "submit" value="잘못된 자세"></td>
-            <td> <b>어깨를 좀 더 내려주세요</b>></td>
-         </tr>
+         <table align="center" id=bottom2>
          </table>
    </div>
 <div class="main_map">
@@ -747,13 +769,11 @@ i img{
 </div>
 <script>
  function test(){
-	alert('종류선택');
  	$.ajax({ 
 		url :"/web/memberExinfo.do?user_id=<%=member.getUser_id()%>",
 		method:"GET",
 		dataType: 'json',
 		success: function(data2) {
-			console.log(data2);
 			$.each(data2, (index, obj)=>{
 				var inD = 'div_d'+index;
 				document.getElementById(inD).className = obj.ex_kinds;
@@ -762,8 +782,8 @@ i img{
 		}
 	});  
 }
+ 
  function insertdate(){
-	 alert("성공");
 	 var DATE = document.querySelector('input[type="date"]').value;
 	 $.ajax({
 		 url : "/web/dateVideo.do?user_id=<%=member.getUser_id()%>&video_date="+DATE,
@@ -771,7 +791,6 @@ i img{
 		 dataType : "text",
 		 async:false,
 		 success : function(result){
-			 alert(result);
 			 location.href = "/web/"+result;
 		 },
 		 error : function(data){
@@ -789,15 +808,15 @@ i img{
             <td><div id="change"> <a id="record" align ="center">자세교정 녹화본</a> </div></td>
             <td>
                
-                  <div class="select" data-role="selectBox" name="exercise" id="exercise">
+                  <div class="select" data-role="selectBox" name="exercise" id="exercise" onclick = "test()">
                      <span date-value="optValue" class="selected-option">
                         <!-- 선택된 옵션 값이 출력되는 부분 -->
                      </span>
                      <!-- 옵션 영역 -->
                      <ul class="hide" id="wrap">
                         <li class ="전체"><i><img src="resources/img/menu.png" alt="전체"/></i>전체</li>
-                        <li class ="div_d" onclick="test('등')" ><i><img src="resources/img/등.png"  alt="등" /></i>등</li>
-                        <li class ="div_p"><i><img src="resources/img/팔.png" alt="팔" /></i>팔</li>                           
+                        <li class ="div_d"><i><img src="resources/img/등.png"  alt="등" /></i>등</li>
+                        <li class ="div_p"><i><img src="resources/img/p.png" alt="팔" /></i>팔</li>                           
                         <li class ="div_g"><i><img src="resources/img/가슴.png" alt="가슴" /></i>가슴</li>
                         <li class ="div_u"><i><img src="resources/img/어깨.png" alt="어깨" /></i>어깨</li>
                         <li class ="div_b"><i><img src="resources/img/복근.png" alt="복근" /></i>복근</li>
@@ -823,8 +842,7 @@ i img{
 <div id="container">
 	<c:forEach var= 'vo' items = "${memberVideo}" varStatus="status" >
 	  <div id = "div_d${status.index}" class="div_p${status.index}"><div class="item">
-	     <video src="/cam/${vo.file_name}.webm" class="attClass" id="record_video${status.index}"></video>
-	     <div class="date" id ="sameDate${status.index}">${vo.video_date}</div>
+	     <video src="/cam/${vo.file_name}.webm" class="${vo.video_seq}" id="record_video${status.index}"></video>
 	     </div>
 	  </div>
 	</c:forEach>

@@ -66,6 +66,12 @@
 		where user_id=#{user_id}
 	</select>
 	
+	<select id="selectVideo" resultType="com.test.mapper.deepPostures" parameterType ="int" >
+		select pose_result , ai_comment
+		from deep_postures
+		where video_seq= #{video_seq}
+	</select>
+	
 	<update  id="extensionMember" parameterType ="com.test.mapper.guest" >
 	    update users set user_expire_date = DATE_ADD(user_expire_date, INTERVAL #{month} MONTH)
 	    where user_id = #{user_id}

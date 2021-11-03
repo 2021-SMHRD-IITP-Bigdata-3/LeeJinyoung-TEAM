@@ -6,6 +6,8 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+
+
 @Mapper
 public interface mainMapper {
 	
@@ -34,5 +36,7 @@ public interface mainMapper {
 	public List<exinfo> memberExinfo(String user_id);
 
 	public List<videoDT> dateVideo(@Param("user_id") String user_id , @Param("video_date") String video_date);
+
+	public List<deepPostures> selectVideo(int video_seq);
 
 }

@@ -11,60 +11,59 @@
     <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+              initialView: 'dayGridMonth',
+/*               editable:true,
+              events:[
+            	  {
+            		  title:'All Day Event',
+            		  start:'2021-11-03'
+            	  },
+            	  {
+            		  title:'Long Event',
+            		  strat:'2021-11-04',
+            		  end:'2021-11-05'
+            	  }
 
-      document.addEventListener('DOMContentLoaded', function() {
-        var calendarEl = document.getElementById('calendar');
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-          initialView: 'dayGridMonth',//이게 달력형식을 해주는건데
-           editable:true,
-          events:[
-        	  {
-        		  title:'All Day Event',
-        		  start:'2021-11-03'
-        	  },
-        	  {
-        		  title:'Long Event',
-        		  strat:'2021-11-04',
-        		  end:'2021-11-05'
-        	  }
+              ]  */
+              events: function(info,successCallback, failureCallback){
+            	  $.ajax({
+             		 type: "post",
+              	     url: "/web/infoCalender.do?user_id=1234",
+              	     dataType: "json",
+              	     success: function(result){
+              	    	 console.log(result)
+              	    	 var events = [];
+              	    	 $.each(result,function(index,obj){
+              	    		events.push({
+              	    			start : obj.ex_day,
+              	    			title : ((4*(3.5*obj.user_weight*obj.timediff))/1000)*5+"kal"
+              	    		})
+              	    	 })
+              	    	console.log(events);
+              	    	successCallback(events);
+              	    	 }
 
-          ] 
- /*          events: function(info,successCallback, failureCallback){
-        	  $.ajax({
-         		 type: "post",
-          	     url: "/web/infoCalender.do?user_id=1234",
-          	     dataType: "json",
-          	     success: function(result){
-          	    	 console.log(result)
-          	    	 var events = [];
-          	    	 $.each(result,function(index,obj){
-          	    		events.push({
-          	    			start : obj.ex_day,
-          	    			title : ((4*(3.5*obj.user_weight*obj.timediff))/1000)*5+"kal"
-          	    		})
-          	    	 })
-          	    	console.log(events);
-          	    	successCallback(events);
-          	    	 }
+             	  });
+               },
+            	  eventDidMount: function(info) {
+            	    if (info.event.extendedProps.status === 'done') {
 
-         	  });
-           },
-        	  eventDidMount: function(info) {
-        	    if (info.event.extendedProps.status === 'done') {
+            	      // Change background color of row
+            	      info.el.style.backgroundColor = 'red';
 
-        	      // Change background color of row
-        	      info.el.style.backgroundColor = 'red';
-
-        	      // Change color of dot marker
-        	      var dotEl = info.el.getElementsByClassName('fc-event-dot')[0];
-        	      if (dotEl) {
-        	        dotEl.style.backgroundColor = 'white';
-        	      }
-        	    }
-        	  } */
-        });
-        calendar.render();
-      });
+            	      // Change color of dot marker
+            	      var dotEl = info.el.getElementsByClassName('fc-event-dot')[0];
+            	      if (dotEl) {
+            	        dotEl.style.backgroundColor = 'white';
+            	      }
+            	    }
+            	  }
+            });
+            calendar.render();
+          });
 
     </script>
 <style>
@@ -299,9 +298,9 @@ padding: 0px 0px 0px 50px;
 }
 
 .main_map {
-	width:100%;
-	height:100%;
-	background-color : #F1F2F6;
+   width:100%;
+   height:100%;
+   background-color : #F1F2F6;
 }
 
 .main_top {
@@ -379,21 +378,21 @@ top:-5%;
 </style>
 <script>
 function clickKal(){
-	console.log("test")
+   console.log("test")
 }
 
 window.onload = function() {
-	
-	
-	   function show1 () {
-	        document.querySelector(".black_bg").className = "black_bg show1";
-	      }
-	   function close1 () {
-	        document.querySelector(".black_bg").className = "black_bg";
-	      }
-	   
-	    document.querySelector("#modal_btn").addEventListener("click", show1);
-	    document.querySelector(".black_bg").addEventListener("click", close1);
+   
+   
+      function show1 () {
+           document.querySelector(".black_bg").className = "black_bg show1";
+         }
+      function close1 () {
+           document.querySelector(".black_bg").className = "black_bg";
+         }
+      
+       document.querySelector("#modal_btn").addEventListener("click", show1);
+       document.querySelector(".black_bg").addEventListener("click", close1);
     
     function onClick2() {
         document.querySelector('.modal2_wrap').style.display ='block';
@@ -406,7 +405,7 @@ window.onload = function() {
 
     var className = document.getElementsByClassName('fc-event-title-container');
     for(var i = 0; i < className.length; i++){
-    	className[i].addEventListener('click', onClick2, false);
+       className[i].addEventListener('click', onClick2, false);
     } 
     
     document.querySelector('.record_bg').addEventListener('click', offClick2);
@@ -416,11 +415,11 @@ window.onload = function() {
 <%  guest member = (guest) session.getAttribute("member");%>
 
 function go_record(){
-	location.href = "/web/record.do?user_id="+<%=member.getUser_id()%>;
+   location.href = "/web/record.do?user_id="+<%=member.getUser_id()%>;
 }
 
 function go_calender(){
-	location.href = "/web/test.do";
+   location.href = "/web/test.do";
 }
 
 
@@ -428,93 +427,93 @@ function go_calender(){
   </head>
   <body>
   <% member = (guest) session.getAttribute("member");%>
-  	<div class="black_bg">
-	<div class="modal_wrap">
-	<div class="modal_main">
-		<div class = "modal_top">
-			<div id="NSK_font" style = "font-size:80px;"><b><br>이진영 님</b></div>
-			<div class = "modal_top_left"> 
-				<div id="NSK_font"><br>만기일</div>
-			</div>
-			<div class = "modal_top_right">
-				<div id="NSK_font"><br>2021-12-07<br>D-day 30일</div>
-			</div>
-		</div>
-		<div class = "modal_mid">
-			<div class = "modal_mid_mid">
-				<div class = "modal_mid_left"><img id="moicon" src="resources/img/diary.png" onclick="go_calender()"></div>
-				<div class = "modal_mid_right"><b id = "modal_mid_b" onclick="go_calender()">운동 다이어리</b></div>
-			</div>	
-			<div class = "modal_mid_mid">
-				<div class = "modal_mid_left"><img id="moicon" src="resources/img/dumbbell.png"></div>
-				<div class = "modal_mid_right"><b id = "modal_mid_b">운동 도구</b></div>
-			</div>
-			<div class = "modal_mid_mid">
-				<div class = "modal_mid_left"><img id="moicon" src="resources/img/video.png" onclick="go_record()"></div>
-				<div class = "modal_mid_right"><b id = "modal_mid_b" onclick="go_record()">운동 영상</b></div>
-			</div>		
-		</div>
-		<div class = "modal_bot">
-			<div id="NSK_font">고객센터     010-4903-4073</div>
-		</div>
-	</div>
-	</div>
-	</div>
-	<div class="record_bg"></div>
-	<div class="modal2_wrap">
-		<div class = "modal2_top">
-			<div class="modal2_top_top">
-				<div class = "modal2_top_left"> 
-					<div id="NSK_font"><b>체스트 프레스</b></div>
-				</div>
-				<div class = "modal2_top_right">
-					<div id="NSK_font">4set</div>
-				</div>
-			</div>
-			<div id="NSK_font" class="modal2_top_bot">	
-				<div id="NSK_font">1set x 12reps<br>2set x 12reps
-				<br>3set x 12reps<br>4set x 12reps</div>
-			</div>
-		</div>
-		
-		<div class = "modal2_mid">
-			<div class="modal2_mid_top">
-				<div class = "modal2_mid_left"> 
-					<div id="NSK_font"><b>인클라인 체스트 프레스</b></div>
-				</div>
-				<div class = "modal2_mid_right">
-					<div id="NSK_font">4set</div>
-				</div>	
-			</div>
-			<div id="NSK_font" class="modal2_mid_bot">	
-				<div id="NSK_font">1set x 12reps<br>2set x 12reps
-				<br>3set x 12reps<br>4set x 12reps</div>
-			</div>
-			
-		</div>
-	</div>
-	
-	<div class="main_map">
-	
-		<div class="main_top" style = "text-align : center;">
-			<div class="top_left">
-				<h1 style = "font-size:80px;">The Ai Fitness</h1>
-			</div>
-			<div class="top_right">
-				<img id="modal_btn" src="resources/img/menu.png"
-					style="width: 120px; height: 120px;">
-			</div>
-		</div>
-   	
-   	<div class="main_mid">
-   		<div id='calendar' ></div>
-   	</div>
-   	
+     <div class="black_bg">
+   <div class="modal_wrap">
+   <div class="modal_main">
+      <div class = "modal_top">
+         <div id="NSK_font" style = "font-size:80px;"><b><br>이진영 님</b></div>
+         <div class = "modal_top_left"> 
+            <div id="NSK_font"><br>만기일</div>
+         </div>
+         <div class = "modal_top_right">
+            <div id="NSK_font"><br>2021-12-07<br>D-day 30일</div>
+         </div>
+      </div>
+      <div class = "modal_mid">
+         <div class = "modal_mid_mid">
+            <div class = "modal_mid_left"><img id="moicon" src="resources/img/diary.png" onclick="go_calender()"></div>
+            <div class = "modal_mid_right"><b id = "modal_mid_b" onclick="go_calender()">운동 다이어리</b></div>
+         </div>   
+         <div class = "modal_mid_mid">
+            <div class = "modal_mid_left"><img id="moicon" src="resources/img/dumbbell.png"></div>
+            <div class = "modal_mid_right"><b id = "modal_mid_b">운동 도구</b></div>
+         </div>
+         <div class = "modal_mid_mid">
+            <div class = "modal_mid_left"><img id="moicon" src="resources/img/video.png" onclick="go_record()"></div>
+            <div class = "modal_mid_right"><b id = "modal_mid_b" onclick="go_record()">운동 영상</b></div>
+         </div>      
+      </div>
+      <div class = "modal_bot">
+         <div id="NSK_font">고객센터     010-4903-4073</div>
+      </div>
+   </div>
+   </div>
+   </div>
+   <div class="record_bg"></div>
+   <div class="modal2_wrap">
+      <div class = "modal2_top">
+         <div class="modal2_top_top">
+            <div class = "modal2_top_left"> 
+               <div id="NSK_font"><b>체스트 프레스</b></div>
+            </div>
+            <div class = "modal2_top_right">
+               <div id="NSK_font">4set</div>
+            </div>
+         </div>
+         <div id="NSK_font" class="modal2_top_bot">   
+            <div id="NSK_font">1set x 12reps<br>2set x 12reps
+            <br>3set x 12reps<br>4set x 12reps</div>
+         </div>
+      </div>
+      
+      <div class = "modal2_mid">
+         <div class="modal2_mid_top">
+            <div class = "modal2_mid_left"> 
+               <div id="NSK_font"><b>인클라인 체스트 프레스</b></div>
+            </div>
+            <div class = "modal2_mid_right">
+               <div id="NSK_font">4set</div>
+            </div>   
+         </div>
+         <div id="NSK_font" class="modal2_mid_bot">   
+            <div id="NSK_font">1set x 12reps<br>2set x 12reps
+            <br>3set x 12reps<br>4set x 12reps</div>
+         </div>
+         
+      </div>
+   </div>
+   
+   <div class="main_map">
+   
+      <div class="main_top" style = "text-align : center;">
+         <div class="top_left">
+            <h1 style = "font-size:80px;">The Ai Fitness</h1>
+         </div>
+         <div class="top_right">
+            <img id="modal_btn" src="resources/img/menu.png"
+               style="width: 120px; height: 120px;">
+         </div>
+      </div>
+      
+      <div class="main_mid">
+         <div id='calendar' ></div>
+      </div>
+      
     <div class="main_bot">
-		<div class="bot_left"><img class="bimg_left" src="resources/img/woman.png"></div>
-		<div class="bot_right"><a href="http://localhost:8081/web/main.do"><img class="bimg_right" src="resources/img/gym2.png"></a></div>
-	</div>
-	
-	</div>
+      <div class="bot_left"><img class="bimg_left" src="resources/img/woman.png"></div>
+      <div class="bot_right"><a href="http://localhost:8081/web/main.do"><img class="bimg_right" src="resources/img/gym2.png"></a></div>
+   </div>
+   
+   </div>
   </body>
 </html>
