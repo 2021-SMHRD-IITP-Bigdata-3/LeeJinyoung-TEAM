@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="com.test.mapper.guest" %>
-
+<%@ page import="com.test.mapper.accessController" %>
+<%@ page import="java.util.List" %>
 <!DOCTYPE html>
 <html lang='en'>
   <head>
@@ -10,62 +11,7 @@
     <script src='resources/main.js'></script>
     <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var calendarEl = document.getElementById('calendar');
-            var calendar = new FullCalendar.Calendar(calendarEl, {
-              initialView: 'dayGridMonth',
-/*               editable:true,
-              events:[
-            	  {
-            		  title:'All Day Event',
-            		  start:'2021-11-03'
-            	  },
-            	  {
-            		  title:'Long Event',
-            		  strat:'2021-11-04',
-            		  end:'2021-11-05'
-            	  }
-
-              ]  */
-              events: function(info,successCallback, failureCallback){
-            	  $.ajax({
-             		 type: "post",
-              	     url: "/web/infoCalender.do?user_id=1234",
-              	     dataType: "json",
-              	     success: function(result){
-              	    	 console.log(result)
-              	    	 var events = [];
-              	    	 $.each(result,function(index,obj){
-              	    		events.push({
-              	    			start : obj.ex_day,
-              	    			title : ((4*(3.5*obj.user_weight*obj.timediff))/1000)*5+"kal"
-              	    		})
-              	    	 })
-              	    	console.log(events);
-              	    	successCallback(events);
-              	    	 }
-
-             	  });
-               },
-            	  eventDidMount: function(info) {
-            	    if (info.event.extendedProps.status === 'done') {
-
-            	      // Change background color of row
-            	      info.el.style.backgroundColor = 'red';
-
-            	      // Change color of dot marker
-            	      var dotEl = info.el.getElementsByClassName('fc-event-dot')[0];
-            	      if (dotEl) {
-            	        dotEl.style.backgroundColor = 'white';
-            	      }
-            	    }
-            	  }
-            });
-            calendar.render();
-          });
-
-    </script>
+    
 <style>
 html, body {
   width: 100%;
@@ -376,57 +322,10 @@ left:-10%;
 top:-5%;
 }
 </style>
-<script>
-function clickKal(){
-   console.log("test")
-}
 
-window.onload = function() {
-   
-   
-      function show1 () {
-           document.querySelector(".black_bg").className = "black_bg show1";
-         }
-      function close1 () {
-           document.querySelector(".black_bg").className = "black_bg";
-         }
-      
-       document.querySelector("#modal_btn").addEventListener("click", show1);
-       document.querySelector(".black_bg").addEventListener("click", close1);
-    
-    function onClick2() {
-        document.querySelector('.modal2_wrap').style.display ='block';
-        document.querySelector('.record_bg').style.display ='block';
-    };   
-    function offClick2() {
-        document.querySelector('.modal2_wrap').style.display ='none';
-        document.querySelector('.record_bg').style.display ='none';
-    }
-
-    var className = document.getElementsByClassName('fc-event-title-container');
-    for(var i = 0; i < className.length; i++){
-       className[i].addEventListener('click', onClick2, false);
-    } 
-    
-    document.querySelector('.record_bg').addEventListener('click', offClick2);
-    
-}
-
-<%  guest member = (guest) session.getAttribute("member");%>
-
-function go_record(){
-   location.href = "/web/record.do?user_id="+<%=member.getUser_id()%>;
-}
-
-function go_calender(){
-   location.href = "/web/test.do";
-}
-
-
-</script>
   </head>
   <body>
-  <% member = (guest) session.getAttribute("member");%>
+  <% guest member = (guest) session.getAttribute("member");%>
      <div class="black_bg">
    <div class="modal_wrap">
    <div class="modal_main">
@@ -515,5 +414,150 @@ function go_calender(){
    </div>
    
    </div>
+   <script>
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+              initialView: 'dayGridMonth',
+/*               editable:true,
+              events:[
+            	  {
+            		  title:'All Day Event',
+            		  start:'2021-11-03'
+            	  },
+            	  {
+            		  title:'Long Event',
+            		  strat:'2021-11-04',
+            		  end:'2021-11-05'
+            	  }
+
+              ]  */
+              /*
+              events: function(info,successCallback, failureCallback){
+            	  $.ajax({
+             		 type: "post",
+              	     url: "/web/infoCalender.do?user_id=1234",
+              	     dataType: "json",
+              	     success: function(result){
+              	    	 console.log(result)
+              	    	 var events = [];
+              	    	 $.each(result,function(index,obj){
+              	    		events.push({
+              	    			start : obj.ex_day,
+              	    			title : ((4*(3.5*obj.user_weight*obj.timediff))/1000)*5+"kal"
+              	    		})
+              	    	 })
+              	    	console.log(events);
+              	    	successCallback(events);
+              	    	 }
+
+             	  });
+               },*/
+               events : [],
+               /* ,
+               
+               eventDidMount: function(info) {
+           	    if (info.event.extendedProps.status === 'done') {
+
+           	      // Change background color of row
+           	      info.el.style.backgroundColor = 'red';
+
+           	      // Change color of dot marker
+           	      var dotEl = info.el.getElementsByClassName('fc-event-dot')[0];
+           	      if (dotEl) {
+           	        dotEl.style.backgroundColor = 'white';
+           	      }
+           	    }
+           	  } */
+           		eventClick: function(info) {
+           	    alert('Event: ' + info.event.title);
+           	 	$('.modal2_wrap').css('display', 'block');
+             	$('.record_bg').css('display', 'block');
+           	   
+           	  }	 
+          });
+          calendar.render();
+            
+        <%
+        List<accessController> access_member = (List<accessController>)session.getAttribute("day_time");
+        //System.out.println(access_member.get(1).getEx_day());
+        
+        member = (guest) session.getAttribute("member");
+        %>
+        <%for(int i =0; i<access_member.size();i++){%>
+         calendar.addEvent({
+        	id : "<%=access_member.get(i).getUser_id()%>",
+    		start : "<%=access_member.get(i).getEx_day()%>",
+    		title : ((4*(3.5*<%=access_member.get(i).getUser_weight()%>*<%=access_member.get(i).getTimediff()%>))/1000)*5+"kal"
+	 	 }); 
+        
+        <%}%>
+        
+        function onClick2() {
+            $('.modal2_wrap').css('display', 'block');
+            $('.record_bg').css('display', 'block');
+        }   
+        function offClick2() {
+        	 $('.modal2_wrap').css('display', 'none');
+             $('.record_bg').css('display', 'none');
+        }
+		
+        
+        
+        $('.fc-event-title-container').on('click', function(){
+        	console.log(1);
+        	$('.modal2_wrap').css('display', 'block');
+            $('.record_bg').css('display', 'block');
+        });
+        
+        
+        
+        /* var className = document.getElementsByClassName('fc-event-title-container');
+        for(var i = 0; i < className.length; i++){
+           className[i].addEventListener('click', onClick2, false);
+        } */
+
+    </script>
+   <script>
+function clickKal(){
+   console.log("test")
+}
+
+      function show1 () {
+           document.querySelector(".black_bg").className = "black_bg show1";
+         }
+      function close1 () {
+           document.querySelector(".black_bg").className = "black_bg";
+         }
+      
+       document.querySelector("#modal_btn").addEventListener("click", show1);
+       document.querySelector(".black_bg").addEventListener("click", close1);
+    
+    /* function onClick2() {
+        document.querySelector('.modal2_wrap').style.display ='block';
+        document.querySelector('.record_bg').style.display ='block';
+    };   
+    function offClick2() {
+        document.querySelector('.modal2_wrap').style.display ='none';
+        document.querySelector('.record_bg').style.display ='none';
+    }
+
+    var className = document.getElementsByClassName('fc-event-title-container');
+    for(var i = 0; i < className.length; i++){
+       className[i].addEventListener('click', onClick2, false);
+    }  */
+    
+    document.querySelector('.record_bg').addEventListener('click', offClick2);
+    
+<%  member = (guest) session.getAttribute("member");%>
+
+function go_record(){
+   location.href = "/web/record.do?user_id=<%=member.getUser_id()%>";
+}
+
+function go_calender(){
+   location.href = "/web/test.do";
+}
+
+</script>
   </body>
 </html>

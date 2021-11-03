@@ -330,7 +330,7 @@ function gojoin(){
 }
 
 function gorecord(){
-	location.href =  "/web/record_click.do";
+	location.href =  "/web/admin.do";
 }
 </script>
 

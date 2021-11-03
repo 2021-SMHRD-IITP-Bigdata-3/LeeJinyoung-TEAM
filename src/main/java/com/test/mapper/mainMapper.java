@@ -39,4 +39,9 @@ public interface mainMapper {
 
 	public List<deepPostures> selectVideo(int video_seq);
 
+	public List<videoDT> ALLVideo();
+
+
+	public guest memberName(int video_seq);
+
 }

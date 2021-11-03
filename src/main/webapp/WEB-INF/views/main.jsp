@@ -469,7 +469,7 @@ window.onload = function() {
 <%  guest member = (guest) session.getAttribute("member");%>
 
 function go_calender(){
-	location.href = "/web/test.do";
+	location.href = "/web/infoCalender.do?user_id=<%=member.getUser_id()%>";
 }
 
 function go_record(){

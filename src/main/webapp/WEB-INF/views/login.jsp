@@ -316,8 +316,6 @@ function selectOpt(){
     opts.forEach(opt=>{
         const innerValue = opt.innerHTML;
         function changeValue(){
-        	//alert(innerValue);
-        	//values.innerHTML = innerValue;
         	var html = innerValue+"<input type = 'hidden' value = '"+innerValue+"' name ='user_gym'></input>"
         	values.innerHTML = html;
         }

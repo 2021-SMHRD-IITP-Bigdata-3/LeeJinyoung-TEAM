@@ -13,6 +13,7 @@ import java.util.Map;
 import javax.inject.Inject;
 import javax.servlet.ServletInputStream;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,14 +40,7 @@ public class Restmember {
 	@Inject
 	private mainMapper mapper;
 	
-	@RequestMapping(value="/infoCalender.do")
-    public List<accessController> infoCalender(@RequestParam("user_id") String user_id , Model model){
-
-		List<accessController> day_time = mapper.infoCalender(user_id);
-
-        return day_time;
-        
-	}
+	
     
 
 	
@@ -99,6 +93,19 @@ public class Restmember {
     	session.setAttribute("memberVideo", memberVideo);
     	System.out.println(memberVideo);
 		return memberVideo;
+        
+	}
+    
+    @RequestMapping(value="/memberName.do", method= {RequestMethod.GET, RequestMethod.POST}, produces = "text/html; charset=utf-8")
+    public String memberName(int video_seq , HttpServletRequest req, HttpServletResponse res) throws Exception {
+		System.out.println(video_seq);
+		req.setCharacterEncoding("utf-8");
+		//HttpSession session = req.getSession();
+		guest memberVideo = mapper.memberName(video_seq);
+		//session.setAttribute("memberVideo", memberVideo);
+		System.out.print(memberVideo.getUser_name());
+		
+		return memberVideo.getUser_name();
         
 	}
     

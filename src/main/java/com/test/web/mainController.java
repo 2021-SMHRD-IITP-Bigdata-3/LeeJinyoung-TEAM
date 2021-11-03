@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.test.mapper.accessController;
 import com.test.mapper.exinfo;
 import com.test.mapper.guest;
 import com.test.mapper.mainMapper;
@@ -30,7 +31,14 @@ public class mainController {
 	private mainMapper mapper;
 	
 	@RequestMapping("/admin.do")
-	public String admin() {
+	public String admin(HttpServletRequest req) {
+		
+		HttpSession session = req.getSession();
+
+		List<videoDT> memberVideo= mapper.ALLVideo();
+		
+		session.setAttribute("memberVideo", memberVideo);
+		
 		return "admin";
 	}
 	
@@ -102,6 +110,7 @@ public class mainController {
 		return "warmingup"; 
 	}
 	
+
 	//안 쓰는 것
 	@RequestMapping(value="/insertEx.do")
     public String insertEx(exinfo memberVO , HttpServletRequest req,  RedirectAttributes rttr) throws Exception {
@@ -119,17 +128,16 @@ public class mainController {
         
 	}
 	
-	@RequestMapping(value="/record2.do")
-    public String record2(ServletRequest session, HttpServletRequest req) throws Exception {
-		//HttpSession resultsession = req.getSession();
-		//List<videoDT> memberVideo = (List<videoDT>)session.getAttribute("memberVideo");
-		//System.out.println(memberVideo);
-		
-		//resultsession.setAttribute("memberVideo", memberVideo);
-		return "record";
+	
+	@RequestMapping(value="/infoCalender.do")
+    public String infoCalender(String user_id ,HttpServletRequest req){
+
+		HttpSession session = req.getSession();
+		List<accessController> day_time = mapper.infoCalender(user_id);
+		session.setAttribute("day_time",day_time);
+        return "redirect:/test.do";
         
 	}
-	
 	@RequestMapping(value="/loginInsert.do", method= {RequestMethod.GET, RequestMethod.POST})
     public String memberLogin(guest memberVO , HttpServletRequest req,  RedirectAttributes rttr) throws Exception {
 		

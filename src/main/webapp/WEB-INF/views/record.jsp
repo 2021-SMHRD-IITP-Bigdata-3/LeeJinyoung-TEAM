@@ -843,6 +843,7 @@ i img{
 	<c:forEach var= 'vo' items = "${memberVideo}" varStatus="status" >
 	  <div id = "div_d${status.index}" class="div_p${status.index}"><div class="item">
 	     <video src="/cam/${vo.file_name}.webm" class="${vo.video_seq}" id="record_video${status.index}"></video>
+	     <div>${vo.video_date}</div>
 	     </div>
 	  </div>
 	</c:forEach>

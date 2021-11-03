@@ -396,7 +396,7 @@ function gojoin(){
 }
 
 function gorecord(){
-	location.href =  "/web/record_click.do";
+	location.href =  "/web/admin.do";
 }
 </script>
 </head>
@@ -469,7 +469,6 @@ function gorecord(){
 	               <div class="bot_user_right">
 	                  <input type="button" id="user_yes${i}" class="user_yess" value="연장" onClick="get_user_id('${vo.user_id }')">
 	                  <input type="button" class="user_no" value="해지" >
-
 	               </div>
 	            </div>
             </c:forEach>   
