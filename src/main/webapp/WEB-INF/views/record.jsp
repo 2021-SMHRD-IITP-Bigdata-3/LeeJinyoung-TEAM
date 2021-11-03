@@ -720,14 +720,14 @@ i img{
       <div style="width:70%; height:100px;"> </div>
       
          <table align="center" id=bottom>
-            <tr>
+         <tr>
             <td><input style="width:450px; height:300px;" class="button" type = "submit" value="잘못된 자세"></td>
             <td> <b>상체를 더 왼쪽으로 기울여 주시면 될거 같아요!!</b> </td>
          </tr>
          </table>
 
          <table align="center" id=bottom>
-            <tr>
+         <tr>
             <td><input style="width:450px; height:300px;" class="button" type = "submit" value="잘못된 자세"></td>
             <td> <b>어깨를 좀 더 내려주세요</b>></td>
          </tr>

@@ -3,7 +3,6 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: 'Noto Sans KR', sans-serif;
 }
 
 body{
@@ -46,6 +45,7 @@ body{
   .fc *:before,
   .fc *:after {
     box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
   }
 .fc table {
     border-collapse: collapse;
@@ -243,6 +243,7 @@ When it's NOT activated, the fc-button classes won't even be in the DOM.
     border-color: var(--fc-button-hover-border-color, #DACDF5); /* #1a252f */
   }
 .fc .fc-button-primary:disabled { /* not DRY */
+    font-family: 'Noto Sans KR', sans-serif;
     color: #fff;
     color: var(--fc-button-text-color, #fff);
     background-color: #DACDF5; /* 멀까 */
@@ -327,6 +328,7 @@ When it's NOT activated, the fc-button classes won't even be in the DOM.
 .fc .fc-toolbar-title {
     font-size: 1.5em;
     margin: 0;
+    font-family: 'Noto Sans KR', sans-serif;
   }
 .fc-direction-ltr .fc-toolbar > * > :not(:first-child) {
     margin-left: .75em; /* space between */

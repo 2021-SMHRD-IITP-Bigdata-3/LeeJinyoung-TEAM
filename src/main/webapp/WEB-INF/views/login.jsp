@@ -247,7 +247,7 @@ left: 120px;
 
 					 	<option id=c font-family="Regular"  value ="광주남구" class="광주남구c">광주남구</option>				
 		 
-				</select>  
+				</select>   
 		
 						<div class="select" data-role="selectBox" name="exercise" id="exercise" name="user_gym">
 							<span date-value="optValue" class="selected-option">

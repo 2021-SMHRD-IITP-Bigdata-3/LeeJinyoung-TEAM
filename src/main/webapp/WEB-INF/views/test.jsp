@@ -16,7 +16,20 @@
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
           initialView: 'dayGridMonth',//이게 달력형식을 해주는건데
-          events: function(info,successCallback, failureCallback){
+           editable:true,
+          events:[
+        	  {
+        		  title:'All Day Event',
+        		  start:'2021-11-03'
+        	  },
+        	  {
+        		  title:'Long Event',
+        		  strat:'2021-11-04',
+        		  end:'2021-11-05'
+        	  }
+
+          ] 
+ /*          events: function(info,successCallback, failureCallback){
         	  $.ajax({
          		 type: "post",
           	     url: "/web/infoCalender.do?user_id=1234",
@@ -48,7 +61,7 @@
         	        dotEl.style.backgroundColor = 'white';
         	      }
         	    }
-        	  }
+        	  } */
         });
         calendar.render();
       });
@@ -394,8 +407,8 @@ window.onload = function() {
     var className = document.getElementsByClassName('fc-event-title-container');
     for(var i = 0; i < className.length; i++){
     	className[i].addEventListener('click', onClick2, false);
-    }
-	
+    } 
+    
     document.querySelector('.record_bg').addEventListener('click', offClick2);
     
 }
@@ -447,6 +460,7 @@ function go_calender(){
 	</div>
 	</div>
 	</div>
+	<div class="record_bg"></div>
 	<div class="modal2_wrap">
 		<div class = "modal2_top">
 			<div class="modal2_top_top">
