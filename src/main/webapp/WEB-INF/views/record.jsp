@@ -200,7 +200,7 @@ text-align: center;
 
 .main_top {
 width:100%;
-height:10%;
+height:8%;
 background-color : white;
 }
 
@@ -250,7 +250,7 @@ height: 100%;
 #diary_btn{
     position: absolute;
     right: 3%;
-    top: 11.5%;
+    top: 9.5%;
    }
    
    
@@ -314,7 +314,7 @@ top:15%;
 position:relative;
 width:1000px;
 height:800px;
-left:5%;
+left:0%;
 }
 
 #bottom1{
@@ -365,6 +365,7 @@ font-size:40px;
 h1{
 position:relative;
 left:-10%;
+top: -5%;
 }
 
 h2{
@@ -434,8 +435,8 @@ font-family:Regular;
     width: 450px;
     float: left;
     margin-left: 90px;
-    margin-top: 40px;
-    margin-bottom: 30px;
+    margin-top: 50px;
+    margin-bottom: 0px;
 }
 
 #calendar{
@@ -468,7 +469,12 @@ text-align: center;
     font-family: 'Noto Sans KR', sans-serif;
     border: none;
 }
-
+.date{
+font-family: 'Noto Sans KR', sans-serif;
+text-align: left;
+font-size: 45px;
+margin-top: -50px;
+}
 </style>
 
 <script>
@@ -565,10 +571,20 @@ window.onload = function() {
 
    <%  guest member = (guest) session.getAttribute("member");%>
    
-
-
 }
 
+function go_main() { /* 아이콘 누르면 메인으로 */
+	   location.href = "/web/main.do";
+  }
+function go_calender(){
+	location.href = "/web/test.do";
+}
+
+
+
+function go_record(){
+	location.href = "/web/record.do?user_id="+<%=member.getUser_id()%>;
+}
 </script>
 <style> 
 
@@ -679,7 +695,7 @@ i img{
 
 </head>
 <body>
-
+<% member = (guest) session.getAttribute("member");%>
    <div class="black_bg">
    <div class="modal_wrap">
    <div class="modal_main">
@@ -694,16 +710,16 @@ i img{
       </div>
       <div class = "modal_mid">
          <div class = "modal_mid_mid">
-            <div class = "modal_mid_left"><img id="moicon" src="resources/img/diary.png"></div>
-            <div class = "modal_mid_right"><b id = "modal_mid_b">운동 다이어리</b></div>
+            <div class = "modal_mid_left"><img id="moicon" src="resources/img/diary.png" onclick="go_calender()"></div>
+            <div class = "modal_mid_right"><b id = "modal_mid_b" onclick="go_calender()">운동 다이어리</b></div>
          </div>   
          <div class = "modal_mid_mid">
             <div class = "modal_mid_left"><img id="moicon" src="resources/img/dumbbell.png"></div>
             <div class = "modal_mid_right"><b id = "modal_mid_b">운동 도구</b></div>
          </div>
          <div class = "modal_mid_mid">
-            <div class = "modal_mid_left"><img id="moicon" src="resources/img/video.png"></div>
-            <div class = "modal_mid_right"><b id = "modal_mid_b">운동 영상</b></div>
+            <div class = "modal_mid_left"><img id="moicon" src="resources/img/video.png" onclick = "go_record()"></div>
+            <div class = "modal_mid_right"><b id = "modal_mid_b" onclick = "go_record()">운동 영상</b></div>
          </div>      
       </div>
       <div class = "modal_bot">
@@ -742,7 +758,7 @@ i img{
 
 <div class="main_top" style = "text-align : center;">
    <div class="top_left">
-      <h1 style = "font-size:90px;">The Ai Fitness</h1>
+      <h1 style = "font-size:80px;">The Ai Fitness</h1>
    </div>
    <div class="top_right">
       <img id="modal_btn" src="resources/img/menu.png"
@@ -826,7 +842,6 @@ i img{
 	  <div id = "div_d${status.index}" class="div_p${status.index}"><div class="item">
 	     <video src="/cam/${vo.file_name}.webm" class="${vo.video_seq}" id="record_video${status.index}"></video>
 	     </div>
-	  <div id ="sameDate${status.index}">${vo.video_date}</div>
 	  </div>
 	</c:forEach>
 </div>

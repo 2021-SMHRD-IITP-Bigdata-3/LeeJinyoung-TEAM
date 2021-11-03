@@ -18,20 +18,58 @@ html, body {
 font-family: 'Noto Sans KR', sans-serif;
 }
 
-.modal_wrap{
-        display: none;
+    .modal_wrap{
+        /* display: none; */
         width: 50%;
-        height: 60%;
-        position: absolute;
-        top:10%;
-        left: 70%;
-        margin: -254px 0 0 -236px;
+        height: 50%;
+        position: relative;
+        left: 50%;
+/*      top:10%;
+        margin: -254px 0 0 -236px; */
         background:#FFFFFF;
-        z-index: 3;
-        border-top-left-radius: 5em;
-        border-bottom-left-radius: 5em;
+/*      z-index: 2; */
+        border-top-left-radius: 3em;
+        border-bottom-left-radius: 3em;
     }
     .black_bg{
+        /* display: none; */
+        position: fixed;
+        content: "";
+        width: 100%;
+        height: 100vh;
+        background-color:rgba(218, 215, 216, 0.5);
+        top:0;
+        left: 0;
+        z-index: 1000;
+        
+          /* 숨기기 */
+        z-index: -1;
+        opacity: 0;
+    }
+.modal_main{
+  position: absolute;
+    top: 53%;
+    left: 52%;
+    width: 100%;
+    height: 100%;
+  transform: translate(-50%, -50%);
+  
+   /* 초기에 약간 아래에 배치 */
+  transform: translate(-50%, -40%);
+}
+
+.show1 {
+  opacity: 1;
+  z-index: 1000;
+  transition: all .5s;
+}
+
+.show1 .modal_main {
+  transform: translate(-50%, -50%);
+  transition: all .5s;
+}
+  
+    .record_bg{
         display: none;
         position: absolute;
         content: "";
@@ -40,8 +78,8 @@ font-family: 'Noto Sans KR', sans-serif;
         background-color:rgba(218, 215, 216, 0.5);
         top:0;
         left: 0;
-        z-index: 2;
-    }
+        z-index: 1;
+    }  
     
 .modal_top{
 width:100%;
@@ -152,7 +190,7 @@ text-align: center;
 
 .main_top {
 width:100%;
-height:10%;
+height:8%;
 color:#362222;
 }
 
@@ -170,7 +208,7 @@ height:100%;
 
 .main_top {
 width:100%;
-height:10%;
+height:8%;
 color:#362222;
 }
 
@@ -284,7 +322,8 @@ top: 30px;
 h1{
 position:relative;
 left:-10%;
-font-size:90px;
+top:-5%;
+font-size:80px;
 }
 
 #modal_btn{
@@ -294,7 +333,7 @@ top:20%;
 
 .main_top {
 width:100%;
-height:10%;
+height:8%;
 background-color:#FFFFFF;
 }
 
@@ -302,17 +341,15 @@ background-color:#FFFFFF;
 <script>
 window.onload = function() {
 	 
-    function onClick() {
-        document.querySelector('.modal_wrap').style.display ='block';
-        document.querySelector('.black_bg').style.display ='block';
-    }   
-    function offClick() {
-        document.querySelector('.modal_wrap').style.display ='none';
-        document.querySelector('.black_bg').style.display ='none';
-    }
- 
-    document.getElementById('modal_btn').addEventListener('click', onClick);
-    document.querySelector('.black_bg').addEventListener('click', offClick);
+	   function show1 () {
+	        document.querySelector(".black_bg").className = "black_bg show1";
+	      }
+	   function close1 () {
+	        document.querySelector(".black_bg").className = "black_bg";
+	      }
+	   
+	    document.querySelector("#modal_btn").addEventListener("click", show1);
+	    document.querySelector(".black_bg").addEventListener("click", close1);
 
     var onClick11 = function onClick1() {
         document.querySelector('.user_wrap').style.display ='block';
@@ -350,33 +387,45 @@ function insertMonth(month){
 	
 }
 
-	
+function gomember(){
+	location.href =  "/web/admin_member.do";
+}
+
+function gojoin(){
+	location.href =  "/web/join.do";
+}
+
+function gorecord(){
+	location.href =  "/web/record_click.do";
+}
 </script>
 </head>
 <body>
 
-   <div class="black_bg"></div>
+   <div class="black_bg">
    <div class="modal_wrap">
+   <div class="modal_main">
       <div class = "modal_top">
          <div id="NSK_font" style = "font-size:80px;"><b><br>관리자 님</b></div>
       </div>
       <br><br>
       <div class = "modal_mid">
          <div class = "modal_mid_mid">
-            <div class = "modal_mid_left"><img id="moicon" src="resources/img/diary.png"></div>
-            <div class = "modal_mid_right"><b id = "modal_mid_b">회원 관리</b></div>
+            <div class = "modal_mid_left"><img id="moicon" src="resources/img/diary.png" onclick = "gomember()"></div>
+            <div class = "modal_mid_right"><b id = "modal_mid_b" onclick = "gomember()">회원 관리</b></div>
          </div>   
          <div class = "modal_mid_mid">
-            <div class = "modal_mid_left"><img id="moicon" src="resources/img/dumbbell.png"></div>
-            <div class = "modal_mid_right"><b id = "modal_mid_b">회원 가입</b></div>
+            <div class = "modal_mid_left"><img id="moicon" src="resources/img/dumbbell.png" onclick = "gojoin()"></div>
+            <div class = "modal_mid_right"><b id = "modal_mid_b" onclick = "gojoin()">회원 가입</b></div>
          </div>
          <div class = "modal_mid_mid">
-            <div class = "modal_mid_left"><img id="moicon" src="resources/img/training.png"></div>
-            <div class = "modal_mid_right"><b id = "modal_mid_b">회원 영상</b></div>
+            <div class = "modal_mid_left"><img id="moicon" src="resources/img/training.png" onclick = "gorecord()"></div>
+            <div class = "modal_mid_right"><b id = "modal_mid_b" onclick = "gorecord()">회원 영상</b></div>
          </div>      
       </div>
    </div>
-   
+   </div>
+   </div>
    <div class="user_bg"></div>
    <div class="user_wrap">
       <div class = "user_top">
@@ -393,7 +442,7 @@ function insertMonth(month){
    
       <div class="main_top" style = "text-align : center;">
          <div class="top_left">
-            <h1 style = "font-size:90px;">The Ai Fitness</h1>
+            <h1 style = "font-size:80px;">The Ai Fitness</h1>
          </div>
          <div class="top_right">
          
