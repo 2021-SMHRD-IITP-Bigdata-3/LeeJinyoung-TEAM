@@ -170,7 +170,7 @@ padding: 0px 0px 0px 0px;
 
 .modal2_top_top{
 width:100%;
-height:30%;
+height:21%;
 text-align: center;
 padding: 30px 0px 0px 0px;
 }
@@ -194,7 +194,6 @@ padding: 60px 50px 0px 0px;
 }
  
 .modal2_top_bot{
-border-top: 10px solid #C6C6C6;
 font-size:50px;
 width:100%;
 height:40%;
@@ -360,36 +359,6 @@ top:-5%;
    </div>
    <div class="record_bg"></div>
    <div class="modal2_wrap">
-      <div class = "modal2_top">
-         <div class="modal2_top_top">
-            <div class = "modal2_top_left"> 
-               <div id="NSK_font"><b>체스트 프레스</b></div>
-            </div>
-            <div class = "modal2_top_right">
-               <div id="NSK_font">4set</div>
-            </div>
-         </div>
-         <div id="NSK_font" class="modal2_top_bot">   
-            <div id="NSK_font">1set x 12reps<br>2set x 12reps
-            <br>3set x 12reps<br>4set x 12reps</div>
-         </div>
-      </div>
-      
-      <div class = "modal2_mid">
-         <div class="modal2_mid_top">
-            <div class = "modal2_mid_left"> 
-               <div id="NSK_font"><b>인클라인 체스트 프레스</b></div>
-            </div>
-            <div class = "modal2_mid_right">
-               <div id="NSK_font">4set</div>
-            </div>   
-         </div>
-         <div id="NSK_font" class="modal2_mid_bot">   
-            <div id="NSK_font">1set x 12reps<br>2set x 12reps
-            <br>3set x 12reps<br>4set x 12reps</div>
-         </div>
-         
-      </div>
    </div>
    
    <div class="main_map">
@@ -418,58 +387,55 @@ top:-5%;
             var calendarEl = document.getElementById('calendar');
             var calendar = new FullCalendar.Calendar(calendarEl, {
               initialView: 'dayGridMonth',
-/*               editable:true,
-              events:[
-            	  {
-            		  title:'All Day Event',
-            		  start:'2021-11-03'
-            	  },
-            	  {
-            		  title:'Long Event',
-            		  strat:'2021-11-04',
-            		  end:'2021-11-05'
-            	  }
-
-              ]  */
-              /*
-              events: function(info,successCallback, failureCallback){
-            	  $.ajax({
-             		 type: "post",
-              	     url: "/web/infoCalender.do?user_id=1234",
-              	     dataType: "json",
-              	     success: function(result){
-              	    	 console.log(result)
-              	    	 var events = [];
-              	    	 $.each(result,function(index,obj){
-              	    		events.push({
-              	    			start : obj.ex_day,
-              	    			title : ((4*(3.5*obj.user_weight*obj.timediff))/1000)*5+"kal"
-              	    		})
-              	    	 })
-              	    	console.log(events);
-              	    	successCallback(events);
-              	    	 }
-
-             	  });
-               },*/
                events : [],
-               /* ,
-               
-               eventDidMount: function(info) {
-           	    if (info.event.extendedProps.status === 'done') {
-
-           	      // Change background color of row
-           	      info.el.style.backgroundColor = 'red';
-
-           	      // Change color of dot marker
-           	      var dotEl = info.el.getElementsByClassName('fc-event-dot')[0];
-           	      if (dotEl) {
-           	        dotEl.style.backgroundColor = 'white';
-           	      }
-           	    }
-           	  } */
            		eventClick: function(info) {
-           	    alert('Event: ' + info.event.title);
+           	   
+           	 var dateSettings = { "year": "numeric", "month": "2-digit", "day": "2-digit"};
+             var rentdate = calendar.formatDate(info.event.start,  dateSettings);
+             
+             rentdate = rentdate.replace("/","-");
+             rentdate = rentdate.replace("/","-");
+             year = rentdate.substr(6,9);
+             MD = rentdate.substr(0,5);
+             alert(year+"-"+MD);
+             var resultDay = year+"-"+MD;
+	           	 $.ajax({
+	             	url : "/web/calendarView.do?user_id="+info.event.id+"&ex_date="+resultDay,
+	             	type : "GET",
+	             	dataType : "json",
+	             	success : function(result){
+	             		alert(result);
+	             		var html1;
+	             		$.each(result,(index,obj)=>{
+	             			html1+="<div class = 'modal2_top'>";
+	             			html1+="<div class='modal2_top_top'>";
+	             			html1+="<div class = 'modal2_top_left'>";
+	             			html1+="<div id='NSK_font'><b>"+obj.ex_name+"</b></div></div>";
+	             			html1+="<div class = 'modal2_top_right'>";
+	             			html1+="</div>";
+	             			html1+="</div>";
+	             			html1+="<div id='NSK_font' class='modal2_top_bot'>";
+	             			html1+="<div style = 'width:100px'>"+obj.user_set/4+"set</div><div style='width:100px;text-align: right;margin: -61px 0px 0px 129px;'>"+obj.user_set+"set</div>";
+	             			html1+="<div style = 'width:100px'>"+obj.user_set/4+"set</div><div style='width:100px;text-align: right;margin: -61px 0px 0px 129px;'>"+obj.user_set+"set</div>";
+	             			html1+="<div style = 'width:100px'>"+obj.user_set/4+"set</div><div style='width:100px;text-align: right;margin: -61px 0px 0px 129px;'>"+obj.user_set+"set</div>";
+	             			html1+="<div style = 'width:100px'>"+obj.user_set/4+"set</div><div style='width:100px;text-align: right;margin: -61px 0px 0px 129px;'>"+obj.user_set+"set</div>";
+	             			html1+="<div id='NSK_font' style='margin: -282px 0px 0px 364px;width: 200px; line-height: 72px'>"+obj.ex_count+"reps<br>"+obj.ex_count+"reps";
+	             			html1+="<br>"+obj.ex_count+"reps<br>"+obj.ex_count+"reps</div>";
+	             			html1+="</div>";
+	             			html1+="</div>";
+	             			
+	             		})
+	             		
+	             		$(".modal2_wrap").html(html1); 
+	             	},
+	             	error:function(request,status,error){
+	                    alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+	                   }
+	             });
+           	    
+           	    
+           	    
+           	    console.log(info.event.start)
            	 	$('.modal2_wrap').css('display', 'block');
              	$('.record_bg').css('display', 'block');
            	   
@@ -510,7 +476,11 @@ top:-5%;
         });
         
         
-        
+        function convertDate(date) {
+    		var date = (new Date(date.yyyymmdd()).getTime() / 1000);
+    		location.href="http://danjae.mgsoft21.co.kr/home/sub.php?menukey=42&s="+date;
+        }
+
         /* var className = document.getElementsByClassName('fc-event-title-container');
         for(var i = 0; i < className.length; i++){
            className[i].addEventListener('click', onClick2, false);

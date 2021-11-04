@@ -54,7 +54,8 @@ stopButton.addEventListener("click",stopRecording);
 
 let recorder;
 let recordedChunks = [];
-
+// 횟수를 세기 위해 고유아이디 생성
+let exerciseId = new Date().getTime();
 /* 카메라 허용하기 & 스트리밍 시작 */
 let video = document.getElementById("videoInput");
 
@@ -148,7 +149,7 @@ function onOpenCvReady(){
    setTimeout(processVideo, 0);
 }
 
-let sendURL = "http://localhost:5000/sendFrame";
+let sendURL = "http://localhost:5000/sendFrame?id="+exerciseId;
 function sendData(data){
    const xhr = new XMLHttpRequest();
     xhr.open('POST', sendURL);
@@ -156,9 +157,25 @@ function sendData(data){
       // console.log(xhr.responseText); // 응답 메세지
       // xhr.responseText : base64 타입 문자열
       //base64타입을  이미지 태그에 바로 넣는 코드!
-      var imgsrc = "data:image/png;base64," + xhr.responseText;
+      //var imgsrc = "data:image/png;base64," + xhr.responseText;
 
+      var respOjb = JSON.parse(xhr.responseText);
+      image_data = respOjb.result_image;
+      var imgsrc = "data:image/png;base64," + image_data;
       document.getElementById('image').src = imgsrc;
+      
+      cnt = respOjb.result_cnt;
+      g_cnt = respOjb.result_g_cnt;
+      state = respOjb.result_state;
+      feedback = respOjb.result_feedback;
+      feedback_l = respOjb.result_feedback_l;
+      feedback_r = respOjb.result_feedback_r;
+      console.log("cnt : " + cnt);
+      console.log("g_cnt : " + g_cnt);
+      console.log("feedback : " + feedback);
+      console.log("feedback_l : " + feedback_l);
+      console.log("feedback_r : " + feedback_r);
+    
     };
     xhr.send(data);
 }

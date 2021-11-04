@@ -44,4 +44,6 @@ public interface mainMapper {
 
 	public guest memberName(int video_seq);
 
+	public List<exinfo> calendarView(@Param("user_id")String user_id,@Param("ex_date") String ex_date);
+	
 }

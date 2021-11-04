@@ -95,8 +95,16 @@
 	</insert>
 	
 	<select id ="infoCalender" parameterType ="com.test.mapper.accessController" resultType="com.test.mapper.accessController">
-		select u.user_weight,a.ex_day a.user_id , TIMESTAMPDIFF(minute, a.ex_start_time , a.ex_end_time) as timediff
+		select u.user_weight,a.ex_day, a.user_id , TIMESTAMPDIFF(minute, a.ex_start_time , a.ex_end_time) as timediff
 	    from access a , users u 
 	    where a.user_id = #{user_id} and u.user_id = #{user_id}
+	</select>
+	
+	
+	<select id ="calendarView" parameterType ="String" resultType="com.test.mapper.exinfo">
+		select *
+		from user_exercises
+		where user_id = #{user_id}
+		and ex_date = #{ex_date}
 	</select>
 </mapper>

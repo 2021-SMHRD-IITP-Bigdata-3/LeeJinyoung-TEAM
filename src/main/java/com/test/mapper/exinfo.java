@@ -14,4 +14,5 @@ public class exinfo {
 	private String ex_kinds;
 	private String user_set;
 	private String ex_count;
+	private String ex_date;
 }

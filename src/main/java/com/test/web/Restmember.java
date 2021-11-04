@@ -109,6 +109,19 @@ public class Restmember {
         
 	}
     
+    @RequestMapping(value="/calendarView.do" , method= {RequestMethod.GET, RequestMethod.POST})
+    public List<exinfo> calendarView(String user_id , String ex_date , HttpServletRequest req, HttpServletResponse res) throws Exception {
+		System.out.println(ex_date);
+		System.out.println(user_id);
+		//HttpSession session = req.getSession();
+		List<exinfo> memberVideo = mapper.calendarView(user_id , ex_date);
+		//session.setAttribute("memberVideo", memberVideo);
+		System.out.print(memberVideo);
+		
+		return memberVideo;
+        
+	}
+    
     @RequestMapping(value="/dateVideo.do", method= {RequestMethod.GET, RequestMethod.POST})
     public String dateVideo(String user_id ,String video_date, HttpServletRequest req) throws Exception {
 		System.out.println(user_id);
